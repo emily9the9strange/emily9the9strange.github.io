@@ -2,12 +2,13 @@
 // Speichert nur die App-Dateien zwischen, damit die App offline läuft.
 // Es werden KEINE Nutzerdaten gesendet: alle Eingaben bleiben im Speicher des Geräts.
 // Bei jedem Update der App: VERSION erhöhen, dann holen sich die Geräte die neue Version.
-const VERSION = "nuvio-v10";
+const VERSION = "nuvio-v11";
 const FILES = ["./", "index.html", "manifest.webmanifest", "datenschutz.html",
-  "icons/nuvio-192.png", "icons/nuvio-512.png", "icons/nuvio-maskable-192.png", "icons/nuvio-maskable-512.png"];
+  "nuvio-192.png", "nuvio-512.png", "nuvio-maskable-192.png", "nuvio-maskable-512.png"];
 
 self.addEventListener("install", e => {
-  e.waitUntil(caches.open(VERSION).then(c => c.addAll(FILES.map(f => new Request(f, { cache: "reload" })))).then(() => self.skipWaiting()));
+  // Jede Datei einzeln laden: fehlt mal eine, scheitert nicht gleich das ganze Update.
+  e.waitUntil(caches.open(VERSION).then(c => Promise.allSettled(FILES.map(f => c.add(new Request(f, { cache: "reload" }))))).then(() => self.skipWaiting()));
 });
 self.addEventListener("activate", e => {
   e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== VERSION).map(k => caches.delete(k)))).then(() => self.clients.claim()));
