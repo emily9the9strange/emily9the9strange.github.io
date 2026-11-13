@@ -2,7 +2,7 @@
 // Speichert nur die App-Dateien zwischen, damit die App offline läuft.
 // Es werden KEINE Nutzerdaten gesendet: alle Eingaben bleiben im Speicher des Geräts.
 // Bei jedem Update der App: VERSION erhöhen, dann holen sich die Geräte die neue Version.
-const VERSION = "kuehlfach-v1";
+const VERSION = "kuehlfach-v2";
 const FILES = ["./", "index.html", "manifest.webmanifest", "datenschutz.html",
   "icons/icon-192.png", "icons/icon-512.png", "icons/icon-maskable-192.png", "icons/icon-maskable-512.png"];
 
