@@ -1,7 +1,7 @@
 {
-  "name": "Kühlfach – Kalorien & Meal Prep",
-  "short_name": "Kühlfach",
-  "description": "Kalorien zählen, Meal Prep planen, Vorrat verwalten. Alle Daten bleiben auf deinem Gerät.",
+  "name": "Nuvio – Prep & Diet",
+  "short_name": "Nuvio",
+  "description": "Eat smarter. Prep easier. Live better. Meal prep, pantry and calorie tracking in one – all data stays on your device.",
   "lang": "de",
   "id": "./",
   "start_url": "./",
@@ -12,9 +12,9 @@
   "theme_color": "#1f2a44",
   "categories": ["health", "fitness", "food", "lifestyle"],
   "icons": [
-    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
-    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    { "src": "icons/nuvio-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/nuvio-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/nuvio-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/nuvio-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }
