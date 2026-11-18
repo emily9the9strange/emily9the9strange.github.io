@@ -1,0 +1,152 @@
+Nuvio – Bilder-Bibliothek für Rezepte
+
+Lege ein Foto mit genau diesem Dateinamen in den Ordner "fotos" (neben index.html),
+dann erscheint es automatisch beim passenden Rezept. Fehlt das Foto, zeigt die App
+das automatisch zusammengestellte Bild. Format: .jpg, am besten quadratisch, ca. 800 × 800 px.
+
+kaesespaetzle.jpg                                       Käsespätzle
+kaesefondue.jpg                                         Käsefondue
+paella.jpg                                              Paella
+tortilla_de_patatas.jpg                                 Tortilla de patatas
+gazpacho.jpg                                            Gazpacho
+lentejas_linseneintopf.jpg                              Lentejas (Linseneintopf)
+albondigas_hackbaellchen_in_sosse.jpg                   Albóndigas (Hackbällchen in Soße)
+pisto.jpg                                               Pisto
+chili_sin_carne.jpg                                     Chili sin Carne
+chili_con_carne.jpg                                     Chili con Carne
+haehnchen_curry.jpg                                     Hähnchen-Curry
+gemuese_kichererbsen_curry.jpg                          Gemüse-Kichererbsen-Curry
+rote_linsen_curry_dal.jpg                               Rote-Linsen-Curry (Dal)
+gulasch.jpg                                             Gulasch
+lasagne.jpg                                             Lasagne
+spaghetti_carbonara.jpg                                 Spaghetti Carbonara
+shakshuka.jpg                                           Shakshuka
+burrito_bowl.jpg                                        Burrito-Bowl
+lachs_mit_ofengemuese.jpg                               Lachs mit Ofengemüse
+huehnersuppe.jpg                                        Hühnersuppe
+kuerbissuppe.jpg                                        Kürbissuppe
+nudelsalat.jpg                                          Nudelsalat
+kaiserschmarrn.jpg                                      Kaiserschmarrn
+overnight_oats.jpg                                      Overnight Oats
+protein_pancakes.jpg                                    Protein-Pancakes
+schoko_muffins.jpg                                      Schoko-Muffins
+bananenbrot.jpg                                         Bananenbrot
+teriyaki_haehnchen.jpg                                  Teriyaki-Hähnchen
+erdnuss_haehnchen_thai.jpg                              Erdnuss-Hähnchen (Thai)
+haehnchen_fajita_pfanne.jpg                             Hähnchen-Fajita-Pfanne
+putengeschnetzeltes_in_rahmsosse.jpg                    Putengeschnetzeltes in Rahmsoße
+rinder_stroganoff.jpg                                   Rinder-Stroganoff
+penne_mit_thunfisch_tomatensosse.jpg                    Penne mit Thunfisch-Tomatensoße
+one_pot_pasta_mit_spinat_feta.jpg                       One-Pot-Pasta mit Spinat & Feta
+linsen_bolognese.jpg                                    Linsen-Bolognese
+gefuellte_paprika.jpg                                   Gefüllte Paprika
+kartoffel_brokkoli_auflauf.jpg                          Kartoffel-Brokkoli-Auflauf
+gemuese_lasagne.jpg                                     Gemüse-Lasagne
+moussaka.jpg                                            Moussaka
+shepherd_s_pie.jpg                                      Shepherd's Pie
+suesskartoffel_chili.jpg                                Süßkartoffel-Chili
+minestrone.jpg                                          Minestrone
+kartoffelsuppe_mit_wuerstchen.jpg                       Kartoffelsuppe mit Würstchen
+erbsensuppe_erwtensoep.jpg                              Erbsensuppe (Erwtensoep)
+stamppot_mit_gruenkohl.jpg                              Stamppot mit Grünkohl
+bami_goreng.jpg                                         Bami Goreng
+nasi_goreng.jpg                                         Nasi Goreng
+gyros_pfanne_mit_tzatziki.jpg                           Gyros-Pfanne mit Tzatziki
+pollo_al_ajillo.jpg                                     Pollo al ajillo
+arroz_con_pollo.jpg                                     Arroz con pollo
+garbanzos_con_espinacas.jpg                             Garbanzos con espinacas
+poke_bowl_mit_lachs.jpg                                 Poke Bowl mit Lachs
+couscous_salat_mit_kichererbsen.jpg                     Couscous-Salat mit Kichererbsen
+haehnchen_wraps.jpg                                     Hähnchen-Wraps
+zucchini_hack_pfanne_low_carb.jpg                       Zucchini-Hack-Pfanne (Low Carb)
+chia_pudding.jpg                                        Chia-Pudding
+kaesekuchen_ohne_boden.jpg                              Käsekuchen ohne Boden
+linsencurry-garnelen.jpg                                Linsencurry mit Garnelen
+schwein-mit-linsen.jpg                                  Schwein mit Linsen
+paprikahendl-knoedel.jpg                                Paprikahendl mit Knödeln und Sauerkraut
+haehnchen-suess-sauer.jpg                               Hähnchen süß-sauer mit Reis
+orange_chicken_mit_basmatireis_und_brokkoli.jpg         Orange Chicken mit Basmatireis und Brokkoli
+hackbaellchen_mit_kartoffel_blumenkohl_pueree_und_erbsen.jpg Hackbällchen mit Kartoffel-Blumenkohl-Püree und Erbsen
+fisch_suess_sauer_mit_basmatireis.jpg                   Fisch süß-sauer mit Basmatireis
+mock_duck_mit_maroni_apfelrotkraut_und_knoedeln.jpg     Mock Duck mit Maroni, Apfelrotkraut und Knödeln
+gochujang_chicken_mit_kaese_gnocchi.jpg                 Gochujang Chicken mit Käse-Gnocchi
+low_cal_currywurst_mit_pommes.jpg                       Low-Cal Currywurst mit Pommes
+haehnchen_brokkoli_reispfanne.jpg                       Hähnchen-Brokkoli-Reispfanne
+haehnchen_reis_pfanne_mit_paprika_und_cashews.jpg       Hähnchen-Reis-Pfanne mit Paprika und Cashews
+crispy_chicken_ciabatta.jpg                             Crispy Chicken Ciabatta
+puten_wraps_mit_kidneybohnen_und_guacamole.jpg          Puten-Wraps mit Kidneybohnen und Guacamole
+one_pan_steak_mit_roestkartoffeln_und_spargel.jpg       One-Pan Steak mit Röstkartoffeln und Spargel
+kartoffelauflauf_mit_huettenkaese_und_pute.jpg          Kartoffelauflauf mit Hüttenkäse und Pute
+nudeln_napoletana_mit_hack.jpg                          Nudeln Napoletana mit Hack
+cremige_spinat_nudeln.jpg                               Cremige Spinat-Nudeln
+rinderstreifen_mit_brokkoli_und_jasminreis.jpg          Rinderstreifen mit Brokkoli und Jasminreis
+einfaches_sushi_aus_der_eiswuerfelform.jpg              Einfaches Sushi aus der Eiswürfelform
+joghurt_dill_nudelsalat_mit_thunfisch.jpg               Joghurt-Dill-Nudelsalat mit Thunfisch
+topfenpalatschinken_mit_beeren.jpg                      Topfenpalatschinken mit Beeren
+himbeer_topfen_bowl_mit_haferflocken.jpg                Himbeer-Topfen-Bowl mit Haferflocken
+omelette_mit_paprika_und_vollkornbrot.jpg               Omelette mit Paprika und Vollkornbrot
+protein_porridge_mit_apfel.jpg                          Protein-Porridge mit Apfel
+reiswaffel_joghurt_bowl_mit_banane.jpg                  Reiswaffel-Joghurt-Bowl mit Banane
+puten_avocado_toast.jpg                                 Puten-Avocado-Toast
+chicken_katsu_curry.jpg                                 Chicken Katsu Curry
+gyudon.jpg                                              Gyudon
+oyakodon.jpg                                            Oyakodon
+yaki_udon_mit_haehnchen.jpg                             Yaki Udon mit Hähnchen
+lachs_teriyaki_bowl.jpg                                 Lachs Teriyaki Bowl
+miso_ramen_mit_ei.jpg                                   Miso-Ramen mit Ei
+okonomiyaki.jpg                                         Okonomiyaki
+onigiri_mit_thunfisch.jpg                               Onigiri mit Thunfisch
+bibimbap.jpg                                            Bibimbap
+bulgogi_mit_reis.jpg                                    Bulgogi mit Reis
+japchae.jpg                                             Japchae
+kimchi_bratreis.jpg                                     Kimchi-Bratreis
+korean_fried_chicken.jpg                                Korean Fried Chicken
+pad_thai_mit_garnelen.jpg                               Pad Thai mit Garnelen
+gruenes_thai_curry_mit_haehnchen.jpg                    Grünes Thai-Curry mit Hähnchen
+rotes_curry_mit_kuerbis_tofu.jpg                        Rotes Curry mit Kürbis & Tofu
+massaman_curry_mit_rind.jpg                             Massaman-Curry mit Rind
+pad_kra_pao.jpg                                         Pad Kra Pao
+tom_kha_gai.jpg                                         Tom Kha Gai
+pho_bo.jpg                                              Pho Bo
+bun_cha.jpg                                             Bun Cha
+sommerrollen_mit_garnelen.jpg                           Sommerrollen mit Garnelen
+banh_mi_mit_haehnchen.jpg                               Banh Mi mit Hähnchen
+chicken_tikka_masala.jpg                                Chicken Tikka Masala
+butter_chicken.jpg                                      Butter Chicken
+palak_paneer.jpg                                        Palak Paneer
+chana_masala.jpg                                        Chana Masala
+haehnchen_biryani.jpg                                   Hähnchen-Biryani
+dal_tadka.jpg                                           Dal Tadka
+nasi_lemak.jpg                                          Nasi Lemak
+chicken_adobo.jpg                                       Chicken Adobo
+mapo_tofu.jpg                                           Mapo Tofu
+kung_pao_haehnchen.jpg                                  Kung-Pao-Hähnchen
+gebratener_reis_mit_ei_gemuese.jpg                      Gebratener Reis mit Ei & Gemüse
+rindfleisch_mit_brokkoli.jpg                            Rindfleisch mit Brokkoli
+dan_dan_nudeln.jpg                                      Dan-Dan-Nudeln
+gyoza_mit_schwein_und_kohl.jpg                          Gyoza mit Schwein und Kohl
+rendang.jpg                                             Rendang
+gado_gado.jpg                                           Gado-Gado
+haehnchen_satay_mit_erdnusssosse.jpg                    Hähnchen-Satay mit Erdnusssoße
+shakshuka_mit_feta.jpg                                  Shakshuka mit Feta
+haehnchen_shawarma_bowl.jpg                             Hähnchen-Shawarma-Bowl
+falafel_bowl_mit_hummus.jpg                             Falafel-Bowl mit Hummus
+koefte_mit_bulgur_und_joghurt.jpg                       Köfte mit Bulgur und Joghurt
+tuerkische_linsensuppe.jpg                              Türkische Linsensuppe
+moussaka_pfanne_leicht.jpg                              Moussaka-Pfanne leicht
+souvlaki_mit_tzatziki_und_reis.jpg                      Souvlaki mit Tzatziki und Reis
+chicken_fajita_bowl.jpg                                 Chicken Fajita Bowl
+carnitas_tacos.jpg                                      Carnitas-Tacos
+chili_con_carne_mit_schoko.jpg                          Chili con Carne mit Schoko
+jambalaya.jpg                                           Jambalaya
+pulled_chicken_sweet_potato.jpg                         Pulled Chicken Sweet Potato
+jollof_reis_mit_haehnchen.jpg                           Jollof-Reis mit Hähnchen
+erdnuss_eintopf_maafe.jpg                               Erdnuss-Eintopf (Maafe)
+tajine_mit_haehnchen_und_aprikosen.jpg                  Tajine mit Hähnchen und Aprikosen
+paella_mit_huhn_und_meeresfruechten.jpg                 Paella mit Huhn und Meeresfrüchten
+pierogi_mit_kartoffel_quark.jpg                         Pierogi mit Kartoffel-Quark
+ungarisches_gulasch_mit_nockerl.jpg                     Ungarisches Gulasch mit Nockerl
+fish_and_chips_aus_dem_ofen.jpg                         Fish and Chips aus dem Ofen
+bami_goreng_mit_tofu.jpg                                Bami Goreng mit Tofu
+bulgogi_tofu_bowl.jpg                                   Bulgogi-Tofu-Bowl
+sushi_bowl_mit_lachs.jpg                                Sushi-Bowl mit Lachs

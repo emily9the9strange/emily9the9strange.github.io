@@ -255,6 +255,15 @@ nav.tabs button .ic{font-size:21px}
 .sidebox select,.fld select{width:100%;border:1px solid var(--line);border-radius:12px;padding:11px;background:#fff;font-size:15px}
 .stepper.big button{width:36px;height:32px;font-size:18px}.stepper.big span{min-width:24px;font-size:16px}
 .seg.wide{display:flex}.seg.wide button{flex:1;padding:9px 6px}
+#pfDiet .seg button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.dchips{display:flex;flex-wrap:wrap;gap:6px}.dchips button{padding:6px 11px;border-radius:999px;border:1.5px solid var(--line);font-size:13px;font-weight:700;color:var(--muted);background:var(--card)}
+.dchips button.on{border-color:var(--ink);color:var(--ink);background:var(--ice)}
+.fzb{display:inline-block;font-size:11.5px;font-weight:700;border-radius:999px;padding:2px 8px}.fzb.ok{background:var(--ice);color:var(--ice-ink)}.fzb.no{background:#f6e7d6;color:#8a5520}
+.ictags .dv{background:#e3f0d8!important;color:#3d6b26!important}
+.dietrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:-2px 0 8px}
+.vtog{padding:7px 12px;border-radius:999px;border:1.5px solid #8fbf6a;color:#3d6b26;font-weight:800;font-size:13px;background:transparent}.vtog.on{background:#e3f0d8}
+.fzline{font-size:13px;margin:0 0 10px;padding:8px 10px;border-radius:10px;line-height:1.4}.fzline.ok{background:var(--ice);color:var(--ice-ink)}.fzline.no{background:#f6e7d6;color:#7a4a1a}
+.swp{color:var(--muted);font-weight:600}
 .sidepick{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
 .sidepick button{background:var(--bg);border-radius:14px;padding:12px 14px;text-align:left;display:flex;flex-direction:column;font-weight:800}
 .sidepick button.def{background:var(--ice);box-shadow:0 0 0 2px var(--ice2)}
@@ -384,6 +393,17 @@ label.up.big{display:block;background:var(--snack);color:var(--snack-ink);font-w
 .artpick button{aspect-ratio:1/1;border-radius:14px;overflow:hidden;padding:0;border:3px solid transparent}
 .artpick button svg{width:100%;height:100%;display:block}
 .artpick button.sel{border-color:var(--ink)}
+.upr{display:flex;gap:8px;flex-wrap:wrap}
+.plbtn{margin-top:12px;display:flex;flex-direction:column;align-items:center;gap:2px;background:var(--ice);color:var(--ice-ink)}.plbtn small{font-weight:600;font-size:12px;opacity:.85}
+.plhead{display:flex;gap:12px;align-items:stretch;margin:4px 0 6px}.plphoto{width:46%;aspect-ratio:1/1;border-radius:18px;overflow:hidden;background:#f3eee6;flex:none}
+.plphoto img{width:100%;height:100%;object-fit:cover;display:block}.plphoto .platesvg{width:100%;height:100%}
+.plside{flex:1;display:flex;flex-direction:column;gap:8px;justify-content:center}.plside label.up{background:var(--snack);color:var(--snack-ink);font-weight:800;padding:11px 10px;border-radius:12px;text-align:center;cursor:pointer;font-size:14px}.plmini{width:64px;height:64px;align-self:flex-start}.plmini svg{width:100%;height:100%}
+.plh{margin:12px 0 8px}.plquick{display:flex;flex-wrap:wrap;gap:6px}.plquick button{padding:7px 11px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);font-weight:700;font-size:13px}
+.plitems{display:flex;flex-direction:column;gap:8px;margin-top:10px}.plit{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:10px}
+.plitt{display:flex;align-items:center;gap:8px}.plitt b{flex:1;font-size:14px}.pldot{width:12px;height:12px;border-radius:50%;flex:none}.plk{font-weight:800;font-size:13px;color:var(--muted)}
+.plx{width:28px;height:28px;border-radius:50%;color:var(--muted);font-size:14px}.plsz{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.plsz button{padding:6px 10px;border-radius:10px;background:var(--bg);font-size:12.5px;font-weight:700;color:var(--muted);border:1.5px solid transparent}.plsz button.act{border-color:var(--ink);color:var(--ink);background:var(--card)}.upr>.up{flex:1 1 130px;text-align:center}
+.artpick .artauto{background:var(--card2,#f1ece4);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:22px;line-height:1}.artpick .artauto small{font-size:11px;font-weight:600;margin-top:3px}
 .artphoto{background:var(--bg) center/cover;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:22px}
 .artphoto small{font-size:10px;font-weight:800;color:var(--muted)}
 .artphoto.has small{background:rgba(255,255,255,.85);border-radius:6px;padding:1px 4px}
@@ -674,6 +694,9 @@ nav.tabs .ic svg.fi.nav{width:28px;height:28px;vertical-align:middle}
     <div class="card"><p class="tip" style="margin:0 0 10px">Welche Mahlzeiten hast du normalerweise? Nur diese erscheinen im Planer.</p><div class="mealchips" id="pfMeals"></div>
       <p class="tip" style="margin:10px 0 0">🍪 = Snack-Mahlzeit: Vorschläge kommen dort aus der Snackbar und zählen zum Snack-Limit.</p></div>
 
+    <div class="sect"><h2>Ernährung &amp; Einfrieren</h2><span class="tip">vegan, Allergien</span></div>
+    <div class="card" id="pfDiet"></div>
+
     <div class="sect"><h2>Arbeitsweg</h2></div>
     <div class="card">
       <p class="tip" style="margin:0 0 8px">Legst du einen längeren Weg zu Fuß oder mit dem Rad zurück?</p>
@@ -901,7 +924,7 @@ let curDay = dayKey();
 const imgs = {}; // snackId -> dataURL
 // Daten vom Server sind eingefroren (read-only) – immer eine veränderbare Kopie anlegen
 const dcopy = o => o == null ? o : JSON.parse(JSON.stringify(o));
-const normS = d0 => { const d = dcopy(d0); return ({ goal: d?.goal || (STANDALONE ? 1800 : 1500), prot: d?.prot ?? (STANDALONE ? 90 : 110), snackLimit: d?.snackLimit ?? (STANDALONE ? 300 : 500), height: d?.height || (STANDALONE ? 170 : 164), birthY: d?.birthY || (STANDALONE ? 1995 : 1999), birthM: d?.birthM || 1, sex: d?.sex || "f", sport: d?.sport ?? 3, target: d?.target ?? null, meals: Array.isArray(d?.meals) && d.meals.length ? d.meals : (STANDALONE ? ["fruehstueck", "mittag", "abend"] : ["mittag", "abend"]), name: d?.name || "", activity: d?.activity || "sitzend", commute: d?.commute && typeof d.commute === "object" ? { mode: d.commute.mode || "none", min: d.commute.min ?? 20, days: d.commute.days ?? 5 } : { mode: "none", min: 20, days: 5 }, sports: Array.isArray(d?.sports) ? d.sports : (STANDALONE ? [] : [{ s: "bouldern", n: 2, min: 90, main: true }, { s: "gym", n: 1, min: 60, main: false }]), tdeeManual: d?.tdeeManual || null, photos: d?.photos && typeof d.photos === "object" ? d.photos : { ok: false, at: null }, gallery: Array.isArray(d?.gallery) ? d.gallery : [], avatar: d?.avatar || null, cycleStart: d?.cycleStart || null, cycleMode: d?.cycleMode || (d?.cycleStart ? "track" : "unset"), cycleLen: d?.cycleLen || 28, waterCycle: d?.waterCycle ?? true, holidays: Array.isArray(d?.holidays) ? d.holidays : ["xmas"], recipes: (Array.isArray(d?.recipes) ? d.recipes : clone(DEFAULT_RECIPES)).map(r => r.art ? r : { ...r, art: ["bolo", "brokkoli", "linsen", "chili", "honighuhn", "gemuesesahne", "herzen", "koettbullar"].includes(r.id) ? r.id : "generic" }), sides: Array.isArray(d?.sides) && d.sides.length ? d.sides : clone(DEFAULT_SIDES), ingr: d?.ingr && typeof d.ingr === "object" ? d.ingr : {}, dishes: Array.isArray(d?.dishes) ? d.dishes : [], snacks: Array.isArray(d?.snacks) ? d.snacks : [], myFoods: Array.isArray(d?.myFoods) ? d.myFoods : [], recentFoods: Array.isArray(d?.recentFoods) ? d.recentFoods : [] }); };
+const normS = d0 => { const d = dcopy(d0); return ({ goal: d?.goal || (STANDALONE ? 1800 : 1500), prot: d?.prot ?? (STANDALONE ? 90 : 110), snackLimit: d?.snackLimit ?? (STANDALONE ? 300 : 500), height: d?.height || (STANDALONE ? 170 : 164), birthY: d?.birthY || (STANDALONE ? 1995 : 1999), birthM: d?.birthM || 1, sex: d?.sex || "f", sport: d?.sport ?? 3, target: d?.target ?? null, meals: Array.isArray(d?.meals) && d.meals.length ? d.meals : (STANDALONE ? ["fruehstueck", "mittag", "abend"] : ["mittag", "abend"]), name: d?.name || "", activity: d?.activity || "sitzend", commute: d?.commute && typeof d.commute === "object" ? { mode: d.commute.mode || "none", min: d.commute.min ?? 20, days: d.commute.days ?? 5 } : { mode: "none", min: 20, days: 5 }, sports: Array.isArray(d?.sports) ? d.sports : (STANDALONE ? [] : [{ s: "bouldern", n: 2, min: 90, main: true }, { s: "gym", n: 1, min: 60, main: false }]), tdeeManual: d?.tdeeManual || null, photos: d?.photos && typeof d.photos === "object" ? d.photos : { ok: false, at: null }, gallery: Array.isArray(d?.gallery) ? d.gallery : [], tplPhotos: d?.tplPhotos && typeof d.tplPhotos === "object" ? d.tplPhotos : {}, diet: ["all", "veg", "vegan"].includes(d?.diet) ? d.diet : "all", allergies: Array.isArray(d?.allergies) ? d.allergies : [], noFreeze: Array.isArray(d?.noFreeze) ? d.noFreeze : [], avatar: d?.avatar || null, cycleStart: d?.cycleStart || null, cycleMode: d?.cycleMode || (d?.cycleStart ? "track" : "unset"), cycleLen: d?.cycleLen || 28, waterCycle: d?.waterCycle ?? true, holidays: Array.isArray(d?.holidays) ? d.holidays : ["xmas"], recipes: (Array.isArray(d?.recipes) ? d.recipes : clone(DEFAULT_RECIPES)).map(r => r.art ? r : { ...r, art: ["bolo", "brokkoli", "linsen", "chili", "honighuhn", "gemuesesahne", "herzen", "koettbullar"].includes(r.id) ? r.id : "generic" }), sides: Array.isArray(d?.sides) && d.sides.length ? d.sides : clone(DEFAULT_SIDES), ingr: d?.ingr && typeof d.ingr === "object" ? d.ingr : {}, dishes: Array.isArray(d?.dishes) ? d.dishes : [], snacks: Array.isArray(d?.snacks) ? d.snacks : [], myFoods: Array.isArray(d?.myFoods) ? d.myFoods : [], recentFoods: Array.isArray(d?.recentFoods) ? d.recentFoods : [] }); };
 let W = { list: [] }; // weights: [{d:"YYYY-MM-DD", kg}]
 const normW = d0 => { const d = dcopy(d0); return ({ list: Array.isArray(d?.list) ? d.list.filter(x => x && x.d && x.kg).sort((a, b) => a.d.localeCompare(b.d)) : [] }); };
 const saveW = () => put("weights", JSON.parse(JSON.stringify(W)));
@@ -948,7 +971,7 @@ function renderToday() {
   const L = $("#todayList");
   if (!today.entries.length) { L.innerHTML = `<div class="empty"><span class="e">🍽️</span>Noch nichts eingetragen.<br>Nimm was aus dem Vorrat oder der Snackbar.</div>`; return; }
   L.innerHTML = today.entries.slice().reverse().map(e => {
-    const img = S.photos.ok && e.snackId && imgs[e.snackId];
+    const img = S.photos.ok && ((e.snackId && imgs[e.snackId]) || (e.photo && imgs["g_" + e.photo]));
     const bg = img ? `background-image:url(${img})` : `background:${e.src === "freezer" ? "var(--ice)" : e.src === "snack" ? grad(e.name) : "var(--bg)"}`;
     const time = e.t ? new Date(e.t).toLocaleTimeString(LOCALE, { hour: "2-digit", minute: "2-digit" }) : "";
     const lbl = e.src === "freezer" ? "Vorrat" : e.src === "snack" ? "Snack" : e.src === "plan" ? "Geplant" : "Eintrag";
@@ -1537,7 +1560,7 @@ function snackSheet(id, pre = {}) {
     <form id="f">
       <div class="fld"><label>Foto</label><div class="photo">
         <div class="pv" id="pv"></div>
-        <div class="pb">${S.photos.ok ? `<label class="up">📷 Foto wählen<input type="file" accept="image/*" id="fi" hidden></label>
+        <div class="pb">${S.photos.ok ? `<div class="upr"><label class="up">📷 Foto wählen<input type="file" accept="image/*" id="fi" hidden></label><label class="up cam">📸 Foto aufnehmen<input type="file" accept="image/*" capture="environment" id="fic" hidden></label></div>
           <button type="button" class="btn ghost" id="rm" style="padding:9px;font-size:14px">Foto entfernen</button>` : `<p class="tip" style="margin:0">Eigene Fotos sind aus.</p><button type="button" class="btn ghost" id="photoOn" style="padding:9px;font-size:14px">📷 Fotos erlauben</button><button type="button" id="rm" hidden></button>`}</div></div></div>
       <div class="fld"><label>Name</label><input id="fn" required maxlength="40" placeholder="z. B. Skyr mit Beeren" value="${esc(s?.name || pre.name || "")}"></div>
       <div class="two">
@@ -1553,6 +1576,7 @@ function snackSheet(id, pre = {}) {
   wireEmoji(e => { emo = e; pv(); });
   if ($("#photoOn")) $("#photoOn").onclick = () => photosConsentSheet(() => snackSheet(id, pre));
   if ($("#snkDb")) $("#snkDb").onclick = snackFromDb;
+  if ($("#fic")) $("#fic").onchange = ev => $("#fi").onchange(ev);
   if ($("#fi")) $("#fi").onchange = async ev => { const f = ev.target.files[0]; if (!f) return; try { img = await compressImage(f); imgChanged = true; pv(); } catch (e) { toast(e.message); } };
   $("#rm").onclick = () => { img = null; imgChanged = true; pv(); };
   $("#cancel").onclick = closeSheet;
@@ -1651,9 +1675,107 @@ function renderBook() {
 // Rezept-Vorschläge: wechseln alle 14 Tage, eigene Rezepte bleiben fest oben
 const SUG_N = 10, SUG_DAYS = 14;
 function sugPeriod() { const d = Math.floor((midnight().getTime() - new Date(2026, 0, 5).getTime()) / DAY); return Math.floor(d / SUG_DAYS); }
+// ---------- Ernährung: vegan / vegetarisch / Allergien / Einfrieren ----------
+const MEAT_RE = /hähnchen|huhn|hühner|hendl|pute|chicken|ente\b|rind|kalb|schwein|lamm|hack(?!fleisch vegan)|speck|bacon|schinken|salami|wurst|würstchen|chorizo|kassler|gyros|steak|schnitzel|karree|gulaschfleisch|leber|fleisch|döner|kebab|frikadell|bulgogi|pastrami|prosciutto|mortadella|geflügel|chashu|char siu|rookworst/;
+const FISH_RE = /lachs|thunfisch|fisch|garnele|shrimp|krabbe|scampi|gambas|muschel|tintenfisch|calamar|kabeljau|seelachs|forelle|sardine|sardelle|anchovi|dorade|zander|hering|makrele|oktopus|bonito|katsuobushi|dashi|austernsoße|austernsauce|fischsoße|fischsauce|surimi/;
+const VEGAN_OK_RE = /vegan|hafer|soja(?!.*joghurt natur)|mandeldrink|kokosmilch|kokos-|erdnussbutter|erdnussmus|mock duck|tofu|tempeh|seitan|agaven|margarine|haferdrink|hafer-kochcreme/;
+const ANIMAL_RE = /milch|käse|parmesan|mozzarella|feta|ricotta|quark|topfen|joghurt|skyr|sahne|cremefine|rahm|schmand|butter|ei\b|eier|eiklar|eigelb|honig|mayonnaise|tzatziki|frischkäse|kefir|buttermilch|gelatine|halloumi|paneer|ghee|molke|whey|proteinpulver|kewpie/;
+const ALLERGENS = {
+  gluten: ["Gluten", "🌾", /nudel|pasta|spaghetti|lasagne|mehl|brot|toast|wrap|tortilla-wrap|semmel|paniermehl|panko|couscous|bulgur|weizen|dinkel|gerste|roggen|seitan|baguette|ciabatta|brötchen|udon|ramen|mie|gnocchi|spätzle|knödel|naan|pita|sojasoße|sojasauce|teriyaki|hoisin|bier|cornflakes|haferflocken|gyoza|wan-tan|pudding/],
+  lactose: ["Laktose", "🥛", /(?<!hafer|soja|mandel|kokos|reis)milch(?!.*laktosefrei)|(?<!vegane[rs]? )käse|parmesan|mozzarella|feta|ricotta|quark|topfen|joghurt|skyr|sahne|cremefine|rahm|schmand|butter(?!milch)|frischkäse|kefir|tzatziki|halloumi|paneer|proteinpulver/],
+  nuts: ["Nüsse", "🌰", /mandel|haselnuss|walnuss|walnüsse|cashew|pistazie|pekan|macadamia|nuss|nüsse|maroni|marzipan|nutella|pesto/],
+  peanut: ["Erdnüsse", "🥜", /erdnuss|erdnüsse|satay/],
+  egg: ["Ei", "🥚", /\bei\b|eier|eiklar|eigelb|mayonnaise|kewpie|eiernudel|spätzle|pancake|omelett|baiser/],
+  fish: ["Fisch", "🐟", /lachs|thunfisch|fisch|kabeljau|seelachs|forelle|sardine|sardelle|anchovi|dorade|zander|hering|makrele|bonito|dashi|katsuobushi/],
+  shellfish: ["Meeresfrüchte", "🦐", /garnele|shrimp|krabbe|scampi|gambas|muschel|tintenfisch|calamar|oktopus|austern|hummer/],
+  soy: ["Soja", "🫘", /soja|tofu|tempeh|edamame|miso|teriyaki|hoisin|mock duck|doenjang/],
+  sesame: ["Sesam", "⚪", /sesam|tahin|hummus|furikake/],
+  celery: ["Sellerie", "🥬", /sellerie|suppengemüse|suppengewürz|brühe/],
+};
+// Vegane Alternativen: wird automatisch angewendet, eigene Angaben im Rezept ("vegan: A > B; …") gehen vor
+const VEGAN_SWAPS = [
+  [/hähnchen|huhn|pute|hendl|chicken|geflügel|ente/, "Tofu (fest)"], [/rinderhack|hackfleisch|\bhack\b|tatar|lammhack/, "Sojahack (vegan)"],
+  [/rind|steak|gulaschfleisch|schwein|karree|schnitzel|kassler|lamm/, "Seitan"], [/speck|bacon|chorizo|salami|schinken|wurst|würstchen|rookworst|gyros/, "Räuchertofu"],
+  [/lachs|thunfisch|fisch|kabeljau|seelachs/, "Tofu (fest)"], [/garnele|shrimp|gambas|scampi|krabbe/, "Kichererbsen (abgetropft)"],
+  [/fischsoße|fischsauce|austernsoße|austernsauce/, "Sojasoße"], [/kochsahne|sahne|cremefine|schmand|rahm|crème/, "Hafer-Kochcreme (vegan)"],
+  [/käse|parmesan|mozzarella|emmentaler|bergkäse|reibekäse/, "Veganer Reibekäse"], [/feta|halloumi|paneer/, "Tofu (fest)"],
+  [/frischkäse/, "Veganer Frischkäse"], [/joghurt|skyr|quark|topfen|tzatziki/, "Sojajoghurt"], [/milch|kefir|buttermilch/, "Haferdrink"],
+  [/butter|ghee/, "Margarine"], [/honig/, "Agavendicksaft"], [/mayonnaise|kewpie/, "Vegane Mayonnaise"],
+  [/eiklar|eier|\bei\b/, "Tofu (Seidentofu)"], [/proteinpulver/, "Veganes Proteinpulver"], [/hühnerbrühe|rinderbrühe/, "Gemüsebrühe (zubereitet)"],
+];
+const ingTxt = n => String(n || "").toLowerCase();
+function isVeganIng(n) { const t = ingTxt(n); if (VEGAN_OK_RE.test(t) && !/sahne(?!.*hafer)|käse(?!.*vegan)/.test(t.replace(/vegan.*/, ""))) return true; return !MEAT_RE.test(t) && !FISH_RE.test(t) && !ANIMAL_RE.test(t); }
+function isVegIng(n) { const t = ingTxt(n); if (/vegan|veggie|vegetarisch/.test(t)) return true; return !MEAT_RE.test(t) && !FISH_RE.test(t) && !/gelatine/.test(t); }
+function recipeDiet(t) {
+  const ing = t.ing || []; const vegan = ing.every(i => isVeganIng(i.n)), veg = ing.every(i => isVegIng(i.n));
+  return vegan ? "vegan" : veg ? "veg" : "all";
+}
+function recipeAllergens(t, ing) { const all = (ing || t.ing || []).map(i => ingTxt(i.n)).join(" | "); return Object.keys(ALLERGENS).filter(k => ALLERGENS[k][2].test(all)); }
+function veganSwapFor(t, n) {
+  const own = (t.vegan || []).find(([a]) => normTxt(a) === normTxt(n) || ingTxt(n).includes(ingTxt(a))); if (own) return own[1];
+  if (isVeganIng(n)) return null; const tx = ingTxt(n); const s = VEGAN_SWAPS.find(([re]) => re.test(tx)); return s ? s[1] : undefined;
+}
+// Vegane Variante: Liste mit getauschten Zutaten oder null, falls nicht möglich
+function veganVariant(t) {
+  if (recipeDiet(t) === "vegan") return null; const swaps = []; const ing = [];
+  for (const i of t.ing) { const s = veganSwapFor(t, i.n); if (s === undefined) return null; if (s) { swaps.push([i.n, s]); if (!ing.some(x => x.n === s)) ing.push({ ...i, n: s }); else { const x = ing.find(y => y.n === s); if (x.g != null && i.g != null) x.g += i.g; } } else ing.push(i); }
+  return swaps.length ? { ing, swaps } : null;
+}
+function dietLabel(d) { return d === "vegan" ? "🌱 vegan" : d === "veg" ? "🥕 vegetarisch" : ""; }
+// passt das Rezept zum Profil? (mit veganer Variante zählt es auch als vegan)
+function recipeFits(t) {
+  const want = S.diet || "all", d = recipeDiet(t);
+  let ing = t.ing;
+  if (want === "vegan" && d !== "vegan") { const v = veganVariant(t); if (!v) return false; ing = v.ing; }
+  if (want === "veg" && d === "all") { const v = veganVariant(t); if (!v) return false; ing = v.ing; }
+  const al = S.allergies || []; if (al.length && recipeAllergens(t, ing).some(a => al.includes(a))) return false;
+  return true;
+}
+// Einfrieren: was eingefroren nicht so gut wird
+const FREEZE_BAD = [
+  ["gnocchi", "Gnocchi", /gnocchi/], ["reis", "Reis", /reis(?!nudel|papier|essig|waffel)/], ["nudeln", "Nudeln", /nudel|pasta|spaghetti|penne|fusilli|tagliatelle|lasagne|udon|ramen|soba|mie/],
+  ["kartoffeln", "Kartoffeln (gekocht)", /kartoffel(?!knödel|püree)/], ["sahnesosse", "Sahnesoßen", /sahne|cremefine|kochsahne|schmand|rahm/], ["joghurt", "Joghurt & Quark", /joghurt|quark|topfen|skyr|tzatziki/],
+  ["ei", "gekochtes Ei", /\beier?\b/], ["salat", "Salat & Gurke", /salat|gurke|romana|rucola/], ["tomate", "frische Tomaten", /^tomaten$|kirschtomate/], ["avocado", "Avocado", /avocado/],
+  ["mayo", "Mayonnaise", /mayonnaise/], ["paniert", "Paniertes", /paniermehl|semmelbrösel|panko|cornflakes/], ["brokkoli", "Brokkoli", /brokkoli/], ["zucchini", "Zucchini", /zucchini/],
+  ["tofu", "Tofu", /tofu/], ["fisch", "Fisch", /lachs|fisch|thunfisch/], ["sushi", "Sushi", /sushi/],
+];
+const FREEZE_ALWAYS_BAD = ["salat", "mayo", "avocado", "sushi", "joghurt", "ei", "tomate"]; // auch ohne Profil eher nicht
+function freezeInfo(t) {
+  const txts = (t.ing || []).map(i => ingTxt(i.n)).concat(ingTxt(t.name));
+  const hit = FREEZE_BAD.filter(([k, , re]) => txts.some(x => re.test(x)));
+  const mine = hit.filter(([k]) => (S.noFreeze || []).includes(k)), gen = hit.filter(([k]) => FREEZE_ALWAYS_BAD.includes(k) && !mine.includes(k));
+  const bad = [...mine, ...gen].filter((v, i, a) => a.indexOf(v) === i);
+  return { ok: !bad.length, mine: mine.map(x => x[1]), gen: gen.map(x => x[1]) };
+}
+function freezeBadge(t) { const f = freezeInfo(t); return f.ok ? `<span class="fzb ok">❄️ gut einfrierbar</span>` : `<span class="fzb no">🧊 lieber frisch</span>`; }
+function freezeHtml(t) {
+  const f = freezeInfo(t);
+  const bl = a => a.map(x => `<b>${esc(x)}</b>`).join(", ");
+  if (f.ok) return `<p class="fzline ok">❄️ <span>Gut einfrierbar – hält im Tiefkühler etwa drei Monate.</span></p>`;
+  return `<p class="fzline no">🧊 <span>Lieber im Kühlschrank aufbewahren als einfrieren:</span> ${f.mine.length ? `${bl(f.mine)} <span>(magst du laut Profil nicht eingefroren)</span>` : ""}${f.mine.length && f.gen.length ? " · " : ""}${f.gen.length ? `${bl(f.gen)} <span>wird beim Auftauen matschig.</span>` : ""}</p>`;
+}
+function renderDietPrefs() {
+  const box = $("#pfDiet"); if (!box) return; const d = S.diet || "all", al = S.allergies || [], nf = S.noFreeze || [];
+  box.innerHTML = `<p class="tip" style="margin:0 0 8px">Rezeptvorschläge zeigen nur, was dazu passt. Gerichte mit veganer Variante zählen mit.</p>
+    <div class="seg wide">${[["all", "🍽️ Alles"], ["veg", "🥕 Vegetarisch"], ["vegan", "🌱 Vegan"]].map(([k, l]) => `<button type="button" data-diet="${k}" class="${d === k ? "on" : ""}">${l}</button>`).join("")}</div>
+    <p class="tip" style="margin:14px 0 4px"><b>Allergien & Unverträglichkeiten</b></p><p class="tip" style="margin:0 0 8px">Rezepte damit werden ausgeblendet.</p>
+    <div class="dchips">${Object.entries(ALLERGENS).map(([k, [l, e]]) => `<button type="button" data-allergy="${k}" class="${al.includes(k) ? "on" : ""}">${e} ${l}</button>`).join("")}</div>
+    <p class="tip" style="margin:14px 0 4px"><b>Mag ich nicht eingefroren</b></p><p class="tip" style="margin:0 0 8px">Solche Gerichte bekommen den Hinweis „lieber frisch“.</p>
+    <div class="dchips">${FREEZE_BAD.map(([k, l]) => `<button type="button" data-nofreeze="${k}" class="${nf.includes(k) ? "on" : ""}">${l}</button>`).join("")}</div>
+    <p class="tip" style="margin:10px 0 0">Salat, Mayo, Avocado, Joghurt, gekochtes Ei und frische Tomaten gelten immer als „lieber frisch“.</p>`;
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-diet],[data-allergy],[data-nofreeze]"); if (!b || !b.closest("#pfDiet")) return;
+  if (b.dataset.diet) S.diet = b.dataset.diet;
+  const tog = (key, v) => { const a = S[key] = S[key] || []; const i = a.indexOf(v); i < 0 ? a.push(v) : a.splice(i, 1); };
+  if (b.dataset.allergy) tog("allergies", b.dataset.allergy);
+  if (b.dataset.nofreeze) tog("noFreeze", b.dataset.nofreeze);
+  saveS(); renderDietPrefs(); renderSuggestions();
+});
+
 function currentSuggestions() {
   const mine = new Set(S.recipes.map(r => normTxt(r.name)));
-  const pool = REC_TEMPLATES.filter(t => !mine.has(normTxt(t.name)) && !mine.has(normTxt(T(t.name))));
+  const pool = REC_TEMPLATES.filter(t => recipeFits(t) && !mine.has(normTxt(t.name)) && !mine.has(normTxt(T(t.name))));
   let seed = (sugPeriod() * 2654435761) >>> 0; const rnd = () => (seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296;
   const arr = pool.slice(); for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [arr[i], arr[j]] = [arr[j], arr[i]]; }
   return arr.slice(0, SUG_N);
@@ -1661,7 +1783,7 @@ function currentSuggestions() {
 function renderSuggestions() {
   const list = currentSuggestions(), box = $("#ideaArt"); if (!box) return;
   box.innerHTML = list.slice(0, 3).map(t => imgHtml(t, "ib-pic")).join("");
-  $("#ideaSub").textContent = `${REC_TEMPLATES.length} Rezepte · ${list.length} neue Ideen`;
+  $("#ideaSub").textContent = `${REC_TEMPLATES.filter(recipeFits).length} Rezepte · ${list.length} neue Ideen`;
 }
 function recipeMatches(t, q) {
   const words = normTxt(q).split(/\s+/).filter(Boolean); if (!words.length) return true;
@@ -1672,7 +1794,7 @@ function ideaCard(t) {
   const pp = recipePortion(t), sd = t.kind === "sauce" ? sideById(t.side) : null, sn = sideNut(sd), P = pp.p + sn.p;
   return `<button type="button" class="icard" data-sug="${t.id}">${imgHtml(t, "icimg")}<span class="icb"><b>${esc(t.name)}</b>
     <small>${t.kind === "sauce" ? `<span>Sauce zu</span> <span>${esc(sd?.n || "Beilage")}</span> · ` : ""}${fmt(pp.k + sn.k)} kcal · ${fmt(P)} g Eiw.${t.unit === "stk" ? " / Stück" : ""}</small>
-    ${t.tags?.length ? `<span class="ictags">${t.tags.slice(0, 3).map(x => `<i>${esc(x)}</i>`).join("")}</span>` : ""}</span></button>`;
+    <span class="ictags">${(d => d !== "all" ? `<i class="dv">${dietLabel(d)}</i>` : (S.diet !== "all" && S.diet) ? `<i class="dv">🌱 vegane Variante</i>` : "")(recipeDiet(t))}${freezeBadge(t)}${(t.tags || []).filter(x => !/vegan|vegetarisch/.test(x)).slice(0, 2).map(x => `<i>${esc(x)}</i>`).join("")}</span></span></button>`;
 }
 function ideasSheet(q0 = "") {
   let q = q0;
@@ -1683,24 +1805,33 @@ function ideasSheet(q0 = "") {
     <div class="actions"><button class="btn ghost" id="cancel">Schließen</button></div>`);
   const draw = () => {
     const box = $("#ires");
-    if (q.trim()) { const hits = REC_TEMPLATES.filter(t => recipeMatches(t, q)); box.innerHTML = hits.length ? `<div class="fsec">${hits.length} ${hits.length === 1 ? "Rezept" : "Rezepte"}</div><div class="igrid">${hits.map(ideaCard).join("")}</div>` : `<p class="tip" style="margin:12px 2px">Kein Rezept gefunden. Probier eine Zutat, z. B. „Hähnchen“ oder „Linsen“.</p>`; }
+    if (q.trim()) { const all = REC_TEMPLATES.filter(t => recipeMatches(t, q)), hits = all.filter(recipeFits), hid = all.length - hits.length; box.innerHTML = hits.length ? `<div class="fsec">${hits.length} ${hits.length === 1 ? "Rezept" : "Rezepte"}${hid ? ` · <span>${hid} ${hid === 1 ? "passt nicht zu deinem Profil" : "passen nicht zu deinem Profil"}</span>` : ""}</div><div class="igrid">${hits.map(ideaCard).join("")}</div>` : `<p class="tip" style="margin:12px 2px">Kein Rezept gefunden. Probier eine Zutat, z. B. „Hähnchen“ oder „Linsen“.</p>`; }
     else { const list = currentSuggestions(); box.innerHTML = `<div class="fsec"><span>10 Ideen für diese 2 Wochen</span> · <span>neue ab</span> <span data-notr>${dShort(next)}</span></div><div class="igrid">${list.map(ideaCard).join("")}</div>`; }
   };
   $("#rq").oninput = e => { q = e.target.value; draw(); };
   $("#cancel").onclick = closeSheet;
   draw();
 }
-function sugSheet(id, back) {
-  const t = REC_TEMPLATES.find(x => x.id === id); if (!t) return;
+function sugSheet(id, back, veganView) {
+  const t0 = REC_TEMPLATES.find(x => x.id === id); if (!t0) return;
+  const vv = veganVariant(t0), d0 = recipeDiet(t0);
+  if (veganView == null) veganView = !!(vv && S.diet && S.diet !== "all" && d0 !== "vegan" && !(S.diet === "veg" && d0 === "veg"));
+  const t = veganView && vv ? { ...t0, ing: vv.ing } : t0;
+  const al = recipeAllergens(t).filter(a => (S.allergies || []).includes(a));
   const pp = recipePortion(t), sd = t.kind === "sauce" ? sideById(t.side) : null, sn = sideNut(sd);
   const amt = i => i.pp ? `${fmt(i.pp)} g pro Portion` : `${fmt(i.g)} ${ingInfo(i.n)?.u === "ml" ? "ml" : "g"}`;
-  const tpl = () => ({ ...clone(t), name: T(t.name) });
-  openSheet(`<button type="button" class="lnk" id="sgBack">‹ zurück</button><div class="cbanner" style="margin-top:6px">${imgHtml(t, "")}</div><h3>${esc(t.name)}</h3>
+  const tpl = () => ({ ...clone(t), name: T(t.name) + (veganView && vv ? " (vegan)" : ""), photo: S.tplPhotos[t.id] || undefined });
+  openSheet(`<button type="button" class="lnk" id="sgBack">‹ zurück</button><div class="cbanner" style="margin-top:6px">${imgHtml(t, "")}</div>
+    <button type="button" class="btn ghost sm" id="sgPhoto" style="margin:8px 0 0">📷 ${S.tplPhotos[t.id] ? "Foto ändern" : "Eigenes Foto einfügen"}</button><h3>${esc(t.name)}</h3>
     <p class="tip" style="margin:-4px 0 10px">${t.portions} ${t.unit === "stk" ? "Stück" : "Portionen"} · ${fmt(pp.k + sn.k)} kcal · ${fmt(pp.p + sn.p)} g Eiw. ${t.unit === "stk" ? "pro Stück" : "pro Portion"}${sd ? ` <span>(mit</span> <span>${esc(sd.n)})</span>` : ""}</p>
-    <div class="rsec"><h4>Zutaten</h4><ul class="ingl">${t.ing.map(i => `<li><span>${esc(i.n)}</span><b>${amt(i)}</b></li>`).join("")}</ul></div>
+    <div class="dietrow">${d0 !== "all" ? `<span class="fzb ok">${dietLabel(d0)}</span>` : ""}${vv ? `<button type="button" class="vtog ${veganView ? "on" : ""}" id="sgVegan">🌱 ${veganView ? "Vegane Variante an" : "Vegane Variante ansehen"}</button>` : ""}</div>
+    ${freezeHtml(t)}${al.length ? `<p class="fzline no">⚠️ <span>Enthält:</span> ${al.map(a => `<b>${ALLERGENS[a][0]}</b>`).join(", ")}</p>` : ""}
+    <div class="rsec"><h4>Zutaten</h4><ul class="ingl">${t.ing.map(i => { const sw = veganView && vv && vv.swaps.find(x => x[1] === i.n); return `<li><span>${esc(i.n)}${sw ? ` <small class="swp"><span>statt</span> <span>${esc(sw[0])}</span></small>` : ""}</span><b>${amt(i)}</b></li>`; }).join("")}</ul></div>
     ${t.steps?.length ? `<div class="rsec"><h4>Zubereitung</h4><ol class="stepl">${t.steps.map(x => `<li>${esc(x)}</li>`).join("")}</ol></div>` : ""}
     <div class="actions"><button class="btn" id="sgCook">Jetzt kochen</button><button class="btn ghost" id="sgSave">Zu meinen Rezepten</button></div>`);
   $("#sgBack").onclick = () => ideasSheet(back || "");
+  if ($("#sgVegan")) $("#sgVegan").onclick = () => sugSheet(id, back, !veganView);
+  $("#sgPhoto").onclick = () => photoPicker("📷 " + T(t.name), pid => { if (pid) S.tplPhotos[t.id] = pid; else delete S.tplPhotos[t.id]; saveS(); sugSheet(id, back, veganView); });
   $("#sgCook").onclick = () => cookSheet(null, "cook", tpl());
   $("#sgSave").onclick = () => cookSheet(null, "newrecipe", tpl());
 }
@@ -1723,7 +1854,7 @@ function cookSheet(rid, mode = "cook", tpl = null) {
     name: src?.name || "", emoji: src?.emoji || "🍲", kind: src?.kind || "main", side: src?.side || null,
     baseP: src?.portions || 4, p: src?.portions || 4, link: !!r && !isEdit,
     rows: src ? src.ing.map(x => ({ n: x.n, base: x.g || 0, g: x.g || 0, pp: x.pp || 0 })) : [{ n: "", base: 0, g: "", pp: 0 }, { n: "", base: 0, g: "", pp: 0 }],
-    withSide: 0, shelf: 90, loc: src?.loc || "tk", unit: src?.unit || "box", extra: {}, art: src?.art || "generic", photo: r?.photo || null, sideG: null,
+    withSide: 0, shelf: 90, loc: src?.loc || "tk", unit: src?.unit || "box", extra: {}, art: src?.art && (r || ICONIC_ART.has(src.art)) && src.art !== "generic" ? src.art : "auto", photo: (r?.photo || src?.photo) || null, sideG: null,
   };
   const effSide = () => { const b = sideById(st.side); if (!b) return null; if (st.sideG == null) st.sideG = b.g; return { ...b, g: st.sideG }; };
   if (!isEdit && st.kind === "main") st.side = null;
@@ -1733,7 +1864,7 @@ function cookSheet(rid, mode = "cook", tpl = null) {
     ${isNew || isEdit ? `<div class="fld"><label>Name</label><input id="cn" maxlength="40" placeholder="z. B. Chili con Carne" value="${esc(st.name)}"></div>
       <div class="fld"><label>Art</label><div class="seg wide" id="ckind"><button type="button" data-k="main">Komplettes Gericht</button><button type="button" data-k="sauce">Sauce / Topping</button></div></div>
       ${isEdit ? `<div class="fld"><label>Passende Beilage</label><select id="cdefside">${sideOpts(st.side)}</select></div>` : ""}
-      <div class="fld"><label>Bild</label><div class="artpick" id="cart">${ART_LIST.map(([k, l]) => `<button type="button" data-art="${k}" title="${esc(l)}">${foodArt(k, st.emoji)}</button>`).join("")}<button type="button" class="artphoto" id="cphoto">📷<small>${S.photos.ok ? "Eigenes Foto" : "Foto (erlauben)"}</small></button></div><p class="tip" id="cphotoInfo" style="margin:6px 0 0"></p></div>
+      <div class="fld"><label>Bild</label><div class="artpick" id="cart"><button type="button" data-art="auto" class="artauto" title="Automatisch aus den Zutaten">✨<small>Auto</small></button>${ART_LIST.map(([k, l]) => `<button type="button" data-art="${k}" title="${esc(l)}">${foodArt(k, st.emoji)}</button>`).join("")}<button type="button" class="artphoto" id="cphoto">📷<small>${S.photos.ok ? "Eigenes Foto" : "Foto (erlauben)"}</small></button></div><p class="tip" id="cphotoInfo" style="margin:6px 0 0"></p></div>
       <div class="fld"><label>Symbol</label>${emojiRow(DISH_EMOJI, st.emoji)}</div>` : ""}
     <div class="fld"><label>Einheit</label><div class="seg wide" id="cunit"><button type="button" data-unit="box">🍱 Portionen / Boxen</button><button type="button" data-unit="stk">🧁 Stück</button></div></div>
     <div class="fld"><label>${isEdit ? "Standard-Menge" : "Wie viele?"}</label><div class="pbtns"><button type="button" data-pq="4">4</button><button type="button" data-pq="6">6</button><button type="button" data-pq="8">8</button><input id="cp" type="number" inputmode="numeric" min="1" max="40" value="${st.p}"></div></div>
@@ -1811,10 +1942,10 @@ function cookSheet(rid, mode = "cook", tpl = null) {
   // Inline-Fotoauswahl, ohne das Rezept-Formular zu schließen
   function photoPickerInline(cb) {
     const ov = document.createElement("div"); ov.className = "inlinepick";
-    ov.innerHTML = `<div class="ipbox"><b>Foto wählen</b><label class="up big">📷 Neues Foto<input type="file" accept="image/*" hidden></label>${S.gallery.length ? `<div class="ggrid">${S.gallery.slice().reverse().map(x => `<button type="button" class="gthumb" data-pick="${esc(x.id)}" style="background-image:url(${imgs["g_" + x.id] || ""})"></button>`).join("")}</div>` : ""}<button type="button" class="btn ghost" data-close>Abbrechen</button></div>`;
+    ov.innerHTML = `<div class="ipbox"><b>Foto wählen</b><div class="upr"><label class="up big">📷 Neues Foto<input type="file" accept="image/*" hidden></label><label class="up big cam">📸 Foto aufnehmen<input type="file" accept="image/*" capture="environment"  hidden></label></div>${S.gallery.length ? `<div class="ggrid">${S.gallery.slice().reverse().map(x => `<button type="button" class="gthumb" data-pick="${esc(x.id)}" style="background-image:url(${imgs["g_" + x.id] || ""})"></button>`).join("")}</div>` : ""}<button type="button" class="btn ghost" data-close>Abbrechen</button></div>`;
     sheet.appendChild(ov);
     ov.addEventListener("click", e => { e.stopPropagation(); const b = e.target.closest("button"); if (!b) return; if (b.dataset.pick) { cb(b.dataset.pick); ov.remove(); } else if (b.dataset.close !== undefined) ov.remove(); });
-    ov.querySelector("input").onchange = async e => { const f = e.target.files[0]; if (!f) return; try { const id = await uploadPhoto(f); cb(id); ov.remove(); toast("📷 Foto gespeichert"); } catch (er) { toast("Foto konnte nicht gelesen werden"); } };
+    ov.querySelectorAll("input").forEach(inp => inp.onchange = async e => { const f = e.target.files[0]; if (!f) return; try { const id = await uploadPhoto(f); cb(id); ov.remove(); toast("📷 Foto gespeichert"); } catch (er) { toast("Foto konnte nicht gelesen werden"); } });
   }
   drawArtSel();
 
@@ -1869,7 +2000,7 @@ function cookSheet(rid, mode = "cook", tpl = null) {
     persistIngr();
     const name = (st.name || existing?.name || "").trim() || "Rezept";
     const o = { name, emoji: st.emoji, unit: st.unit, art: st.art, photo: st.photo || undefined, kind: st.kind, side: st.side || (st.kind === "sauce" ? existing?.side || null : null), portions: st.p, ing };
-    let rr = existing; if (rr) Object.assign(rr, o); else { rr = { id: uid(), ...o }; if (tpl?.foto) rr.foto = tpl.foto; if (tpl?.steps?.length) rr.notes = tpl.steps.map((x, i) => `${i + 1}. ${x}`).join("\n"); S.recipes.push(rr); }
+    let rr = existing; if (rr) Object.assign(rr, o); else { rr = { id: uid(), ...o }; if (tpl?.foto) rr.foto = tpl.foto; if (tpl?.steps?.length) rr.notes = tpl.steps.map((x, i) => `${i + 1}. ${x}`).join("\n"); else if (tpl?.notes) rr.notes = tpl.notes; S.recipes.push(rr); }
     saveS(); renderAll(); return rr;
   }
   function showErr(msg, rowIdx) {
@@ -2480,15 +2611,179 @@ const ART_RULES = [[/paella|arroz|risotto/, "paella"], [/tortilla de|omelett|fri
 function artFor(name) { const n = (name || "").toLowerCase(); for (const [re, k] of ART_RULES) if (re.test(n)) return k; return "stew"; }
 // Bild für Rezept / TK-Gericht: eigenes Foto > Illustration > Emoji
 function recipeOf(x) { return x && x.recipeId ? S.recipes.find(r => r.id === x.recipeId) : null; }
+// ---------- Automatisch zusammengestellte Gerichte-Bilder ----------
+// Liest Zutaten + Name und baut daraus ein Bild: Beilage, Fleisch/Fisch, Gemüse, Soße.
+const COMP_RULES = {
+  carb: [[/sushireis|klebreis/, "rice"], [/reis|rice|basmati|jasmin|risotto|paella/, "rice"], [/spaghetti|tagliatelle|linguine|bandnudel/, "spag"], [/mie|ramen|udon|soba|glasnudel|reisnudel|reisband|noodle|yakisoba|chow mein/, "noodles"],
+    [/nudel|pasta|penne|fusilli|maccheroni|makkaroni|farfalle|rigatoni|lasagne|tortellini|ravioli/, "pasta"], [/gnocchi|spätzle|schupfnudel/, "gnocchi"], [/püree|stampf|mash|stamppot/, "mash"], [/knödel|klöße|kloß/, "dumpling"],
+    [/kartoffel|pommes|wedges|rösti|patatas|potato/, "potato"], [/couscous|bulgur|quinoa|hirse|polenta|graupen/, "grain"], [/brot|toast|ciabatta|wrap|tortilla|baguette|naan|pita|brötchen|semmel|bagel|fladen/, "bread"]],
+  prot: [[/lachs|salmon/, "salmon"], [/garnele|shrimp|gambas|krabbe|scampi/, "shrimp"], [/thunfisch|fisch|pangasius|kabeljau|seelachs|scholle|forelle|dorade|zander|merluza|bacalao/, "fish"],
+    [/(?<!ge)hack(?!t)|bällchen|frikadell|köttbullar|albóndig|kofta|köfte|cevapcici|laibchen/, "meatball"], [/hähnchen|huhn|hühner|hendl|pute|chicken|geflügel|pollo|ente|duck/, "chicken"],
+    [/rind|steak|beef|gulasch|bulgogi|stroganoff|ragout/, "beef"], [/schwein|karree|schnitzel|kassler|pork|gyros|carnitas|char siu/, "pork"], [/wurst|würstchen|chorizo|bacon|speck|salami|schinken/, "sausage"],
+    [/tofu|tempeh|seitan|mock duck|paneer|halloumi/, "tofu"], [/linsen|lentej|dal\b|bohnen(?!.*grün)|kichererbsen|garbanzo|chili sin/, "legume"], [/\beier?\b|omelett|tortilla de|shakshuka|frittata/, "egg"]],
+  veg: [[/brokkoli|broccoli/, "broccoli"], [/blumenkohl/, "cauli"], [/erbse/, "peas"], [/karotte|möhre|rüebli/, "carrot"], [/paprika|pimiento/, "pepper"], [/spinat|grünkohl|mangold|pak choi|kale|wasserspinat/, "greens"],
+    [/champignon|pilz|shiitake|seitling|pfifferling/, "mushroom"], [/zucchini|calabac/, "zucchini"], [/aubergine/, "aubergine"], [/kürbis|süßkartoffel|boniato/, "pumpkin"], [/mais\b|mais \(|zuckermais/, "corn"],
+    [/sauerkraut|rotkohl|rotkraut|weißkohl|chinakohl|kraut|krautsalat|kimchi/, "cabbage"], [/grüne bohnen|bohnen \(grün|fisolen|edamame/, "beans"], [/spargel/, "asparagus"], [/avocado/, "avocado"],
+    [/kirschtomate|tomaten\b|tomate\b/, "tomato"], [/salat|rucola|gurke|feldsalat|romana/, "salad"], [/zwiebel|lauch|frühlingszwiebel/, "onion"]],
+  sauce: [[/pesto/, "pesto"], [/curry|kokosmilch|masala|korma|dal\b/, "curry"], [/süß-sauer|süßsauer|ananas.*soja|orangen-sirup|orange chicken/, "sweetsour"], [/gochujang|sriracha|sambal|chili(?! sin)/, "spicy"],
+    [/teriyaki|soja|hoisin|austern|bratensauce|bratensoße|gravy|jus/, "brown"], [/sahne|cremefine|rahm|kochsahne|frischkäse|béchamel|käsesoße|hollandaise|carbonara|schmand|crème/, "cream"],
+    [/passiert|tomatensoße|tomatensauce|gehackte tomaten|tomatenmark|bolognese|napoletana|arrabbiata|tomatenpüree|passata/, "tomato"]]
+};
+const ICONIC_ART = new Set(["paella", "tortilla", "fondue", "shakshuka", "muffins", "loaf", "pancakes", "schmarrn", "oats", "soup_red", "soup_orange", "soup_clear", "pisto", "salat"]);
+function dishParts(x, r) {
+  const src = r || x, title = ((src && src.name) || "").toLowerCase(), ing = (src && src.ing || []).map(i => i.n.toLowerCase());
+  const pick = (rules, texts) => { const out = []; texts.forEach(t => rules.forEach(([re, k]) => { if (re.test(t) && !out.includes(k)) out.push(k); })); return out; };
+  const all = [title, ...ing];
+  const carb = pick(COMP_RULES.carb, all), prot = pick(COMP_RULES.prot, all).filter(k => !(k === "egg" && carb.length + pick(COMP_RULES.prot, all).length > 1 && !/\beier?\b|omelett|shakshuka/.test(title)));
+  const veg = pick(COMP_RULES.veg, all).filter(v => v !== "onion" || all.length < 3);
+  let sauce = pick(COMP_RULES.sauce, all)[0] || null;
+  if (src && src.kind === "sauce" && !sauce) sauce = "brown";
+  if (src && src.kind === "sauce" && src.side && !carb.length) carb.push({ nudeln: "pasta", reis: "rice", kartoffeln: "potato", quinoa: "grain" }[src.side] || "rice");
+  // "Nudeln mit Brokkolisauce" → oben drauf; "Nudeln mit Brokkoli" → daneben
+  const topping = !!(sauce && (src?.kind === "sauce" || /(soße|sauce|ragù|ragu|bolognese|napoletana|curry|gulasch|chili|stroganoff|geschnetzelt|frikassee|pfanne|eintopf|bowl|risotto|goreng|pad thai|wok|dal\b|masala|korma)/.test(title)));
+  // Volumen: Gramm je Gruppe (trockene Beilagen quellen beim Kochen etwa auf das 2,5-Fache)
+  const vol = { carb: 0, prot: 0, veg: 0, sauce: 0 }, por = (src && src.portions) || 4;
+  (src && src.ing || []).forEach(i => { const n = i.n.toLowerCase(), g = i.pp != null ? i.pp * por : (i.g || 0); if (!g) return;
+    const hit = re => re.some(([r]) => r.test(n));
+    if (hit(COMP_RULES.carb)) vol.carb += g * (/roh|trocken|uncooked/.test(n) ? 2.5 : 1); else if (hit(COMP_RULES.prot)) vol.prot += g; else if (hit(COMP_RULES.veg)) vol.veg += g; else if (hit(COMP_RULES.sauce)) vol.sauce += g; });
+  if (src && src.kind === "sauce" && src.side && !vol.carb) vol.carb = 90 * 2.5 * por;
+  const soup = /(suppe|soup|eintopf|stew|ramen|pho\b|pho |laksa|jjigae|minestrone|lentejas|erwtensoep|borschtsch|borscht|gazpacho|potaje|cocido|tom kha|tom yum|chowder|bouillabaisse)/.test(title);
+  return { carb: carb.slice(0, 1), prot: prot.slice(0, 2), veg: veg.slice(0, 3), sauce, topping, soup, title, vol };
+}
+const composeCache = {};
+function composeArt(x, r) {
+  const p = dishParts(x, r); const nParts = p.carb.length + p.prot.length + p.veg.length;
+  if (nParts < 2 && !(nParts === 1 && p.sauce)) return null;
+  const V0 = p.vol, tot = V0.carb + V0.prot + V0.veg + V0.sauce || 1, q5 = v => Math.round(v / tot * 20) / 20;
+  const key = JSON.stringify([p.carb, p.prot, p.veg, p.sauce, p.topping, p.soup, q5(V0.carb), q5(V0.prot), q5(V0.veg)]) + "|" + p.title.length; if (composeCache[key]) return composeCache[key];
+  let seed = 7; for (const c of key) seed = (seed * 31 + c.charCodeAt(0)) >>> 0;
+  const rnd = () => (seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296, R = (a, b) => a + rnd() * (b - a), f1 = n => n.toFixed(1);
+  const uid2 = "c" + (seed % 100000);
+  const inRect = (x0, y0, w, h, m = 3) => [x0 + m + rnd() * (w - 2 * m), y0 + m + rnd() * (h - 2 * m)];
+  const scatter = (n, rc, fn) => Array.from({ length: n }, () => fn(...inRect(...rc))).join("");
+  const blob = (cx, cy, rr, wob, fill, extra = "") => { const n = 9, pts = Array.from({ length: n }, (_, i) => { const a = i / n * 6.283, q = rr * (1 + R(-wob, wob)); return [cx + Math.cos(a) * q, cy + Math.sin(a) * q]; }); let d = `M${f1(pts[0][0])},${f1(pts[0][1])}`; for (let i = 0; i < n; i++) { const a = pts[i], b = pts[(i + 1) % n]; d += ` Q${f1(a[0])},${f1(a[1])} ${f1((a[0] + b[0]) / 2)},${f1((a[1] + b[1]) / 2)}`; } return `<path d="${d}Z" fill="${fill}" ${extra}/>`; };
+  // Texturen für eine Fläche (Rechteck x,y,w,h)
+  const T = {
+    rice: rc => `<rect x="${rc[0]}" y="${rc[1]}" width="${rc[2]}" height="${rc[3]}" fill="#f7f4ea"/>` + scatter(Math.round(rc[2] * rc[3] / 9), rc, (a, b) => `<ellipse cx="${f1(a)}" cy="${f1(b)}" rx="2" ry=".9" fill="${rnd() > .5 ? "#e6e0cf" : "#fffdf6"}" transform="rotate(${Math.round(R(0, 180))} ${f1(a)} ${f1(b)})"/>`),
+    pasta: rc => `<rect x="${rc[0]}" y="${rc[1]}" width="${rc[2]}" height="${rc[3]}" fill="#f1cf73"/>` + scatter(Math.round(rc[2] * rc[3] / 30), rc, (a, b) => `<g transform="translate(${f1(a)},${f1(b)}) rotate(${Math.round(R(0, 180))})"><rect x="-6" y="-2.4" width="12" height="4.8" rx="1.4" fill="${rnd() > .5 ? "#f6d77f" : "#e8bb55"}"/><path d="M-3 -2.4v4.8M1 -2.4v4.8M4 -2.4v4.8" stroke="#d6a744" stroke-width=".6"/></g>`),
+    spag: rc => `<rect x="${rc[0]}" y="${rc[1]}" width="${rc[2]}" height="${rc[3]}" fill="#f1cf73"/>` + scatter(Math.round(rc[2] * rc[3] / 28), rc, (a, b) => { const an = R(0, 6.28), l = R(10, 20); return `<path d="M${f1(a)},${f1(b)} q${f1(Math.cos(an) * l / 2 + R(-5, 5))},${f1(Math.sin(an) * l / 2 + R(-5, 5))} ${f1(Math.cos(an) * l)},${f1(Math.sin(an) * l)}" stroke="${rnd() > .5 ? "#f6d77f" : "#e3b24c"}" stroke-width="2.4" fill="none" stroke-linecap="round"/>`; }),
+    noodles: rc => `<rect x="${rc[0]}" y="${rc[1]}" width="${rc[2]}" height="${rc[3]}" fill="#efd9a0"/>` + scatter(Math.round(rc[2] * rc[3] / 26), rc, (a, b) => `<path d="M${f1(a)},${f1(b)} q3,-3 6,0 t6,0 t6,0" stroke="${rnd() > .5 ? "#f7e6b4" : "#e0c27c"}" stroke-width="2" fill="none" stroke-linecap="round"/>`),
+    gnocchi: rc => `<rect x="${rc[0]}" y="${rc[1]}" width="${rc[2]}" height="${rc[3]}" fill="#e9d3a0"/>` + scatter(Math.round(rc[2] * rc[3] / 45), rc, (a, b) => `<g transform="translate(${f1(a)},${f1(b)}) rotate(${Math.round(R(0, 180))})"><ellipse rx="5" ry="3.4" fill="${rnd() > .4 ? "#f4e2b2" : "#e3b960"}"/><path d="M-2.5 -2.5v5M0 -3v6M2.5 -2.5v5" stroke="#cfae6c" stroke-width=".5"/></g>`),
+    mash: rc => `<rect x="${rc[0]}" y="${rc[1]}" width="${rc[2]}" height="${rc[3]}" fill="#f5e3a6"/>` + scatter(5, rc, (a, b) => `<path d="M${f1(a - 8)},${f1(b)} q8,-6 16,0" stroke="#e8cd7e" stroke-width="2" fill="none" stroke-linecap="round"/>`) + `<circle cx="${rc[0] + rc[2] * .6}" cy="${rc[1] + rc[3] * .4}" r="3" fill="#fff3c4"/>`,
+    dumpling: rc => `<rect x="${rc[0]}" y="${rc[1]}" width="${rc[2]}" height="${rc[3]}" fill="#efe6d4"/>` + [[.32, .38], [.7, .4], [.5, .74]].map(([u, v]) => { const cx = rc[0] + rc[2] * u, cy = rc[1] + rc[3] * v, rr = Math.min(rc[2], rc[3]) * .22; return `<circle cx="${f1(cx + 1)}" cy="${f1(cy + 2)}" r="${f1(rr)}" fill="rgba(0,0,0,.1)"/><circle cx="${f1(cx)}" cy="${f1(cy)}" r="${f1(rr)}" fill="#fbf7ec"/>` + Array.from({ length: 10 }, () => `<circle cx="${f1(cx + R(-rr * .7, rr * .7))}" cy="${f1(cy + R(-rr * .7, rr * .7))}" r=".7" fill="#e6dcc4"/>`).join(""); }).join(""),
+    potato: rc => `<rect x="${rc[0]}" y="${rc[1]}" width="${rc[2]}" height="${rc[3]}" fill="#e9c46a"/>` + scatter(Math.round(rc[2] * rc[3] / 55), rc, (a, b) => `<rect x="${f1(a - 4.5)}" y="${f1(b - 4)}" width="9" height="8" rx="2.6" fill="${rnd() > .5 ? "#f2d27e" : "#d9a443"}" transform="rotate(${Math.round(R(-30, 30))} ${f1(a)} ${f1(b)})"/>`),
+    grain: rc => `<rect x="${rc[0]}" y="${rc[1]}" width="${rc[2]}" height="${rc[3]}" fill="#e9d6a8"/>` + scatter(Math.round(rc[2] * rc[3] / 6), rc, (a, b) => `<circle cx="${f1(a)}" cy="${f1(b)}" r=".9" fill="${rnd() > .5 ? "#d8bf86" : "#f5e7c2"}"/>`),
+    bread: rc => `<rect x="${rc[0]}" y="${rc[1]}" width="${rc[2]}" height="${rc[3]}" fill="#f0e0c2"/>` + [0, 1].map(i => { const w = rc[2] * .42, h = rc[3] * .7, x0 = rc[0] + rc[2] * (.06 + i * .48), y0 = rc[1] + rc[3] * .15; return `<rect x="${f1(x0)}" y="${f1(y0)}" width="${f1(w)}" height="${f1(h)}" rx="7" fill="#b9793b"/><rect x="${f1(x0 + 2.5)}" y="${f1(y0 + 2.5)}" width="${f1(w - 5)}" height="${f1(h - 5)}" rx="5" fill="#f3d9a6"/>`; }).join(""),
+    legume: rc => `<rect x="${rc[0]}" y="${rc[1]}" width="${rc[2]}" height="${rc[3]}" fill="#8a6a43"/>` + scatter(Math.round(rc[2] * rc[3] / 5), rc, (a, b) => `<ellipse cx="${f1(a)}" cy="${f1(b)}" rx="1.8" ry="1.4" fill="${["#6f5232", "#9c7a4d", "#7d6a3a", "#b08a5a"][Math.floor(rnd() * 4)]}"/>`),
+  };
+  const P = { // Fleisch, Fisch & Co. als Stücke
+    chicken: (a, b) => blob(a, b, R(4.5, 6.5), .3, rnd() > .5 ? "#e2a462" : "#d18b48") + `<circle cx="${f1(a - 1.2)}" cy="${f1(b - 1.4)}" r="1.4" fill="#f0c48c"/>`,
+    beef: (a, b) => `<rect x="${f1(a - 7)}" y="${f1(b - 2.5)}" width="14" height="5" rx="2.4" fill="${rnd() > .5 ? "#7a3d22" : "#8f4a2a"}" transform="rotate(${Math.round(R(0, 180))} ${f1(a)} ${f1(b)})"/>`,
+    pork: (a, b) => `<g transform="rotate(${Math.round(R(-25, 25))} ${f1(a)} ${f1(b)})"><rect x="${f1(a - 11)}" y="${f1(b - 7)}" width="22" height="14" rx="6" fill="#c98a5a"/><path d="M${f1(a - 7)} ${f1(b - 4)}l4 8M${f1(a - 1)} ${f1(b - 4)}l4 8M${f1(a + 5)} ${f1(b - 4)}l3 7" stroke="#8d5432" stroke-width="1.4" stroke-linecap="round"/></g>`,
+    meatball: (a, b) => `<circle cx="${f1(a + .8)}" cy="${f1(b + 1)}" r="5.4" fill="rgba(0,0,0,.15)"/><circle cx="${f1(a)}" cy="${f1(b)}" r="5.2" fill="#8a4a2a"/><circle cx="${f1(a - 1.5)}" cy="${f1(b - 1.6)}" r="1.6" fill="#b06a3e"/>`,
+    salmon: (a, b) => `<g transform="rotate(${Math.round(R(-20, 20))} ${f1(a)} ${f1(b)})"><rect x="${f1(a - 13)}" y="${f1(b - 8)}" width="26" height="16" rx="6" fill="#f2875f"/>${[-7, -2, 3, 8].map(o => `<path d="M${f1(a + o)} ${f1(b - 6)} q2 6 0 12" stroke="#fbb898" stroke-width="1.3" fill="none"/>`).join("")}</g>`,
+    fish: (a, b) => `<g transform="rotate(${Math.round(R(-25, 25))} ${f1(a)} ${f1(b)})"><ellipse cx="${f1(a)}" cy="${f1(b)}" rx="11" ry="6.5" fill="#e9b867"/><ellipse cx="${f1(a - 2)}" cy="${f1(b - 1.5)}" rx="6" ry="3" fill="#f5d896"/></g>`,
+    shrimp: (a, b) => `<g transform="translate(${f1(a)},${f1(b)}) rotate(${Math.round(R(0, 360))})"><path d="M-6,2 C-6,-7 7,-7 7,0 C7,3 4,4 2,3 C2,-2 -3,-2 -3,2 Z" fill="#f39a74"/><path d="M-4,0 C-3,-4 3,-4 4,-1" stroke="#fde0d0" stroke-width="1" fill="none"/></g>`,
+    tofu: (a, b) => `<rect x="${f1(a - 4.5)}" y="${f1(b - 4.5)}" width="9" height="9" rx="2" fill="#f6edd4" stroke="#e0b874" stroke-width="1.2" transform="rotate(${Math.round(R(-20, 20))} ${f1(a)} ${f1(b)})"/>`,
+    sausage: (a, b) => `<circle cx="${f1(a)}" cy="${f1(b)}" r="4.4" fill="#b5553a"/><circle cx="${f1(a)}" cy="${f1(b)}" r="3" fill="#d98a6a"/>`,
+    egg: (a, b) => blob(a, b, 9, .15, "#fffdf6") + `<circle cx="${f1(a + 1)}" cy="${f1(b)}" r="3.8" fill="#f6b51e"/>`,
+    legume: (a, b) => `<ellipse cx="${f1(a)}" cy="${f1(b)}" rx="2.2" ry="1.7" fill="${rnd() > .5 ? "#7a5634" : "#a3784a"}"/>`,
+  };
+  const V = {
+    broccoli: (a, b) => `<g transform="translate(${f1(a)},${f1(b)}) scale(${f1(R(.8, 1.1))})"><rect x="-1.6" y="1" width="3.2" height="5" rx="1.5" fill="#9cc56b"/><circle cx="-3" cy="-1" r="3.4" fill="#3f8a2e"/><circle cx="3" cy="-1" r="3.4" fill="#3f8a2e"/><circle cx="0" cy="-4" r="3.6" fill="#4e9d38"/></g>`,
+    cauli: (a, b) => `<g transform="translate(${f1(a)},${f1(b)})"><rect x="-1.4" y="1" width="2.8" height="4" rx="1.2" fill="#c8d9a8"/><circle cx="-2.6" cy="-1" r="3.2" fill="#f4efdc"/><circle cx="2.6" cy="-1" r="3.2" fill="#f4efdc"/><circle cx="0" cy="-3.6" r="3.4" fill="#fbf8ec"/></g>`,
+    peas: (a, b) => `<circle cx="${f1(a)}" cy="${f1(b)}" r="2.2" fill="#6cbf3d"/><circle cx="${f1(a - .6)}" cy="${f1(b - .6)}" r=".7" fill="#a8e07a"/>`,
+    carrot: (a, b) => `<rect x="${f1(a - 2.6)}" y="${f1(b - 2.6)}" width="5.2" height="5.2" rx="1.2" fill="#f2903a"/>`,
+    pepper: (a, b) => `<rect x="${f1(a - 6)}" y="${f1(b - 1.6)}" width="12" height="3.2" rx="1.6" fill="${rnd() > .5 ? "#e0402f" : (rnd() > .5 ? "#f4b72e" : "#5aa83a")}" transform="rotate(${Math.round(R(0, 180))} ${f1(a)} ${f1(b)})"/>`,
+    greens: (a, b) => `<ellipse cx="${f1(a)}" cy="${f1(b)}" rx="5" ry="3" fill="${rnd() > .5 ? "#2f6b2a" : "#3e7f33"}" transform="rotate(${Math.round(R(0, 180))} ${f1(a)} ${f1(b)})"/>`,
+    mushroom: (a, b) => `<g transform="translate(${f1(a)},${f1(b)}) rotate(${Math.round(R(-40, 40))})"><path d="M-5,0 A5,4.5 0 0 1 5,0 Z" fill="#c9a77f"/><rect x="-1.6" y="-.5" width="3.2" height="5" rx="1.2" fill="#ead9c1"/></g>`,
+    zucchini: (a, b) => `<circle cx="${f1(a)}" cy="${f1(b)}" r="4.4" fill="#3f7d2a"/><circle cx="${f1(a)}" cy="${f1(b)}" r="3.4" fill="#e6f2c9"/>`,
+    aubergine: (a, b) => `<rect x="${f1(a - 3.5)}" y="${f1(b - 3.5)}" width="7" height="7" rx="2" fill="#5b2a5e"/><rect x="${f1(a - 2)}" y="${f1(b - 2)}" width="4" height="4" rx="1" fill="#efe4c4"/>`,
+    pumpkin: (a, b) => `<rect x="${f1(a - 3.5)}" y="${f1(b - 3.5)}" width="7" height="7" rx="2" fill="#f08a2a"/>`,
+    corn: (a, b) => `<rect x="${f1(a - 1.6)}" y="${f1(b - 1.4)}" width="3.2" height="2.8" rx="1" fill="#f6cf3c"/>`,
+    cabbage: (a, b) => `<path d="M${f1(a - 6)},${f1(b)} q3,-3 6,0 t6,0" stroke="${rnd() > .5 ? "#f3f0d8" : "#e6e1bf"}" stroke-width="1.6" fill="none" stroke-linecap="round"/>`,
+    beans: (a, b) => `<rect x="${f1(a - 6)}" y="${f1(b - 1.4)}" width="12" height="2.8" rx="1.4" fill="#4f9a36" transform="rotate(${Math.round(R(0, 180))} ${f1(a)} ${f1(b)})"/>`,
+    asparagus: (a, b) => `<g transform="rotate(${Math.round(R(-20, 20))} ${f1(a)} ${f1(b)})"><rect x="${f1(a - 9)}" y="${f1(b - 1.6)}" width="18" height="3.2" rx="1.6" fill="#6aa84f"/><ellipse cx="${f1(a + 9)}" cy="${f1(b)}" rx="2.6" ry="2" fill="#4d8a35"/></g>`,
+    avocado: (a, b) => `<ellipse cx="${f1(a)}" cy="${f1(b)}" rx="6.5" ry="3.2" fill="#a6c95a" stroke="#4a6b22" stroke-width="1" transform="rotate(${Math.round(R(0, 180))} ${f1(a)} ${f1(b)})"/>`,
+    tomato: (a, b) => `<circle cx="${f1(a)}" cy="${f1(b)}" r="4" fill="#e5412e"/><circle cx="${f1(a)}" cy="${f1(b)}" r="2.4" fill="#f2735f"/>`,
+    salad: (a, b) => `<ellipse cx="${f1(a)}" cy="${f1(b)}" rx="6" ry="3.6" fill="${rnd() > .5 ? "#7cc35a" : "#5aa83a"}" transform="rotate(${Math.round(R(0, 180))} ${f1(a)} ${f1(b)})"/>`,
+    onion: (a, b) => `<path d="M${f1(a - 4)},${f1(b)} a4,3 0 0 1 8,0" stroke="#d9c7e6" stroke-width="1.4" fill="none"/>`,
+  };
+  const SC = { tomato: ["#c8361f", "#db4b2c"], curry: ["#e39a2a", "#f2b347"], cream: ["#efe2c4", "#f8efd9"], brown: ["#6b3a1c", "#86502a"], pesto: ["#4f7f2a", "#6f9a3a"], sweetsour: ["#d9542b", "#ee7a3c"], spicy: ["#b8231a", "#d8402a"] };
+  const herbs = (n, rc) => scatter(n, rc, (a, b) => `<ellipse cx="${f1(a)}" cy="${f1(b)}" rx="1.5" ry=".8" fill="#3d8b37" transform="rotate(${Math.round(R(0, 180))} ${f1(a)} ${f1(b)})"/>`);
+  const fillProt = (k, rc) => { if (k === "legume") return T.legume(rc); const big = k === "pork" || k === "salmon" || k === "fish" || k === "egg"; const n = big ? Math.max(1, Math.round(rc[2] * rc[3] / 700)) : Math.round(rc[2] * rc[3] / 70); return `<rect x="${rc[0]}" y="${rc[1]}" width="${rc[2]}" height="${rc[3]}" fill="rgba(255,255,255,.18)"/>` + scatter(n, [rc[0] + (big ? 8 : 2), rc[1] + (big ? 6 : 2), rc[2] - (big ? 16 : 4), rc[3] - (big ? 12 : 4)], P[k]); };
+  const fillVeg = (ks, rc) => `<rect x="${rc[0]}" y="${rc[1]}" width="${rc[2]}" height="${rc[3]}" fill="${ks.includes("cabbage") ? "#efe9cf" : ks.includes("salad") ? "#d9ecc7" : "#e8f0d8"}"/>` + ks.map(k => scatter(Math.round(rc[2] * rc[3] / (k === "peas" || k === "corn" ? 18 : k === "cabbage" ? 10 : 55) / ks.length) + 2, rc, V[k])).join("");
+  let body = "", defs = "";
+  const clip = (id, d) => { defs += `<clipPath id="${uid2}${id}">${d}</clipPath>`; return `clip-path="url(#${uid2}${id})"`; };
+  if (p.soup) {
+    // Suppe: Schale mit Brühe, Einlagen schwimmen oben
+    const broth = { tomato: ["#c8401f", "#d9582f"], curry: ["#e6a03a", "#f0b85a"], cream: ["#efe0bd", "#f7ecd2"], spicy: ["#b8321c", "#cf4a2a"], brown: ["#8a5a2c", "#a06c38"] }[p.sauce] || (p.veg.includes("pumpkin") ? ["#ef9a3a", "#f6b25a"] : p.prot.includes("legume") ? ["#9a6f3e", "#b0844f"] : p.veg.includes("peas") ? ["#8db04a", "#a4c45e"] : ["#e9c77a", "#f2d892"]);
+    body += `<ellipse cx="61" cy="66" rx="50" ry="46" fill="rgba(0,0,0,.14)"/><circle cx="60" cy="60" r="49" fill="#f4f1ec" stroke="#d8d0c4" stroke-width="2"/><circle cx="60" cy="60" r="40" fill="${broth[0]}"/>` + blob(58, 57, 30, .12, broth[1]);
+    const rc = [32, 32, 56, 56], cp = clip("s", '<circle cx="60" cy="60" r="39"/>');
+    let inner = "";
+    if (p.carb[0] === "noodles" || p.carb[0] === "spag") inner += scatter(9, rc, (a, b) => `<path d="M${f1(a)},${f1(b)} q3,-3 6,0 t6,0 t6,0" stroke="#f3dc9e" stroke-width="2" fill="none" stroke-linecap="round"/>`);
+    else if (p.carb[0] === "pasta") inner += scatter(8, rc, (a, b) => `<rect x="${f1(a - 4)}" y="${f1(b - 1.6)}" width="8" height="3.2" rx="1.2" fill="#f2d27e" transform="rotate(${Math.round(R(0, 180))} ${f1(a)} ${f1(b)})"/>`);
+    else if (p.carb[0] === "potato") inner += scatter(7, rc, (a, b) => `<rect x="${f1(a - 3.5)}" y="${f1(b - 3)}" width="7" height="6" rx="2" fill="#f2d68c"/>`);
+    p.prot.forEach(k => { inner += k === "legume" ? scatter(26, rc, P.legume) : k === "egg" ? P.egg(70, 50) : scatter(k === "pork" || k === "salmon" || k === "fish" ? 2 : 6, rc, P[k]); });
+    p.veg.forEach(k => { inner += scatter(k === "peas" || k === "corn" ? 10 : 5, rc, V[k]); });
+    body += `<g ${cp}>${inner}${herbs(12, rc)}</g>`;
+  } else if (p.topping) {
+    // Teller: Beilage als Basis, Soße mit Fleisch und Gemüse oben drauf
+    const base = p.carb[0];
+    body += `<circle cx="61" cy="63" r="48" fill="rgba(0,0,0,.12)"/><circle cx="60" cy="60" r="48" fill="#ffffff"/><circle cx="60" cy="60" r="40" fill="none" stroke="rgba(0,0,0,.05)" stroke-width="2"/>`;
+    if (base) body += `<g ${clip("b", '<circle cx="60" cy="60" r="38"/>')}>${T[base]([20, 20, 80, 80])}</g>`;
+    const [s1, s2] = SC[p.sauce] || SC.brown, fr = (V0.prot + V0.veg + V0.sauce) / tot, sr = base ? Math.max(18, Math.min(35, 14 + fr * 26)) : 36;
+    body += blob(60, 58, sr, .16, s1) + blob(58, 56, sr * .78, .2, s2);
+    const rc = [60 - sr * .75, 58 - sr * .7, sr * 1.5, sr * 1.4];
+    p.prot.forEach(k => { body += k === "legume" ? scatter(40, rc, P.legume) : scatter(k === "pork" || k === "salmon" || k === "fish" ? 2 : 9, rc, P[k]); });
+    p.veg.forEach(k => { body += scatter(k === "peas" || k === "corn" ? 12 : 5, rc, V[k]); });
+    body += herbs(10, rc);
+  } else {
+    // Meal-Prep-Box mit Fächern: Beilage | Fleisch/Fisch | Gemüse
+    const parts = [];
+    if (p.carb.length) parts.push(["carb", p.carb[0]]);
+    if (p.prot.length) parts.push(["prot", p.prot[0]]);
+    if (p.veg.length) parts.push(["veg", p.veg]);
+    if (p.prot.length > 1 && parts.length < 3) parts.push(["prot", p.prot[1]]);
+    else if (p.prot.length > 1) { const i = parts.findIndex(q => q[0] === "prot"); parts[i] = ["prot2", p.prot]; }
+    const X0 = 10, Y0 = 16, W = 100, H = 88, g = 3, clampF = v => Math.max(.3, Math.min(.7, v || .5));
+    // Fächer nach Volumen: mehr Fleisch in Soße → größeres Fach als der Reis
+    const wOf = ([t]) => t === "carb" ? V0.carb : t === "veg" ? V0.veg : t === "prot" || t === "prot2" ? V0.prot + V0.sauce * .6 : 1;
+    const ws = parts.map(wOf);
+    let rects;
+    if (parts.length === 1) rects = [[X0, Y0, W, H]];
+    else if (parts.length === 2) { const f = clampF(ws[0] / (ws[0] + ws[1])), w1 = W * f; rects = [[X0, Y0, w1 - g / 2, H], [X0 + w1 + g / 2, Y0, W - w1 - g / 2, H]]; }
+    else { const f = clampF(ws[0] / (ws[0] + ws[1] + ws[2])), w1 = W * f, h = clampF(ws[1] / (ws[1] + ws[2])) * H; rects = [[X0, Y0, w1 - g / 2, H], [X0 + w1 + g / 2, Y0, W - w1 - g / 2, h - g / 2], [X0 + w1 + g / 2, Y0 + h + g / 2, W - w1 - g / 2, H - h - g / 2]]; }
+    body += `<rect x="${X0 - 4}" y="${Y0 - 3}" width="${W + 8}" height="${H + 9}" rx="15" fill="rgba(0,0,0,.14)"/><rect x="${X0 - 5}" y="${Y0 - 5}" width="${W + 10}" height="${H + 10}" rx="15" fill="rgba(240,248,252,.9)" stroke="#a9c0cf" stroke-width="2"/>`;
+    parts.forEach(([t0, k], i) => { let t = t0;
+      const rc = rects[i].map(v => Math.round(v * 10) / 10);
+      const cp = clip("p" + i, `<rect x="${rc[0]}" y="${rc[1]}" width="${rc[2]}" height="${rc[3]}" rx="9"/>`);
+      let inner = t === "carb" ? T[k](rc) : t === "prot" ? fillProt(k, rc) : t === "prot2" ? (() => { const h = rc[3] / 2; return fillProt(k[0], [rc[0], rc[1], rc[2], h]) + fillProt(k[1], [rc[0], rc[1] + h, rc[2], h]) + `<path d="M${rc[0]} ${f1(rc[1] + h)}h${rc[2]}" stroke="rgba(150,175,190,.6)" stroke-width="1" stroke-dasharray="3 2"/>`; })() : fillVeg(k, rc);
+      if (t === "prot" && p.sauce) { const [s1, s2] = SC[p.sauce] || SC.brown; inner = `<rect x="${rc[0]}" y="${rc[1]}" width="${rc[2]}" height="${rc[3]}" fill="${s1}"/>` + blob(rc[0] + rc[2] / 2, rc[1] + rc[3] / 2, Math.min(rc[2], rc[3]) * .42, .2, s2) + (k === "legume" ? scatter(Math.round(rc[2] * rc[3] / 8), rc, P.legume) : scatter(Math.round(rc[2] * rc[3] / ((k === "pork" || k === "salmon" || k === "fish") ? 600 : 75)) + 1, rc, P[k])); }
+      body += `<g ${cp}>${inner}</g><rect x="${rc[0]}" y="${rc[1]}" width="${rc[2]}" height="${rc[3]}" rx="9" fill="none" stroke="rgba(150,175,190,.9)" stroke-width="1.6"/>`;
+      if (t !== "carb") body += herbs(3, rc);
+      if (t === "prot2") t = "prot";
+    });
+    body += `<path d="M${X0 + 4} ${Y0 + 4} q20 -6 40 0" stroke="rgba(255,255,255,.75)" stroke-width="3" fill="none" stroke-linecap="round"/>`;
+  }
+  const bgA = ["#e9dfd2", "#e4e8ea", "#efe4d6", "#e2e6e0"][seed % 4];
+  const svg = `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs>${defs}<linearGradient id="${uid2}bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${bgA}"/><stop offset="1" stop-color="#d3cbbf"/></linearGradient></defs><rect width="120" height="120" fill="url(#${uid2}bg)"/>${body}</svg>`;
+  return (composeCache[key] = svg);
+}
+
 function imgHtml(x, cls = "") {
   const r = x && x.ing ? x : recipeOf(x);
-  const pid = (x && x.photo) || (r && r.photo);
+  const pid = (x && x.photo) || (r && r.photo) || (S.tplPhotos && x && S.tplPhotos[x.id]);
   if (S.photos.ok && pid && imgs["g_" + pid]) return `<div class="pic ${cls}" style="background-image:url(${imgs["g_" + pid]})"></div>`;
   let art = (x && x.art) || (r && r.art);
   const isDish = x && (x.ing || x.recipeId || x.loc || x.kind || x.portions || x.count != null);
-  if ((!art || art === "generic") && isDish) art = artFor((r && r.name) || x.name); // Kochbuch & Vorrat: immer ein Essensbild
   const fp = (x && x.foto) || (r && r.foto);
   const fimg = fp ? `<img class="picf" src="${esc(fp)}" alt="" loading="lazy" onerror="this.remove()">` : "";
+  const isLib = x && typeof x.id === "string" && x.id.startsWith("t_");
+  const autoArt = !art || art === "auto" || art === "generic" || (isLib && !ICONIC_ART.has(art));
+  if (isDish && autoArt) { const c = composeArt(x, r); if (c) return `<div class="pic ${cls}">${c}${fimg}</div>`; }
+  if (art === "auto") art = null;
+  if ((!art || art === "generic") && isDish) art = artFor((r && r.name) || x.name); // Kochbuch & Vorrat: immer ein Essensbild
   if (art || fp) return `<div class="pic ${cls}">${foodArt(art || artFor((r && r.name) || x.name), x.emoji)}${fimg}</div>`;
   return `<div class="pic ${cls} emo" style="background:${grad(x?.name || "x")}">${esc(x?.emoji || "🍲")}</div>`;
 }
@@ -2538,7 +2833,7 @@ function renderProfile() {
   $("#pfMeals").innerHTML = MEALS.map(([id, l, ic, sn]) => `<button type="button" class="mchip ${S.meals.includes(id) ? "on" : ""}" data-meal="${id}"><span>${ic}</span>${l}${sn ? " 🍪" : ""}</button>`).join("");
   v.querySelectorAll("[data-cyc]").forEach(b => b.classList.toggle("act", b.dataset.cyc === S.cycleMode));
   $("#cycFields").hidden = S.cycleMode !== "track"; $("#cycNone").hidden = S.cycleMode !== "none";
-  $("#pfLang").innerHTML = langChips();
+  $("#pfLang").innerHTML = langChips(); renderDietPrefs();
   $("#pfHol").innerHTML = HOLIDAYS.map(([id, ic, name]) => `<button type="button" class="mchip ${holOn(id) ? "on" : ""}" data-hol="${id}"><span>${ic}</span>${esc(name)}</button>`).join("");
   { const sw = $("#pfCycWater"), on = S.waterCycle !== false; sw.classList.toggle("on", on); sw.setAttribute("aria-checked", on ? "true" : "false"); }
   renderSports(); updateBedarf(); renderPhotoSection(); renderDataCard();
@@ -2702,12 +2997,13 @@ async function uploadPhoto(file) {
 function photoPicker(title, cb, uploadOnly) {
   if (!S.photos.ok) return photosConsentSheet(() => photoPicker(title, cb, uploadOnly));
   openSheet(`<h3>${esc(title)}</h3>
-    <label class="up big">📷 Neues Foto auswählen<input type="file" accept="image/*" id="ppf" hidden></label>
+    <div class="upr"><label class="up big">📷 Aus Galerie<input type="file" accept="image/*" id="ppf" hidden></label><label class="up big cam">📸 Foto aufnehmen<input type="file" accept="image/*" capture="environment" id="ppc" hidden></label></div>
     ${!uploadOnly && S.gallery.length ? `<p class="tip" style="margin:12px 0 8px">…oder aus deiner Galerie:</p><div class="ggrid">${S.gallery.slice().reverse().map(x => `<button type="button" class="gthumb" data-pick="${esc(x.id)}" style="background-image:url(${imgs["g_" + x.id] || ""})"></button>`).join("")}</div>` : ""}
     <div class="actions" style="margin-top:12px">${!uploadOnly ? `<button class="btn ghost" id="nopic">Kein eigenes Foto</button>` : ""}<button class="btn ghost" id="cancel">Abbrechen</button></div>`);
   $("#cancel").onclick = closeSheet;
   if ($("#nopic")) $("#nopic").onclick = () => { closeSheet(); cb(null); };
   sheet.querySelectorAll("[data-pick]").forEach(b => b.onclick = () => { closeSheet(); cb(b.dataset.pick); });
+  $("#ppc").onchange = e => $("#ppf").onchange(e);
   $("#ppf").onchange = async e => { const f = e.target.files[0]; if (!f) return; try { const id = await uploadPhoto(f); closeSheet(); cb(id); renderPhotoSection(); toast("📷 Foto gespeichert"); } catch (er) { toast(er.message || "Foto konnte nicht gelesen werden"); } };
 }
 function galleryItemSheet(id) {
@@ -2801,6 +3097,102 @@ function parseQty(s) { s = String(s).trim().replace(",", "."); const m = s.match
 function findFood(n) { return [...myFoods(), ...foodsBase()].find(f => f.n === n); }
 
 // opts: { title, action, onPick(item) }
+// ---------- Teller-Schätzer: Foto + Bestandteile + Mengen in Tellerteilen ----------
+const PLATE_SIZES = {
+  carb: [["Klecks", 60], ["¼ Teller", 120], ["Faust", 150], ["½ Teller", 230], ["¾ Teller", 340]],
+  prot: [["halber Handteller", 60], ["Handteller", 110], ["¼ Teller", 140], ["½ Teller", 230]],
+  veg: [["Handvoll", 50], ["¼ Teller", 100], ["½ Teller", 190], ["¾ Teller", 280]],
+  sauce: [["wenig", 40], ["normal", 80], ["viel", 140]],
+  fat: [["wenig", 5], ["normal", 10], ["viel", 20]],
+  dish: [["¼ Teller", 120], ["½ Teller", 230], ["¾ Teller", 340], ["voller Teller", 450]],
+  drink: [["kleines Glas", 200], ["Glas", 250], ["Becher", 330], ["Flasche", 500]],
+};
+const PLATE_DEF = { carb: 1, prot: 1, veg: 1, sauce: 1, fat: 0, dish: 1, drink: 1 };
+const PLATE_COL = { carb: "#f1cf73", prot: "#c98a5a", veg: "#5aa83a", sauce: "#d0532e", fat: "#f2dc7a", dish: "#e9a24c", drink: "#8cc4e0" };
+const PLATE_QUICK = [["🍚", "Reis", "Reis (gekocht)"], ["🍝", "Nudeln", "Nudeln (gekocht)"], ["🥔", "Kartoffeln", "Kartoffeln (gekocht)"], ["🍟", "Pommes", "Pommes frites"],
+  ["🍗", "Hähnchen", "Hähnchenbrust (gebraten)"], ["🥩", "Rind / Hack", "Rinderhack (gebraten)"], ["🐟", "Lachs", "Lachs (gebraten)"], ["🍳", "Spiegelei", "Spiegelei"], ["🧈", "Tofu", "Tofu natur"],
+  ["🥦", "Brokkoli", "Brokkoli"], ["🥕", "Gemüse", "Gemüse (gemischt, gedünstet)"], ["🥗", "Salat", "Salat (gemischt, ohne Dressing)"],
+  ["🍅", "Tomatensoße", "Tomatensoße (Glas)"], ["🥛", "Sahnesoße", "Sahnesoße"], ["🟤", "Bratensoße", "Bratensoße"], ["🍛", "Currysoße", "Currysoße (Fertig)"], ["🫒", "Öl / Butter", "Olivenöl"]];
+function plateType(f) {
+  const n = f.n.toLowerCase(), cat = f.c >= 0 && FOOD_CATS[f.c] ? FOOD_CATS[f.c][0] : "";
+  if (f.base === "ml" && /Getränke/.test(cat)) return "drink";
+  if (/(^|\s)(oliven|raps|sonnenblumen|kokos|sesam)?öl\b|^butter\b|margarine|ghee|schmalz/.test(n)) return "fat";
+  if (/Soßen/.test(cat) || /soße|sauce|dressing|\bdip\b|pesto|mayo|ketchup|tzatziki|hummus/.test(n)) return "sauce";
+  if (/reis|nudel|pasta|spaghetti|penne|kartoffel|pommes|couscous|bulgur|quinoa|gnocchi|spätzle|püree|knödel|polenta|brot\b|brötchen|wrap|tortilla|naan|udon|ramen|soba/.test(n)) return "carb";
+  if (/Fleisch|Fisch/.test(cat) || /hähnchen|huhn|pute|rind|schwein|lamm|hack|steak|schnitzel|lachs|fisch|thunfisch|garnele|tofu|tempeh|seitan|spiegelei|rührei|\bei\b|eier|falafel|frikadelle|bratwurst/.test(n)) return "prot";
+  if (/Gemüse|Obst/.test(cat) || /salat|gemüse|brokkoli|bohnen \(grün|spinat/.test(n)) return "veg";
+  return "dish";
+}
+// Tellermengen sind gegart; rohe/trockene Ware umrechnen
+function plateGrams(f, g) {
+  const n = f.n.toLowerCase(), t = plateType(f);
+  if (t === "carb" && /trocken|\(roh\)|roh\)|uncooked|, roh/.test(n) && !/kartoffel/.test(n)) return g / 2.5;
+  if (t === "prot" && /\(roh\)|roh\)|, roh/.test(n)) return g * 1.3;
+  return g;
+}
+function plateSheet(opts) {
+  let items = [], photoFile = null, photoUrl = null, q = "", name = "", nameTouched = false;
+  const nutOf = it => { const g = plateGrams(it.f, PLATE_SIZES[it.t][it.s][1] * it.x); return { k: it.f.k * g / 100, p: it.f.p * g / 100, g }; };
+  const total = () => items.reduce((a, it) => { const n = nutOf(it); return { k: a.k + n.k, p: a.p + n.p }; }, { k: 0, p: 0 });
+  const autoName = () => items.length ? "🍽️ " + items.slice(0, 4).map(it => foodName(it.f).replace(/\s*\(.*?\)/g, "")).join(", ") : "";
+  const plateSvg = () => {
+    // Teller-Vorschau: Anteile nach Menge (450 g = voller Teller), Soße als Klecks oben drauf
+    const solid = items.filter(it => !["sauce", "fat", "drink"].includes(it.t)), sauce = items.filter(it => it.t === "sauce");
+    const sum = solid.reduce((a, it) => a + PLATE_SIZES[it.t][it.s][1] * it.x, 0), full = Math.max(450, sum);
+    let a0 = -Math.PI / 2, wedges = "";
+    solid.forEach(it => { const fr = PLATE_SIZES[it.t][it.s][1] * it.x / full, a1 = a0 + fr * 2 * Math.PI, R = 40, large = fr > .5 ? 1 : 0;
+      const p = fr >= .999 ? `<circle cx="60" cy="60" r="${R}" fill="${PLATE_COL[it.t]}"/>` : `<path d="M60 60 L${(60 + R * Math.cos(a0)).toFixed(1)} ${(60 + R * Math.sin(a0)).toFixed(1)} A${R} ${R} 0 ${large} 1 ${(60 + R * Math.cos(a1)).toFixed(1)} ${(60 + R * Math.sin(a1)).toFixed(1)}Z" fill="${PLATE_COL[it.t]}" stroke="#fff" stroke-width="1.2"/>`;
+      wedges += p; a0 = a1; });
+    const sv = sauce.reduce((a, it) => a + PLATE_SIZES.sauce[it.s][1] * it.x, 0);
+    const blobs = sv ? `<circle cx="60" cy="60" r="${Math.min(26, 8 + sv / 9).toFixed(1)}" fill="${PLATE_COL.sauce}" opacity=".85"/>` : "";
+    return `<svg viewBox="0 0 120 120" class="platesvg" aria-hidden="true"><circle cx="61" cy="63" r="52" fill="rgba(0,0,0,.08)"/><circle cx="60" cy="60" r="52" fill="#fff" stroke="#e6dfd4" stroke-width="2"/><circle cx="60" cy="60" r="41" fill="#f7f4ee"/>${wedges}${blobs}${!items.length ? `<text x="60" y="64" text-anchor="middle" font-size="9" fill="#a39a8c">leer</text>` : ""}</svg>`;
+  };
+  function draw() {
+    const t = total(); if (!nameTouched) name = autoName();
+    const hits = q.trim() ? foodSearch(q).slice(0, 6) : [];
+    sheet.innerHTML = `<div class="grab"></div>${opts.onBack ? `<button type="button" class="lnk" id="plBack">‹ zurück</button>` : ""}<h3${opts.onBack ? ` style="margin-top:6px"` : ""}>🍽️ Teller schätzen</h3>
+      <div class="plhead">
+        <div class="plphoto">${photoUrl ? `<img src="${photoUrl}" alt="">` : plateSvg()}</div>
+        <div class="plside">${photoUrl ? `<div class="plmini">${plateSvg()}</div>` : ""}
+          ${S.photos.ok ? `<label class="up cam">📸 Foto aufnehmen<input type="file" accept="image/*" capture="environment" class="plf" hidden></label><label class="up">📷 Aus Galerie<input type="file" accept="image/*" class="plf" hidden></label>`
+            : `<p class="tip" style="margin:0">Mit Foto kannst du dein Essen beim Schätzen ansehen und im Tagebuch behalten.</p><button type="button" class="btn ghost sm" id="plOn">📷 Fotos erlauben</button>`}</div>
+      </div>
+      <h4 class="plh">Was liegt auf dem Teller?</h4>
+      <div class="plquick">${PLATE_QUICK.map(([e, l, n]) => `<button type="button" data-pq="${esc(n)}">${e} ${l}</button>`).join("")}</div>
+      <div class="fsearch" style="margin-top:8px"><span>🔍</span><input id="plq" placeholder="Andere Zutat oder Gericht suchen …" value="${esc(q)}" autocomplete="off" enterkeyhint="search"></div>
+      <div id="plhits">${hits.map(f => `<button type="button" class="frow" data-pf="${esc(f.n)}"><span class="fe">${esc(f.emoji)}</span><span class="ft"><b data-notr>${esc(foodName(f))}</b></span><span class="fgo">＋</span></button>`).join("")}</div>
+      <div class="plitems">${items.map((it, i) => { const n = nutOf(it); return `<div class="plit"><div class="plitt"><span class="pldot" style="background:${PLATE_COL[it.t]}"></span><b data-notr>${esc(foodName(it.f))}</b><span class="plk">${fmt(n.k)} kcal</span><button type="button" class="plx" data-px="${i}" aria-label="Entfernen">✕</button></div>
+        <div class="plsz">${PLATE_SIZES[it.t].map(([l], s) => `<button type="button" class="${s === it.s ? "act" : ""}" data-pi="${i}" data-ps="${s}">${l}</button>`).join("")}<button type="button" class="plxx ${it.x === 2 ? "act" : ""}" data-pi="${i}" data-px2="1">×2</button></div></div>`; }).join("")}</div>
+      ${items.length ? `<div class="fld" style="margin-top:10px"><label>Name im Tagebuch</label><input id="plname" maxlength="60" value="${esc(name)}"></div>
+      <div class="fsum"><div><b>${fmt(t.k)}</b><span>kcal</span></div><div><b>${fmt1(t.p)} g</b><span>Eiweiß</span></div></div>
+      <p class="tip" style="margin:0 0 8px">Geschätzt für einen normalen Essteller (ca. 26 cm), Mengen gegart. Ein Richtwert – Wiegen ist genauer.</p>` : `<p class="tip" style="margin:12px 2px">Tippe an, was du siehst, und wähle dann die Menge: ¼ Teller, eine Faust, ein Handteller …</p>`}
+      <div class="actions"><button class="btn" id="plOk" ${items.length ? "" : "disabled"}>${esc(opts.action || "Eintragen")}${items.length ? ` · ${fmt(t.k)} kcal` : ""}</button><button class="btn ghost" id="plCancel">Abbrechen</button></div>`;
+    const qi = $("#plq"); qi.oninput = () => { q = qi.value; const box = $("#plhits"); box.innerHTML = q.trim() ? foodSearch(q).slice(0, 6).map(f => `<button type="button" class="frow" data-pf="${esc(f.n)}"><span class="fe">${esc(f.emoji)}</span><span class="ft"><b data-notr>${esc(foodName(f))}</b></span><span class="fgo">＋</span></button>`).join("") : ""; };
+    const ni = $("#plname"); if (ni) ni.oninput = () => { name = ni.value; nameTouched = true; };
+    sheet.querySelectorAll(".plf").forEach(inp => inp.onchange = async e => { const f = e.target.files[0]; if (!f) return; try { photoUrl = await compressImage(f); photoFile = f; draw(); } catch (er) { toast("Foto konnte nicht gelesen werden"); } });
+  }
+  const add = f => { if (!f) return; const t = plateType(f); const ex = items.find(it => it.f.n === f.n); if (ex) { ex.s = Math.min(ex.s + 1, PLATE_SIZES[ex.t].length - 1); } else items.push({ f, t, s: PLATE_DEF[t], x: 1 }); q = ""; draw(); };
+  openSheet("");
+  sheet.onclick = async e => {
+    const b = e.target.closest("button"); if (!b) return;
+    if (b.id === "plCancel") return closeSheet();
+    if (b.id === "plBack") return opts.onBack();
+    if (b.id === "plOn") return photosConsentSheet(() => plateSheet(opts));
+    if (b.dataset.pq) return add(findFood(b.dataset.pq) || foodSearch(b.dataset.pq.replace(/\s*\(.*\)/, ""))[0]);
+    if (b.dataset.pf) return add(findFood(b.dataset.pf));
+    if (b.dataset.px != null) { items.splice(+b.dataset.px, 1); return draw(); }
+    if (b.dataset.px2) { const it = items[+b.dataset.pi]; it.x = it.x === 2 ? 1 : 2; return draw(); }
+    if (b.dataset.ps != null) { items[+b.dataset.pi].s = +b.dataset.ps; return draw(); }
+    if (b.id === "plOk" && items.length) {
+      const t = total(); let photo;
+      if (photoFile && S.photos.ok) { try { photo = await uploadPhoto(photoFile); } catch (er) { } }
+      closeSheet();
+      opts.onPick({ name: (name || autoName()).trim(), kcal: Math.round(t.k), protein: Math.round(t.p), emoji: "🍽️", photo });
+    }
+  };
+  draw();
+}
+
 function foodSheet(opts) {
   let view = "search", sel = null, unit = null, qty = 1, query = opts.query || "";
   const recent = () => (S.recentFoods || []).map(r => ({ r, f: findFood(r.n) })).filter(x => x.f);
@@ -2817,11 +3209,13 @@ function foodSheet(opts) {
         <div class="fsearch"><span>🔍</span><input id="fq" placeholder="z. B. Brötchen, Pizza, Pringles, Traube…" value="${esc(query)}" autocomplete="off" enterkeyhint="search"></div>
         <div id="fres">${query ? (rs.length ? rs.map(f => row(f)).join("") : `<p class="tip" style="margin:12px 2px">Nichts gefunden für „${esc(query)}“. Leg es unten einfach selbst an – dann ist es beim nächsten Mal dabei.</p>`)
           : (rc.length ? `<div class="fsec">Zuletzt verwendet</div>${rc.map(({ r, f }) => row(f, `zuletzt: ${fmtFrac(r.q)} ${esc(r.u === "__base" ? f.base : r.u)}`)).join("")}` : `<p class="tip" style="margin:12px 2px">Über ${foodsBase().length} Lebensmittel – vom Bäcker-Brötchen über Döner bis zur Weintraube. Einfach lostippen.</p>`)}</div>
+        ${opts.snack ? "" : `<button type="button" class="btn plbtn" id="fplate">🍽️ Teller schätzen <small>Foto + Mengen in Tellerteilen</small></button>`}
         <button type="button" class="btn ghost" id="fown" style="margin-top:12px">✏️ ${query ? `„${esc(query)}“` : "Eigenes Lebensmittel"} selbst eintragen</button>
         <div class="actions"><button class="btn ghost" id="fcancel">Abbrechen</button></div>`;
       const inp = $("#fq"); inp.oninput = () => { query = inp.value; const pos = inp.selectionStart; drawResultsOnly(); };
       setTimeout(() => { inp.focus(); inp.setSelectionRange(inp.value.length, inp.value.length); }, 60);
       const fb0 = $("#fback0"); if (fb0) fb0.onclick = () => opts.onBack();
+      const fp = $("#fplate"); if (fp) fp.onclick = e => { e.stopPropagation(); plateSheet({ ...opts, onBack: () => foodSheet({ ...opts, query }) }); };
     } else if (view === "detail") {
       const f = sel, n = nut();
       const units = f.mine ? [["Portion", 100]] : f.units;
@@ -2940,7 +3334,7 @@ const I18N_ING = {
 };
 // ---------- Rezeptvorlagen (für „+ Neues Rezept“) ----------
 // Rezept-Vorlagen kommen aus der Rezept-Bibliothek (rezepte.js / Block oben)
-const REC_KEYS = new Set(["id", "en", "es", "emoji", "bild", "typ", "beilage", "einheit", "portionen", "tags", "zutaten", "zubereitung"]);
+const REC_KEYS = new Set(["id", "en", "es", "emoji", "bild", "typ", "beilage", "einheit", "portionen", "tags", "vegan", "zutaten", "zubereitung"]);
 const slugify = t => t.toLowerCase().replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/ß/g, "ss").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "");
 function parseRecipeLib(txt) {
   const out = []; let r = null, sec = null;
@@ -2957,26 +3351,43 @@ function parseRecipeLib(txt) {
       else if (key === "typ") r.kind = /^sau/i.test(v) ? "sauce" : "main"; else if (key === "beilage") r.side = v.toLowerCase() || null;
       else if (key === "einheit") r.unit = /^st/i.test(v) ? "stk" : "box"; else if (key === "portionen") r.portions = Math.max(1, parseInt(v) || 4);
       else if (key === "tags") r.tags = v.split(",").map(x => x.trim().toLowerCase()).filter(Boolean);
+      else if (key === "vegan") r.vegan = v.split(";").map(x => x.split(">").map(y => y.trim())).filter(x => x.length === 2 && x[0] && x[1]);
       continue;
     }
     if (sec === "ing" && t[0] === "-") { const mm = t.slice(1).trim().match(/^(.*?)\s*:\s*([\d.,]+)\s*(?:g|ml)?\s*(pro\s+portion)?/i); if (mm) { const g = parseFloat(mm[2].replace(",", ".")); r.ing.push(mm[3] ? { n: mm[1].trim(), pp: g } : { n: mm[1].trim(), g }); } continue; }
     if (sec === "steps") r.steps.push(t.replace(/^\d+[.)]\s*/, ""));
   }
-  out.forEach(x => { if (!x.id) x.id = "t_" + slugify(x.name); if (x.kind !== "sauce") x.side = null; });
+  out.forEach(x => { if (!x.id) x.id = "t_" + slugify(x.name); if (x.kind !== "sauce") x.side = null; if (!x.foto) { x.foto = "fotos/" + slugify(x.name) + ".jpg"; x.fotoAuto = true; } });
   return out.filter(x => x.ing.length);
 }
 const REC_TEMPLATES = parseRecipeLib(window.NUVIO_REZEPTE);
 const I18N_TPL = {}; REC_TEMPLATES.forEach(t => { if (t.en || t.es) I18N_TPL[t.name] = [t.en || t.name, t.es || t.name]; });
 Object.assign(I18N_ING, I18N_TPL);
 function templateSheet() {
-  openSheet(`<h3>📖 Neues Rezept</h3><p class="tip" style="margin:-6px 0 10px">Starte mit einer Vorlage und pass die Mengen an – oder leg ein leeres Rezept an.</p>
-    <button class="btn" id="tplEmpty" style="margin-bottom:12px">✏️ Leeres Rezept</button>
-    <div class="tplgrid">${REC_TEMPLATES.map(t => { const pp = recipePortion(t), sd = t.kind === "sauce" ? sideById(t.side) : null, sn = sideNut(sd);
-      return `<button type="button" class="tplcard" data-tpl="${t.id}"><span class="tplimg">${foodArt(t.art, t.emoji)}</span><b class="n">${esc(t.name)}</b><small>${fmt(pp.k + sn.k)} kcal · ${fmt(pp.p + sn.p)} g Eiw.${t.unit === "stk" ? " / Stück" : ""}</small></button>`; }).join("")}</div>
+  let q = "";
+  openSheet(`<h3>📖 Neues Rezept</h3>
+    <button class="btn" id="tplEmpty" style="margin-bottom:14px">✏️ Leeres Rezept</button>
+    <h4 style="margin:0 0 8px">Rezept als Vorlage suchen</h4>
+    <div class="fsearch"><span>🔍</span><input id="tq" placeholder="z. B. Curry, Hähnchen, eigenes Rezept …" autocomplete="off" enterkeyhint="search"></div>
+    <div id="tres"></div>
     <div class="actions"><button class="btn ghost" id="cancel">Abbrechen</button></div>`);
+  const mineMatch = r => recipeMatches({ name: r.name, en: "", es: "", tags: [], ing: r.ing || [] }, q);
+  const card = (t, own) => { const pp = recipePortion(t), sd = t.kind === "sauce" ? sideById(t.side) : null, sn = sideNut(sd);
+    return `<button type="button" class="icard" data-tpl="${esc(t.id)}" data-own="${own ? 1 : ""}">${imgHtml(t, "icimg")}<span class="icb"><b>${esc(t.name)}</b><small>${own ? "<span>Mein Rezept</span> · " : ""}${fmt(pp.k + sn.k)} kcal · ${fmt(pp.p + sn.p)} g Eiw.${t.unit === "stk" ? " / Stück" : ""}</small></span></button>`; };
+  const draw = () => {
+    const mine = S.recipes.filter(mineMatch), lib = REC_TEMPLATES.filter(t => recipeMatches(t, q));
+    $("#tres").innerHTML = (mine.length ? `<div class="fsec">Meine Rezepte</div><div class="igrid">${mine.map(r => card(r, true)).join("")}</div>` : "")
+      + (lib.length ? `<div class="fsec">Rezept-Bibliothek</div><div class="igrid">${lib.map(t => card(t, false)).join("")}</div>` : "")
+      + (!mine.length && !lib.length ? `<p class="tip" style="margin:12px 2px">Nichts gefunden. Probier eine Zutat oder starte mit einem leeren Rezept.</p>` : "");
+  };
   $("#cancel").onclick = closeSheet;
   $("#tplEmpty").onclick = () => cookSheet(null, "newrecipe");
-  sheet.querySelectorAll("[data-tpl]").forEach(b => b.onclick = () => { const t = REC_TEMPLATES.find(x => x.id === b.dataset.tpl); if (t) cookSheet(null, "newrecipe", { ...clone(t), name: T(t.name) }); });
+  $("#tq").oninput = e => { q = e.target.value; draw(); };
+  sheet.onclick = e => { const b = e.target.closest("[data-tpl]"); if (!b) return;
+    const own = b.dataset.own, t = own ? S.recipes.find(x => x.id === b.dataset.tpl) : REC_TEMPLATES.find(x => x.id === b.dataset.tpl); if (!t) return;
+    const c = clone(t); delete c.id; c.name = own ? `${t.name} (Kopie)` : T(t.name);
+    cookSheet(null, "newrecipe", c); };
+  draw();
 }
 
 // ---------- Übersetzung (DE / EN / ES) ----------
@@ -3266,6 +3677,17 @@ const I18N = {
 "Die Prognose-Linie zeigt typische Wasser-Hochs": ["The forecast line shows typical water highs", "La línea de previsión muestra los picos típicos de agua"],
 "– das ist kein Fett und geht danach wieder runter.": ["– that isn't fat and goes back down afterwards.", "– no es grasa y luego vuelve a bajar."],
 "Feste": ["Festivals", "Fiestas"],
+"🍽️ Teller schätzen": ["🍽️ Estimate a plate", "🍽️ Estimar un plato"], "Foto + Mengen in Tellerteilen": ["Photo + amounts in plate portions", "Foto + cantidades en partes del plato"], "Mit Foto kannst du dein Essen beim Schätzen ansehen und im Tagebuch behalten.": ["With a photo you can look at your food while estimating and keep it in your diary.", "Con una foto puedes ver tu comida al estimar y guardarla en tu diario."], "Was liegt auf dem Teller?": ["What's on the plate?", "¿Qué hay en el plato?"], "Andere Zutat oder Gericht suchen …": ["Search another ingredient or dish …", "Buscar otro ingrediente o plato …"], "Name im Tagebuch": ["Name in diary", "Nombre en el diario"], "Geschätzt für einen normalen Essteller (ca. 26 cm), Mengen gegart. Ein Richtwert – Wiegen ist genauer.": ["Estimated for a normal dinner plate (about 26 cm), cooked amounts. A guide – weighing is more accurate.", "Estimado para un plato normal (unos 26 cm), cantidades cocinadas. Es orientativo: pesar es más exacto."], "Tippe an, was du siehst, und wähle dann die Menge: ¼ Teller, eine Faust, ein Handteller …": ["Tap what you see, then choose the amount: ¼ plate, a fist, a palm …", "Toca lo que ves y elige la cantidad: ¼ de plato, un puño, una palma …"], "Klecks": ["Dollop", "Poquito"], "¼ Teller": ["¼ plate", "¼ plato"], "½ Teller": ["½ plate", "½ plato"], "¾ Teller": ["¾ plate", "¾ plato"], "voller Teller": ["full plate", "plato lleno"], "Faust": ["Fist", "Puño"], "halber Handteller": ["half a palm", "media palma"], "Handteller": ["Palm", "Palma"], "wenig": ["a little", "poco"], "normal": ["normal", "normal"], "viel": ["a lot", "mucho"], "🍚 Reis": ["🍚 Rice", "🍚 Arroz"], "🍝 Nudeln": ["🍝 Pasta", "🍝 Pasta"], "🥔 Kartoffeln": ["🥔 Potatoes", "🥔 Patatas"], "🍟 Pommes": ["🍟 Fries", "🍟 Patatas fritas"], "🍗 Hähnchen": ["🍗 Chicken", "🍗 Pollo"], "🥩 Rind / Hack": ["🥩 Beef / mince", "🥩 Ternera / picada"], "🐟 Lachs": ["🐟 Salmon", "🐟 Salmón"], "🍳 Spiegelei": ["🍳 Fried egg", "🍳 Huevo frito"], "🧈 Tofu": ["🧈 Tofu", "🧈 Tofu"], "🥦 Brokkoli": ["🥦 Broccoli", "🥦 Brócoli"], "🥕 Gemüse": ["🥕 Vegetables", "🥕 Verduras"], "🥗 Salat": ["🥗 Salad", "🥗 Ensalada"], "🍅 Tomatensoße": ["🍅 Tomato sauce", "🍅 Salsa de tomate"], "🥛 Sahnesoße": ["🥛 Cream sauce", "🥛 Salsa de nata"], "🟤 Bratensoße": ["🟤 Gravy", "🟤 Salsa de asado"], "🍛 Currysoße": ["🍛 Curry sauce", "🍛 Salsa de curry"], "🫒 Öl / Butter": ["🫒 Oil / butter", "🫒 Aceite / mantequilla"],
+"📸 Foto aufnehmen": ["📸 Take photo", "📸 Hacer foto"], "📷 Aus Galerie": ["📷 From gallery", "📷 De la galería"],
+"🌱 Vegane Variante ansehen": ["🌱 Show vegan version", "🌱 Ver versión vegana"], "🌱 Vegane Variante an": ["🌱 Vegan version on", "🌱 Versión vegana activada"], "Gut einfrierbar – hält im Tiefkühler etwa drei Monate.": ["Freezes well – keeps for about three months.", "Se congela bien – aguanta unos tres meses."], "Lieber im Kühlschrank aufbewahren als einfrieren:": ["Better kept in the fridge than frozen:", "Mejor en la nevera que congelado:"], "(magst du laut Profil nicht eingefroren)": ["(you don't like it frozen, per your profile)", "(no te gusta congelado, según tu perfil)"], "wird beim Auftauen matschig.": ["goes mushy when thawed.", "queda blando al descongelar."], "Enthält:": ["Contains:", "Contiene:"], "statt": ["instead of", "en vez de"], "❄️ gut einfrierbar": ["❄️ freezes well", "❄️ se congela bien"], "🧊 lieber frisch": ["🧊 best fresh", "🧊 mejor fresco"], "🌱 vegan": ["🌱 vegan", "🌱 vegano"], "🥕 vegetarisch": ["🥕 vegetarian", "🥕 vegetariano"], "🌱 vegane Variante": ["🌱 vegan version", "🌱 versión vegana"], "{0} passen nicht zu deinem Profil": ["{0} don't match your profile", "{0} no encajan con tu perfil"], "{0} passt nicht zu deinem Profil": ["{0} doesn't match your profile", "{0} no encaja con tu perfil"], "Ernährung & Einfrieren": ["Diet & freezing", "Dieta y congelación"], "vegan, Allergien": ["vegan, allergies", "vegano, alergias"], "Rezeptvorschläge zeigen nur, was dazu passt. Gerichte mit veganer Variante zählen mit.": ["Recipe ideas only show what fits. Dishes with a vegan version count too.", "Las sugerencias solo muestran lo que encaja. Cuentan también los platos con versión vegana."], "🍽️ Alles": ["🍽️ Everything", "🍽️ De todo"], "🥕 Vegetarisch": ["🥕 Vegetarian", "🥕 Vegetariano"], "🌱 Vegan": ["🌱 Vegan", "🌱 Vegano"], "Allergien & Unverträglichkeiten": ["Allergies & intolerances", "Alergias e intolerancias"], "Rezepte damit werden ausgeblendet.": ["Recipes containing them are hidden.", "Se ocultan las recetas que los contienen."], "Mag ich nicht eingefroren": ["I don't like these frozen", "No me gustan congelados"], "Solche Gerichte bekommen den Hinweis „lieber frisch“.": ["Such dishes get the note “best fresh”.", "Esos platos llevan la nota «mejor fresco»."], "Salat, Mayo, Avocado, Joghurt, gekochtes Ei und frische Tomaten gelten immer als „lieber frisch“.": ["Salad, mayo, avocado, yoghurt, boiled egg and fresh tomatoes always count as “best fresh”.", "Ensalada, mayonesa, aguacate, yogur, huevo cocido y tomate fresco siempre cuentan como «mejor fresco»."], "🌾 Gluten": ["🌾 Gluten", "🌾 Gluten"], "🥛 Laktose": ["🥛 Lactose", "🥛 Lactosa"], "🌰 Nüsse": ["🌰 Nuts", "🌰 Frutos secos"], "🥜 Erdnüsse": ["🥜 Peanuts", "🥜 Cacahuetes"], "🥚 Ei": ["🥚 Egg", "🥚 Huevo"], "🐟 Fisch": ["🐟 Fish", "🐟 Pescado"], "🦐 Meeresfrüchte": ["🦐 Shellfish", "🦐 Marisco"], "🫘 Soja": ["🫘 Soy", "🫘 Soja"], "⚪ Sesam": ["⚪ Sesame", "⚪ Sésamo"], "🥬 Sellerie": ["🥬 Celery", "🥬 Apio"], "Gluten": ["Gluten", "Gluten"], "Laktose": ["Lactose", "Lactosa"], "Nüsse": ["Nuts", "Frutos secos"], "Erdnüsse": ["Peanuts", "Cacahuetes"], "Ei": ["Egg", "Huevo"], "Fisch": ["Fish", "Pescado"], "Meeresfrüchte": ["Shellfish", "Marisco"], "Soja": ["Soy", "Soja"], "Sesam": ["Sesame", "Sésamo"], "Sellerie": ["Celery", "Apio"], "Gnocchi": ["Gnocchi", "Ñoquis"], "Kartoffeln (gekocht)": ["Potatoes (boiled)", "Patatas (cocidas)"], "Sahnesoßen": ["Cream sauces", "Salsas de nata"], "Joghurt & Quark": ["Yoghurt & quark", "Yogur y requesón"], "gekochtes Ei": ["boiled egg", "huevo cocido"], "Salat & Gurke": ["Salad & cucumber", "Ensalada y pepino"], "frische Tomaten": ["fresh tomatoes", "tomate fresco"], "Avocado": ["Avocado", "Aguacate"], "Paniertes": ["Breaded food", "Rebozados"], "Sushi": ["Sushi", "Sushi"],
+"Eigenes Foto einfügen": ["Add your own photo", "Añadir foto propia"], "Foto für {n}": ["Photo for {n}", "Foto para {n}"], "Automatisch aus den Zutaten": ["Automatic from the ingredients", "Automático según los ingredientes"], "Auto": ["Auto", "Auto"],
+"Rezept als Vorlage suchen": ["Search a recipe as template", "Buscar una receta como plantilla"],
+"z. B. Curry, Hähnchen, eigenes Rezept …": ["e.g. curry, chicken, own recipe …", "p. ej. curry, pollo, receta propia …"],
+"Mein Rezept": ["My recipe", "Mi receta"],
+"Rezept-Bibliothek": ["Recipe library", "Biblioteca de recetas"],
+"Nichts gefunden. Probier eine Zutat oder starte mit einem leeren Rezept.": ["Nothing found. Try an ingredient or start with a blank recipe.", "No se encontró nada. Prueba un ingrediente o empieza con una receta vacía."],
+"{0} (Kopie)": ["{0} (copy)", "{0} (copia)"],
+
 "Vorrat ist leer": ["Pantry is empty", "La despensa está vacía"],
 "🧊 aus dem Vorrat": ["🧊 from the pantry", "🧊 de la despensa"],
 "Einlagern": ["Store", "Guardar"],
@@ -3500,7 +3922,7 @@ addEventListener("popstate", () => { if (navBack()) { try { history.pushState({ 
 function drawHistSettings() { $("#setGoal").value = S.goal; $("#setProt").value = S.prot; $("#setSnack").value = S.snackLimit; $("#setTarget").value = S.target ?? ""; $("#setCycle").value = S.cycleStart || ""; $("#setCycle").max = curDay; $("#setCycLen").value = S.cycleLen; $("#setHeight").value = S.height; $("#setBirth").value = S.birthY; }
 document.addEventListener("click", e => { if (e.target.closest("[data-open-profile]") || e.target.closest("#btnProfile")) openProfile(); });
 wireProfile();
-window.__nuvio = { get foods() { return FOODS_RAW; }, get cats() { return FOOD_CATS; }, get recipes() { return REC_TEMPLATES; }, ingInfo: n => ingInfo(n) }; // für Tests
+window.__nuvio = { get foods() { return FOODS_RAW; }, get cats() { return FOOD_CATS; }, get recipes() { return REC_TEMPLATES; }, ingInfo: n => ingInfo(n), compose: (x, r) => composeArt(x, r), parts: (x) => dishParts(x) }; // für Tests
 // Profil: Abschnitte zum Aufklappen (Sprache bleibt immer offen)
 (function profileAccordion() {
   const v = $("#v-profile"); if (!v) return;

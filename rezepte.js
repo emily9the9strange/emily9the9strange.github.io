@@ -7,7 +7,10 @@ window.NUVIO_REZEPTE = String.raw`
 #
 #    en / es     Name auf Englisch / Spanisch (optional)
 #    emoji       ein Emoji
-#    bild        Illustration: paella, tortilla, soup_red, soup_orange, soup_clear,
+#    bild        weglassen = Bild wird automatisch aus den Zutaten zusammengestellt
+#                (Mengen bestimmen die Größe der Fächer). Ein Foto namens
+#                fotos/<rezeptname>.jpg wird automatisch genommen (Liste: fotos/DATEINAMEN.txt).
+#                Oder fest:  Illustration: paella, tortilla, soup_red, soup_orange, soup_clear,
 #                fondue, curry, shakshuka, lachs, schmarrn, oats, pancakes, muffins,
 #                loaf, pisto, pasta, auflauf, stew, ricebowl, wrap, salat, bolo,
 #                chili, koettbullar, honighuhn, gemuesesahne, brokkoli, linsen, herzen
@@ -18,6 +21,8 @@ window.NUVIO_REZEPTE = String.raw`
 #    einheit     box (Standard) oder stück (z. B. Muffins, Pancakes)
 #    portionen   wie viele Boxen/Stück das Rezept ergibt
 #    tags        Stichwörter für die Suche, mit Komma getrennt
+#    vegan       eigene vegane Alternativen, z. B.  vegan: Kochsahne > Hafer-Kochcreme (vegan); Käse gerieben > Veganer Reibekäse
+#                (ohne Angabe tauscht die App selbst: Hähnchen → Tofu, Sahne → Hafer-Kochcreme usw.)
 #
 #    zutaten:    darunter eine Zutat pro Zeile:   - Name: 300 g
 #                Menge pro Portion (z. B. Nudeln): - Nudeln (trocken): 120 g pro Portion
@@ -45,7 +50,7 @@ zubereitung:
 1. Zwiebeln in Ringe schneiden und in der Butter langsam goldbraun braten.
 2. Käse reiben. Spätzle nach Packung erhitzen.
 3. Spätzle und Käse abwechselnd in eine Auflaufform schichten, kurz bei 180 °C überbacken.
-4. Mit den Röstzwiebeln servieren. Hält 3 Tage im Kühlschrank.
+4. Mit den Röstzwiebeln servieren.
 
 ## Käsefondue
 en: Cheese fondue
@@ -108,8 +113,6 @@ zubereitung:
 1. Kartoffeln und Zwiebeln dünn schneiden und im Öl bei mittlerer Hitze weich garen.
 2. Eier verquirlen, salzen, Kartoffeln untermischen und 10 Minuten ziehen lassen.
 3. In der Pfanne bei kleiner Hitze stocken lassen, mit einem Teller wenden, fertig braten.
-4. Schmeckt auch kalt – ideal zum Mitnehmen.
-
 ## Gazpacho
 en: Gazpacho
 es: Gazpacho
@@ -129,7 +132,7 @@ zutaten:
 zubereitung:
 1. Gemüse grob schneiden, Brot kurz einweichen.
 2. Alles mit Öl, Salz und einem Schuss Essig fein pürieren.
-3. Mindestens 2 Stunden kalt stellen. Hält 3 Tage im Kühlschrank.
+3. Mindestens 2 Stunden kalt stellen.
 
 ## Lentejas (Linseneintopf)
 en: Spanish lentil stew
@@ -152,8 +155,6 @@ zubereitung:
 1. Zwiebeln, Paprika und Chorizo im Öl anbraten.
 2. Linsen, gewürfelte Kartoffeln, Karotten und Wasser dazugeben.
 3. 35–40 Minuten köcheln, mit Paprikapulver, Lorbeer und Salz abschmecken.
-4. Lässt sich gut einfrieren.
-
 ## Albóndigas (Hackbällchen in Soße)
 en: Albóndigas (meatballs in sauce)
 es: Albóndigas en salsa
@@ -195,7 +196,7 @@ zutaten:
 zubereitung:
 1. Gemüse in kleine Würfel schneiden.
 2. Zwiebeln und Paprika im Öl anbraten, dann Aubergine und Zucchini.
-3. Tomaten dazu und 20 Minuten sanft schmoren. Passt auch mit Spiegelei.
+3. Tomaten dazu und 20 Minuten sanft schmoren.
 
 ## Chili sin Carne
 en: Chili sin carne
@@ -238,7 +239,7 @@ zutaten:
 zubereitung:
 1. Hack krümelig anbraten, Zwiebeln und Paprika dazu.
 2. Tomatenmark kurz mitrösten, Tomaten, Bohnen und Mais dazugeben.
-3. Mit Kreuzkümmel, Chili und Salz würzen und 30 Minuten köcheln. Friert sich super ein.
+3. Mit Kreuzkümmel, Chili und Salz würzen und 30 Minuten köcheln.
 
 ## Hähnchen-Curry
 en: Chicken curry
@@ -342,7 +343,7 @@ zubereitung:
 1. Hack anbraten, passierte Tomaten dazu, 20 Minuten köcheln.
 2. Butter schmelzen, Mehl einrühren, Milch nach und nach dazu – Béchamel mit Muskat würzen.
 3. Abwechselnd Platten, Hacksoße und Béchamel schichten, mit Käse abschließen.
-4. Bei 180 °C etwa 40 Minuten backen. In Stücken einfrieren.
+4. Bei 180 °C etwa 40 Minuten backen.
 
 ## Spaghetti Carbonara
 en: Spaghetti carbonara
@@ -439,7 +440,7 @@ zutaten:
 zubereitung:
 1. Hähnchen und Gemüse mit Wasser und Brühe 30 Minuten köcheln.
 2. Hähnchen herausnehmen, zerzupfen und zurückgeben.
-3. Nudeln in der Suppe garen. Nudeln getrennt einfrieren, damit sie nicht matschig werden.
+3. Nudeln in der Suppe garen.
 
 ## Kürbissuppe
 en: Pumpkin soup
@@ -517,7 +518,7 @@ zutaten:
 zubereitung:
 1. Haferflocken, Milch und Joghurt in Gläser füllen und verrühren.
 2. Beeren und Honig obendrauf.
-3. Über Nacht in den Kühlschrank stellen. Hält 3 Tage.
+3. Über Nacht in den Kühlschrank stellen.
 
 ## Protein-Pancakes
 en: Protein pancakes
@@ -537,8 +538,6 @@ zutaten:
 zubereitung:
 1. Alles im Mixer zu einem glatten Teig pürieren.
 2. In einer beschichteten Pfanne kleine Pancakes von beiden Seiten backen.
-3. Lassen sich einfrieren und im Toaster aufwärmen.
-
 ## Schoko-Muffins
 en: Chocolate muffins
 es: Magdalenas de chocolate
@@ -580,7 +579,7 @@ zutaten:
 zubereitung:
 1. Bananen zerdrücken, mit geschmolzener Butter, Zucker und Eiern verrühren.
 2. Mehl und Backpulver unterheben, mit Zimt würzen.
-3. In einer Kastenform bei 175 °C etwa 50 Minuten backen. In 12 Scheiben schneiden.
+3. In einer Kastenform bei 175 °C etwa 50 Minuten backen.
 
 ## Teriyaki-Hähnchen
 en: Teriyaki chicken
@@ -643,7 +642,7 @@ zutaten:
 zubereitung:
 1. Hähnchen in Streifen schneiden und mit dem Gewürz im Öl anbraten.
 2. Paprika und Zwiebeln in Streifen dazu, 5 Minuten braten.
-3. Tomaten dazugeben und 10 Minuten einköcheln. Passt auch in Wraps.
+3. Tomaten dazugeben und 10 Minuten einköcheln.
 
 ## Putengeschnetzeltes in Rahmsoße
 en: Turkey strips in cream sauce
@@ -936,7 +935,7 @@ zutaten:
 zubereitung:
 1. Gemüse würfeln und mit Erbsen, Kassler und Brühe 40 Minuten köcheln.
 2. Kassler herausnehmen, Suppe teilweise pürieren.
-3. Fleisch klein schneiden und zurückgeben. Am nächsten Tag schmeckt sie noch besser.
+3. Fleisch klein schneiden und zurückgeben.
 
 ## Stamppot mit Grünkohl
 en: Kale stamppot
@@ -1017,7 +1016,7 @@ zutaten:
 zubereitung:
 1. Fleisch in feine Streifen schneiden und mit Gyros-Gewürz und Öl marinieren.
 2. Portionsweise sehr heiß anbraten, Zwiebeln dazu.
-3. Mit Tzatziki und Reis servieren. Tzatziki getrennt aufbewahren.
+3. Mit Tzatziki und Reis servieren.
 
 ## Pollo al ajillo
 en: Garlic chicken
@@ -1097,7 +1096,7 @@ zutaten:
 zubereitung:
 1. Reis kochen und mit etwas Essig und Zucker würzen.
 2. Lachs würfeln und in Sojasoße marinieren. Gemüse schneiden.
-3. Alles auf dem Reis anrichten. Frisch essen, nicht einfrieren.
+3. Alles auf dem Reis anrichten.
 
 ## Couscous-Salat mit Kichererbsen
 en: Couscous salad with chickpeas
@@ -1117,7 +1116,7 @@ zutaten:
 zubereitung:
 1. Couscous mit gleicher Menge kochendem Wasser übergießen und 5 Minuten quellen lassen.
 2. Gemüse würfeln, mit Kichererbsen untermischen.
-3. Mit Öl, Zitrone, Minze, Salz und Pfeffer abschmecken. Hält 3 Tage.
+3. Mit Öl, Zitrone, Minze, Salz und Pfeffer abschmecken.
 
 ## Hähnchen-Wraps
 en: Chicken wraps
@@ -1196,4 +1195,2091 @@ zubereitung:
 1. Quark, Eier, Zucker, Puddingpulver und Zitronenabrieb glatt rühren.
 2. In eine gefettete Springform füllen.
 3. Bei 170 °C etwa 60 Minuten backen und im Ofen auskühlen lassen.
+
+# ---------------------------------------------------------------------------
+#  Meal-Prep-Rezepte (neu geschrieben, Nov 2026) – Fotos: Brians Meal Prep
+# ---------------------------------------------------------------------------
+
+## Linsencurry mit Garnelen
+en: Lentil curry with prawns
+es: Curry de lentejas con gambas
+emoji: 🦐
+bild: fotos/linsencurry-garnelen.jpg
+typ: gericht
+portionen: 3
+tags: mealprep, garnelen, linsen, curry, protein
+zutaten:
+- Rote Linsen (trocken): 129 g
+- Kürbis (Hokkaido): 627 g
+- Aubergine: 223 g
+- Paprika: 228 g
+- Cremefine 7 %: 100 g
+- Garnelen (TK, roh): 675 g
+- Rapsöl: 10 g
+- Passierte Tomaten: 397 g
+zubereitung:
+1. Kürbis, Aubergine und Paprika würfeln und in der Hälfte vom Öl anbraten.
+2. Linsen, passierte Tomaten und etwa 300 ml Wasser dazugeben, mit Currypulver, Kreuzkümmel, Salz und Pfeffer würzen.
+3. Rund 20 Minuten köcheln lassen, bis Linsen und Kürbis weich sind, dann die Cremefine einrühren.
+4. Garnelen auftauen, trocken tupfen und im restlichen Öl 2–3 Minuten pro Seite braten.
+5. Curry auf 3 Boxen verteilen und die Garnelen daneben legen.
+
+## Schwein mit Linsen
+en: Pork with lentils
+es: Cerdo con lentejas
+emoji: 🥩
+bild: fotos/schwein-mit-linsen.jpg
+typ: gericht
+portionen: 4
+tags: mealprep, schwein, linsen, protein
+zutaten:
+- Linsen (gekocht): 528 g
+- Champignons: 500 g
+- Schweinekarree / Karreesteak (roh): 998 g
+- Karotten: 170 g
+- Zwiebeln: 135 g
+zubereitung:
+1. Zwiebeln und Karotten klein würfeln, Champignons in Scheiben schneiden.
+2. Gemüse in einer beschichteten Pfanne anbraten, die gekochten Linsen dazugeben und mit Salz, Pfeffer, etwas Sojasauce oder Brühe abschmecken.
+3. Karreesteaks würzen und von jeder Seite 3–4 Minuten braten, bis sie durch sind.
+4. Linsengemüse und Fleisch auf 4 Boxen verteilen.
+
+## Paprikahendl mit Knödeln und Sauerkraut
+en: Paprika chicken with dumplings and sauerkraut
+es: Pollo al pimentón con albóndigas y chucrut
+emoji: 🍗
+bild: fotos/paprikahendl-knoedel.jpg
+typ: gericht
+portionen: 4
+tags: mealprep, hähnchen, österreichisch, knödel
+zutaten:
+- Hähnchenbrustfilet (roh): 600 g
+- Paprika: 300 g
+- Zwiebeln: 200 g
+- Tomatenmark: 40 g
+- Passierte Tomaten: 400 g
+- Sauerrahm 15 %: 100 g
+- Rapsöl: 10 g
+- Kartoffelknödel (Packung): 150 g pro Portion
+- Sauerkraut (abgetropft): 150 g pro Portion
+zubereitung:
+1. Hähnchen in Stücke schneiden und im Öl rundum anbraten, herausnehmen.
+2. Zwiebeln und Paprika anbraten, Tomatenmark und reichlich Paprikapulver kurz mitrösten.
+3. Mit passierten Tomaten und etwas Wasser ablöschen, Hähnchen dazugeben und 15 Minuten köcheln lassen.
+4. Vom Herd nehmen und den Sauerrahm einrühren.
+5. Knödel nach Packung zubereiten, Sauerkraut erwärmen und alles auf 4 Boxen verteilen.
+
+## Hähnchen süß-sauer mit Reis
+en: Sweet and sour chicken with rice
+es: Pollo agridulce con arroz
+emoji: 🍍
+bild: fotos/haehnchen-suess-sauer.jpg
+typ: gericht
+portionen: 4
+tags: mealprep, hähnchen, asiatisch, reis
+zutaten:
+- Hähnchenbrustfilet (roh): 600 g
+- Speisestärke: 25 g
+- Paprika: 300 g
+- Zwiebeln: 150 g
+- Ananas (Dose, im eigenen Saft): 340 g
+- Sojasauce (dunkel): 45 g
+- Passierte Tomaten: 200 g
+- Erythrit: 15 g
+- Basmatireis (roh): 80 g pro Portion
+zubereitung:
+1. Hähnchen würfeln, in der Hälfte der Stärke wenden und im Airfryer oder in der Pfanne knusprig braten.
+2. Zwiebeln und Paprika in Stücke schneiden und anbraten, die Ananasstücke kurz mitbraten.
+3. Mit Sojasauce und dem Ananassaft ablöschen, passierte Tomaten dazugeben und aufkochen.
+4. Mit Erythrit abschmecken, restliche Stärke in etwas Wasser anrühren und die Sauce damit andicken.
+5. Hähnchen in der Sauce schwenken, Reis nach Packung kochen und alles aufteilen.
+
+## Orange Chicken mit Basmatireis und Brokkoli
+en: Orange chicken with basmati rice and broccoli
+es: Pollo a la naranja con arroz basmati y brócoli
+emoji: 🍊
+bild: honighuhn
+typ: gericht
+portionen: 4
+tags: mealprep, hähnchen, airfryer, protein
+zutaten:
+- Hähnchenbrustfilet (roh): 600 g
+- Skyr: 150 g
+- Sojasauce (dunkel): 60 g
+- Orangen-Sirup Zero (SodaStream): 120 g
+- Speisestärke: 20 g
+- Basmatireis (roh): 80 g pro Portion
+- Brokkoli: 150 g pro Portion
+zubereitung:
+1. Hähnchen würfeln, mit Skyr und Gewürzen (z. B. Paprika, Knoblauch, Salz) marinieren.
+2. Im Airfryer oder Backofen goldbraun garen.
+3. Sojasauce und Orangensirup aufkochen, die in Wasser angerührte Stärke einrühren, bis die Sauce glänzt und leicht klebt.
+4. Hähnchen in der Sauce schwenken.
+5. Reis nach Packung kochen, Brokkoli dünsten oder im Airfryer garen und alles aufteilen.
+
+## Hackbällchen mit Kartoffel-Blumenkohl-Püree und Erbsen
+en: Meatballs with potato-cauliflower mash and peas
+es: Albóndigas con puré de patata y coliflor y guisantes
+emoji: 🧆
+bild: koettbullar
+typ: gericht
+portionen: 4
+tags: mealprep, hackfleisch, püree, airfryer
+zutaten:
+- Rinderhack (Tatar, fettarm): 600 g
+- Semmelbrösel: 50 g
+- Eier: 120 g
+- Zwiebeln: 100 g
+- Knoblauch: 10 g
+- Kartoffeln (mehlig): 600 g
+- Blumenkohl: 400 g
+- Karotten: 200 g
+- Erbsen (TK): 120 g pro Portion
+zubereitung:
+1. Zwiebeln und Knoblauch sehr fein hacken, mit Hack, Semmelbröseln, Eiern und Gewürzen verkneten.
+2. Kleine Bällchen formen und im Airfryer, in der Pfanne oder im Ofen braten.
+3. Kartoffeln, Blumenkohl und Karotten weich kochen, abgießen und zu Püree stampfen oder pürieren.
+4. Püree mit Salz und Muskat abschmecken, Erbsen nach Packung garen.
+5. Bällchen, Püree und Erbsen auf 4 Boxen verteilen.
+
+## Fisch süß-sauer mit Basmatireis
+en: Sweet and sour fish with basmati rice
+es: Pescado agridulce con arroz basmati
+emoji: 🐟
+bild: lachs
+typ: gericht
+portionen: 4
+tags: mealprep, fisch, asiatisch, reis
+zutaten:
+- Fischfilet (natur, roh): 600 g
+- Mehl: 20 g
+- Speisestärke: 30 g
+- Zwiebeln: 150 g
+- Paprika: 250 g
+- Ananas (Dose, im eigenen Saft): 340 g
+- Sojasauce (dunkel): 45 g
+- Passierte Tomaten: 250 g
+- Erythrit: 15 g
+- Basmatireis (roh): 80 g pro Portion
+zubereitung:
+1. Fisch in mundgerechte Stücke schneiden, in Mehl und der Hälfte der Stärke wenden und knusprig braten.
+2. Zwiebeln und Paprika klein schneiden und anbraten, Ananas dazugeben und kurz mitbraten.
+3. Mit Sojasauce und Ananassaft ablöschen, passierte Tomaten einrühren und aufkochen.
+4. Mit Erythrit und Gewürzen abschmecken und mit der restlichen, in Wasser angerührten Stärke binden.
+5. Fisch vorsichtig unterheben und mit Reis servieren. Dazu passt ein Salat.
+
+## Mock Duck mit Maroni, Apfelrotkraut und Knödeln
+en: Mock duck with chestnuts, red cabbage and dumplings
+es: Pato vegano con castañas, lombarda y albóndigas
+emoji: 🦆
+bild: stew
+typ: gericht
+portionen: 4
+tags: vegan, mealprep, winter, airfryer
+zutaten:
+- Mock Duck (Dose): 400 g
+- Bratensauce (zubereitet): 250 g
+- Kartoffelknödel (Packung): 150 g pro Portion
+- Rotkraut / Apfelrotkohl (Glas): 150 g pro Portion
+- Maroni (vorgegart, Packung): 200 g
+zubereitung:
+1. Mock Duck abtropfen lassen und im Airfryer knusprig braten.
+2. In einer Pfanne mit der Bratensauce übergießen und kurz ziehen lassen.
+3. Knödel und Rotkraut nach Packung zubereiten.
+4. Maroni im Airfryer oder Ofen erwärmen und zur Mock Duck geben.
+
+## Gochujang Chicken mit Käse-Gnocchi
+en: Gochujang chicken with cheesy gnocchi
+es: Pollo gochujang con ñoquis de queso
+emoji: 🌶️
+bild: honighuhn
+typ: gericht
+portionen: 4
+tags: mealprep, hähnchen, koreanisch, scharf, airfryer
+zutaten:
+- Hähnchenbrustfilet (roh): 600 g
+- Skyr: 150 g
+- Gochujang (Chilipaste): 60 g
+- Sojasoße: 30 g
+- Speisestärke: 15 g
+- Erythrit: 10 g
+- Gnocchi (Packung, roh): 600 g
+- Körniger Frischkäse (fettarm): 200 g
+- Frischkäse (mager / 0,2 %): 100 g
+- Leichtmilch 1,5 %: 100 g
+- Reibekäse light: 60 g
+zubereitung:
+1. Hähnchen würfeln, mit Skyr und Gewürzen marinieren und im Airfryer garen.
+2. Gochujang mit etwas Wasser und Sojasauce verrühren, mit Erythrit abschmecken und mit angerührter Stärke eindicken. Hähnchen dazugeben.
+3. Gnocchi im Airfryer knusprig backen.
+4. Hüttenkäse, Frischkäse und Milch mit Gewürzen cremig mixen, in der Pfanne erwärmen und den Reibekäse darin schmelzen.
+5. Gnocchi in der Käsesauce schwenken und mit dem Hähnchen aufteilen.
+
+## Low-Cal Currywurst mit Pommes
+en: Low-cal currywurst with chips
+es: Currywurst ligera con patatas
+emoji: 🌭
+bild: wrap
+typ: gericht
+portionen: 4
+tags: low cal, airfryer, deutsch, fastfood light
+zutaten:
+- Geflügelwurst: 400 g
+- Cola Zero: 200 g
+- Tomatenpüree / Passata: 300 g
+- Currypulver: 10 g
+- Kartoffeln (festkochend): 800 g
+zubereitung:
+1. Kartoffeln in Pommes schneiden und 30 Minuten bis 2 Stunden in Wasser legen, dann gut trocken tupfen.
+2. Pommes im Airfryer goldbraun und knusprig garen und würzen.
+3. Geflügelwurst in Scheiben schneiden und im Airfryer grillen.
+4. Cola Zero und Tomatenpüree in einer Pfanne aufkochen, Currypulver und Gewürze dazu und etwas einkochen lassen.
+5. Wurst mit der Sauce übergießen und mit den Pommes servieren.
+
+## Hähnchen-Brokkoli-Reispfanne
+en: Chicken broccoli rice skillet
+es: Sartén de pollo, brócoli y arroz
+emoji: 🥦
+bild: ricebowl
+typ: gericht
+portionen: 1
+tags: hähnchen, reis, schnell, protein
+zutaten:
+- Reis (trocken): 80 g
+- Hähnchenbrustfilet (roh): 150 g
+- Brokkoli: 150 g
+- Kokosöl: 5 g
+zubereitung:
+1. Reis in leicht gesalzenem Wasser nach Packung kochen.
+2. Hähnchen in Stücke schneiden und mit Salz, Pfeffer und Paprikapulver würzen.
+3. Im Kokosöl etwa 10 Minuten goldbraun braten.
+4. Brokkoli in einem Topf rund 10 Minuten dünsten.
+5. Reis und Brokkoli zum Hähnchen geben, alles vermengen und abschmecken. Wer mag, gibt Knoblauch oder Mandelsplitter dazu.
+
+## Hähnchen-Reis-Pfanne mit Paprika und Cashews
+en: Chicken rice skillet with peppers and cashews
+es: Sartén de pollo y arroz con pimiento y anacardos
+emoji: 🫑
+bild: ricebowl
+typ: gericht
+portionen: 1
+tags: hähnchen, reis, asiatisch, schnell
+zutaten:
+- Reis (trocken): 80 g
+- Hähnchenbrustfilet (roh): 150 g
+- Paprika: 150 g
+- Cashewkerne: 10 g
+- Kokosöl: 5 g
+- Sojasoße: 45 g
+zubereitung:
+1. Reis in Salzwasser nach Packung kochen.
+2. Hähnchen und Paprika in mundgerechte Stücke schneiden.
+3. Hähnchen im Kokosöl rundum anbraten, dann die Paprika kurz mitbraten, bis sie bissfest ist.
+4. Mit Sojasauce vermengen.
+5. Cashews grob hacken, darüberstreuen und mit dem Reis anrichten.
+
+## Crispy Chicken Ciabatta
+en: Crispy chicken ciabatta
+es: Chapata de pollo crujiente
+emoji: 🥪
+bild: wrap
+typ: gericht
+portionen: 1
+tags: hähnchen, sandwich, airfryer, mitnehmen
+zutaten:
+- Ciabatta: 80 g
+- Hähnchenbrustfilet (roh): 150 g
+- Cornflakes (ungesüßt, zum Panieren): 30 g
+- Naturjoghurt fettarm 1,5 %: 80 g
+- Olivenöl: 10 g
+- Salatmischung (Tüte): 50 g
+zubereitung:
+1. Cornflakes in einem Beutel grob zerbröseln.
+2. Hähnchen in Streifen schneiden und mit der Hälfte des Joghurts, Salz, Pfeffer und Paprikapulver vermengen.
+3. Die Streifen in den Cornflakes wenden und leicht andrücken.
+4. Im Ofen oder Airfryer backen, bis sie innen durch und außen knusprig sind.
+5. Restlichen Joghurt mit dem Olivenöl, Salz und Pfeffer verrühren.
+6. Ciabatta aufschneiden, mit der Sauce bestreichen und mit Salat und Hähnchen belegen.
+
+## Puten-Wraps mit Kidneybohnen und Guacamole
+en: Turkey wraps with kidney beans and guacamole
+es: Wraps de pavo con alubias rojas y guacamole
+emoji: 🌯
+bild: wrap
+typ: gericht
+portionen: 1
+tags: pute, wrap, mexikanisch, schnell
+zutaten:
+- Vollkorn-Wrap: 80 g
+- Putenbrust (roh): 150 g
+- Kidneybohnen (abgetropft): 50 g
+- Avocado: 50 g
+- Paprika: 100 g
+- Kokosöl: 5 g
+zubereitung:
+1. Putenbrust in Streifen schneiden und mit Salz, Pfeffer und Paprikapulver würzen.
+2. Paprika in feine Streifen schneiden, Kidneybohnen abspülen und abtropfen lassen.
+3. Avocado mit einer Gabel zerdrücken und mit Salz und Pfeffer abschmecken.
+4. Putenstreifen im Kokosöl durchbraten.
+5. Wraps kurz erwärmen, mit der Avocado bestreichen, mit Pute, Bohnen und Paprika belegen und aufrollen.
+
+## One-Pan Steak mit Röstkartoffeln und Spargel
+en: One-pan steak with roast potatoes and asparagus
+es: Filete en una sartén con patatas y espárragos
+emoji: 🥩
+bild: lachs
+typ: gericht
+portionen: 1
+tags: rind, one-pan, low fat, protein
+zutaten:
+- Rinderhüftsteak (roh): 200 g
+- Kartoffeln (festkochend): 300 g
+- Spargel (grün): 100 g
+- Olivenöl: 5 g
+zubereitung:
+1. Kartoffeln in etwa 1 cm große Würfel schneiden, Spargel putzen und in Stücke schneiden.
+2. Steak trocken tupfen, mit der Hälfte des Öls einreiben und mit Salz und Pfeffer würzen.
+3. Restliches Öl in einer beschichteten Pfanne bei mittlerer Hitze erwärmen und die Kartoffeln 12–15 Minuten goldbraun braten.
+4. Spargel und Rosmarin oder Thymian dazugeben und 5–10 Minuten mitbraten.
+5. Gemüse an den Rand schieben und das Steak pro Seite 2–3 Minuten braten.
+6. Alles kurz durchschwenken, pfeffern und servieren.
+
+## Kartoffelauflauf mit Hüttenkäse und Pute
+en: Potato bake with cottage cheese and turkey
+es: Gratinado de patata con requesón y pavo
+emoji: 🥔
+bild: auflauf
+typ: gericht
+portionen: 1
+tags: auflauf, ofen, protein, schnell
+zutaten:
+- Kartoffeln (vorgekocht, Packung): 250 g
+- Körniger Frischkäse (fettarm): 150 g
+- Eier: 60 g
+- Putenbrust-Aufschnitt (mager): 100 g
+- Kirschtomaten: 150 g
+- Reibekäse light: 15 g
+zubereitung:
+1. Vorgekochte Kartoffeln abtropfen lassen und in Scheiben schneiden.
+2. Hüttenkäse mit dem Ei, Salz, Pfeffer und Paprikapulver verquirlen.
+3. Kartoffeln und ganze Kirschtomaten in eine kleine Auflaufform geben.
+4. Putenaufschnitt in Stücke zupfen und darüber verteilen, die Hüttenkäse-Mischung darübergießen.
+5. Mit Reibekäse bestreuen und im Ofen backen, bis die Eimasse gestockt und der Käse goldbraun ist.
+
+## Nudeln Napoletana mit Hack
+en: Pasta napoletana with mince
+es: Pasta napolitana con carne picada
+emoji: 🍝
+bild: bolo
+typ: gericht
+portionen: 1
+tags: nudeln, hackfleisch, italienisch, schnell
+zutaten:
+- Nudeln (trocken): 100 g
+- Rinderhack (Tatar, fettarm): 150 g
+- Tomatenmark: 10 g
+- Gehackte Tomaten (Dose): 200 g
+- Olivenöl: 5 g
+zubereitung:
+1. Nudeln in Salzwasser nach Packung kochen.
+2. Hack im Olivenöl krümelig anbraten.
+3. Tomatenmark dazugeben und etwa 1 Minute mitrösten.
+4. Mit den Tomaten ablöschen und mit Salz, Pfeffer, italienischen Kräutern, Knoblauch- und Zwiebelpulver einköcheln lassen.
+5. Nudeln mit der Sauce anrichten.
+
+## Cremige Spinat-Nudeln
+en: Creamy spinach pasta
+es: Pasta cremosa con espinacas
+emoji: 🥬
+bild: pasta
+typ: gericht
+portionen: 1
+tags: vegetarisch, nudeln, protein, schnell
+zutaten:
+- Nudeln (trocken): 80 g
+- Körniger Frischkäse (fettarm): 150 g
+- Blattspinat (frisch): 150 g
+- Walnüsse: 10 g
+zubereitung:
+1. Nudeln kochen und abgießen, dabei 3–4 EL Nudelwasser aufheben.
+2. Spinat in einer großen Pfanne zusammenfallen lassen.
+3. Hüttenkäse mit dem heißen Nudelwasser, Salz, Pfeffer, Knoblauchpulver und Muskat glatt rühren oder kurz pürieren.
+4. Nudeln und Sauce zum Spinat geben und gut vermischen.
+5. Mit gehackten Walnüssen bestreuen.
+
+## Rinderstreifen mit Brokkoli und Jasminreis
+en: Beef strips with broccoli and jasmine rice
+es: Tiras de ternera con brócoli y arroz jazmín
+emoji: 🥩
+bild: ricebowl
+typ: gericht
+portionen: 1
+tags: rind, asiatisch, wok, protein
+zutaten:
+- Jasminreis (roh): 80 g
+- Rinderhüftsteak (roh): 150 g
+- Brokkoli: 200 g
+- Sesamöl: 10 g
+- Sojasoße: 45 g
+zubereitung:
+1. Jasminreis nach Packung garen.
+2. Brokkoli in Röschen teilen und bissfest kochen oder dämpfen.
+3. Steak in sehr feine Streifen schneiden.
+4. Sesamöl im Wok stark erhitzen, nach Wunsch Knoblauch und Ingwer kurz mitbraten, dann die Rinderstreifen scharf anbraten.
+5. Brokkoli und Sojasauce dazugeben, alles vermengen und mit dem Reis servieren.
+
+## Einfaches Sushi aus der Eiswürfelform
+en: Easy ice-cube-tray sushi
+es: Sushi fácil en cubitera
+emoji: 🍣
+bild: ricebowl
+typ: gericht
+portionen: 1
+tags: fisch, sushi, kalt, japanisch
+zutaten:
+- Sushireis (roh): 100 g
+- Avocado: 100 g
+- Gurke: 150 g
+- Lachs (roh): 100 g
+zubereitung:
+1. Sushireis nach Packung kochen und abkühlen lassen.
+2. Eine Eiswürfelform mit Frischhaltefolie auslegen.
+3. Lachs in kleine Scheiben schneiden und als erste Schicht in die Form legen.
+4. Gurke und Avocado in Scheiben darauf schichten, dann den Reis fest andrücken.
+5. Form auf ein Brett stürzen und die Folie vorsichtig abziehen.
+
+## Joghurt-Dill-Nudelsalat mit Thunfisch
+en: Yoghurt dill pasta salad with tuna
+es: Ensalada de pasta con yogur, eneldo y atún
+emoji: 🥗
+bild: salat
+typ: gericht
+portionen: 1
+tags: salat, nudeln, fisch, kalt, mitnehmen
+zutaten:
+- Nudeln (trocken): 80 g
+- Thunfisch im eigenen Saft: 100 g
+- Naturjoghurt fettarm 1,5 %: 50 g
+- Mais (Dose, abgetropft): 100 g
+- Olivenöl: 10 g
+zubereitung:
+1. Nudeln kochen, abgießen und kalt abschrecken.
+2. Joghurt, Olivenöl, einen Schuss Essig, Dill, Salz und Pfeffer zu einem Dressing verrühren.
+3. Thunfisch und Mais abtropfen lassen.
+4. Nudeln, Thunfisch und Mais mit dem Dressing gut vermischen.
+
+## Topfenpalatschinken mit Beeren
+en: Quark crêpes with berries
+es: Crepes de requesón con frutos rojos
+emoji: 🥞
+bild: pancakes
+typ: gericht
+portionen: 1
+tags: süß, frühstück, protein, österreichisch
+zutaten:
+- Dinkelmehl: 50 g
+- Laktosefreie Milch 1,5 %: 100 g
+- Eier: 60 g
+- Laktosefreier Magertopfen: 150 g
+- Beeren (TK): 100 g
+- Kokosöl: 5 g
+zubereitung:
+1. Mehl, Milch und Ei zu einem glatten Teig verrühren.
+2. Topfen mit einem Schuss Wasser glatt rühren, nach Wunsch süßen.
+3. Öl in einer Pfanne erhitzen und dünne Palatschinken von beiden Seiten goldbraun backen.
+4. Palatschinken mit der Topfencreme bestreichen, Beeren darauf verteilen und einrollen.
+
+## Himbeer-Topfen-Bowl mit Haferflocken
+en: Raspberry quark bowl with oats
+es: Bowl de requesón con frambuesas y avena
+emoji: 🫐
+bild: oats
+typ: gericht
+portionen: 1
+tags: frühstück, protein, süß, schnell
+zutaten:
+- Haferflocken (zart): 80 g
+- Magertopfen / Magerquark: 120 g
+- Himbeeren: 100 g
+- Wasser: 30 g
+- Walnüsse: 15 g
+zubereitung:
+1. Himbeeren vorsichtig waschen und abtropfen lassen.
+2. Topfen mit dem Wasser cremig rühren, nach Wunsch mit Flavour Drops süßen.
+3. Haferflocken unterrühren.
+4. Mit gehackten Walnüssen und den Himbeeren garnieren.
+
+## Omelette mit Paprika und Vollkornbrot
+en: Pepper omelette with wholegrain bread
+es: Tortilla francesa con pimiento y pan integral
+emoji: 🍳
+bild: tortilla
+typ: gericht
+portionen: 1
+tags: frühstück, eier, protein, schnell
+zutaten:
+- Vollkornbrot (Scheibe): 80 g
+- Eier: 120 g
+- Eiklar (flüssig): 100 g
+- Paprika: 100 g
+- Olivenöl: 5 g
+zubereitung:
+1. Paprika klein würfeln.
+2. Eier und Eiklar mit Salz, Pfeffer und Kräutern verquirlen.
+3. Paprika im Olivenöl kurz andünsten.
+4. Eimasse darübergießen und bei mittlerer Hitze stocken lassen.
+5. Mit dem Vollkornbrot servieren.
+
+## Protein-Porridge mit Apfel
+en: Protein porridge with apple
+es: Porridge proteico con manzana
+emoji: 🍎
+bild: oats
+typ: gericht
+portionen: 1
+tags: frühstück, protein, haferflocken, warm
+zutaten:
+- Haferflocken (zart): 70 g
+- Proteinpulver: 30 g
+- Mandeln (ganz): 15 g
+- Apfel: 180 g
+- Wasser: 200 g
+zubereitung:
+1. Apfel entkernen und klein schneiden.
+2. Haferflocken mit dem kochenden Wasser übergießen und 2 Minuten quellen lassen.
+3. Proteinpulver zügig unterrühren, bis keine Klümpchen mehr da sind.
+4. Apfelstücke unterheben und mit Mandeln bestreuen.
+
+## Reiswaffel-Joghurt-Bowl mit Banane
+en: Rice cake yoghurt bowl with banana
+es: Bowl de yogur con tortitas de arroz y plátano
+emoji: 🍌
+bild: oats
+typ: gericht
+portionen: 1
+tags: frühstück, snack, protein, süß
+zutaten:
+- Reiswaffeln (natur): 32 g
+- Griechischer Joghurt 0 %: 200 g
+- Banane: 120 g
+- Erdnussmus (100 % Erdnüsse): 15 g
+zubereitung:
+1. Joghurt nach Wunsch süßen und in eine Schale geben.
+2. Banane in Scheiben schneiden.
+3. Reiswaffeln direkt vor dem Essen grob zerbröseln und auf den Joghurt geben.
+4. Bananenscheiben dazugeben und das Erdnussmus darüberträufeln.
+
+## Puten-Avocado-Toast
+en: Turkey avocado toast
+es: Tostada de pavo y aguacate
+emoji: 🥑
+bild: wrap
+typ: gericht
+portionen: 1
+tags: frühstück, pute, schnell, protein
+zutaten:
+- Vollkorn-Toast: 70 g
+- Putenbrust-Aufschnitt (mager): 50 g
+- Avocado: 40 g
+- Tomaten: 100 g
+zubereitung:
+1. Toast rösten.
+2. Tomaten in Scheiben schneiden.
+3. Avocado zerdrücken, mit Salz und Pfeffer abschmecken und auf die Toasts streichen.
+4. Mit Putenaufschnitt und Tomaten belegen.
+
+## Chicken Katsu Curry
+en: Chicken katsu curry
+es: Curry katsu de pollo
+emoji: 🍛
+typ: gericht
+portionen: 4
+tags: japan, asiatisch, hähnchen, mealprep
+zutaten:
+- Hähnchenbrust: 600 g
+- Panko: 80 g
+- Eier: 100 g
+- Mehl: 40 g
+- Japanisches Curry (Würfel): 100 g
+- Karotten: 200 g
+- Kartoffeln (festkochend): 300 g
+- Zwiebeln: 150 g
+- Reis (trocken): 300 g
+- Öl: 30 g
+zubereitung:
+1. Reis kochen. Zwiebeln, Karotten und Kartoffeln würfeln, in 10 g Öl anbraten, mit 700 ml Wasser 15 Minuten köcheln.
+2. Curry-Würfel einrühren, bis die Soße andickt.
+3. Hähnchen flach klopfen, erst in Mehl, dann in Ei, dann in Panko wenden und im restlichen Öl von beiden Seiten 4 Minuten goldbraun braten.
+4. Hähnchen in Streifen schneiden und mit Reis und Curry in Boxen verteilen.
+
+## Gyudon
+en: Gyudon (beef rice bowl)
+es: Gyudon
+emoji: 🍚
+typ: gericht
+portionen: 4
+tags: japan, asiatisch, rind, schnell
+zutaten:
+- Rinderhüftsteak (roh): 500 g
+- Zwiebeln: 250 g
+- Sojasoße: 60 g
+- Mirin: 40 g
+- Zucker: 15 g
+- Dashi (zubereitet): 250 g
+- Reis (trocken): 300 g
+- Frühlingszwiebeln: 30 g
+- Ingwer (eingelegt, Sushi): 40 g
+zubereitung:
+1. Reis kochen. Rindfleisch hauchdünn schneiden (halb angefroren geht es leichter).
+2. Dashi, Sojasoße, Mirin und Zucker aufkochen, Zwiebelstreifen darin 5 Minuten weich köcheln.
+3. Rindfleisch dazugeben und 2 Minuten ziehen lassen, bis es gar ist.
+4. Über den Reis geben, mit Frühlingszwiebeln und eingelegtem Ingwer servieren.
+
+## Oyakodon
+en: Oyakodon
+es: Oyakodon
+emoji: 🍳
+typ: gericht
+portionen: 3
+tags: japan, asiatisch, hähnchen, schnell
+zutaten:
+- Hähnchenschenkel (roh): 400 g
+- Eier: 300 g
+- Zwiebeln: 150 g
+- Dashi (zubereitet): 200 g
+- Sojasoße: 45 g
+- Mirin: 30 g
+- Zucker: 10 g
+- Reis (trocken): 240 g
+- Frühlingszwiebeln: 20 g
+zubereitung:
+1. Reis kochen. Dashi, Sojasoße, Mirin und Zucker in einer Pfanne aufkochen.
+2. Zwiebelstreifen und Hähnchenstücke darin 8 Minuten garen.
+3. Verquirlte Eier darübergießen, Deckel drauf und 1–2 Minuten stocken lassen – das Ei soll noch cremig sein.
+4. Auf dem Reis anrichten, Frühlingszwiebeln drüberstreuen.
+
+## Yaki Udon mit Hähnchen
+en: Yaki udon with chicken
+es: Yaki udon con pollo
+emoji: 🍜
+typ: gericht
+portionen: 3
+tags: japan, asiatisch, hähnchen, schnell, nudeln
+zutaten:
+- Udon-Nudeln (vorgekocht): 600 g
+- Hähnchenbrust: 350 g
+- Weißkohl: 250 g
+- Karotten: 120 g
+- Champignons: 150 g
+- Sojasoße: 45 g
+- Austernsoße: 30 g
+- Mirin: 20 g
+- Sesamöl: 10 g
+- Öl: 15 g
+zubereitung:
+1. Hähnchen in Streifen schneiden und im Öl scharf anbraten, herausnehmen.
+2. Kohl, Karotten und Pilze in Streifen 4 Minuten braten.
+3. Udon kurz unter heißem Wasser lockern und mit dem Hähnchen dazugeben.
+4. Mit Sojasoße, Austernsoße, Mirin und Sesamöl abschmecken und 2 Minuten durchschwenken.
+
+## Lachs Teriyaki Bowl
+en: Salmon teriyaki bowl
+es: Bowl de salmón teriyaki
+emoji: 🍣
+typ: gericht
+portionen: 3
+tags: japan, asiatisch, lachs, fisch
+zutaten:
+- Lachs (roh): 450 g
+- Teriyaki-Soße: 90 g
+- Sushireis (roh): 240 g
+- Edamame (TK, geschält): 150 g
+- Gurke: 200 g
+- Karotten: 100 g
+- Sesam: 10 g
+- Nori-Blatt: 6 g
+zubereitung:
+1. Sushireis nach Packung kochen.
+2. Lachs in Würfel schneiden und in einer heißen Pfanne 3 Minuten anbraten, Teriyaki-Soße dazugeben und glasieren.
+3. Edamame 3 Minuten kochen, Gurke und Karotte in feine Streifen schneiden.
+4. Alles auf dem Reis verteilen, mit Sesam und Nori-Streifen bestreuen.
+
+## Miso-Ramen mit Ei
+en: Miso ramen with egg
+es: Ramen de miso con huevo
+emoji: 🍜
+typ: gericht
+portionen: 2
+tags: japan, asiatisch, suppe, vegetarisch
+zutaten:
+- Ramen-Nudeln (frisch): 260 g
+- Miso-Paste: 60 g
+- Gemüsebrühe (zubereitet): 900 g
+- Eier: 120 g
+- Pak Choi: 200 g
+- Mais (abgetropft): 80 g
+- Champignons: 100 g
+- Frühlingszwiebeln: 30 g
+- Sesamöl: 8 g
+- Knoblauch: 6 g
+zubereitung:
+1. Eier 6½ Minuten kochen, abschrecken und schälen.
+2. Brühe mit Knoblauch aufkochen, Pilze und Pak Choi 3 Minuten darin garen.
+3. Topf vom Herd nehmen und Miso einrühren (nicht mehr kochen lassen).
+4. Nudeln separat kochen, in Schalen geben, Suppe darüber, mit halbiertem Ei, Mais, Frühlingszwiebeln und Sesamöl toppen.
+
+## Okonomiyaki
+en: Okonomiyaki
+es: Okonomiyaki
+emoji: 🥞
+typ: gericht
+portionen: 2
+tags: japan, asiatisch, vegetarisch
+zutaten:
+- Weißkohl: 350 g
+- Mehl: 120 g
+- Eier: 150 g
+- Dashi (zubereitet): 120 g
+- Frühlingszwiebeln: 40 g
+- Öl: 15 g
+- Okonomiyaki-Soße: 40 g
+- Japanische Mayonnaise (Kewpie): 25 g
+zubereitung:
+1. Kohl sehr fein schneiden. Mehl, Eier und Dashi zu einem dicken Teig rühren, Kohl und Frühlingszwiebeln unterheben.
+2. Öl in einer Pfanne erhitzen, die Hälfte des Teigs als dicken Fladen hineingeben.
+3. Bei mittlerer Hitze je Seite 5 Minuten braten.
+4. Mit Okonomiyaki-Soße und Mayo im Gittermuster verzieren.
+
+## Onigiri mit Thunfisch
+en: Tuna onigiri
+es: Onigiri de atún
+emoji: 🍙
+typ: gericht
+portionen: 4
+tags: japan, asiatisch, snack, fisch
+zutaten:
+- Sushireis (roh): 300 g
+- Thunfisch (Dose, Wasser): 150 g
+- Japanische Mayonnaise (Kewpie): 30 g
+- Nori-Blatt: 12 g
+- Sojasoße: 10 g
+zubereitung:
+1. Sushireis kochen und etwas abkühlen lassen.
+2. Thunfisch mit Mayo und Sojasoße mischen.
+3. Mit nassen Händen eine Portion Reis flachdrücken, Füllung in die Mitte, zu einem Dreieck formen.
+4. Mit einem Nori-Streifen umwickeln. Ergibt 8 Stück.
+
+## Bibimbap
+en: Bibimbap
+es: Bibimbap
+emoji: 🥘
+typ: gericht
+portionen: 4
+tags: korea, asiatisch, rind, mealprep
+zutaten:
+- Rinderhack: 400 g
+- Reis (trocken): 300 g
+- Spinat: 200 g
+- Karotten: 150 g
+- Bohnensprossen: 150 g
+- Zucchini: 200 g
+- Eier: 240 g
+- Gochujang (Chilipaste): 60 g
+- Sojasoße: 40 g
+- Sesamöl: 15 g
+- Knoblauch: 6 g
+- Sesam: 10 g
+zubereitung:
+1. Reis kochen. Hack mit Knoblauch und 20 g Sojasoße krümelig braten.
+2. Gemüse einzeln kurz braten bzw. blanchieren, jeweils mit etwas Sesamöl und Sojasoße würzen.
+3. Spiegeleier braten.
+4. Reis in Schalen, Gemüse und Hack nebeneinander darauf legen, Ei oben drauf. Mit Gochujang und Sesam servieren.
+
+## Bulgogi mit Reis
+en: Bulgogi with rice
+es: Bulgogi con arroz
+emoji: 🥩
+typ: gericht
+portionen: 4
+tags: korea, asiatisch, rind, mealprep
+zutaten:
+- Rinderhüftsteak (roh): 600 g
+- Sojasoße: 70 g
+- Zucker: 20 g
+- Apfel: 120 g
+- Knoblauch: 10 g
+- Sesamöl: 15 g
+- Zwiebeln: 150 g
+- Karotten: 120 g
+- Frühlingszwiebeln: 40 g
+- Reis (trocken): 300 g
+- Sesam: 10 g
+zubereitung:
+1. Apfel reiben und mit Sojasoße, Zucker, Knoblauch und Sesamöl verrühren.
+2. Fleisch in dünne Scheiben schneiden und 30 Minuten in der Marinade ziehen lassen.
+3. Reis kochen. Fleisch mit Zwiebeln und Karotten in einer sehr heißen Pfanne 4–5 Minuten braten.
+4. Mit Frühlingszwiebeln und Sesam auf Reis servieren.
+
+## Japchae
+en: Japchae
+es: Japchae
+emoji: 🍝
+typ: gericht
+portionen: 3
+tags: korea, asiatisch, nudeln, vegetarisch
+zutaten:
+- Glasnudeln (roh): 200 g
+- Spinat: 150 g
+- Karotten: 120 g
+- Paprika: 150 g
+- Champignons: 150 g
+- Zwiebeln: 100 g
+- Sojasoße: 50 g
+- Zucker: 12 g
+- Sesamöl: 20 g
+- Sesam: 10 g
+- Knoblauch: 6 g
+zubereitung:
+1. Glasnudeln 6 Minuten kochen, abgießen und kürzen.
+2. Gemüse in Streifen schneiden und nacheinander kurz braten.
+3. Sojasoße, Zucker, Sesamöl und Knoblauch verrühren.
+4. Nudeln, Gemüse und Soße in der Pfanne mischen und 2 Minuten erhitzen. Mit Sesam bestreuen.
+
+## Kimchi-Bratreis
+en: Kimchi fried rice
+es: Arroz frito con kimchi
+emoji: 🍳
+typ: gericht
+portionen: 2
+tags: korea, asiatisch, schnell, resteverwertung
+zutaten:
+- Reis (trocken): 160 g
+- Kimchi: 200 g
+- Bacon: 60 g
+- Eier: 120 g
+- Gochujang (Chilipaste): 20 g
+- Sojasoße: 15 g
+- Frühlingszwiebeln: 20 g
+- Öl: 10 g
+- Sesam: 5 g
+zubereitung:
+1. Reis am Vortag kochen (kalter Reis brät am besten).
+2. Bacon würfeln und knusprig braten, gehacktes Kimchi 3 Minuten mitbraten.
+3. Reis, Gochujang und Sojasoße dazu, alles 4 Minuten scharf braten.
+4. Mit Spiegelei, Frühlingszwiebeln und Sesam servieren.
+
+## Korean Fried Chicken
+en: Korean fried chicken
+es: Pollo frito coreano
+emoji: 🍗
+typ: gericht
+portionen: 4
+tags: korea, asiatisch, hähnchen
+zutaten:
+- Hähnchenschenkel (roh): 700 g
+- Speisestärke: 80 g
+- Gochujang (Chilipaste): 50 g
+- Honig: 40 g
+- Sojasoße: 30 g
+- Knoblauch: 10 g
+- Öl: 40 g
+- Sesam: 10 g
+- Reis (trocken): 280 g
+zubereitung:
+1. Hähnchen in Stücke schneiden, salzen und in Stärke wälzen.
+2. In Öl rundum 10–12 Minuten knusprig braten oder bei 210 °C 25 Minuten im Ofen backen.
+3. Gochujang, Honig, Sojasoße und Knoblauch kurz aufkochen.
+4. Hähnchen in der Soße schwenken, mit Sesam bestreuen und mit Reis servieren.
+
+## Pad Thai mit Garnelen
+en: Prawn pad thai
+es: Pad thai de gambas
+emoji: 🍜
+typ: gericht
+portionen: 3
+tags: thailand, asiatisch, garnelen, nudeln
+zutaten:
+- Reisbandnudeln (roh): 250 g
+- Garnelen: 300 g
+- Eier: 120 g
+- Bohnensprossen: 150 g
+- Frühlingszwiebeln: 40 g
+- Tamarindenpaste: 30 g
+- Fischsoße: 30 g
+- Palmzucker: 25 g
+- Erdnüsse (geröstet, ungesalzen): 40 g
+- Limette: 60 g
+- Öl: 20 g
+- Knoblauch: 6 g
+zubereitung:
+1. Nudeln 8 Minuten in heißem Wasser einweichen und abgießen.
+2. Tamarinde, Fischsoße und Palmzucker verrühren.
+3. Knoblauch und Garnelen im Öl 2 Minuten braten, an den Rand schieben, Eier hineinschlagen und verrühren.
+4. Nudeln und Soße dazugeben, 2 Minuten schwenken, Sprossen und Frühlingszwiebeln unterheben. Mit Erdnüssen und Limette servieren.
+
+## Grünes Thai-Curry mit Hähnchen
+en: Thai green chicken curry
+es: Curry verde tailandés con pollo
+emoji: 🍛
+typ: sauce
+beilage: reis
+portionen: 4
+tags: thailand, asiatisch, hähnchen, curry, mealprep
+zutaten:
+- Hähnchenbrust: 600 g
+- Grüne Currypaste: 60 g
+- Kokosmilch: 400 g
+- Thai-Aubergine: 200 g
+- Paprika: 150 g
+- Bambussprossen (Dose): 150 g
+- Fischsoße: 20 g
+- Palmzucker: 10 g
+- Thai-Basilikum: 15 g
+- Kaffirlimettenblätter: 2 g
+- Öl: 10 g
+zubereitung:
+1. Currypaste im Öl 1 Minute anrösten, die Hälfte der Kokosmilch dazu und aufkochen.
+2. Hähnchenstücke darin 5 Minuten garen.
+3. Restliche Kokosmilch, Gemüse und Limettenblätter dazugeben, 8 Minuten köcheln.
+4. Mit Fischsoße und Palmzucker abschmecken, Thai-Basilikum unterrühren.
+
+## Rotes Curry mit Kürbis & Tofu
+en: Red curry with pumpkin & tofu
+es: Curry rojo con calabaza y tofu
+emoji: 🍛
+typ: sauce
+beilage: reis
+portionen: 4
+tags: thailand, asiatisch, tofu, vegan, curry, mealprep
+zutaten:
+- Tofu (fest): 400 g
+- Kürbis (Hokkaido): 500 g
+- Rote Currypaste: 50 g
+- Kokosmilch: 400 g
+- Paprika: 150 g
+- Sojasoße: 25 g
+- Limette: 60 g
+- Thai-Basilikum: 15 g
+- Öl: 15 g
+zubereitung:
+1. Tofu würfeln und im Öl rundum knusprig braten, herausnehmen.
+2. Currypaste kurz anrösten, Kokosmilch und 150 ml Wasser angießen.
+3. Kürbiswürfel 12 Minuten darin köcheln, Paprika die letzten 5 Minuten mitgaren.
+4. Tofu zurück in den Topf, mit Sojasoße und Limettensaft abschmecken, Basilikum drüber.
+
+## Massaman-Curry mit Rind
+en: Beef massaman curry
+es: Curry massaman de ternera
+emoji: 🍛
+typ: sauce
+beilage: reis
+portionen: 4
+tags: thailand, asiatisch, rind, curry
+zutaten:
+- Gulaschfleisch (Rind): 600 g
+- Massaman-Currypaste: 70 g
+- Kokosmilch: 400 g
+- Kartoffeln (festkochend): 400 g
+- Zwiebeln: 150 g
+- Erdnüsse (geröstet, ungesalzen): 40 g
+- Tamarindenpaste: 15 g
+- Fischsoße: 20 g
+- Palmzucker: 15 g
+zubereitung:
+1. Currypaste in etwas dicker Kokosmilch anrösten, Fleisch dazu und rundum anbraten.
+2. Restliche Kokosmilch und 300 ml Wasser angießen, zugedeckt 75 Minuten schmoren.
+3. Kartoffel- und Zwiebelstücke dazu und weitere 25 Minuten köcheln.
+4. Mit Tamarinde, Fischsoße und Palmzucker abschmecken, Erdnüsse drüberstreuen.
+
+## Pad Kra Pao
+en: Pad kra pao (Thai basil chicken)
+es: Pad kra pao
+emoji: 🌶️
+typ: gericht
+portionen: 3
+tags: thailand, asiatisch, hähnchen, schnell
+zutaten:
+- Hähnchenbrust: 450 g
+- Thai-Basilikum: 30 g
+- Knoblauch: 12 g
+- Austernsoße: 30 g
+- Sojasoße: 20 g
+- Fischsoße: 10 g
+- Zucker: 8 g
+- Paprika: 150 g
+- Eier: 180 g
+- Reis (trocken): 240 g
+- Öl: 20 g
+zubereitung:
+1. Reis kochen. Hähnchen sehr fein hacken.
+2. Knoblauch im Öl anbraten, Hähnchen dazu und krümelig braten.
+3. Paprika, Austernsoße, Sojasoße, Fischsoße und Zucker dazugeben, 3 Minuten braten.
+4. Basilikum unterheben. Mit Reis und einem knusprigen Spiegelei servieren.
+
+## Tom Kha Gai
+en: Tom kha gai
+es: Tom kha gai
+emoji: 🥥
+typ: gericht
+portionen: 3
+tags: thailand, asiatisch, suppe, hähnchen
+zutaten:
+- Hähnchenbrust: 350 g
+- Kokosmilch: 400 g
+- Hühnerbrühe (zubereitet): 500 g
+- Galgant: 20 g
+- Zitronengras: 30 g
+- Kaffirlimettenblätter: 3 g
+- Champignons: 200 g
+- Fischsoße: 25 g
+- Limette: 60 g
+- Koriander (frisch): 10 g
+zubereitung:
+1. Brühe mit Galgant, Zitronengras und Limettenblättern 10 Minuten köcheln.
+2. Kokosmilch, Hähnchenstreifen und Pilze dazu und 8 Minuten sanft garen.
+3. Mit Fischsoße und Limettensaft abschmecken.
+4. Mit Koriander servieren (Galgant und Zitronengras nicht mitessen).
+
+## Pho Bo
+en: Pho bo (beef noodle soup)
+es: Pho bo
+emoji: 🍜
+typ: gericht
+portionen: 3
+tags: vietnam, asiatisch, suppe, rind
+zutaten:
+- Reisbandnudeln (roh): 200 g
+- Rinderhüftsteak (roh): 300 g
+- Hühnerbrühe (zubereitet): 1200 g
+- Zwiebeln: 150 g
+- Ingwer (frisch): 20 g
+- Fischsoße: 30 g
+- Bohnensprossen: 150 g
+- Thai-Basilikum: 15 g
+- Limette: 60 g
+- Frühlingszwiebeln: 30 g
+zubereitung:
+1. Zwiebel und Ingwer halbieren und in einer trockenen Pfanne schwarz rösten.
+2. Mit der Brühe 30 Minuten köcheln, mit Fischsoße abschmecken.
+3. Nudeln einweichen bzw. kurz kochen und in Schalen verteilen, rohes Rindfleisch hauchdünn darauflegen.
+4. Kochend heiße Brühe darüber gießen, das gart das Fleisch. Mit Sprossen, Basilikum, Limette und Frühlingszwiebeln.
+
+## Bun Cha
+en: Bun cha
+es: Bun cha
+emoji: 🥢
+typ: gericht
+portionen: 3
+tags: vietnam, asiatisch, schwein
+zutaten:
+- Hackfleisch gemischt: 450 g
+- Reisbandnudeln (roh): 200 g
+- Fischsoße: 45 g
+- Zucker: 25 g
+- Limette: 60 g
+- Knoblauch: 8 g
+- Karotten: 100 g
+- Salatmischung (Tüte): 100 g
+- Gurke: 150 g
+- Minze (frisch): 10 g
+zubereitung:
+1. Hack mit 15 g Fischsoße, 5 g Zucker und Knoblauch verkneten, kleine Patties formen und von beiden Seiten 4 Minuten braten.
+2. Restliche Fischsoße, Zucker, Limettensaft und 150 ml Wasser zum Dip verrühren, Karottenscheiben hineinlegen.
+3. Nudeln kochen.
+4. Nudeln, Salat, Gurke und Minze mit den Patties servieren, alles in den Dip tunken.
+
+## Sommerrollen mit Garnelen
+en: Summer rolls with prawns
+es: Rollitos vietnamitas con gambas
+emoji: 🥬
+typ: gericht
+portionen: 3
+tags: vietnam, asiatisch, garnelen, leicht
+zutaten:
+- Reispapier: 120 g
+- Garnelen: 250 g
+- Reisbandnudeln (roh): 80 g
+- Gurke: 150 g
+- Karotten: 120 g
+- Salatmischung (Tüte): 80 g
+- Minze (frisch): 10 g
+- Erdnussbutter: 40 g
+- Hoisin-Soße: 40 g
+zubereitung:
+1. Nudeln kochen und abkühlen lassen, Garnelen halbieren.
+2. Reispapier einzeln 5 Sekunden in warmes Wasser tauchen.
+3. Salat, Nudeln, Gemüse, Minze und Garnelen darauflegen, Seiten einschlagen und fest aufrollen.
+4. Erdnussbutter mit Hoisin und etwas warmem Wasser zum Dip verrühren.
+
+## Banh Mi mit Hähnchen
+en: Chicken banh mi
+es: Banh mi de pollo
+emoji: 🥖
+typ: gericht
+portionen: 4
+tags: vietnam, asiatisch, hähnchen
+zutaten:
+- Baguette: 400 g
+- Hähnchenbrust: 400 g
+- Sojasoße: 30 g
+- Honig: 15 g
+- Karotten: 150 g
+- Daikon-Rettich: 150 g
+- Reisessig: 40 g
+- Zucker: 15 g
+- Gurke: 150 g
+- Koriander (frisch): 15 g
+- Mayonnaise: 40 g
+- Sriracha: 20 g
+zubereitung:
+1. Karotte und Rettich in Streifen schneiden und mit Reisessig und Zucker 20 Minuten einlegen.
+2. Hähnchen mit Sojasoße und Honig marinieren und 6 Minuten je Seite braten, in Scheiben schneiden.
+3. Baguette in 4 Stücke teilen, aufschneiden und mit Sriracha-Mayo bestreichen.
+4. Mit Hähnchen, eingelegtem Gemüse, Gurke und Koriander füllen.
+
+## Chicken Tikka Masala
+en: Chicken tikka masala
+es: Pollo tikka masala
+emoji: 🍛
+typ: sauce
+beilage: reis
+portionen: 4
+tags: indien, curry, hähnchen, mealprep
+zutaten:
+- Hähnchenbrust: 600 g
+- Joghurt natur: 150 g
+- Garam Masala: 12 g
+- Kurkuma: 4 g
+- Passierte Tomaten: 400 g
+- Kochsahne (15 %): 150 g
+- Zwiebeln: 150 g
+- Knoblauch: 10 g
+- Ingwer (frisch): 15 g
+- Öl: 15 g
+- Koriander (frisch): 10 g
+zubereitung:
+1. Hähnchen würfeln und mit Joghurt, der Hälfte Garam Masala und Kurkuma mindestens 30 Minuten marinieren.
+2. Fleisch im heißen Öl scharf anbraten und herausnehmen.
+3. Zwiebeln, Knoblauch und Ingwer anschwitzen, restliches Garam Masala und Tomaten dazu, 10 Minuten köcheln.
+4. Sahne und Hähnchen zugeben, 5 Minuten ziehen lassen, mit Koriander servieren.
+
+## Butter Chicken
+en: Butter chicken
+es: Pollo a la mantequilla
+emoji: 🧈
+typ: sauce
+beilage: reis
+portionen: 4
+tags: indien, curry, hähnchen
+zutaten:
+- Hähnchenschenkel (roh): 600 g
+- Joghurt natur: 120 g
+- Garam Masala: 12 g
+- Butter: 40 g
+- Tomatenmark: 40 g
+- Passierte Tomaten: 400 g
+- Kochsahne (15 %): 200 g
+- Zwiebeln: 120 g
+- Knoblauch: 10 g
+- Ingwer (frisch): 15 g
+- Honig: 10 g
+zubereitung:
+1. Hähnchen mit Joghurt und der Hälfte Garam Masala marinieren, dann in einer heißen Pfanne anbraten.
+2. Butter schmelzen, Zwiebeln, Knoblauch und Ingwer weich dünsten.
+3. Tomatenmark, restliches Gewürz und passierte Tomaten 10 Minuten köcheln, fein pürieren.
+4. Sahne, Honig und Hähnchen dazugeben, 10 Minuten sanft ziehen lassen.
+
+## Palak Paneer
+en: Palak paneer
+es: Palak paneer
+emoji: 🥬
+typ: sauce
+beilage: reis
+portionen: 3
+tags: indien, curry, vegetarisch
+zutaten:
+- Paneer: 250 g
+- Spinat: 600 g
+- Zwiebeln: 120 g
+- Knoblauch: 10 g
+- Ingwer (frisch): 15 g
+- Garam Masala: 8 g
+- Kreuzkümmel: 4 g
+- Kochsahne (15 %): 100 g
+- Öl: 20 g
+zubereitung:
+1. Spinat 2 Minuten blanchieren, abschrecken und fein pürieren.
+2. Paneer würfeln und in der Hälfte des Öls goldbraun braten.
+3. Zwiebeln, Knoblauch, Ingwer und Gewürze im restlichen Öl anschwitzen, Spinat dazu und 5 Minuten köcheln.
+4. Sahne und Paneer unterrühren und kurz erhitzen.
+
+## Chana Masala
+en: Chana masala
+es: Chana masala
+emoji: 🫘
+typ: sauce
+beilage: reis
+portionen: 4
+tags: indien, curry, vegan, kichererbsen, mealprep
+zutaten:
+- Kichererbsen (abgetropft): 500 g
+- Gehackte Tomaten (Dose): 400 g
+- Zwiebeln: 200 g
+- Knoblauch: 10 g
+- Ingwer (frisch): 15 g
+- Garam Masala: 10 g
+- Kreuzkümmel: 4 g
+- Kurkuma: 3 g
+- Öl: 20 g
+- Zitrone: 40 g
+- Koriander (frisch): 10 g
+zubereitung:
+1. Zwiebeln im Öl goldbraun braten, Knoblauch, Ingwer und Gewürze 1 Minute mitrösten.
+2. Tomaten und Kichererbsen dazugeben, 20 Minuten köcheln.
+3. Einige Kichererbsen mit der Gabel zerdrücken, damit die Soße bindet.
+4. Mit Zitronensaft und Koriander abschmecken.
+
+## Hähnchen-Biryani
+en: Chicken biryani
+es: Biryani de pollo
+emoji: 🍚
+typ: gericht
+portionen: 4
+tags: indien, reis, hähnchen, mealprep
+zutaten:
+- Hähnchenschenkel (roh): 600 g
+- Basmatireis (roh): 300 g
+- Joghurt natur: 150 g
+- Zwiebeln: 250 g
+- Garam Masala: 12 g
+- Kurkuma: 4 g
+- Knoblauch: 10 g
+- Ingwer (frisch): 15 g
+- Erbsen (TK): 150 g
+- Öl: 25 g
+- Minze (frisch): 10 g
+zubereitung:
+1. Hähnchen mit Joghurt, Gewürzen, Knoblauch und Ingwer marinieren.
+2. Zwiebeln in Ringen im Öl dunkelgolden braten, die Hälfte beiseitelegen.
+3. Hähnchen zu den Zwiebeln geben und 10 Minuten braten. Reis 5 Minuten vorkochen und abgießen.
+4. Reis und Erbsen über das Hähnchen schichten, 200 ml Wasser angießen, zugedeckt 20 Minuten auf kleiner Hitze garen. Mit Röstzwiebeln und Minze servieren.
+
+## Dal Tadka
+en: Dal tadka
+es: Dal tadka
+emoji: 🍲
+typ: sauce
+beilage: reis
+portionen: 4
+tags: indien, curry, vegan, linsen, mealprep
+zutaten:
+- Rote Linsen (trocken): 300 g
+- Tomaten: 200 g
+- Zwiebeln: 150 g
+- Knoblauch: 10 g
+- Ingwer (frisch): 15 g
+- Kurkuma: 4 g
+- Kreuzkümmel: 5 g
+- Garam Masala: 6 g
+- Öl: 20 g
+- Koriander (frisch): 10 g
+zubereitung:
+1. Linsen mit Kurkuma und 900 ml Wasser 20 Minuten weich kochen.
+2. Tomaten würfeln und unterrühren.
+3. Für das Tadka Kreuzkümmel im heißen Öl anrösten, Zwiebeln, Knoblauch und Ingwer goldbraun braten, Garam Masala dazu.
+4. Tadka über das Dal geben, mit Koriander servieren.
+
+## Nasi Lemak
+en: Nasi lemak
+es: Nasi lemak
+emoji: 🍚
+typ: gericht
+portionen: 3
+tags: malaysia, asiatisch, hähnchen
+zutaten:
+- Reis (trocken): 240 g
+- Kokosmilch: 200 g
+- Hähnchenschenkel (roh): 450 g
+- Erdnüsse (geröstet, ungesalzen): 50 g
+- Gurke: 150 g
+- Eier: 180 g
+- Sambal Oelek: 40 g
+- Zwiebeln: 100 g
+- Öl: 20 g
+zubereitung:
+1. Reis in Kokosmilch und 250 ml Wasser garen.
+2. Eier hart kochen. Hähnchen salzen und im Öl knusprig braten.
+3. Zwiebeln mit Sambal 5 Minuten zu einer würzigen Soße schmoren.
+4. Kokosreis mit Hähnchen, halbiertem Ei, Gurke, Erdnüssen und Sambal anrichten.
+
+## Chicken Adobo
+en: Chicken adobo
+es: Adobo de pollo
+emoji: 🍗
+typ: sauce
+beilage: reis
+portionen: 4
+tags: philippinen, asiatisch, hähnchen, mealprep
+zutaten:
+- Hähnchenschenkel (roh): 800 g
+- Sojasoße: 80 g
+- Essig (Weißwein): 60 g
+- Knoblauch: 20 g
+- Lorbeerblatt: 1 g
+- Pfefferkörner: 3 g
+- Zucker: 10 g
+- Öl: 10 g
+zubereitung:
+1. Hähnchen mit Sojasoße, Essig, Knoblauch und Gewürzen 30 Minuten marinieren.
+2. Hähnchen aus der Marinade nehmen und im Öl rundum anbraten.
+3. Marinade und 150 ml Wasser angießen, zugedeckt 30 Minuten schmoren.
+4. Deckel ab, Zucker dazu und die Soße 10 Minuten sirupartig einkochen.
+
+## Mapo Tofu
+en: Mapo tofu
+es: Mapo tofu
+emoji: 🌶️
+typ: sauce
+beilage: reis
+portionen: 3
+tags: china, asiatisch, tofu, scharf
+zutaten:
+- Tofu (Seidentofu): 400 g
+- Hackfleisch gemischt: 200 g
+- Doenjang (Sojabohnenpaste): 30 g
+- Chiliöl (Lao Gan Ma): 20 g
+- Sichuanpfeffer: 2 g
+- Knoblauch: 8 g
+- Ingwer (frisch): 10 g
+- Hühnerbrühe (zubereitet): 250 g
+- Speisestärke: 10 g
+- Frühlingszwiebeln: 30 g
+- Öl: 10 g
+zubereitung:
+1. Tofu in Würfel schneiden und in heißem Salzwasser 2 Minuten ziehen lassen.
+2. Hack im Öl krümelig braten, Knoblauch, Ingwer, Bohnenpaste und Chiliöl 1 Minute mitbraten.
+3. Brühe angießen, Tofu vorsichtig dazugeben, 5 Minuten köcheln.
+4. Mit angerührter Stärke binden, mit zerstoßenem Sichuanpfeffer und Frühlingszwiebeln bestreuen.
+
+## Kung-Pao-Hähnchen
+en: Kung pao chicken
+es: Pollo kung pao
+emoji: 🥜
+typ: sauce
+beilage: reis
+portionen: 4
+tags: china, asiatisch, hähnchen, mealprep
+zutaten:
+- Hähnchenbrust: 600 g
+- Erdnüsse (geröstet, ungesalzen): 60 g
+- Paprika: 200 g
+- Zucchini: 200 g
+- Sojasoße: 50 g
+- Reisessig: 20 g
+- Zucker: 15 g
+- Speisestärke: 15 g
+- Knoblauch: 8 g
+- Ingwer (frisch): 10 g
+- Sichuanpfeffer: 2 g
+- Öl: 20 g
+zubereitung:
+1. Hähnchen würfeln und mit 10 g Stärke und 10 g Sojasoße mischen.
+2. Im Öl scharf anbraten, Knoblauch, Ingwer und Sichuanpfeffer dazu.
+3. Gemüse dazu und 4 Minuten mitbraten.
+4. Restliche Sojasoße, Essig, Zucker und Stärke mit 80 ml Wasser verrühren, angießen und eindicken lassen. Erdnüsse unterheben.
+
+## Gebratener Reis mit Ei & Gemüse
+en: Egg fried rice with vegetables
+es: Arroz frito con huevo y verduras
+emoji: 🍳
+typ: gericht
+portionen: 3
+tags: china, asiatisch, vegetarisch, schnell, resteverwertung
+zutaten:
+- Reis (trocken): 240 g
+- Eier: 180 g
+- Erbsen (TK): 150 g
+- Karotten: 120 g
+- Mais (abgetropft): 100 g
+- Frühlingszwiebeln: 40 g
+- Sojasoße: 40 g
+- Sesamöl: 10 g
+- Öl: 15 g
+zubereitung:
+1. Reis am Vortag kochen und kalt stellen.
+2. Karottenwürfel im Öl 3 Minuten braten, Erbsen und Mais dazu.
+3. Gemüse zur Seite schieben, Eier hineinschlagen und stocken lassen.
+4. Reis dazugeben und 4 Minuten scharf braten, mit Sojasoße, Sesamöl und Frühlingszwiebeln abschmecken.
+
+## Rindfleisch mit Brokkoli
+en: Beef and broccoli
+es: Ternera con brócoli
+emoji: 🥦
+typ: sauce
+beilage: reis
+portionen: 4
+tags: china, asiatisch, rind, mealprep
+zutaten:
+- Rinderhüftsteak (roh): 500 g
+- Brokkoli: 500 g
+- Austernsoße: 50 g
+- Sojasoße: 40 g
+- Zucker: 10 g
+- Speisestärke: 15 g
+- Knoblauch: 10 g
+- Ingwer (frisch): 10 g
+- Öl: 20 g
+zubereitung:
+1. Rind in dünne Streifen schneiden und mit 5 g Stärke und 10 g Sojasoße mischen.
+2. Brokkoli 2 Minuten blanchieren.
+3. Rind im heißen Öl portionsweise 1–2 Minuten braten, Knoblauch und Ingwer dazu.
+4. Austernsoße, restliche Sojasoße, Zucker und Stärke mit 100 ml Wasser angießen, Brokkoli unterheben und aufkochen.
+
+## Dan-Dan-Nudeln
+en: Dan dan noodles
+es: Fideos dan dan
+emoji: 🍜
+typ: gericht
+portionen: 2
+tags: china, asiatisch, nudeln, scharf
+zutaten:
+- Mie-Nudeln (roh): 200 g
+- Hackfleisch gemischt: 200 g
+- Pak Choi: 200 g
+- Tahin: 30 g
+- Sojasoße: 30 g
+- Chiliöl (Lao Gan Ma): 20 g
+- Reisessig: 10 g
+- Zucker: 5 g
+- Sichuanpfeffer: 1 g
+- Frühlingszwiebeln: 20 g
+- Erdnüsse (geröstet, ungesalzen): 20 g
+zubereitung:
+1. Hack mit 10 g Sojasoße krümelig und knusprig braten.
+2. Tahin, restliche Sojasoße, Chiliöl, Essig und Zucker mit 80 ml heißem Wasser zur Soße verrühren.
+3. Nudeln kochen, Pak Choi die letzte Minute mitgaren.
+4. Soße in Schalen, Nudeln darauf, Hack, Erdnüsse, Frühlingszwiebeln und Sichuanpfeffer oben drauf.
+
+## Gyoza mit Schwein und Kohl
+en: Pork and cabbage gyoza
+es: Gyoza de cerdo y col
+emoji: 🥟
+typ: gericht
+portionen: 3
+tags: japan, china, asiatisch, schwein
+zutaten:
+- Gyoza-Teigblätter: 240 g
+- Hackfleisch gemischt: 300 g
+- Chinakohl: 200 g
+- Frühlingszwiebeln: 30 g
+- Ingwer (frisch): 10 g
+- Knoblauch: 6 g
+- Sojasoße: 40 g
+- Sesamöl: 10 g
+- Reisessig: 15 g
+- Öl: 15 g
+zubereitung:
+1. Kohl fein hacken, salzen und nach 10 Minuten gut ausdrücken.
+2. Mit Hack, Frühlingszwiebeln, Ingwer, Knoblauch, 15 g Sojasoße und Sesamöl verkneten.
+3. Je 1 TL Füllung auf ein Teigblatt, Rand befeuchten und zu Halbmonden falten.
+4. Im Öl von unten goldbraun braten, 80 ml Wasser angießen, zugedeckt 6 Minuten dämpfen. Restliche Sojasoße mit Essig als Dip.
+
+## Rendang
+en: Beef rendang
+es: Rendang de ternera
+emoji: 🍛
+typ: sauce
+beilage: reis
+portionen: 4
+tags: indonesien, asiatisch, rind, curry
+zutaten:
+- Gulaschfleisch (Rind): 700 g
+- Kokosmilch: 400 g
+- Rote Currypaste: 50 g
+- Zitronengras: 30 g
+- Galgant: 20 g
+- Kaffirlimettenblätter: 3 g
+- Palmzucker: 15 g
+- Zwiebeln: 150 g
+- Knoblauch: 10 g
+- Öl: 15 g
+zubereitung:
+1. Zwiebeln, Knoblauch und Currypaste im Öl 3 Minuten anrösten.
+2. Fleisch dazu und rundum anbraten.
+3. Kokosmilch, Zitronengras, Galgant und Limettenblätter dazugeben, offen etwa 2 Stunden schmoren, bis die Soße fast eingekocht ist.
+4. Mit Palmzucker abschmecken, gelegentlich umrühren, damit nichts ansetzt.
+
+## Gado-Gado
+en: Gado-gado
+es: Gado-gado
+emoji: 🥗
+typ: gericht
+portionen: 3
+tags: indonesien, asiatisch, vegetarisch, salat
+zutaten:
+- Kartoffeln (festkochend): 300 g
+- Bohnensprossen: 150 g
+- Karotten: 150 g
+- Gurke: 150 g
+- Eier: 180 g
+- Tofu (fest): 200 g
+- Erdnussbutter: 80 g
+- Sojasoße: 30 g
+- Limette: 60 g
+- Sambal Oelek: 15 g
+- Kokosmilch: 100 g
+zubereitung:
+1. Kartoffeln und Eier kochen, Karotten kurz blanchieren.
+2. Tofu würfeln und knusprig braten.
+3. Erdnussbutter mit Kokosmilch, Sojasoße, Limettensaft und Sambal glatt rühren.
+4. Alles auf Tellern anrichten und mit der Erdnusssoße übergießen.
+
+## Hähnchen-Satay mit Erdnusssoße
+en: Chicken satay with peanut sauce
+es: Satay de pollo con salsa de cacahuete
+emoji: 🍢
+typ: gericht
+portionen: 4
+tags: indonesien, thailand, asiatisch, hähnchen, mealprep
+zutaten:
+- Hähnchenbrust: 600 g
+- Sojasoße: 40 g
+- Kurkuma: 3 g
+- Honig: 15 g
+- Erdnussbutter: 80 g
+- Kokosmilch light (Dose): 150 g
+- Limette: 60 g
+- Sambal Oelek: 15 g
+- Reis (trocken): 280 g
+- Gurke: 200 g
+zubereitung:
+1. Hähnchen in Streifen schneiden, mit 20 g Sojasoße, Kurkuma und Honig marinieren und auf Spieße stecken.
+2. Spieße in einer Grillpfanne oder unter dem Ofengrill je Seite 4 Minuten braten.
+3. Erdnussbutter, Kokosmilch, restliche Sojasoße, Limettensaft und Sambal erwärmen und glatt rühren.
+4. Mit Reis, Gurke und Soße servieren.
+
+## Shakshuka mit Feta
+en: Shakshuka with feta
+es: Shakshuka con feta
+emoji: 🍳
+typ: gericht
+portionen: 2
+tags: nahost, vegetarisch, eier, schnell
+zutaten:
+- Eier: 240 g
+- Gehackte Tomaten (Dose): 400 g
+- Paprika: 200 g
+- Zwiebeln: 100 g
+- Knoblauch: 6 g
+- Kreuzkümmel: 3 g
+- Feta: 60 g
+- Olivenöl: 10 g
+- Petersilie (frisch): 10 g
+zubereitung:
+1. Zwiebeln und Paprika im Olivenöl 6 Minuten weich braten, Knoblauch und Kreuzkümmel dazu.
+2. Tomaten angießen und 10 Minuten zu einer dicken Soße köcheln.
+3. Mulden formen, Eier hineinschlagen, zugedeckt 6 Minuten stocken lassen.
+4. Feta und Petersilie darüberstreuen.
+
+## Hähnchen-Shawarma-Bowl
+en: Chicken shawarma bowl
+es: Bowl de shawarma de pollo
+emoji: 🥙
+typ: gericht
+portionen: 4
+tags: nahost, hähnchen, mealprep
+zutaten:
+- Hähnchenschenkel (roh): 600 g
+- Joghurt natur: 150 g
+- Kreuzkümmel: 5 g
+- Kurkuma: 3 g
+- Knoblauch: 10 g
+- Zitrone: 60 g
+- Couscous (trocken): 240 g
+- Gurke: 200 g
+- Tomaten: 200 g
+- Tahin: 40 g
+- Olivenöl: 15 g
+zubereitung:
+1. Hähnchen mit 50 g Joghurt, Gewürzen, Knoblauch und Zitronensaft marinieren.
+2. Im Olivenöl oder bei 220 °C im Ofen 20 Minuten braten, dann in Streifen schneiden.
+3. Couscous mit kochendem Wasser übergießen und 5 Minuten quellen lassen.
+4. Restlichen Joghurt mit Tahin verrühren. Alles mit Gurke und Tomate in Boxen verteilen.
+
+## Falafel-Bowl mit Hummus
+en: Falafel bowl with hummus
+es: Bowl de falafel con hummus
+emoji: 🧆
+typ: gericht
+portionen: 3
+tags: nahost, vegan, kichererbsen
+zutaten:
+- Falafel (TK, gebacken): 300 g
+- Hummus: 150 g
+- Bulgur (roh): 180 g
+- Gurke: 200 g
+- Tomaten: 200 g
+- Rotkraut / Apfelrotkohl (Glas): 150 g
+- Petersilie (frisch): 15 g
+- Zitrone: 40 g
+- Olivenöl: 10 g
+zubereitung:
+1. Bulgur mit doppelter Menge kochendem Wasser übergießen und 15 Minuten quellen lassen.
+2. Falafel im Ofen nach Packung knusprig backen.
+3. Gurke und Tomaten würfeln, mit Petersilie, Zitrone und Öl mischen.
+4. Bulgur, Salat, Rotkohl, Falafel und Hummus in Schalen anrichten.
+
+## Köfte mit Bulgur und Joghurt
+en: Köfte with bulgur and yoghurt
+es: Köfte con bulgur y yogur
+emoji: 🍢
+typ: gericht
+portionen: 4
+tags: türkei, rind, mealprep
+zutaten:
+- Rinderhack: 500 g
+- Zwiebeln: 100 g
+- Petersilie (frisch): 15 g
+- Kreuzkümmel: 4 g
+- Paprika: 200 g
+- Bulgur (roh): 240 g
+- Tomatenmark: 30 g
+- Joghurt natur: 200 g
+- Knoblauch: 6 g
+- Olivenöl: 15 g
+zubereitung:
+1. Hack mit geriebener Zwiebel, Petersilie und Kreuzkümmel verkneten und zu länglichen Köfte formen.
+2. Köfte im Öl rundum 8 Minuten braten.
+3. Bulgur mit Tomatenmark anschwitzen, mit 480 ml Wasser 12 Minuten garen, Paprikawürfel unterheben.
+4. Joghurt mit Knoblauch verrühren und dazu servieren.
+
+## Türkische Linsensuppe
+en: Turkish lentil soup
+es: Sopa de lentejas turca
+emoji: 🍲
+typ: gericht
+portionen: 4
+tags: türkei, suppe, vegan, linsen, mealprep
+zutaten:
+- Rote Linsen (trocken): 250 g
+- Zwiebeln: 150 g
+- Karotten: 150 g
+- Kartoffeln (mehlig): 150 g
+- Tomatenmark: 30 g
+- Gemüsebrühe (zubereitet): 1200 g
+- Kreuzkümmel: 4 g
+- Olivenöl: 15 g
+- Zitrone: 60 g
+zubereitung:
+1. Zwiebeln, Karotten und Kartoffeln würfeln und im Öl anschwitzen, Tomatenmark kurz mitrösten.
+2. Linsen, Brühe und Kreuzkümmel dazu und 25 Minuten köcheln.
+3. Fein pürieren.
+4. Mit Zitronensaft servieren.
+
+## Moussaka-Pfanne leicht
+en: Light moussaka skillet
+es: Musaca ligera en sartén
+emoji: 🍆
+typ: gericht
+portionen: 4
+tags: griechenland, rind, mealprep
+zutaten:
+- Rinderhack: 450 g
+- Aubergine: 500 g
+- Zwiebeln: 120 g
+- Gehackte Tomaten (Dose): 400 g
+- Zimt (gemahlen): 2 g
+- Knoblauch: 8 g
+- Feta: 100 g
+- Kartoffeln (festkochend): 400 g
+- Olivenöl: 15 g
+zubereitung:
+1. Kartoffeln in Scheiben 10 Minuten vorkochen.
+2. Hack mit Zwiebeln und Knoblauch im Öl krümelig braten, Auberginenwürfel 5 Minuten mitbraten.
+3. Tomaten und Zimt dazu und 15 Minuten köcheln.
+4. Kartoffeln unterheben, Feta darüberbröseln und kurz überbacken oder zugedeckt schmelzen lassen.
+
+## Souvlaki mit Tzatziki und Reis
+en: Souvlaki with tzatziki and rice
+es: Souvlaki con tzatziki y arroz
+emoji: 🍢
+typ: gericht
+portionen: 4
+tags: griechenland, schwein, mealprep
+zutaten:
+- Schweinekarree / Karreesteak (roh): 600 g
+- Zitrone: 60 g
+- Oregano (getrocknet): 3 g
+- Knoblauch: 8 g
+- Olivenöl: 20 g
+- Reis (trocken): 280 g
+- Tzatziki: 200 g
+- Tomaten: 200 g
+- Gurke: 150 g
+- Zwiebeln: 60 g
+zubereitung:
+1. Fleisch würfeln, mit Zitronensaft, Oregano, Knoblauch und Öl marinieren und auf Spieße stecken.
+2. Reis kochen.
+3. Spieße in der Grillpfanne rundum 10 Minuten braten.
+4. Mit Reis, Tzatziki und einem Salat aus Tomate, Gurke und Zwiebel servieren.
+
+## Chicken Fajita Bowl
+en: Chicken fajita bowl
+es: Bowl de fajitas de pollo
+emoji: 🌯
+typ: gericht
+portionen: 4
+tags: mexiko, hähnchen, mealprep
+zutaten:
+- Hähnchenbrust: 600 g
+- Paprika: 400 g
+- Zwiebeln: 150 g
+- Taco-Gewürz: 25 g
+- Reis (trocken): 280 g
+- Schwarze Bohnen (Dose): 250 g
+- Mais (abgetropft): 150 g
+- Avocado: 150 g
+- Limette: 60 g
+- Öl: 15 g
+zubereitung:
+1. Reis kochen. Hähnchen in Streifen schneiden und mit Taco-Gewürz mischen.
+2. Im Öl scharf anbraten, Paprika und Zwiebeln in Streifen dazu und 6 Minuten braten.
+3. Bohnen und Mais erwärmen.
+4. Alles auf Reis verteilen, Avocado erst kurz vor dem Essen dazu, Limettensaft drüber.
+
+## Carnitas-Tacos
+en: Carnitas tacos
+es: Tacos de carnitas
+emoji: 🌮
+typ: gericht
+portionen: 4
+tags: mexiko, schwein
+zutaten:
+- Schweinekarree / Karreesteak (roh): 700 g
+- Orangensaft: 150 g
+- Limette: 60 g
+- Kreuzkümmel: 4 g
+- Oregano (getrocknet): 3 g
+- Knoblauch: 10 g
+- Zwiebeln: 150 g
+- Tortilla-Wrap: 320 g
+- Koriander (frisch): 15 g
+- Salsa (Dip): 120 g
+zubereitung:
+1. Fleisch in große Würfel schneiden, mit Gewürzen, Knoblauch, Zwiebel, Orangen- und Limettensaft in einen Topf geben.
+2. Zugedeckt 2 Stunden schmoren, bis es zerfällt.
+3. Fleisch zerzupfen und in der Pfanne knusprig anbraten.
+4. In warmen Tortillas mit Salsa und Koriander servieren.
+
+## Chili con Carne mit Schoko
+en: Chilli con carne with chocolate
+es: Chili con carne con chocolate
+emoji: 🌶️
+typ: sauce
+beilage: reis
+portionen: 5
+tags: mexiko, usa, rind, mealprep
+zutaten:
+- Rinderhack: 500 g
+- Kidneybohnen (abgetropft): 400 g
+- Mais (abgetropft): 150 g
+- Gehackte Tomaten (Dose): 800 g
+- Zwiebeln: 150 g
+- Paprika: 200 g
+- Kreuzkümmel: 5 g
+- Chilipulver: 3 g
+- Schokolade (Zartbitter): 20 g
+- Öl: 10 g
+zubereitung:
+1. Hack im Öl krümelig braten, Zwiebeln und Paprika 5 Minuten mitbraten.
+2. Gewürze kurz mitrösten, Tomaten dazu und 30 Minuten köcheln.
+3. Bohnen und Mais unterrühren, weitere 10 Minuten köcheln.
+4. Zum Schluss die Schokolade einrühren – das macht das Chili rund und tief im Geschmack.
+
+## Jambalaya
+en: Jambalaya
+es: Jambalaya
+emoji: 🍤
+typ: gericht
+portionen: 4
+tags: usa, reis, hähnchen, garnelen
+zutaten:
+- Hähnchenbrust: 350 g
+- Garnelen: 250 g
+- Chorizo: 120 g
+- Reis (trocken): 280 g
+- Paprika: 200 g
+- Staudensellerie: 120 g
+- Zwiebeln: 120 g
+- Gehackte Tomaten (Dose): 400 g
+- Hühnerbrühe (zubereitet): 600 g
+- Paprikapulver (edelsüß): 5 g
+- Öl: 10 g
+zubereitung:
+1. Chorizo und Hähnchenwürfel im Öl anbraten.
+2. Zwiebel, Paprika und Sellerie 5 Minuten mitbraten, Paprikapulver dazu.
+3. Reis, Tomaten und Brühe einrühren, zugedeckt 18 Minuten köcheln.
+4. Garnelen obenauf legen und weitere 5 Minuten garen.
+
+## Pulled Chicken Sweet Potato
+en: Pulled chicken with sweet potato
+es: Pollo desmechado con boniato
+emoji: 🍠
+typ: gericht
+portionen: 4
+tags: usa, hähnchen, mealprep
+zutaten:
+- Hähnchenbrust: 700 g
+- BBQ-Soße: 120 g
+- Paprikapulver (edelsüß): 5 g
+- Süßkartoffel: 800 g
+- Weißkohl: 300 g
+- Karotten: 100 g
+- Joghurt natur: 100 g
+- Olivenöl: 15 g
+zubereitung:
+1. Hähnchen mit Paprikapulver würzen und mit 200 ml Wasser zugedeckt 25 Minuten schmoren.
+2. Mit zwei Gabeln zerzupfen und mit BBQ-Soße mischen.
+3. Süßkartoffelspalten mit Öl bei 210 °C 30 Minuten backen.
+4. Kohl und Karotte fein reiben, mit Joghurt zum Coleslaw mischen. Alles auf Boxen verteilen.
+
+## Jollof-Reis mit Hähnchen
+en: Jollof rice with chicken
+es: Arroz jollof con pollo
+emoji: 🍚
+typ: gericht
+portionen: 4
+tags: afrika, reis, hähnchen, mealprep
+zutaten:
+- Hähnchenschenkel (roh): 600 g
+- Reis (trocken): 300 g
+- Passierte Tomaten: 400 g
+- Tomatenmark: 40 g
+- Paprika: 200 g
+- Zwiebeln: 200 g
+- Currypulver: 6 g
+- Hühnerbrühe (zubereitet): 500 g
+- Öl: 20 g
+- Erbsen (TK): 150 g
+zubereitung:
+1. Hähnchen würzen und im Öl rundum anbraten, herausnehmen.
+2. Zwiebeln und Paprika pürieren und im Bratfett 10 Minuten einkochen, Tomatenmark und Curry dazu.
+3. Passierte Tomaten, Brühe und Reis einrühren, Hähnchen obenauf legen.
+4. Zugedeckt 25 Minuten auf kleiner Hitze garen, Erbsen die letzten 5 Minuten mitgaren.
+
+## Erdnuss-Eintopf (Maafe)
+en: Peanut stew (maafe)
+es: Guiso de cacahuete (maafe)
+emoji: 🥜
+typ: sauce
+beilage: reis
+portionen: 4
+tags: afrika, eintopf, hähnchen
+zutaten:
+- Hähnchenbrust: 500 g
+- Erdnussmus (100 % Erdnüsse): 100 g
+- Süßkartoffel: 400 g
+- Gehackte Tomaten (Dose): 400 g
+- Zwiebeln: 150 g
+- Knoblauch: 8 g
+- Ingwer (frisch): 10 g
+- Spinat: 150 g
+- Hühnerbrühe (zubereitet): 400 g
+- Öl: 10 g
+zubereitung:
+1. Zwiebeln, Knoblauch und Ingwer im Öl anschwitzen, Hähnchenwürfel kurz anbraten.
+2. Süßkartoffelwürfel, Tomaten und Brühe dazu, 20 Minuten köcheln.
+3. Erdnussmus einrühren, bis die Soße cremig ist.
+4. Spinat unterheben und zusammenfallen lassen.
+
+## Tajine mit Hähnchen und Aprikosen
+en: Chicken tagine with apricots
+es: Tajín de pollo con albaricoques
+emoji: 🍲
+typ: gericht
+portionen: 4
+tags: marokko, afrika, hähnchen
+zutaten:
+- Hähnchenschenkel (roh): 700 g
+- Zwiebeln: 200 g
+- Karotten: 250 g
+- Kichererbsen (abgetropft): 250 g
+- Aprikosen (getrocknet): 80 g
+- Kreuzkümmel: 4 g
+- Zimt (gemahlen): 2 g
+- Kurkuma: 3 g
+- Hühnerbrühe (zubereitet): 400 g
+- Olivenöl: 15 g
+- Couscous (trocken): 240 g
+zubereitung:
+1. Hähnchen im Öl anbraten, Zwiebeln und Gewürze dazu.
+2. Karotten, Kichererbsen, Aprikosen und Brühe zugeben.
+3. Zugedeckt 40 Minuten schmoren.
+4. Couscous mit kochendem Wasser übergießen, 5 Minuten quellen lassen und dazu servieren.
+
+## Paella mit Huhn und Meeresfrüchten
+en: Chicken and seafood paella
+es: Paella mixta
+emoji: 🥘
+typ: gericht
+portionen: 4
+tags: spanien, reis, garnelen, hähnchen
+zutaten:
+- Reis (trocken): 300 g
+- Hähnchenschenkel (roh): 400 g
+- Garnelen: 250 g
+- Paprika: 200 g
+- Erbsen (TK): 150 g
+- Zwiebeln: 100 g
+- Knoblauch: 8 g
+- Paprikapulver (edelsüß): 5 g
+- Kurkuma: 2 g
+- Hühnerbrühe (zubereitet): 900 g
+- Olivenöl: 20 g
+- Zitrone: 60 g
+zubereitung:
+1. Hähnchen im Olivenöl goldbraun braten, Zwiebel, Knoblauch und Paprika mitbraten.
+2. Reis, Paprikapulver und Kurkuma einrühren, Brühe angießen und nicht mehr umrühren.
+3. 18 Minuten köcheln, Erbsen und Garnelen die letzten 6 Minuten obenauf legen.
+4. Kurz ruhen lassen und mit Zitronenspalten servieren.
+
+## Pierogi mit Kartoffel-Quark
+en: Potato and quark pierogi
+es: Pierogi de patata y requesón
+emoji: 🥟
+typ: gericht
+portionen: 4
+tags: polen, vegetarisch
+zutaten:
+- Mehl: 350 g
+- Eier: 50 g
+- Kartoffeln (mehlig): 400 g
+- Magerquark: 200 g
+- Zwiebeln: 150 g
+- Butter: 20 g
+- Saure Sahne (10 %): 150 g
+zubereitung:
+1. Mehl, Ei, eine Prise Salz und 150 ml warmes Wasser zu einem glatten Teig kneten, 30 Minuten ruhen lassen.
+2. Kartoffeln kochen, zerstampfen, mit Quark und der Hälfte der gebratenen Zwiebeln mischen.
+3. Teig dünn ausrollen, Kreise ausstechen, füllen und gut zudrücken.
+4. In Salzwasser 3 Minuten ziehen lassen, in Butter mit den restlichen Zwiebeln schwenken, saure Sahne dazu.
+
+## Ungarisches Gulasch mit Nockerl
+en: Hungarian goulash with dumplings
+es: Gulash húngaro con ñoquis
+emoji: 🍲
+typ: sauce
+beilage: nudeln
+portionen: 5
+tags: ungarn, rind, eintopf, mealprep
+zutaten:
+- Gulaschfleisch (Rind): 800 g
+- Zwiebeln: 500 g
+- Paprikapulver (edelsüß): 20 g
+- Tomatenmark: 40 g
+- Paprika: 200 g
+- Kümmel: 2 g
+- Knoblauch: 10 g
+- Öl: 20 g
+- Spätzle (frisch): 500 g
+zubereitung:
+1. Zwiebeln im Öl langsam 15 Minuten goldbraun braten.
+2. Fleisch dazu und anbraten, vom Herd nehmen und Paprikapulver einrühren (verbrennt sonst bitter).
+3. Tomatenmark, Kümmel, Knoblauch und 600 ml Wasser dazu, 2 Stunden schmoren.
+4. Paprikastreifen 15 Minuten mitgaren. Mit Spätzle als Nockerl-Ersatz servieren.
+
+## Fish and Chips aus dem Ofen
+en: Oven fish and chips
+es: Fish and chips al horno
+emoji: 🐟
+typ: gericht
+portionen: 3
+tags: england, fisch
+zutaten:
+- Fischfilet (natur, roh): 450 g
+- Panko: 80 g
+- Eier: 50 g
+- Mehl: 30 g
+- Kartoffeln (festkochend): 700 g
+- Erbsen (TK): 300 g
+- Olivenöl: 20 g
+- Zitrone: 60 g
+zubereitung:
+1. Kartoffeln in dicke Stäbchen schneiden, mit Öl mischen und bei 220 °C 35 Minuten backen.
+2. Fisch in Mehl, Ei und Panko wenden.
+3. Die letzten 15 Minuten neben die Kartoffeln legen und backen.
+4. Erbsen kochen und grob zerdrücken. Mit Zitrone servieren.
+
+## Bami Goreng mit Tofu
+en: Bami goreng with tofu
+es: Bami goreng con tofu
+emoji: 🍜
+typ: gericht
+portionen: 3
+tags: indonesien, asiatisch, vegan, nudeln, tofu
+zutaten:
+- Mie-Nudeln (roh): 250 g
+- Tofu (fest): 300 g
+- Weißkohl: 250 g
+- Karotten: 150 g
+- Frühlingszwiebeln: 40 g
+- Ketjap Manis: 50 g
+- Sojasoße: 20 g
+- Sambal Oelek: 15 g
+- Knoblauch: 8 g
+- Öl: 20 g
+zubereitung:
+1. Tofu würfeln und im Öl knusprig braten, herausnehmen.
+2. Knoblauch, Kohl und Karotten in Streifen 4 Minuten braten.
+3. Nudeln kochen und mit Tofu dazugeben.
+4. Mit Ketjap Manis, Sojasoße und Sambal abschmecken, Frühlingszwiebeln unterheben.
+
+## Bulgogi-Tofu-Bowl
+en: Bulgogi tofu bowl
+es: Bowl de tofu bulgogi
+emoji: 🥢
+typ: gericht
+portionen: 3
+tags: korea, asiatisch, vegan, tofu
+zutaten:
+- Tofu (fest): 400 g
+- Sojasoße: 50 g
+- Zucker: 15 g
+- Apfel: 80 g
+- Knoblauch: 8 g
+- Sesamöl: 10 g
+- Reis (trocken): 240 g
+- Kimchi: 150 g
+- Gurke: 150 g
+- Karotten: 100 g
+- Sesam: 10 g
+zubereitung:
+1. Tofu in Scheiben schneiden und gut trocken tupfen.
+2. Sojasoße, Zucker, geriebenen Apfel, Knoblauch und Sesamöl verrühren.
+3. Tofu in einer heißen Pfanne braten, Marinade dazu und einkochen lassen.
+4. Mit Reis, Kimchi, Gurke und Karotten anrichten, Sesam drüber.
+
+## Sushi-Bowl mit Lachs
+en: Salmon sushi bowl
+es: Bowl de sushi con salmón
+emoji: 🍣
+typ: gericht
+portionen: 2
+tags: japan, asiatisch, lachs, fisch, schnell
+zutaten:
+- Sushireis (roh): 160 g
+- Sushi-Essig: 30 g
+- Lachs (frisch): 200 g
+- Avocado: 120 g
+- Gurke: 150 g
+- Edamame (TK, geschält): 100 g
+- Wakame-Salat: 80 g
+- Sojasoße: 20 g
+- Sesam: 6 g
+- Ingwer (eingelegt, Sushi): 20 g
+zubereitung:
+1. Sushireis kochen und mit Sushi-Essig mischen.
+2. Lachs in Würfel, Avocado und Gurke in Scheiben schneiden.
+3. Edamame kurz kochen.
+4. Alles auf dem Reis anrichten, mit Wakame, Ingwer, Sesam und Sojasoße servieren. Am selben Tag essen.
 `;

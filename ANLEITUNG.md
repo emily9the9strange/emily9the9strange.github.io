@@ -91,3 +91,11 @@ Die App holt sich Änderungen beim nächsten Start im Hintergrund und zeigt sie 
 
 Eigene Fotos für Rezepte: Bild in einen Ordner `fotos` hochladen und im Rezept `bild: fotos/name.jpg` eintragen.
 Nur Fotos verwenden, die du selbst gemacht hast oder frei nutzen darfst.
+
+## Eigene Fotos für Rezepte (Bilder-Bibliothek)
+
+1. Öffne `fotos/DATEINAMEN.txt` – dort steht für jedes Rezept der passende Dateiname, z. B. `chicken_katsu_curry.jpg`.
+2. Speichere dein Foto unter genau diesem Namen (klein geschrieben, .jpg, am besten quadratisch, ca. 800 × 800 px).
+3. Lade es in den Ordner `fotos` im Repository hoch. Fertig – das Foto ersetzt das automatische Bild.
+
+Fehlt ein Foto, stellt die App das Bild selbst aus den Zutaten zusammen (Beilage, Fleisch/Fisch, Gemüse, Soße – je nach Menge größer oder kleiner). Nutzerinnen und Nutzer können zusätzlich in der App über „📷 Eigenes Foto einfügen“ ihr eigenes Bild setzen; das bleibt nur auf ihrem Gerät.
