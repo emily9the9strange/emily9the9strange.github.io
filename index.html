@@ -509,61 +509,70 @@ body.kb .grab{display:none}
 textarea.notes{width:100%;border:1.5px solid var(--line);border-radius:14px;padding:12px;font:inherit;font-size:15px;line-height:1.45;resize:vertical;background:#fff;color:var(--ink)}
 .fricon{width:34px;height:34px;display:block}.pbtn .pi .fricon{width:30px;height:30px}
 .fview{position:fixed;inset:0;z-index:35;display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:14px 12px calc(86px + env(safe-area-inset-bottom));background:rgba(31,42,68,.42);backdrop-filter:blur(4px)}
-.fview.open{display:flex;animation:fvIn .2s}.fview.closing{opacity:0;transition:opacity .2s}
+.fview.open{display:flex;animation:fvIn .2s}
+.fview.closing{opacity:0;transition:opacity .2s}
 @keyframes fvIn{from{opacity:0}}
-/* Gehäuse: offener Kühlschrank von vorne, mit Dichtung und Innenwänden */
+
 .bigfridge{position:relative;width:min(100%,430px);flex:1;max-height:760px;border-radius:26px 26px 18px 18px;background:#f2f4f5;padding:9px;box-shadow:0 0 0 3px var(--ink),0 22px 50px rgba(0,0,0,.28)}
 .fview.open .bigfridge{animation:fgrow .3s cubic-bezier(.2,.9,.3,1)}
 @keyframes fgrow{from{transform:scale(.85);opacity:.4}}
 .finside{position:relative;height:100%;border-radius:18px 18px 12px 12px;overflow:hidden;display:grid;grid-template-rows:58fr 42fr;gap:9px;background:#f2f4f5}
-.comp{position:relative;display:flex;flex-direction:column;min-height:0;border-radius:16px;overflow:hidden;
+#finside .comp{position:relative;display:flex;flex-direction:column;min-height:0;border-radius:16px;overflow:hidden;
   box-shadow:inset 0 0 0 3px #dfe5e9,inset 0 0 0 5px #fbfcfc,inset 22px 0 26px -14px rgba(60,80,95,.22),inset -22px 0 26px -14px rgba(60,80,95,.22),inset 0 18px 22px -16px rgba(60,80,95,.18)}
-.comp.cool{background:linear-gradient(180deg,#fffef7 0%,#f7fafb 22%,#eef3f6 100%);border-radius:16px 16px 10px 10px}
-.comp.cool .led{position:absolute;left:50%;top:6px;width:38%;height:5px;border-radius:3px;transform:translateX(-50%);background:#fffbe6;box-shadow:0 0 18px 10px rgba(255,246,200,.85),0 0 60px 30px rgba(255,248,215,.55);z-index:2;pointer-events:none;animation:ledOn .5s ease-out}
+#finside .comp.cool{background:linear-gradient(180deg,#fffef7 0%,#f7fafb 22%,#eef3f6 100%);border-radius:16px 16px 10px 10px}
+#finside .comp.cool .led{position:absolute;left:50%;top:6px;width:38%;height:5px;border-radius:3px;transform:translateX(-50%);background:#fffbe6;box-shadow:0 0 18px 10px rgba(255,246,200,.85),0 0 60px 30px rgba(255,248,215,.55);z-index:2;pointer-events:none;animation:ledOn .5s ease-out}
 @keyframes ledOn{0%{opacity:0}30%{opacity:1}45%{opacity:.4}100%{opacity:1}}
-.comp.frost{background:linear-gradient(180deg,#e3f0f8 0%,#d4e7f3 100%);border-radius:10px 10px 16px 16px}
-.comp.frost::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;background:
+#finside .comp.frost{background:linear-gradient(180deg,#e3f0f8 0%,#d4e7f3 100%);border-radius:10px 10px 16px 16px}
+#finside .comp.frost::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;background:
   radial-gradient(45% 30% at 0 0,rgba(255,255,255,.85),transparent 70%),radial-gradient(40% 25% at 100% 0,rgba(255,255,255,.8),transparent 70%),
   repeating-linear-gradient(115deg,rgba(255,255,255,.0) 0 14px,rgba(255,255,255,.18) 14px 15px)}
-.chead{display:flex;justify-content:space-between;align-items:baseline;padding:16px 18px 4px;position:relative;z-index:1}.chead b{font-size:15px}.chead span{font-size:12px;color:var(--muted);font-weight:700}
-.cscroll{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:4px 14px 14px;position:relative;z-index:1;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-.cscroll::-webkit-scrollbar{display:none}
-/* Glasböden */
-.shelf{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:end;padding:10px 4px 13px;margin:0 -4px 12px}
-.shelf::after{content:"";position:absolute;left:-10px;right:-10px;bottom:0;height:9px;border-radius:2px;
+#finside .chead{display:flex;justify-content:space-between;align-items:baseline;padding:16px 18px 4px;position:relative;z-index:1}
+#finside .chead b{font-size:15px}
+#finside .chead span{font-size:12px;color:var(--muted);font-weight:700}
+#finside .cscroll{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:4px 14px 14px;position:relative;z-index:1;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+#finside .cscroll::-webkit-scrollbar{display:none}
+
+#finside .shelf{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:end;padding:10px 4px 13px;margin:0 -4px 12px}
+#finside .shelf::after{content:"";position:absolute;left:-10px;right:-10px;bottom:0;height:9px;border-radius:2px;
   background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(198,222,234,.75));border-top:1.5px solid rgba(140,175,195,.9);box-shadow:0 7px 10px -5px rgba(40,70,90,.28)}
-.shelf.empty{display:block}
-.crisper{height:46px;margin:2px -10px -14px;border-radius:12px 12px 0 0;background:linear-gradient(180deg,rgba(220,240,230,.55),rgba(190,225,210,.75));border:1.5px solid rgba(140,180,165,.8);border-bottom:0;position:relative}
-.crisper span{position:absolute;left:50%;top:9px;width:56px;height:8px;border-radius:5px;transform:translateX(-50%);background:rgba(110,150,135,.55)}
-/* Schubladen im Tiefkühler */
-.drawer{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:end;padding:8px 4px 0;margin:0 -4px 14px}
-.drawer::after{content:"";position:absolute;left:-10px;right:-10px;bottom:26px;height:46px;border-radius:6px 6px 10px 10px;pointer-events:none;z-index:3;
+#finside .shelf.empty{display:block}
+#finside .crisper{height:46px;margin:2px -10px -14px;border-radius:12px 12px 0 0;background:linear-gradient(180deg,rgba(220,240,230,.55),rgba(190,225,210,.75));border:1.5px solid rgba(140,180,165,.8);border-bottom:0;position:relative}
+#finside .crisper span{position:absolute;left:50%;top:9px;width:56px;height:8px;border-radius:5px;transform:translateX(-50%);background:rgba(110,150,135,.55)}
+
+#finside .drawer{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:end;padding:8px 4px 0;margin:0 -4px 14px}
+#finside .drawer::after{content:"";position:absolute;left:-10px;right:-10px;bottom:26px;height:46px;border-radius:6px 6px 10px 10px;pointer-events:none;z-index:3;
   background:linear-gradient(180deg,rgba(245,251,255,.45),rgba(212,232,246,.85));border:1.5px solid rgba(150,185,210,.9);box-shadow:0 6px 10px -6px rgba(40,70,90,.3);backdrop-filter:blur(1px)}
-.drawer::before{content:"";position:absolute;left:50%;bottom:36px;width:64px;height:7px;border-radius:4px;transform:translateX(-50%);background:rgba(100,140,170,.7);z-index:4;pointer-events:none}
-.drawer.empty{display:block;padding:10px 4px 30px}
-/* Meal-Prep-Boxen */
-.tub2{position:relative;--lid:#7cc4a2}
-.tub2.frz{--lid:#6fa8d6}
-.tub2 .tm{display:block;width:100%;text-align:left}
-.tub2 .box{position:relative;display:block;height:118px;border-radius:12px 12px 14px 14px;background:rgba(255,255,255,.55);border:2px solid rgba(31,42,68,.55);overflow:hidden;
+#finside .drawer::before{content:"";position:absolute;left:50%;bottom:36px;width:64px;height:7px;border-radius:4px;transform:translateX(-50%);background:rgba(100,140,170,.7);z-index:4;pointer-events:none}
+#finside .drawer.empty{display:block;padding:10px 4px 30px}
+
+#finside .tub2{position:relative;--lid:#7cc4a2}
+#finside .tub2.frz{--lid:#6fa8d6}
+#finside .tub2 .tm{display:block;width:100%;text-align:left}
+#finside .tub2 .box{position:relative;display:block;height:118px;border-radius:12px 12px 14px 14px;background:rgba(255,255,255,.55);border:2px solid rgba(31,42,68,.55);overflow:hidden;
   box-shadow:0 calc(var(--stack,1) * 0px) 0 0 transparent,0 5px 0 -1px rgba(255,255,255,.7),0 5px 0 1px rgba(31,42,68,.18),0 8px 10px -4px rgba(30,50,70,.25)}
-.tub2[style*="--stack:2"] .box,.tub2[style*="--stack:3"] .box{box-shadow:0 5px 0 -1px #fff,0 5px 0 1px rgba(31,42,68,.35),0 10px 0 -1px #fff,0 10px 0 1px rgba(31,42,68,.25),0 13px 12px -4px rgba(30,50,70,.25)}
-.tub2 .lid{position:absolute;left:0;right:0;top:0;height:16px;background:var(--lid);border-bottom:2px solid rgba(31,42,68,.35);z-index:2}
-.tub2 .tpic{position:absolute;left:6px;right:6px;top:20px;bottom:6px;width:auto;height:auto;border-radius:8px;opacity:.95}
-.tub2 .gloss{position:absolute;inset:16px 0 0 0;background:linear-gradient(115deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,0) 35%,rgba(255,255,255,0) 70%,rgba(255,255,255,.25) 100%);z-index:2;pointer-events:none}
-.tub2.frz .gloss{background:linear-gradient(115deg,rgba(255,255,255,.65) 0%,rgba(230,242,252,.25) 40%,rgba(230,242,252,.15) 70%,rgba(255,255,255,.4) 100%)}
-.tub2 .tape2{position:absolute;left:8px;right:14px;top:9px;z-index:3;background:#f6df8f;padding:3px 8px 2px;transform:rotate(-2deg);box-shadow:0 1px 2px rgba(0,0,0,.18)}
-.tub2:nth-child(even) .tape2{transform:rotate(1.5deg);left:14px;right:8px}
-.tub2 .tape2 b{display:block;font-size:12.5px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.tub2 .tape2 small{display:block;font-size:10.5px;color:#6b5a1a;font-weight:700;line-height:1.1}
-.tub2 .tinfo{display:flex;gap:4px;align-items:baseline;padding:9px 34px 0 4px;font-size:12px;color:var(--muted);font-weight:600;white-space:nowrap;overflow:hidden}.tub2 .tinfo b{color:var(--ink);font-size:14px}
-.tub2 .tmore{position:absolute;right:0;bottom:-3px;width:30px;height:28px;border-radius:9px;background:#fff;box-shadow:0 0 0 1.5px rgba(31,42,68,.25);font-weight:800;color:var(--ink);font-size:16px;z-index:5}
-.tub2.old .box{border-color:var(--bad)}
-.tub2 .warn{position:absolute;right:-4px;top:-8px;z-index:6;background:var(--bad);color:#fff;font-size:10.5px;font-weight:800;border-radius:999px;padding:2px 8px}
-.drawer .tub2 .tinfo{padding-top:12px}
-.drawer{padding-bottom:4px}
-.cempty{color:var(--muted);font-weight:600;padding:10px 6px}
+#finside .tub2[style*="--stack:2"] .box,#finside .tub2[style*="--stack:3"] .box{box-shadow:0 5px 0 -1px #fff,0 5px 0 1px rgba(31,42,68,.35),0 10px 0 -1px #fff,0 10px 0 1px rgba(31,42,68,.25),0 13px 12px -4px rgba(30,50,70,.25)}
+#finside .tub2 .lid{position:absolute;left:0;right:0;top:0;height:16px;background:var(--lid);border-bottom:2px solid rgba(31,42,68,.35);z-index:2}
+#finside .tub2 .tpic{position:absolute;left:6px;right:6px;top:20px;bottom:6px;width:auto;height:auto;border-radius:8px;opacity:.95}
+#finside .tub2 .gloss{position:absolute;inset:16px 0 0 0;background:linear-gradient(115deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,0) 35%,rgba(255,255,255,0) 70%,rgba(255,255,255,.25) 100%);z-index:2;pointer-events:none}
+#finside .tub2.frz .gloss{background:linear-gradient(115deg,rgba(255,255,255,.65) 0%,rgba(230,242,252,.25) 40%,rgba(230,242,252,.15) 70%,rgba(255,255,255,.4) 100%)}
+#finside .tub2 .tape2{position:absolute;left:8px;right:14px;top:9px;z-index:3;background:#f6df8f;padding:3px 8px 2px;transform:rotate(-2deg);box-shadow:0 1px 2px rgba(0,0,0,.18)}
+#finside .tub2:nth-child(even) .tape2{transform:rotate(1.5deg);left:14px;right:8px}
+#finside .tub2 .tape2 b{display:block;font-size:12.5px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#finside .tub2 .tape2 small{display:block;font-size:10.5px;color:#6b5a1a;font-weight:700;line-height:1.1}
+#finside .tub2 .tinfo{display:flex;gap:4px;align-items:baseline;padding:9px 34px 0 4px;font-size:12px;color:var(--muted);font-weight:600;white-space:nowrap;overflow:hidden}
+#finside .tub2 .tinfo b{color:var(--ink);font-size:14px}
+#finside .tub2 .tmore{position:absolute;right:0;bottom:-3px;width:30px;height:28px;border-radius:9px;background:#fff;box-shadow:0 0 0 1.5px rgba(31,42,68,.25);font-weight:800;color:var(--ink);font-size:16px;z-index:5}
+#finside .tub2.old .box{border-color:var(--bad)}
+#finside .tub2 .warn{position:absolute;right:-4px;top:-8px;z-index:6;background:var(--bad);color:#fff;font-size:10.5px;font-weight:800;border-radius:999px;padding:2px 8px}
+#finside .drawer .tub2 .tinfo{padding-top:12px}
+#finside .drawer{padding-bottom:4px}
+#finside .cempty{color:var(--muted);font-weight:600;padding:10px 6px}
 .fclose{background:#fff;color:var(--ink);font-weight:800;border-radius:999px;padding:11px 22px;box-shadow:0 6px 16px rgba(0,0,0,.18);flex:none}
-@media (prefers-reduced-motion:reduce){.fview.open .bigfridge,.comp.cool .led{animation:none}}
+@media (prefers-reduced-motion:reduce){.fview.open .bigfridge,#finside .comp.cool .led{animation:none}}
+svg.fi{width:1.05em;height:1.05em;display:inline-block;vertical-align:-.15em}
+.lid h2 svg.fi{width:1.1em;height:1.1em}
+.empty .e svg.fi{width:48px;height:48px}
+nav.tabs .ic svg.fi.nav{width:28px;height:28px;vertical-align:middle}
 </style>
 </head>
 <body>
@@ -610,7 +619,7 @@ textarea.notes{width:100%;border:1.5px solid var(--line);border-radius:14px;padd
   <!-- TIEFKÜHLER -->
   <section class="view" id="v-freezer">
     <div class="freezer">
-      <div class="lid"><h2>📦 Vorrat</h2><span class="tot" id="frzTot">0 Portionen</span></div>
+      <div class="lid"><h2><svg class="fi" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="2.5" width="18" height="26" rx="3.5" fill="#d9ecf7" stroke="#1f2a44" stroke-width="2.2"/><path d="M7 12.5h18" stroke="#1f2a44" stroke-width="2.2"/><path d="M11 6v3.5M11 16v5.5" stroke="#1f2a44" stroke-width="2.4" stroke-linecap="round"/><rect x="9" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/><rect x="19.8" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/></svg> Vorrat</h2><span class="tot" id="frzTot">0 Portionen</span></div>
       <div class="drawer" id="dishList"></div>
     </div>
     <div class="two" style="margin-top:14px"><button class="btn ice" id="btnCookFromBook">📖 Aus Kochbuch</button><button class="btn ghost" id="btnAddDish">＋ Freies Gericht</button></div>
@@ -794,7 +803,7 @@ textarea.notes{width:100%;border:1.5px solid var(--line);border-radius:14px;padd
 
 <nav class="tabs"><div class="in">
   <button data-tab="today" class="act"><span class="ic">🍽️</span>Heute</button>
-  <button data-tab="freezer"><span class="ic">📦</span>Vorrat</button>
+  <button data-tab="freezer"><span class="ic"><svg class="fi nav" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="2.5" width="18" height="26" rx="3.5" fill="#d9ecf7" stroke="#1f2a44" stroke-width="2.2"/><path d="M7 12.5h18" stroke="#1f2a44" stroke-width="2.2"/><path d="M11 6v3.5M11 16v5.5" stroke="#1f2a44" stroke-width="2.4" stroke-linecap="round"/><rect x="9" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/><rect x="19.8" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/></svg></span>Vorrat</button>
   <button data-tab="book"><span class="ic">📖</span>Kochbuch</button>
   <button data-tab="plan"><span class="ic">📅</span>Planer</button>
   <button data-tab="snacks"><span class="ic">🍪</span>Snacks</button>
@@ -952,7 +961,7 @@ function renderFreezer() {
   const L = $("#dishList");
   const tot = S.dishes.reduce((a, x) => a + (x.count || 0), 0);
   $("#frzTot").textContent = fmtQ(tot) + " im Vorrat";
-  if (!S.dishes.length) { L.innerHTML = `<div class="empty" style="background:rgba(255,255,255,.6);border-color:#c3e0f2"><span class="e">📦</span>Dein Vorrat ist leer.<br>Koch was aus dem Kochbuch und lager es ein – im Tiefkühler oder frisch (z. B. Muffins).</div>`; return; }
+  if (!S.dishes.length) { L.innerHTML = `<div class="empty" style="background:rgba(255,255,255,.6);border-color:#c3e0f2"><span class="e"><svg class="fi" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="2.5" width="18" height="26" rx="3.5" fill="#d9ecf7" stroke="#1f2a44" stroke-width="2.2"/><path d="M7 12.5h18" stroke="#1f2a44" stroke-width="2.2"/><path d="M11 6v3.5M11 16v5.5" stroke="#1f2a44" stroke-width="2.4" stroke-linecap="round"/><rect x="9" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/><rect x="19.8" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/></svg></span>Dein Vorrat ist leer.<br>Koch was aus dem Kochbuch und lager es ein – im Tiefkühler oder frisch (z. B. Muffins).</div>`; return; }
   const card = x => { const dl = daysLeft(x), sd = sideById(x.needsSide || x.withSide), fr = x.loc === "frisch", u = x.unit === "stk" ? "Stück" : "Portion";
     const exp = dl === null ? "" : `<span class="exp ${dl <= (fr ? 1 : 7) ? "red" : dl <= (fr ? 2 : 21) ? "amb" : ""}">${fr ? "🧺" : "❄️"} ${x.frozen.split("-").reverse().slice(0, 2).join(".")}. · ${dl <= 0 ? "abgelaufen" : "noch " + dl + " T"}</span>`;
     const tag = x.needsSide ? `<span class="tag">nur Sauce · + ${esc(sd?.n || "Beilage")} frisch</span>` : x.withSide ? `<span class="tag ok">mit ${esc(sd?.n || "Beilage")}</span>` : "";
@@ -967,7 +976,7 @@ function renderFreezer() {
         <div class="stepper"><button data-dec="${esc(x.id)}" aria-label="Weniger">−</button><span>${fmtQ(x.count || 0)}</span><button data-inc="${esc(x.id)}" aria-label="Mehr">+</button></div></div>
     </div>`; };
   const sorted = S.dishes.filter(x => x.count > 0).sort((a, b) => ((daysLeft(a) ?? 999) - (daysLeft(b) ?? 999)) || a.name.localeCompare(b.name));
-  if (!sorted.length) { L.innerHTML = `<div class="empty" style="background:rgba(255,255,255,.6);border-color:#c3e0f2"><span class="e">📦</span>Alles aufgegessen! 🎉<br>Koch was Neues aus dem Kochbuch und lager es ein.</div>`; return; }
+  if (!sorted.length) { L.innerHTML = `<div class="empty" style="background:rgba(255,255,255,.6);border-color:#c3e0f2"><span class="e"><svg class="fi" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="2.5" width="18" height="26" rx="3.5" fill="#d9ecf7" stroke="#1f2a44" stroke-width="2.2"/><path d="M7 12.5h18" stroke="#1f2a44" stroke-width="2.2"/><path d="M11 6v3.5M11 16v5.5" stroke="#1f2a44" stroke-width="2.4" stroke-linecap="round"/><rect x="9" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/><rect x="19.8" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/></svg></span>Alles aufgegessen! 🎉<br>Koch was Neues aus dem Kochbuch und lager es ein.</div>`; return; }
   const tk = sorted.filter(x => x.loc !== "frisch"), fr = sorted.filter(x => x.loc === "frisch");
   L.innerHTML = (fr.length ? `<div class="locsec"><h3>🧺 Frisch <small>Kühlschrank, Dose, Theke</small></h3>${fr.map(card).join("")}</div>` : "")
     + (tk.length ? `<div class="locsec"><h3>❄️ Tiefkühler</h3>${tk.map(card).join("")}</div>` : "");
@@ -1738,7 +1747,7 @@ function cookSheet(rid, mode = "cook", tpl = null) {
       ${isNew ? `<label class="tgl"><input type="checkbox" id="csave"> Auch als Rezept im Kochbuch speichern</label>` : ""}` : ""}
     <div class="actions sticky"><div class="cerr" id="cerr" hidden></div>
       ${isEdit ? `<button class="btn" type="button" id="csaveR">Rezept speichern</button>${r ? `<button class="btn danger" type="button" id="cdelR">Rezept löschen</button>` : ""}`
-               : `<button class="btn ice" type="button" id="cfreeze">Einlagern 📦</button>${r ? `<button class="btn ghost" type="button" id="cstd">Diese Mengen als Standard speichern</button>` : ""}`}
+               : `<button class="btn ice" type="button" id="cfreeze">Einlagern <svg class="fi" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="2.5" width="18" height="26" rx="3.5" fill="#d9ecf7" stroke="#1f2a44" stroke-width="2.2"/><path d="M7 12.5h18" stroke="#1f2a44" stroke-width="2.2"/><path d="M11 6v3.5M11 16v5.5" stroke="#1f2a44" stroke-width="2.4" stroke-linecap="round"/><rect x="9" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/><rect x="19.8" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/></svg></button>${r ? `<button class="btn ghost" type="button" id="cstd">Diese Mengen als Standard speichern</button>` : ""}`}
       <button class="btn ghost" type="button" id="cancel">Abbrechen</button>
     </div>
     <datalist id="inglist">${allIngNames().map(n => `<option value="${esc(ingLabel(n))}">`).join("")}</datalist>`);
@@ -1786,8 +1795,8 @@ function cookSheet(rid, mode = "cook", tpl = null) {
         const sn = sideNut(sd), rest = st.p - st.withSide;
         si.innerHTML = `<div class="row" style="border:0;padding:4px 0"><label>Boxen <b>mit ${esc(sd.n)}</b></label><div class="stepper big"><button type="button" data-ws="-1">−</button><span>${st.withSide}</span><button type="button" data-ws="1">+</button></div></div>
           <p class="tip" style="margin:4px 0 0">${st.withSide ? `🍳 Koche dafür <b>${fmt(st.withSide * sd.g)} g ${esc(sd.ing)}</b> (${st.withSide} × ${sd.g} g).<br>` : ""}
-          ${st.withSide ? `📦 ${st.withSide} Box${st.withSide > 1 ? "en" : ""} mit ${esc(sd.n)}: <b>${fmt(per.k + sn.k)} kcal</b>, ${fmt(per.p + sn.p)} g Eiweiß<br>` : ""}
-          ${rest ? `📦 ${rest} Box${rest > 1 ? "en" : ""} nur ${st.kind === "sauce" ? "Sauce" : "Gericht"}: <b>${fmt(per.k)} kcal</b>${st.kind === "sauce" ? ` – ${esc(sd.n)} wird beim Essen frisch dazugerechnet (+${fmt(sn.k)} kcal)` : ""}` : ""}</p>`;
+          ${st.withSide ? `<svg class="fi" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="2.5" width="18" height="26" rx="3.5" fill="#d9ecf7" stroke="#1f2a44" stroke-width="2.2"/><path d="M7 12.5h18" stroke="#1f2a44" stroke-width="2.2"/><path d="M11 6v3.5M11 16v5.5" stroke="#1f2a44" stroke-width="2.4" stroke-linecap="round"/><rect x="9" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/><rect x="19.8" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/></svg> ${st.withSide} Box${st.withSide > 1 ? "en" : ""} mit ${esc(sd.n)}: <b>${fmt(per.k + sn.k)} kcal</b>, ${fmt(per.p + sn.p)} g Eiweiß<br>` : ""}
+          ${rest ? `<svg class="fi" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="2.5" width="18" height="26" rx="3.5" fill="#d9ecf7" stroke="#1f2a44" stroke-width="2.2"/><path d="M7 12.5h18" stroke="#1f2a44" stroke-width="2.2"/><path d="M11 6v3.5M11 16v5.5" stroke="#1f2a44" stroke-width="2.4" stroke-linecap="round"/><rect x="9" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/><rect x="19.8" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/></svg> ${rest} Box${rest > 1 ? "en" : ""} nur ${st.kind === "sauce" ? "Sauce" : "Gericht"}: <b>${fmt(per.k)} kcal</b>${st.kind === "sauce" ? ` – ${esc(sd.n)} wird beim Essen frisch dazugerechnet (+${fmt(sn.k)} kcal)` : ""}` : ""}</p>`;
       }
     }
   }
@@ -2011,7 +2020,7 @@ function planAddSheet(key, slot) {
   const d = parseKey(key), m = mealById(slot);
   const tk = S.dishes.filter(x => x.count > 0).sort((a, b) => (daysLeft(a) ?? 999) - (daysLeft(b) ?? 999));
   const snackFirst = m[3];
-  const tkSec = `<div class="psec"><h4>📦 Aus dem Vorrat</h4>${tk.length ? tk.map(x => { const free = x.count - plannedCount(x.id), dl = daysLeft(x);
+  const tkSec = `<div class="psec"><h4><svg class="fi" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="2.5" width="18" height="26" rx="3.5" fill="#d9ecf7" stroke="#1f2a44" stroke-width="2.2"/><path d="M7 12.5h18" stroke="#1f2a44" stroke-width="2.2"/><path d="M11 6v3.5M11 16v5.5" stroke="#1f2a44" stroke-width="2.4" stroke-linecap="round"/><rect x="9" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/><rect x="19.8" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/></svg> Aus dem Vorrat</h4>${tk.length ? tk.map(x => { const free = x.count - plannedCount(x.id), dl = daysLeft(x);
       return `<button class="popt" data-pa-tk="${esc(x.id)}" ${free <= 0 ? "disabled" : ""}><span>${x.loc === "frisch" ? "🧺" : "❄️"} ${esc(x.name)}</span><small>${fmt(x.kcal)} kcal/${x.unit === "stk" ? "Stück" : "Portion"}${x.needsSide ? " + Beilage" : ""} · ${free > 0 ? fmtQ(free) + " frei" : "alles verplant"}${dl !== null && dl <= 21 ? ` · noch ${Math.max(0, dl)} T` : ""}</small></button>`; }).join("") : `<p class="tip">Nichts im Vorrat.</p>`}</div>`;
   const title = `${d.toLocaleDateString(LOCALE, { weekday: "long", day: "numeric", month: "long" })} · ${m[2]} ${m[1]}`;
   const freeTk = tk.reduce((n, x) => n + Math.max(0, x.count - plannedCount(x.id)), 0);
@@ -2034,7 +2043,7 @@ function planAddSheet(key, slot) {
     $("#pmensa").onclick = () => { addPlan(key, slot, { type: "mensa", name: $("#mn").value.trim() || "Mensa", emoji: "🏫", kcal: Math.round(num($("#mk").value)) || 800, protein: snackFirst ? 8 : 30 }); closeSheet(); };
   };
   const vorrat = () => {
-    openSheet(`${back}<h3 style="margin-top:6px">📦 Aus dem Vorrat</h3>${tkSec.replace('<h4>📦 Aus dem Vorrat</h4>', "")}<div class="actions"><button class="btn ghost" id="cancel">Schließen</button></div>`);
+    openSheet(`${back}<h3 style="margin-top:6px"><svg class="fi" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="2.5" width="18" height="26" rx="3.5" fill="#d9ecf7" stroke="#1f2a44" stroke-width="2.2"/><path d="M7 12.5h18" stroke="#1f2a44" stroke-width="2.2"/><path d="M11 6v3.5M11 16v5.5" stroke="#1f2a44" stroke-width="2.4" stroke-linecap="round"/><rect x="9" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/><rect x="19.8" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/></svg> Aus dem Vorrat</h3>${tkSec.replace('<h4><svg class="fi" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="2.5" width="18" height="26" rx="3.5" fill="#d9ecf7" stroke="#1f2a44" stroke-width="2.2"/><path d="M7 12.5h18" stroke="#1f2a44" stroke-width="2.2"/><path d="M11 6v3.5M11 16v5.5" stroke="#1f2a44" stroke-width="2.4" stroke-linecap="round"/><rect x="9" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/><rect x="19.8" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/></svg> Aus dem Vorrat</h4>', "")}<div class="actions"><button class="btn ghost" id="cancel">Schließen</button></div>`);
     $("#pback").onclick = main; $("#cancel").onclick = closeSheet;
     sheet.querySelectorAll("[data-pa-tk]").forEach(b => b.onclick = () => { const x = S.dishes.find(y => y.id === b.dataset.paTk); if (x) planQtySheet(x, key, slot); });
   };
@@ -2130,11 +2139,11 @@ $("#fview").addEventListener("click", e => { if (e.target.id === "fview") closeF
 // ---------- Schnell-Entnahme (Heute → Aus dem Vorrat) ----------
 function quickTakeSheet() {
   const items = S.dishes.filter(d => d.count > 0).sort((a, b) => (daysLeft(a) ?? 999) - (daysLeft(b) ?? 999));
-  if (!items.length) { openSheet(`<h3>📦 Vorrat ist leer</h3><p class="tip" style="font-size:14px">Koch was aus dem Kochbuch und lager es ein.</p><div class="actions"><button class="btn ice" id="go">📖 Zum Kochbuch</button><button class="btn ghost" id="cancel">Schließen</button></div>`); $("#go").onclick = () => { closeSheet(); showTab("book"); }; $("#cancel").onclick = closeSheet; return; }
+  if (!items.length) { openSheet(`<h3><svg class="fi" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="2.5" width="18" height="26" rx="3.5" fill="#d9ecf7" stroke="#1f2a44" stroke-width="2.2"/><path d="M7 12.5h18" stroke="#1f2a44" stroke-width="2.2"/><path d="M11 6v3.5M11 16v5.5" stroke="#1f2a44" stroke-width="2.4" stroke-linecap="round"/><rect x="9" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/><rect x="19.8" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/></svg> Vorrat ist leer</h3><p class="tip" style="font-size:14px">Koch was aus dem Kochbuch und lager es ein.</p><div class="actions"><button class="btn ice" id="go">📖 Zum Kochbuch</button><button class="btn ghost" id="cancel">Schließen</button></div>`); $("#go").onclick = () => { closeSheet(); showTab("book"); }; $("#cancel").onclick = closeSheet; return; }
   const q = {}, side = {};
   items.forEach(d => { q[d.id] = 0; if (d.needsSide) side[d.id] = d.needsSide; });
   const sideOpts = (sel) => S.sides.map(s => `<option value="${esc(s.id)}" ${s.id === sel ? "selected" : ""}>+ ${esc(s.emoji)} ${esc(s.n)} (${s.g} g)</option>`).join("") + `<option value="" ${sel === "" ? "selected" : ""}>ohne Beilage</option>`;
-  openSheet(`<h3>📦 Was nimmst du raus?</h3>
+  openSheet(`<h3><svg class="fi" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="2.5" width="18" height="26" rx="3.5" fill="#d9ecf7" stroke="#1f2a44" stroke-width="2.2"/><path d="M7 12.5h18" stroke="#1f2a44" stroke-width="2.2"/><path d="M11 6v3.5M11 16v5.5" stroke="#1f2a44" stroke-width="2.4" stroke-linecap="round"/><rect x="9" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/><rect x="19.8" y="28" width="3.2" height="2.4" rx="1" fill="#1f2a44"/></svg> Was nimmst du raus?</h3>
     ${viewKey !== curDay ? `<p class="tip" style="margin:-6px 0 10px">Wird für <b>${parseKey(viewKey).toLocaleDateString(LOCALE, { weekday: "long", day: "numeric", month: "numeric" })}</b> eingetragen.</p>` : ""}
     <div class="qlist">${items.map(d => { const dl = daysLeft(d), fr = d.loc === "frisch";
       return `<div class="qrow" data-qid="${esc(d.id)}">${imgHtml(d, "qpic")}
@@ -2166,7 +2175,7 @@ function quickTakeSheet() {
     });
     saveS(); closeSheet(); renderAll();
     const n = Object.values(q).reduce((a, b) => a + b, 0);
-    toast(`📦 ${fmtQ(n)} ${n === 1 ? "Portion" : "Portionen"} eingetragen`, () => { undo.forEach(f => f()); saveS(); saveT(); renderAll(); });
+    toast(`🧊 ${fmtQ(n)} ${n === 1 ? "Portion" : "Portionen"} eingetragen`, () => { undo.forEach(f => f()); saveS(); saveT(); renderAll(); });
   };
   draw();
 }
@@ -2242,7 +2251,7 @@ function buildSuggestions() {
       const c = cands[0];
       if (c && c.sc > -1.5) {
         avail[c.x.id]--; used.add(c.rk); prev = c.rk; dayP += c.p; dayK += c.k;
-        out.push({ key, slot, why: c.why.length ? c.why : ["📦 aus dem Vorrat"], item: { type: "tk", dishId: c.x.id, qty: 1, sideId: c.sd?.id || null, name: c.sd ? `${stripKind(c.x.name)} + ${c.sd.n}` : c.x.name, emoji: c.x.emoji, kcal: Math.round(c.k), protein: Math.round(c.p) } });
+        out.push({ key, slot, why: c.why.length ? c.why : ["🧊 aus dem Vorrat"], item: { type: "tk", dishId: c.x.id, qty: 1, sideId: c.sd?.id || null, name: c.sd ? `${stripKind(c.x.name)} + ${c.sd.n}` : c.x.name, emoji: c.x.emoji, kcal: Math.round(c.k), protein: Math.round(c.p) } });
       } else {
         const rs = S.recipes.map(r => { const pp = recipePortion(r), sd = r.kind === "sauce" ? sideById(r.side) : null, sn = sideNut(sd), k = pp.k + sn.k, p = pp.p + sn.p;
           return { r, sd, k, p, sc: 2 * Math.min(1, p / pNeed) - 2.5 * Math.abs(k - kTarget) / perK - 2 * (cookUsed[r.id] || 0) - (used.has(r.id) ? 3 : 0) }; }).sort((a, b) => b.sc - a.sc);
@@ -3257,6 +3266,10 @@ const I18N = {
 "Die Prognose-Linie zeigt typische Wasser-Hochs": ["The forecast line shows typical water highs", "La línea de previsión muestra los picos típicos de agua"],
 "– das ist kein Fett und geht danach wieder runter.": ["– that isn't fat and goes back down afterwards.", "– no es grasa y luego vuelve a bajar."],
 "Feste": ["Festivals", "Fiestas"],
+"Vorrat ist leer": ["Pantry is empty", "La despensa está vacía"],
+"🧊 aus dem Vorrat": ["🧊 from the pantry", "🧊 de la despensa"],
+"Einlagern": ["Store", "Guardar"],
+
 "Kühlschrank": ["Fridge", "Nevera"],
 "Kühlschrank schließen": ["Close fridge", "Cerrar nevera"],
 "{0} frisch": ["{0} fresh", "{0} frescas"],

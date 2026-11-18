@@ -2,7 +2,7 @@
 // Speichert nur die App-Dateien zwischen, damit die App offline läuft.
 // Es werden KEINE Nutzerdaten gesendet: alle Eingaben bleiben im Speicher des Geräts.
 // Bei jedem Update der App: VERSION erhöhen, dann holen sich die Geräte die neue Version.
-const VERSION = "nuvio-v18";
+const VERSION = "nuvio-v19";
 const FILES = ["./", "index.html", "manifest.webmanifest", "datenschutz.html",
   "nuvio-192.png", "nuvio-512.png", "nuvio-maskable-192.png", "nuvio-maskable-512.png",
   "lebensmittel.js", "rezepte.js"];
