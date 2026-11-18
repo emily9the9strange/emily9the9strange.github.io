@@ -1,4 +1,4 @@
-# Kühlfach – vom ZIP in den Play Store
+# Nuvio – vom ZIP in den Play Store
 
 Diese Version speichert **alle Daten nur auf dem Gerät**. Die App sendet nichts an dich oder an andere – eine Sicherheitsregel im Code (`connect-src 'none'`) verbietet ihr sogar technisch, Daten zu verschicken. Du hast also keine Daten deiner Nutzer:innen.
 
@@ -37,8 +37,8 @@ Diese Version speichert **alle Daten nur auf dem Gerät**. Die App sendet nichts
 1. **www.pwabuilder.com** öffnen, deine Adresse `https://DEINNAME.github.io/` eingeben → „Start“.
 2. „Package for stores“ → **Android** → „Generate package“.
 3. Einstellungen:
-   - **Package ID:** z. B. `io.github.deinname.kuehlfach` (nur Kleinbuchstaben/Punkte, später nicht mehr änderbar)
-   - **App name:** Kühlfach · **Version:** 1.0.0 (Version code 1)
+   - **Package ID:** z. B. `io.github.deinname.nuvio` (nur Kleinbuchstaben/Punkte, später nicht mehr änderbar)
+   - **App name:** Nuvio – Prep & Diet · **Version:** 1.0.0 (Version code 1)
    - Signing key: „Create new“ (PWABuilder erstellt einen Schlüssel)
 4. Herunterladen. Im ZIP findest du u. a.:
    - die **`.aab`-Datei** (die lädst du bei Google hoch)
@@ -51,12 +51,12 @@ Diese Version speichert **alle Daten nur auf dem Gerät**. Die App sendet nichts
 
 ## Schritt 5 – Google Play Console
 1. Entwicklerkonto auf **play.google.com/console** anlegen (einmalig 25 US-Dollar, Identitätsprüfung).
-2. „App erstellen“: Name *Kühlfach*, Sprache Deutsch, App (nicht Spiel), kostenlos.
+2. „App erstellen“: Name *Nuvio – Prep & Diet*, Sprache Deutsch, App (nicht Spiel), kostenlos.
 3. **App-Signatur:** Google signiert die App zusätzlich selbst. Unter *Test und Veröffentlichung → App-Integrität* findest du einen zweiten **SHA-256-Fingerabdruck**. Diesen **zusätzlich** in deine `assetlinks.json` eintragen (beide Fingerabdrücke in die Liste `sha256_cert_fingerprints`, durch Komma getrennt).
 4. **Store-Eintrag:** Kurzbeschreibung, Beschreibung, Icon `store/playstore-icon-512.png`, Grafik `store/feature-graphic-1024x500.png`, mindestens 2 Handy-Screenshots (einfach in der installierten App aufnehmen).
 5. **App-Inhalte** (Menü *Richtlinie → App-Inhalte*):
    - **Datenschutzerklärung:** `https://DEINNAME.github.io/datenschutz.html`
-   - **Datensicherheit (Data safety):** „Erhebt oder teilt deine App erforderliche Nutzerdaten?“ → **Nein**. (Google zählt nur Daten als „erhoben“, die das Gerät verlassen – das passiert bei Kühlfach nicht.)
+   - **Datensicherheit (Data safety):** „Erhebt oder teilt deine App erforderliche Nutzerdaten?“ → **Nein**. (Google zählt nur Daten als „erhoben“, die das Gerät verlassen – das passiert bei Nuvio nicht.)
    - **Gesundheits-Apps (Health apps declaration):** passende Kategorien wählen, z. B. *Ernährung und Gewichtsmanagement* sowie *Aktivität und Fitness*.
    - **Zielgruppe:** 18 Jahre und älter.
    - **Einstufung des Inhalts:** Fragebogen ausfüllen (keine Gewalt, keine Nutzerinteraktion usw.).
@@ -78,3 +78,16 @@ Neue private Entwicklerkonten müssen zuerst einen **geschlossenen Test mit mind
 - Die Daten deiner Nutzer:innen liegen nur auf deren Handys. Wer die App löscht oder das Handy wechselt, verliert sie – außer man hat vorher eine Sicherung gemacht. Darauf weist die App im Profil hin.
 - Beim Laden und Aktualisieren der App-Dateien verarbeitet GitHub technisch die IP-Adresse (wie jeder Webserver). Du bekommst davon nichts zu sehen, und die Eingaben in der App werden dabei nie übertragen.
 - Die Nährwerte sind Richtwerte – bei Fertigprodukten (z. B. Köttbullar) lieber die Packungsangaben eintragen.
+
+## Lebensmittel und Rezepte selbst bearbeiten
+
+Die Lebensmittel und die Rezeptvorschläge stehen in zwei eigenen Dateien:
+
+- `lebensmittel.js` – eine Zeile pro Lebensmittel: `Deutsch | Englisch | Spanisch ; kcal pro 100 g ; Eiweiß pro 100 g ; Einheiten`
+- `rezepte.js` – ein Rezept beginnt mit `## Name`, darunter Felder wie `emoji:`, `typ:`, `portionen:`, `zutaten:` und `zubereitung:`
+
+Ganz oben in jeder Datei steht genau, wie das Format funktioniert. Du kannst sie auf GitHub direkt bearbeiten (Datei öffnen → Stift-Symbol).
+Die App holt sich Änderungen beim nächsten Start im Hintergrund und zeigt sie ab dem übernächsten Start an.
+
+Eigene Fotos für Rezepte: Bild in einen Ordner `fotos` hochladen und im Rezept `bild: fotos/name.jpg` eintragen.
+Nur Fotos verwenden, die du selbst gemacht hast oder frei nutzen darfst.
