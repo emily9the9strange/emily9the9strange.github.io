@@ -96,6 +96,8 @@ Apfelringe (getrocknet) | Dried apple rings | Aros de manzana secos ; 290 ; 1.4 
 Gefriergetrocknete Erdbeeren | Freeze-dried strawberries | Fresas liofilizadas ; 340 ; 5 ; Handvoll=10
 Apfelmus ungesüßt | Unsweetened apple sauce | Compota de manzana sin azúcar ; 45 ; 0.2 ; EL=20 | Becher=100
 Fruchtmus-Quetschie | Fruit pouch | Bolsita de puré de fruta ; 60 ; 0.5 ; Beutel=90
+Grüne Papaya | Green papaya | Papaya verde ; 40 ; 0.6 ; Portion=200
+Maroni (roh) | Raw chestnuts | Castañas crudas ; 200 ; 2.5 ; Handvoll=60
 
 @Gemüse | Vegetables | Verduras ; 🥦
 Gurke | Cucumber | Pepino ; 12 ; 0.6 ; Stück=400 | Portion=100 | Scheibe=10
@@ -239,6 +241,8 @@ Gemüsebrühe mit Einlage | Vegetable broth with veg | Caldo de verduras con ver
 Gemüse (gemischt, gedünstet) | Mixed vegetables (steamed) | Verduras variadas al vapor ; 45 ; 2.5 ; Portion=200
 Ofengemüse (mit Öl) | Roast vegetables (with oil) | Verduras asadas con aceite ; 90 ; 2 ; Portion=200
 Salat (gemischt, ohne Dressing) | Mixed salad (no dressing) | Ensalada mixta sin aliñar ; 18 ; 1.3 ; Schale=150
+Spitzkohl | Pointed cabbage | Col puntiaguda ; 27 ; 1.5 ; Portion=200 | Kopf=800
+Bärlauch | Wild garlic | Ajo de oso ; 25 ; 2.5 ; Handvoll=20
 
 @Bäcker & Brot | Bakery & bread | Panadería ; 🥐
 Brötchen / Semmel (Weizen) | Bread roll (white) | Panecillo ; 270 ; 9 ; Stück=60 | Hälfte=30
@@ -396,6 +400,8 @@ Mission Wraps Vollkorn | Mission wholegrain wraps | Wraps integrales Mission ; 2
 Bimbo Pan Integral | Bimbo wholemeal bread | Pan integral Bimbo ; 245 ; 10 ; Scheibe=27
 Burgerbrötchen Brioche | Brioche burger bun | Pan de hamburguesa brioche ; 310 ; 9 ; Stück=60
 American Sandwich (Harry) | American sandwich bread | Pan americano ; 260 ; 8 ; Scheibe=30
+Brezen vom Vortag (für Knödel) | Day-old pretzels (for dumplings) | Pretzels del día anterior (para albóndigas) ; 280 ; 8 ; Stück=85
+Knödelbrot | Bread cubes for dumplings | Pan para albóndigas ; 270 ; 9 ; Portion=250
 
 @Imbiss & Fast Food | Takeaway & fast food | Comida rápida ; 🍔
 Döner Kebab | Doner kebab | Kebab ; 180 ; 10 ; Stück=400 | halber=200
@@ -537,6 +543,57 @@ Käsekrainer | Cheese sausage | Salchicha con queso ; 300 ; 12 ; Stück=150
 Würstelstand Bratwurst mit Senf & Brot | Sausage stand bratwurst with bread | Salchicha con mostaza y pan ; 280 ; 10 ; Portion=250
 Hot Dog (dänisch) | Danish hot dog | Perrito danés ; 250 ; 9 ; Stück=180
 Langos | Lángos | Lángos ; 330 ; 7 ; Stück=200
+Burger King Whopper Jr. | Burger King Whopper Jr. | Burger King Whopper Jr. ; 245 ; 11 ; Stück=140
+Burger King Big King | Burger King Big King | Burger King Big King ; 255 ; 14 ; Stück=200
+Burger King Long Chicken | Burger King Long Chicken | Burger King Long Chicken ; 270 ; 10 ; Stück=215
+Burger King Crispy Chicken | Burger King Crispy Chicken | Burger King Crispy Chicken ; 250 ; 11 ; Stück=200
+Burger King Plant-based Whopper | Burger King Plant-based Whopper | Burger King Whopper vegetal ; 220 ; 8 ; Stück=270
+Burger King Cheeseburger | Burger King cheeseburger | Burger King cheeseburger ; 265 ; 14 ; Stück=120
+Burger King Chili Cheese Nuggets (6) | Burger King chili cheese nuggets (6) | Burger King chili cheese nuggets (6) ; 290 ; 9 ; Portion=100
+Burger King King Nuggets (6) | Burger King nuggets (6) | Burger King nuggets (6) ; 250 ; 15 ; Portion=100
+Burger King Onion Rings (mittel) | Burger King onion rings (medium) | Burger King aros de cebolla (mediano) ; 310 ; 4 ; Portion=100
+Burger King Pommes (mittel) | Burger King fries (medium) | Burger King patatas (medianas) ; 290 ; 3.5 ; Portion=115
+Burger King Sundae Schoko | Burger King chocolate sundae | Burger King sundae chocolate ; 170 ; 3.5 ; Becher=150
+KFC Original Recipe (1 Stück) | KFC Original Recipe (1 piece) | KFC Original Recipe (1 pieza) ; 250 ; 20 ; Stück=130
+KFC Hot Wings (5) | KFC Hot Wings (5) | KFC Hot Wings (5) ; 290 ; 20 ; Portion=125
+KFC Crispy Strips (3) | KFC Crispy Strips (3) | KFC Crispy Strips (3) ; 260 ; 18 ; Portion=120
+KFC Popcorn Chicken (mittel) | KFC popcorn chicken (medium) | KFC palomitas de pollo (mediano) ; 290 ; 17 ; Portion=120
+KFC Twister | KFC Twister | KFC Twister ; 230 ; 10 ; Stück=220
+KFC Bucket (8 Hot Wings + 4 Strips) | KFC bucket | KFC cubo ; 270 ; 19 ; Portion=200
+KFC Coleslaw | KFC coleslaw | KFC ensalada de col ; 140 ; 1 ; Becher=130
+KFC Pommes (mittel) | KFC fries (medium) | KFC patatas (medianas) ; 280 ; 3.5 ; Portion=115
+Nordsee Matjesbrötchen | Nordsee matjes roll | Bocadillo de arenque matjes Nordsee ; 250 ; 10 ; Stück=140
+Nordsee Krabbenbrötchen | Nordsee shrimp roll | Bocadillo de gambas Nordsee ; 220 ; 11 ; Stück=140
+Nordsee Fish & Chips | Nordsee fish & chips | Fish & chips Nordsee ; 220 ; 9 ; Portion=380
+Nordsee Lachs-Bowl | Nordsee salmon bowl | Bowl de salmón Nordsee ; 150 ; 8 ; Bowl=400
+Nordsee Backfisch mit Kartoffelsalat | Nordsee battered fish with potato salad | Pescado rebozado con ensalada de patata Nordsee ; 190 ; 7 ; Portion=400
+Nordsee Calamari | Nordsee calamari | Calamares Nordsee ; 250 ; 10 ; Portion=150
+McDonald's McRib | McDonald's McRib | McDonald's McRib ; 250 ; 11 ; Stück=210
+McDonald's Veggie Burger | McDonald's veggie burger | McDonald's hamburguesa veggie ; 230 ; 9 ; Stück=190
+McDonald's Chicken McNuggets (9) | McDonald's Chicken McNuggets (9) | McDonald's Chicken McNuggets (9) ; 250 ; 15 ; Portion=160
+McDonald's Big Tasty Bacon | McDonald's Big Tasty Bacon | McDonald's Big Tasty Bacon ; 260 ; 13 ; Stück=330
+McDonald's Wrap Chicken | McDonald's chicken wrap | McDonald's wrap de pollo ; 230 ; 11 ; Stück=240
+Subway Cookie | Subway cookie | Galleta Subway ; 440 ; 5 ; Stück=45
+Vapiano Pizza Margherita | Vapiano pizza margherita | Vapiano pizza margarita ; 230 ; 10 ; ganze Pizza=420
+L'Osteria Pizza Margherita (groß) | L'Osteria pizza margherita (large) | L'Osteria pizza margarita (grande) ; 230 ; 10 ; ganze Pizza=600
+Pizza Hut Pan Pizza Margherita (Stück) | Pizza Hut pan pizza margherita (slice) | Pizza Hut pan pizza margarita (porción) ; 260 ; 11 ; Stück=110
+Domino's Pizza Salami (Stück) | Domino's salami pizza (slice) | Domino's pizza salami (porción) ; 270 ; 11 ; Stück=100
+dean&david Chicken Caesar Bowl | dean&david chicken Caesar bowl | dean&david bowl César de pollo ; 140 ; 10 ; Bowl=380
+dean&david Thai Curry Bowl | dean&david Thai curry bowl | dean&david bowl de curry tailandés ; 130 ; 5 ; Bowl=420
+Starbucks Caffè Latte (Tall, Vollmilch) | Starbucks caffè latte (tall, whole milk) | Starbucks caffè latte (tall, leche entera) ; 55 ; 3 ; Becher=350
+Starbucks Caramel Macchiato (Tall) | Starbucks caramel macchiato (tall) | Starbucks caramel macchiato (tall) ; 55 ; 2.5 ; Becher=350
+Starbucks Pumpkin Spice Latte (Tall) | Starbucks pumpkin spice latte (tall) | Starbucks pumpkin spice latte (tall) ; 75 ; 2.5 ; Becher=350
+Starbucks Blueberry Muffin | Starbucks blueberry muffin | Starbucks muffin de arándanos ; 380 ; 5 ; Stück=120
+Dunkin' Donut Glazed | Dunkin' glazed donut | Dunkin' donut glaseado ; 400 ; 5 ; Stück=60
+Kamps Laugenbrezel | Kamps pretzel | Kamps pretzel ; 280 ; 8 ; Stück=85
+Backwerk Käse-Laugenstange | Backwerk cheese pretzel stick | Backwerk barrita de pretzel con queso ; 300 ; 11 ; Stück=100
+Ditsch Pizzaprezel | Ditsch pizza pretzel | Ditsch pretzel pizza ; 280 ; 10 ; Stück=140
+Peter Pane Burger Classic | Peter Pane classic burger | Peter Pane hamburguesa clásica ; 250 ; 13 ; Stück=300
+Hans im Glück Burger | Hans im Glück burger | Hans im Glück hamburguesa ; 240 ; 12 ; Stück=330
+Five Guys Cheeseburger | Five Guys cheeseburger | Five Guys cheeseburger ; 270 ; 15 ; Stück=300
+Five Guys Pommes (klein) | Five Guys fries (small) | Five Guys patatas (pequeñas) ; 300 ; 4 ; Portion=230
+Döner Kebab im Brot (Imbiss) | Döner kebab in bread (takeaway) | Döner kebab en pan ; 215 ; 12 ; Stück=400
+Döner-Box mit Pommes | Döner box with chips | Caja de döner con patatas ; 230 ; 11 ; Box=450
 
 @Gerichte | Dishes | Platos ; 🍝
 Käsespätzle | Cheese spaetzle | Spätzle con queso ; 230 ; 10 ; Portion=350 | kleine Portion=250
@@ -765,6 +822,55 @@ Gallo Macarrones (roh) | Gallo macaroni (uncooked) | Macarrones Gallo crudos ; 3
 Hacendado Tortilla de patatas | Store-brand Spanish omelette | Tortilla de patatas Hacendado ; 180 ; 6 ; Portion=100 | Packung=600
 Hacendado Hummus | Store-brand hummus | Hummus Hacendado ; 300 ; 7 ; EL=20
 Hacendado Gazpacho | Store-brand gazpacho | Gazpacho Hacendado ; 45 ; 0.8 ; Glas=250
+Barilla Penne Rigate (roh) | Barilla penne rigate (uncooked) | Barilla penne rigate crudos ; 360 ; 13 ; Portion=100 | Packung=500
+Barilla Farfalle (roh) | Barilla farfalle (uncooked) | Barilla farfalle crudos ; 360 ; 13 ; Portion=100
+Barilla Vollkorn Spaghetti (roh) | Barilla wholewheat spaghetti (uncooked) | Barilla espaguetis integrales crudos ; 350 ; 13 ; Portion=100
+Barilla Protein+ Penne (roh) | Barilla Protein+ penne (uncooked) | Barilla Protein+ penne crudos ; 350 ; 20 ; Portion=100
+Barilla Linsen Fusilli (roh) | Barilla red lentil fusilli (uncooked) | Barilla fusilli de lentejas crudos ; 340 ; 25 ; Portion=80
+Barilla Pesto alla Genovese | Barilla pesto genovese | Barilla pesto genovés ; 520 ; 5 ; EL=15 | Glas=190
+Barilla Sugo Basilico | Barilla basilico sauce | Barilla salsa basilico ; 55 ; 1.5 ; Glas=400 | Portion=125
+Barilla Sugo Arrabbiata | Barilla arrabbiata sauce | Barilla salsa arrabbiata ; 60 ; 1.5 ; Glas=400
+Barilla Lasagne-Platten (roh) | Barilla lasagne sheets (uncooked) | Barilla láminas de lasaña crudas ; 360 ; 13 ; Platte=20
+De Cecco Spaghetti (roh) | De Cecco spaghetti (uncooked) | De Cecco espaguetis crudos ; 355 ; 13 ; Portion=100
+Buitoni Tortellini Ricotta-Spinat | Buitoni ricotta spinach tortellini | Buitoni tortellini ricotta y espinacas ; 280 ; 11 ; Portion=125
+Giovanni Rana Tortelloni | Giovanni Rana tortelloni | Giovanni Rana tortelloni ; 270 ; 11 ; Portion=125
+Bertolli Pesto Verde | Bertolli green pesto | Bertolli pesto verde ; 500 ; 5 ; EL=15
+Miracoli Spaghetti Klassik (zubereitet) | Miracoli spaghetti classic (prepared) | Miracoli espaguetis clásicos (preparado) ; 140 ; 5 ; Portion=300
+Knorr Spaghetteria Carbonara (zubereitet) | Knorr Spaghetteria carbonara (prepared) | Knorr Spaghetteria carbonara (preparado) ; 140 ; 5 ; Portion=300
+Knorr Fix für Lasagne | Knorr lasagne mix | Knorr mezcla para lasaña ; 330 ; 8 ; Beutel=60
+Knorr Fix Spaghetti Bolognese | Knorr bolognese mix | Knorr mezcla boloñesa ; 320 ; 9 ; Beutel=40
+Maggi Fix Chili con Carne | Maggi chilli con carne mix | Maggi mezcla chili con carne ; 300 ; 8 ; Beutel=35
+Maggi 5 Minuten Terrine Kartoffelbrei | Maggi 5-minute mash | Maggi puré en 5 minutos ; 90 ; 2 ; Becher (zubereitet)=200
+Maggi Würze | Maggi seasoning | Condimento Maggi ; 20 ; 3 ; TL=5
+Iglo Fischstäbchen | Iglo fish fingers | Iglo palitos de pescado ; 200 ; 12 ; Stück=30
+Iglo Rahmspinat | Iglo creamed spinach | Iglo espinacas a la crema ; 55 ; 2.5 ; Portion=150
+Iglo Gemüse-Pfanne Mediterran | Iglo Mediterranean vegetable pan | Iglo verduras mediterráneas ; 60 ; 2 ; Portion=250
+Frosta Hähnchen Curry | Frosta chicken curry | Frosta curry de pollo ; 110 ; 6 ; Packung=500
+Frosta Pasta Bolognese | Frosta pasta bolognese | Frosta pasta boloñesa ; 120 ; 6 ; Packung=500
+Frosta Gemüse Pfanne Asia | Frosta Asian vegetable pan | Frosta verduras asiáticas ; 70 ; 2 ; Portion=250
+Bonduelle Mais | Bonduelle sweetcorn | Maíz Bonduelle ; 75 ; 2.5 ; Dose=140
+Bonduelle Kidneybohnen | Bonduelle kidney beans | Alubias rojas Bonduelle ; 110 ; 8 ; Dose=250
+Bonduelle Kichererbsen | Bonduelle chickpeas | Garbanzos Bonduelle ; 125 ; 7 ; Dose=265
+Bonduelle Erbsen & Möhren | Bonduelle peas & carrots | Guisantes y zanahorias Bonduelle ; 55 ; 3 ; Portion=150
+Ben's Original Express Reis Natur | Ben's Original express rice plain | Ben's Original arroz express natural ; 145 ; 3 ; Beutel=250
+Ben's Original Express Reis Mexikanisch | Ben's Original express rice Mexican | Ben's Original arroz express mexicano ; 150 ; 3 ; Beutel=250
+Reis-Fit Basmati (roh) | Reis-Fit basmati (uncooked) | Reis-Fit basmati crudo ; 350 ; 8 ; Portion=75
+Oryza Milchreis (roh) | Oryza pudding rice (uncooked) | Oryza arroz para postre crudo ; 350 ; 7 ; Portion=125
+Dr. Oetker Paula Pudding Vanille | Dr. Oetker Paula vanilla pudding | Dr. Oetker pudin Paula vainilla ; 120 ; 3 ; Becher=125
+Dr. Oetker Pudding Vanille (Pulver) | Dr. Oetker vanilla pudding powder | Dr. Oetker pudin de vainilla en polvo ; 350 ; 0.3 ; Beutel=37
+Dr. Oetker Backin | Dr. Oetker baking powder | Levadura química Dr. Oetker ; 140 ; 0 ; Päckchen=15
+Dr. Oetker Pizzateig (fertig) | Dr. Oetker pizza dough (ready) | Masa de pizza Dr. Oetker ; 280 ; 7 ; Packung=400
+Tante Fanny Pizzateig | Tante Fanny pizza dough | Masa de pizza Tante Fanny ; 270 ; 7 ; Packung=400
+Tante Fanny Blätterteig | Tante Fanny puff pastry | Hojaldre Tante Fanny ; 390 ; 6 ; Rolle=275
+Henglein Kloßteig | Henglein dumpling dough | Masa para albóndigas Henglein ; 100 ; 2 ; Portion=150
+Henglein Schupfnudeln | Henglein potato noodles | Schupfnudeln Henglein ; 170 ; 4 ; Portion=200
+Bürger Maultaschen | Bürger Maultaschen | Maultaschen Bürger ; 210 ; 9 ; Stück=75
+Lacroix Rinderbrühe | Lacroix beef stock | Caldo de carne Lacroix ; 3 ; 0.5 ; Tasse=250
+Kühne Rotkohl | Kühne red cabbage | Lombarda Kühne ; 60 ; 1.2 ; Portion=150
+Develey Ketchup | Develey ketchup | Ketchup Develey ; 110 ; 1.5 ; EL=15
+Heinz Ketchup 50 % weniger Zucker | Heinz reduced-sugar ketchup | Heinz ketchup 50 % menos azúcar ; 60 ; 1.5 ; EL=15
+Thomy Mayonnaise | Thomy mayonnaise | Mayonesa Thomy ; 720 ; 1 ; EL=15
+Kraft Miracel Whip | Miracel Whip | Miracel Whip ; 390 ; 1 ; EL=15
 
 @Beilagen | Sides | Guarniciones ; 🍚
 Reis (gekocht) | Rice (cooked) | Arroz cocido ; 130 ; 2.7 ; Portion=200 | EL=20
@@ -834,6 +940,10 @@ Linsen (rot, gekocht) | Cooked red lentils | Lentejas rojas cocidas ; 115 ; 8.5 
 Linsen (Beluga, gekocht) | Cooked beluga lentils | Lentejas beluga cocidas ; 120 ; 9 ; Portion=200
 Kidneybohnen (gekocht) | Cooked kidney beans | Alubias rojas cocidas ; 115 ; 8.5 ; Portion=150
 Weiße Bohnen (gekocht) | Cooked white beans | Alubias blancas cocidas ; 110 ; 7.5 ; Portion=150
+Maultaschen (Packung) | Maultaschen (pack) | Maultaschen (paquete) ; 210 ; 9 ; Stück=75 | Packung=450
+Schupfnudeln (Packung) | Potato noodles (pack) | Schupfnudeln (paquete) ; 170 ; 4 ; Portion=200 | Packung=500
+Semmelknödel (Packung) | Bread dumplings (pack) | Albóndigas de pan (paquete) ; 200 ; 7 ; Stück=80
+Tortellini (frisch, Packung) | Fresh tortellini (pack) | Tortellini frescos ; 290 ; 12 ; Portion=125 | Packung=250
 
 @Milch & Käse | Dairy & cheese | Lácteos y quesos ; 🧀
 Milch 3,5 % | Whole milk 3.5% | Leche entera ; 64 ; 3.4 ; Glas=200 | Tasse=150 | Schuss=20
@@ -1006,6 +1116,34 @@ Grünländer | Grünländer cheese | Queso Grünländer ; 350 ; 24 ; Scheibe=20
 Milkana Schmelzkäse | Milkana processed cheese | Queso fundido Milkana ; 250 ; 12 ; Ecke=25
 Patros Feta | Patros feta | Feta Patros ; 270 ; 17 ; Portion=50
 Gervais Hüttenkäse | Gervais cottage cheese | Requesón Gervais ; 100 ; 12 ; Becher=200
+Schmelzkäse light | Light processed cheese | Queso fundido light ; 170 ; 14 ; EL=20 | Packung=200
+Landliebe Landmilch 3,8 % | Landliebe whole milk 3.8% | Landliebe leche entera 3,8 % ; 67 ; 3.4 ; Glas=250
+Landliebe Joghurt mild | Landliebe mild yoghurt | Landliebe yogur suave ; 75 ; 3.8 ; Becher=150
+Landliebe Fruchtjoghurt Erdbeere | Landliebe strawberry yoghurt | Landliebe yogur de fresa ; 100 ; 3.3 ; Becher=150
+Landliebe Grießpudding | Landliebe semolina pudding | Landliebe pudin de sémola ; 120 ; 3.5 ; Becher=150
+Landliebe Sahnepudding Vanille | Landliebe vanilla cream pudding | Landliebe pudin de vainilla ; 130 ; 3 ; Becher=150
+Landliebe Butter | Landliebe butter | Mantequilla Landliebe ; 740 ; 0.7 ; TL=5 | EL=12
+Landliebe Quark | Landliebe quark | Requesón Landliebe ; 140 ; 11 ; EL=30
+Müller Müllermilch Schoko | Müllermilch chocolate | Müllermilch chocolate ; 65 ; 3.4 ; Flasche=400
+Müller Müllermilch Erdbeer | Müllermilch strawberry | Müllermilch fresa ; 65 ; 3.3 ; Flasche=400
+Müller Müllermilch Protein | Müllermilch protein | Müllermilch proteína ; 60 ; 7 ; Flasche=400
+Danone Activia Natur | Danone Activia plain | Danone Activia natural ; 70 ; 4 ; Becher=115
+Danone Fruchtzwerge | Danone Fruchtzwerge | Danone Petit Suisse ; 100 ; 5.5 ; Becher=50
+Danone Dany Sahne Vanille | Danone Dany vanilla | Danone Dany vainilla ; 120 ; 2.5 ; Becher=115
+Danone Oikos Griechischer Joghurt | Danone Oikos Greek yoghurt | Danone Oikos yogur griego ; 120 ; 4 ; Becher=115
+Zott Sahnejoghurt | Zott cream yoghurt | Zott yogur cremoso ; 120 ; 3 ; Becher=150
+Zott Sahnepudding | Zott cream pudding | Zott pudin cremoso ; 130 ; 3 ; Becher=150
+Bärenmarke Alpenmilch 3,8 % | Bärenmarke alpine milk 3.8% | Bärenmarke leche alpina 3,8 % ; 67 ; 3.4 ; Glas=250
+Weihenstephan H-Milch 1,5 % | Weihenstephan UHT milk 1.5% | Weihenstephan leche UHT 1,5 % ; 47 ; 3.4 ; Glas=250
+Arla Buko Frischkäse | Arla Buko cream cheese | Arla Buko queso crema ; 250 ; 6 ; EL=15
+Exquisa Frischkäse 0,2 % | Exquisa cream cheese 0.2% | Exquisa queso crema 0,2 % ; 65 ; 11 ; EL=15
+Kerrygold Original Irische Butter | Kerrygold Irish butter | Mantequilla irlandesa Kerrygold ; 740 ; 0.6 ; TL=5 | EL=12
+Leerdammer Original | Leerdammer original | Leerdammer original ; 360 ; 27 ; Scheibe=25
+Gouda jung (Frau Antje) | Young gouda | Gouda tierno ; 360 ; 24 ; Scheibe=25
+Bergader Bavaria Blu | Bavaria Blu | Bavaria Blu ; 420 ; 14 ; Portion=30
+Rougette Grillkäse | Rougette grilling cheese | Queso para la parrilla Rougette ; 320 ; 20 ; Stück=90
+Hochland Grünländer Scheiben | Hochland Grünländer slices | Lonchas Hochland Grünländer ; 350 ; 24 ; Scheibe=20
+Patros Natur | Patros feta | Patros feta ; 270 ; 17 ; Portion=50
 
 @Wurst, Fleisch & Fisch | Meat, cold cuts & fish | Embutidos, carne y pescado ; 🥓
 Rauchwurst (Rookworst) | Smoked sausage (rookworst) | Salchicha ahumada (rookworst) ; 300 ; 13 ; Stück=275 | Scheibe=15
@@ -1143,6 +1281,19 @@ Rindfleisch (gebraten) | Beef (fried) | Ternera a la plancha ; 190 ; 29 ; Portio
 Schweinefleisch (gebraten) | Pork (fried) | Cerdo a la plancha ; 210 ; 28 ; Portion=120
 Lachs (gebraten) | Salmon (fried) | Salmón a la plancha ; 220 ; 25 ; Stück=125
 Fischfilet (gebraten) | White fish fillet (fried) | Filete de pescado a la plancha ; 120 ; 23 ; Stück=125
+Tafelspitz (roh) | Beef rump cap (raw) | Tapa de cadera de ternera cruda ; 140 ; 21 ; Portion=200
+Rinderrouladen (roh) | Beef roulade slices (raw) | Filetes de ternera para rollitos crudos ; 130 ; 22 ; Stück=175
+Thüringer Rostbratwurst | Thuringian sausage | Salchicha de Turingia ; 300 ; 14 ; Stück=100
+Nürnberger Rostbratwürstchen (3 Stück) | Nuremberg sausages (3) | Salchichas de Núremberg (3) ; 310 ; 14 ; Portion=75 | Stück=25
+Krakauer | Krakauer sausage | Krakauer ; 250 ; 15 ; Stück=100
+Käsekrainer (Stück) | Käsekrainer (piece) | Käsekrainer (unidad) ; 310 ; 13 ; Stück=120
+Debreziner | Debreziner sausage | Debreziner ; 290 ; 13 ; Stück=80
+Weißwurst (Stück) | Weisswurst (piece) | Salchicha blanca (unidad) ; 270 ; 11 ; Stück=80
+Leberkäse (Scheibe) | Leberkäse (slice) | Leberkäse (loncha) ; 290 ; 12 ; Scheibe=100
+Kalbsschnitzel (roh) | Veal escalope (raw) | Escalope de ternera crudo ; 110 ; 22 ; Stück=150
+Schweinebraten (Schulter, roh) | Pork shoulder (raw) | Paletilla de cerdo cruda ; 180 ; 18 ; Portion=200
+Jagdwurst | Jagdwurst (German sausage) | Jagdwurst (embutido alemán) ; 230 ; 15 ; Scheibe=30 | Portion=150
+Entenbrust (roh) | Duck breast (raw) | Magret de pato crudo ; 200 ; 19 ; Stück=300
 
 @Snacks & Süßes | Snacks & sweets | Snacks y dulces ; 🍫
 Pringles Original | Pringles Original | Pringles Original ; 520 ; 4.5 ; Handvoll=25 | kleine Dose=40 | Dose=165
@@ -2143,6 +2294,8 @@ Pesto (light) | Light pesto | Pesto light ; 250 ; 4 ; EL=15
 Hummus (light) | Light hummus | Hummus light ; 180 ; 7 ; EL=20
 Erdnusssoße light | Light peanut sauce | Salsa de cacahuete light ; 180 ; 8 ; EL=20
 Salatdressing (Essig-Öl) | Vinaigrette | Vinagreta ; 300 ; 0.3 ; EL=15
+Obatzda | Obatzda | Obatzda ; 290 ; 12 ; EL=25 | Portion=80
+Vanillesoße | Custard | Natillas ; 110 ; 3 ; Portion=100
 
 @Vegetarisch & Vegan | Vegetarian & vegan | Vegetariano y vegano ; 🌱
 Tofu natur | Tofu (plain) | Tofu natural ; 120 ; 13 ; Portion=100 | Packung=200
@@ -2194,6 +2347,88 @@ Glutenfreie Nudeln (roh) | Gluten-free pasta (uncooked) | Pasta sin gluten cruda
 Glutenfreies Brot | Gluten-free bread | Pan sin gluten ; 250 ; 3 ; Scheibe=35
 Laktosefreie Kochsahne | Lactose-free cooking cream | Nata para cocinar sin lactosa ; 160 ; 3 ; EL=15
 Falafel (TK, gebacken) | Frozen falafel (baked) | Falafel congelado horneado ; 250 ; 8 ; Stück=20 | Portion=100
+Rügenwalder Mühle Veganes Mühlen Hack | Rügenwalder vegan mince | Picada vegana Rügenwalder ; 180 ; 19 ; Portion=90 | Packung=180
+Rügenwalder Mühle Vegane Mühlen Frikadellen | Rügenwalder vegan patties | Hamburguesitas veganas Rügenwalder ; 210 ; 17 ; Stück=40
+Rügenwalder Mühle Vegane Mühlen Nuggets | Rügenwalder vegan nuggets | Nuggets veganos Rügenwalder ; 220 ; 13 ; Stück=20 | Packung=200
+Rügenwalder Mühle Veganes Mühlen Schnitzel | Rügenwalder vegan schnitzel | Escalope vegano Rügenwalder ; 225 ; 15 ; Stück=90
+Rügenwalder Mühle Vegane Mühlen Bratwurst | Rügenwalder vegan bratwurst | Salchicha vegana Rügenwalder ; 210 ; 17 ; Stück=50
+Rügenwalder Mühle Vegane Mühlen Cordon Bleu | Rügenwalder vegan cordon bleu | Cordon bleu vegano Rügenwalder ; 235 ; 12 ; Stück=90
+Rügenwalder Mühle Veganer Schinken Spicker | Rügenwalder vegan ham slices | Lonchas de jamón vegano Rügenwalder ; 130 ; 15 ; Scheibe=10 | Packung=80
+Rügenwalder Mühle Vegane Mühlen Salami | Rügenwalder vegan salami | Salami vegano Rügenwalder ; 230 ; 14 ; Scheibe=5 | Packung=80
+Rügenwalder Mühle Veganes Mühlen Filet Streifen | Rügenwalder vegan chicken-style strips | Tiras veganas tipo pollo Rügenwalder ; 170 ; 20 ; Portion=80 | Packung=160
+Rügenwalder Mühle Vegetarische Mühlen Frikadellen | Rügenwalder vegetarian patties | Hamburguesitas vegetarianas Rügenwalder ; 200 ; 17 ; Stück=40
+Rügenwalder Mühle Vegetarischer Mühlen Teewurst | Rügenwalder vegetarian teewurst | Teewurst vegetariano Rügenwalder ; 280 ; 12 ; EL=15
+Beyond Meat Beyond Burger | Beyond Burger | Beyond Burger ; 250 ; 17 ; Stück=113
+Beyond Meat Beyond Mince | Beyond Mince | Beyond Mince ; 230 ; 17 ; Portion=100 | Packung=300
+Beyond Meat Beyond Sausage | Beyond Sausage | Beyond Sausage ; 230 ; 16 ; Stück=100
+Beyond Meat Beyond Steak Stücke | Beyond Steak pieces | Beyond Steak trozos ; 190 ; 21 ; Portion=100
+Like Meat Like Gyros | Like Meat Like Gyros | Like Meat Like Gyros ; 190 ; 19 ; Portion=90
+Like Meat Like Kebab | Like Meat Like Kebab | Like Meat Like Kebab ; 185 ; 19 ; Portion=90
+Like Meat Like Schnitzel | Like Meat Like Schnitzel | Like Meat Like Schnitzel ; 220 ; 14 ; Stück=90
+Garden Gourmet Sensational Burger | Garden Gourmet Sensational Burger | Garden Gourmet Sensational Burger ; 240 ; 19 ; Stück=113
+Garden Gourmet Vegane Filetstreifen | Garden Gourmet vegan fillet strips | Tiras de filete veganas Garden Gourmet ; 150 ; 19 ; Portion=80
+Garden Gourmet Falafel | Garden Gourmet falafel | Falafel Garden Gourmet ; 230 ; 6 ; Stück=20
+Planted Chicken Nature | Planted chicken nature | Planted chicken natural ; 110 ; 23 ; Portion=100 | Packung=200
+Planted Kebab | Planted kebab | Planted kebab ; 140 ; 20 ; Portion=100
+Planted Pulled BBQ | Planted pulled BBQ | Planted pulled BBQ ; 150 ; 20 ; Portion=100
+Vegini Vegane Nuggets | Vegini vegan nuggets | Nuggets veganos Vegini ; 220 ; 14 ; Stück=20
+The Vegetarian Butcher Chickeneers | The Vegetarian Butcher chicken pieces | Trozos tipo pollo The Vegetarian Butcher ; 160 ; 20 ; Portion=90
+The Vegetarian Butcher Hackmeister | The Vegetarian Butcher vegan mince | Picada vegana The Vegetarian Butcher ; 190 ; 18 ; Portion=90
+Taifun Räuchertofu | Taifun smoked tofu | Tofu ahumado Taifun ; 160 ; 17 ; Packung=200 | Portion=100
+Taifun Tofu Rosso | Taifun tofu rosso | Tofu Rosso Taifun ; 180 ; 15 ; Packung=200
+Taifun Tofu Basilico | Taifun tofu basilico | Tofu Basilico Taifun ; 175 ; 15 ; Packung=200
+Taifun Tofu-Würstchen | Taifun tofu sausages | Salchichas de tofu Taifun ; 250 ; 16 ; Stück=50
+Taifun Seidentofu | Taifun silken tofu | Tofu sedoso Taifun ; 55 ; 5.5 ; Packung=400
+Alnatura Tofu natur | Alnatura plain tofu | Tofu natural Alnatura ; 130 ; 14 ; Packung=200
+Alnatura Tempeh | Alnatura tempeh | Tempeh Alnatura ; 200 ; 19 ; Packung=200
+EDEKA My Veggie Veganes Hack | EDEKA My Veggie vegan mince | Picada vegana EDEKA My Veggie ; 180 ; 18 ; Portion=90 | Packung=180
+EDEKA My Veggie Vegane Burger Patties | EDEKA My Veggie vegan burger patties | Hamburguesas veganas EDEKA My Veggie ; 230 ; 17 ; Stück=113
+EDEKA My Veggie Vegane Nuggets | EDEKA My Veggie vegan nuggets | Nuggets veganos EDEKA My Veggie ; 220 ; 13 ; Stück=20
+EDEKA My Veggie Vegane Bratwurst | EDEKA My Veggie vegan bratwurst | Salchicha vegana EDEKA My Veggie ; 200 ; 16 ; Stück=55
+EDEKA My Veggie Vegane Hähnchen-Art Stücke | EDEKA My Veggie vegan chicken-style pieces | Trozos veganos tipo pollo EDEKA My Veggie ; 160 ; 19 ; Portion=80
+EDEKA My Veggie Veganer Aufschnitt | EDEKA My Veggie vegan cold cuts | Embutido vegano EDEKA My Veggie ; 150 ; 14 ; Scheibe=10
+EDEKA My Veggie Hafer Drink | EDEKA My Veggie oat drink | Bebida de avena EDEKA My Veggie ; 45 ; 0.5 ; Glas=250
+EDEKA My Veggie Soja Joghurt | EDEKA My Veggie soy yoghurt | Yogur de soja EDEKA My Veggie ; 55 ; 4 ; Becher=150
+REWE Bio + vegan Tofu | REWE Bio vegan tofu | Tofu REWE Bio vegano ; 130 ; 14 ; Packung=200
+REWE Bio + vegan Haferdrink | REWE Bio vegan oat drink | Bebida de avena REWE Bio ; 45 ; 0.5 ; Glas=250
+Vemondo (Lidl) Veganes Hack | Vemondo vegan mince | Picada vegana Vemondo ; 180 ; 18 ; Portion=90
+Vemondo (Lidl) Vegane Burger | Vemondo vegan burgers | Hamburguesas veganas Vemondo ; 230 ; 17 ; Stück=113
+Vemondo (Lidl) Vegane Nuggets | Vemondo vegan nuggets | Nuggets veganos Vemondo ; 220 ; 13 ; Stück=20
+Vemondo (Lidl) Veganer Gouda-Genuss | Vemondo vegan gouda style | Queso vegano tipo gouda Vemondo ; 300 ; 0.5 ; Scheibe=20
+Wilmersburger Vegane Scheiben | Wilmersburger vegan cheese slices | Lonchas de queso vegano Wilmersburger ; 290 ; 0.5 ; Scheibe=20
+Wilmersburger Pizzaschmelz | Wilmersburger vegan pizza melt | Queso vegano para pizza Wilmersburger ; 280 ; 0.5 ; Portion=30
+Violife Original Block | Violife original block | Violife original bloque ; 300 ; 0 ; Portion=30
+Violife Geriebener Käse | Violife grated | Violife rallado ; 300 ; 0 ; Portion=30
+Violife Frischkäse | Violife cream cheese | Violife queso crema ; 230 ; 1 ; EL=15
+Simply V Gerieben | Simply V grated | Simply V rallado ; 300 ; 0.5 ; Portion=30
+Simply V Streichgenuss | Simply V spread | Simply V para untar ; 230 ; 1 ; EL=15
+Simply V Hirtenkäse-Art | Simply V feta style | Simply V tipo feta ; 270 ; 0.5 ; Portion=50
+Alpro Skyr-Style Natur | Alpro skyr style plain | Alpro estilo skyr natural ; 60 ; 10 ; Becher=150
+Alpro Joghurtalternative Natur | Alpro plain yoghurt alternative | Alpro alternativa al yogur natural ; 50 ; 4 ; Becher=150 | EL=20
+Alpro Protein Drink | Alpro protein drink | Alpro bebida proteica ; 55 ; 5 ; Glas=250
+Alpro Haferdrink | Alpro oat drink | Alpro bebida de avena ; 45 ; 0.5 ; Glas=250
+Alpro Mandeldrink ungesüßt | Alpro unsweetened almond drink | Alpro bebida de almendra sin azúcar ; 13 ; 0.4 ; Glas=250
+Alpro Soja Kochcreme | Alpro soy cooking cream | Alpro crema de soja para cocinar ; 170 ; 2.5 ; EL=15 | Packung=250
+Alpro Pudding Schoko | Alpro chocolate dessert | Alpro postre de chocolate ; 85 ; 3 ; Becher=125
+Oatly Barista | Oatly barista | Oatly barista ; 60 ; 1 ; Glas=250 | Schuss=30
+Oatly Hafer Cuisine | Oatly oat cooking cream | Oatly nata de avena para cocinar ; 150 ; 1 ; EL=15 | Packung=250
+Oatly Haferghurt Natur | Oatly oatgurt plain | Oatly yogur de avena natural ; 60 ; 1 ; Becher=150
+Oatly Eis Schoko | Oatly chocolate ice cream | Oatly helado de chocolate ; 220 ; 2 ; Kugel=60
+Provamel Soja Natur | Provamel soy plain | Provamel soja natural ; 40 ; 4 ; Glas=250
+Berief Bio Soja Drink | Berief organic soy drink | Bebida de soja Berief ; 40 ; 3.5 ; Glas=250
+Vly Erbsenprotein Drink | Vly pea protein drink | Bebida de proteína de guisante Vly ; 45 ; 2.5 ; Glas=250
+Rama Vegan Pflanzenmargarine | Rama vegan margarine | Margarina vegana Rama ; 530 ; 0 ; TL=5 | EL=12
+Becel Pro Activ | Becel pro activ | Becel pro activ ; 320 ; 0 ; TL=5
+Kerrygold Vegan Butter | Kerrygold vegan butter | Mantequilla vegana Kerrygold ; 720 ; 0 ; TL=5
+Ben & Jerry's Non-Dairy | Ben & Jerry's non-dairy | Ben & Jerry's sin lácteos ; 260 ; 3 ; Becher=465 | Kugel=60
+Magnum Vegan Classic | Magnum vegan classic | Magnum vegano clásico ; 290 ; 2.5 ; Stück=70
+Veganz Proteinriegel | Veganz protein bar | Barrita proteica Veganz ; 390 ; 30 ; Riegel=50
+Hellmann's Vegan Mayo | Hellmann's vegan mayo | Mayonesa vegana Hellmann's ; 540 ; 0.5 ; EL=15
+Knorr Veganes Gemüsebrühe Pulver | Knorr vegetable stock powder | Caldo de verduras en polvo Knorr ; 220 ; 8 ; TL=5
+Valsoia Reis Drink | Valsoia rice drink | Bebida de arroz Valsoia ; 50 ; 0.1 ; Glas=250
+Lupinenschrot (vegan) | Lupin grits | Altramuz triturado ; 370 ; 40 ; Portion=50
+Seitan (Wheaty Bratwurst) | Wheaty seitan bratwurst | Salchicha de seitán Wheaty ; 230 ; 24 ; Stück=50
+Wheaty Veganes Gyros | Wheaty vegan gyros | Gyros vegano Wheaty ; 250 ; 24 ; Portion=100
 
 @Zutaten & Backen | Baking & pantry | Ingredientes y repostería ; 🧂
 Weizenmehl (Type 405) | Wheat flour | Harina de trigo ; 350 ; 10 ; EL=10 | Tasse=125
@@ -2292,6 +2527,18 @@ Rinderbrühe (zubereitet) | Beef stock | Caldo de carne ; 7 ; 0.8 ; Tasse=250 | 
 Ketjap Manis | Kecap manis | Kecap manis ; 280 ; 3 ; EL=15
 Pfefferkörner | Peppercorns | Granos de pimienta ; 250 ; 10 ; TL=3
 Zimt (gemahlen) | Ground cinnamon | Canela molida ; 250 ; 4 ; TL=3
+Strudelteig | Strudel pastry | Masa de strudel ; 290 ; 7 ; Packung=250 | Blatt=60
+Mandeln gemahlen | Ground almonds | Almendra molida ; 600 ; 24 ; EL=8
+Risottoreis (roh) | Risotto rice (uncooked) | Arroz para risotto crudo ; 350 ; 7 ; Portion=80
+Marillenmarmelade | Apricot jam | Mermelada de albaricoque ; 250 ; 0.4 ; EL=20 | TL=8
+Glühweingewürz | Mulling spices | Especias para vino caliente ; 250 ; 4 ; Beutel=3
+Mohn (gemahlen) | Ground poppy seeds | Amapola molida ; 525 ; 18 ; EL=10
+Gemahlene Haselnüsse | Ground hazelnuts | Avellana molida ; 650 ; 15 ; EL=8
+Tapiokastärke | Tapioca starch | Almidón de tapioca ; 355 ; 0.2 ; EL=10
+Maismehl (vorgekocht, für Arepas) | Pre-cooked corn flour (for arepas) | Harina de maíz precocida ; 360 ; 7 ; Portion=75
+Chipotle in Adobo | Chipotle in adobo | Chipotle en adobo ; 90 ; 1.5 ; EL=15
+Hartweizengrieß | Semolina | Sémola de trigo duro ; 350 ; 12 ; EL=12
+Blätterteig | Puff pastry | Hojaldre ; 400 ; 6 ; Rolle=275
 
 @Gewürze & Kräuter | Spices & herbs | Especias y hierbas ; 🌿
 Salz | Salt | Sal ; 0 ; 0 ; Prise=0.5 | TL=6
@@ -2643,4 +2890,51 @@ Spaghetti alle Vongole | Spaghetti alle vongole | Espaguetis con almejas ; 150 ;
 Risotto Milanese | Risotto milanese | Risotto a la milanesa ; 160 ; 4 ; Teller=350
 Crème brûlée | Crème brûlée | Crema catalana ; 300 ; 5 ; Stück=120
 Croque Monsieur | Croque monsieur | Croque monsieur ; 270 ; 14 ; Stück=200
-Quiche mit Gemüse | Vegetable quiche | Quiche de verduras ; 240 ; 8 ; Stück=150`;
+Quiche mit Gemüse | Vegetable quiche | Quiche de verduras ; 240 ; 8 ; Stück=150
+
+@Weihnachtsmarkt | Christmas market | Mercado navideño ; 🎄
+Glühwein (Becher) | Mulled wine (mug) | Vino caliente (taza) ; 100 ; 0 ; Becher=200
+Glühwein weiß | White mulled wine | Vino caliente blanco ; 100 ; 0 ; Becher=200
+Glühwein mit Schuss | Mulled wine with a shot | Vino caliente con chupito ; 130 ; 0 ; Becher=220
+Heidelbeer-Glühwein | Blueberry mulled wine | Vino caliente de arándanos ; 105 ; 0 ; Becher=200
+Kinderpunsch (Becher) | Children's punch (mug) | Ponche sin alcohol (taza) ; 50 ; 0 ; Becher=200
+Feuerzangenbowle | Feuerzangenbowle | Feuerzangenbowle ; 150 ; 0 ; Becher=200
+Eierpunsch | Egg punch | Ponche de huevo ; 180 ; 3 ; Becher=200
+Heiße Schokolade mit Sahne | Hot chocolate with cream | Chocolate caliente con nata ; 110 ; 3 ; Becher=250
+Jagertee | Jagertee | Jagertee ; 130 ; 0 ; Becher=200
+Apfelpunsch | Apple punch | Ponche de manzana ; 55 ; 0 ; Becher=200
+Handbrot mit Schinken & Käse | Handbrot with ham & cheese | Handbrot de jamón y queso ; 290 ; 12 ; Stück=300
+Handbrot mit Champignons | Handbrot with mushrooms | Handbrot de champiñones ; 260 ; 9 ; Stück=300
+Schupfnudeln mit Sauerkraut & Speck | Potato noodles with sauerkraut & bacon | Schupfnudeln con chucrut y bacon ; 170 ; 5 ; Portion=350
+Thüringer Rostbratwurst im Brötchen | Thuringian sausage in a bun | Salchicha de Turingia en panecillo ; 275 ; 11 ; Stück=190
+Rote Wurst im Brötchen | Red sausage in a bun | Salchicha roja en panecillo ; 280 ; 11 ; Stück=180
+Krakauer im Brötchen | Krakauer in a bun | Krakauer en panecillo ; 270 ; 11 ; Stück=200
+Currywurst mit Pommes (Stand) | Currywurst with chips (stall) | Currywurst con patatas (puesto) ; 230 ; 7 ; Portion=400
+Currywurst ohne Pommes | Currywurst without chips | Currywurst sin patatas ; 220 ; 9 ; Portion=200
+Bockwurst | Bockwurst | Bockwurst ; 270 ; 12 ; Stück=100
+Steak im Brötchen | Steak in a bun | Filete en panecillo ; 250 ; 15 ; Stück=220
+Schaschlik-Spieß | Shashlik skewer | Brocheta shashlik ; 220 ; 16 ; Stück=180
+Champignons in Knoblauchsoße | Mushrooms in garlic sauce | Champiñones en salsa de ajo ; 110 ; 3 ; Schale=250
+Kartoffelpuffer mit Apfelmus (Stand) | Potato pancakes with apple sauce (stall) | Tortitas de patata con compota (puesto) ; 200 ; 3 ; Portion=300
+Reibekuchen (3 Stück) | Potato fritters (3) | Tortitas de patata (3) ; 230 ; 3 ; Portion=240
+Langos mit Knoblauch (Stand) | Lángos with garlic (stall) | Lángos con ajo (puesto) ; 330 ; 7 ; Stück=250
+Langos mit Käse & Schmand | Lángos with cheese & sour cream | Lángos con queso y nata agria ; 340 ; 10 ; Stück=300
+Flammkuchen klassisch (Stand) | Classic tarte flambée (stall) | Tarte flambée clásica (puesto) ; 260 ; 9 ; Stück=350
+Raclettebrot | Raclette bread | Pan con raclette ; 300 ; 13 ; Stück=220
+Crêpe mit Zimt & Zucker | Crêpe with cinnamon & sugar | Crepe con canela y azúcar ; 270 ; 6 ; Stück=150
+Poffertjes (10 Stück) | Poffertjes (10) | Poffertjes (10) ; 300 ; 6 ; Portion=150
+Mutzen (Portion) | Mutzen (fried dough) | Mutzen (buñuelos) ; 420 ; 6 ; Portion=150
+Schmalzkuchen (Tüte) | Schmalzkuchen (bag) | Schmalzkuchen (bolsa) ; 410 ; 6 ; Tüte=150
+Gebrannte Mandeln (Tüte) | Candied almonds (bag) | Almendras garrapiñadas (bolsa) ; 520 ; 15 ; Tüte=100 | Handvoll=30
+Gebrannte Cashews (Tüte) | Candied cashews | Anacardos garrapiñados ; 510 ; 13 ; Tüte=100
+Schokofrüchte am Spieß | Chocolate-dipped fruit skewer | Brocheta de fruta con chocolate ; 220 ; 2 ; Stück=150
+Schoko-Banane | Chocolate banana | Plátano con chocolate ; 200 ; 2.5 ; Stück=150
+Paradiesapfel / Liebesapfel | Candy apple | Manzana de caramelo ; 160 ; 0.3 ; Stück=250
+Maroni (Tüte, geröstet) | Roasted chestnuts (bag) | Castañas asadas (bolsa) ; 190 ; 3 ; Tüte=150
+Bratapfel mit Vanillesoße | Baked apple with custard | Manzana asada con natillas ; 150 ; 2 ; Stück=300
+Germknödel mit Mohn | Yeast dumpling with poppy seeds | Germknödel con amapola ; 290 ; 7 ; Stück=250
+Baumstriezel / Kürtőskalács | Chimney cake | Kürtőskalács ; 380 ; 7 ; Stück=200
+Lebkuchenherz (klein) | Gingerbread heart (small) | Corazón de pan de jengibre (pequeño) ; 390 ; 5 ; Stück=100
+Brezel (Weihnachtsmarkt, groß) | Large pretzel | Pretzel grande ; 280 ; 8 ; Stück=150
+Fischbrötchen mit Bismarckhering | Bismarck herring roll | Bocadillo de arenque Bismarck ; 230 ; 11 ; Stück=150
+Käsespätzle (Stand) | Cheese spätzle (stall) | Käsespätzle (puesto) ; 240 ; 10 ; Portion=350`;

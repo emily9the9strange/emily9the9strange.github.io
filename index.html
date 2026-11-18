@@ -266,6 +266,7 @@ nav.tabs button .ic{font-size:21px}
 .vtog{padding:7px 12px;border-radius:999px;border:1.5px solid #8fbf6a;color:#3d6b26;font-weight:800;font-size:13px;background:transparent}.vtog.on{background:#e3f0d8}
 .fzline{font-size:13px;margin:0 0 10px;padding:8px 10px;border-radius:10px;line-height:1.4}.fzline.ok{background:var(--ice);color:var(--ice-ink)}.fzline.no{background:#f6e7d6;color:#7a4a1a}
 .swp{color:var(--muted);font-weight:600}
+.vtag{font-style:normal;font-size:11px;font-weight:800;color:#3d6b26;background:#e3f0d8;border-radius:999px;padding:1px 7px;margin-left:4px;white-space:nowrap}.vtag.veg{color:#8a5520;background:#f6e7d6}
 .sidepick{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
 .sidepick button{background:var(--bg);border-radius:14px;padding:12px 14px;text-align:left;display:flex;flex-direction:column;font-weight:800}
 .sidepick button.def{background:var(--ice);box-shadow:0 0 0 2px var(--ice2)}
@@ -1793,7 +1794,7 @@ function currentSuggestions() {
 function renderSuggestions() {
   const list = currentSuggestions(), box = $("#ideaArt"); if (!box) return;
   box.innerHTML = list.slice(0, 3).map(t => imgHtml(t, "ib-pic")).join("");
-  $("#ideaSub").textContent = `${REC_TEMPLATES.filter(recipeFits).length} Rezepte · ${list.length} neue Ideen`;
+  $("#ideaSub").textContent = "Suchen oder neue Ideen entdecken";
 }
 function recipeMatches(t, q) {
   const words = normTxt(q).split(/\s+/).filter(Boolean); if (!words.length) return true;
@@ -1816,7 +1817,7 @@ function ideasSheet(q0 = "") {
   const draw = () => {
     const box = $("#ires");
     if (q.trim()) { const all = REC_TEMPLATES.filter(t => recipeMatches(t, q)), hits = all.filter(recipeFits), hid = all.length - hits.length; box.innerHTML = hits.length ? `<div class="fsec">${hits.length} ${hits.length === 1 ? "Rezept" : "Rezepte"}${hid ? ` · <span>${hid} ${hid === 1 ? "passt nicht zu deinem Profil" : "passen nicht zu deinem Profil"}</span>` : ""}</div><div class="igrid">${hits.map(ideaCard).join("")}</div>` : `<p class="tip" style="margin:12px 2px">Kein Rezept gefunden. Probier eine Zutat, z. B. „Hähnchen“ oder „Linsen“.</p>`; }
-    else { const list = currentSuggestions(); box.innerHTML = `<div class="fsec"><span>10 Ideen für diese 2 Wochen</span> · <span>neue ab</span> <span data-notr>${dShort(next)}</span></div><div class="igrid">${list.map(ideaCard).join("")}</div>`; }
+    else { const list = currentSuggestions(); box.innerHTML = `<div class="fsec"><span>Ideen für diese zwei Wochen</span></div><div class="igrid">${list.map(ideaCard).join("")}</div>`; }
   };
   $("#rq").oninput = e => { q = e.target.value; draw(); };
   $("#cancel").onclick = closeSheet;
@@ -2624,9 +2625,9 @@ function recipeOf(x) { return x && x.recipeId ? S.recipes.find(r => r.id === x.r
 // ---------- Automatisch zusammengestellte Gerichte-Bilder ----------
 // Liest Zutaten + Name und baut daraus ein Bild: Beilage, Fleisch/Fisch, Gemüse, Soße.
 const COMP_RULES = {
-  carb: [[/sushireis|klebreis/, "rice"], [/reis|rice|basmati|jasmin|risotto|paella/, "rice"], [/spaghetti|tagliatelle|linguine|bandnudel/, "spag"], [/mie|ramen|udon|soba|glasnudel|reisnudel|reisband|noodle|yakisoba|chow mein/, "noodles"],
+  carb: [[/sushireis|klebreis/, "rice"], [/reis(?!papier|essig|waffel|nudel|band)|rice|basmati|jasmin|risotto|paella/, "rice"], [/spaghetti|tagliatelle|linguine|bandnudel/, "spag"], [/mie|ramen|udon|soba|glasnudel|reisnudel|reisband|noodle|yakisoba|chow mein/, "noodles"],
     [/nudel|pasta|penne|fusilli|maccheroni|makkaroni|farfalle|rigatoni|lasagne|tortellini|ravioli/, "pasta"], [/gnocchi|spätzle|schupfnudel/, "gnocchi"], [/püree|stampf|mash|stamppot/, "mash"], [/knödel|klöße|kloß/, "dumpling"],
-    [/kartoffel|pommes|wedges|rösti|patatas|potato/, "potato"], [/couscous|bulgur|quinoa|hirse|polenta|graupen/, "grain"], [/brot|toast|ciabatta|wrap|tortilla|baguette|naan|pita|brötchen|semmel|bagel|fladen/, "bread"]],
+    [/kartoffel|pommes|wedges|rösti|patatas|potato/, "potato"], [/couscous|bulgur|quinoa|hirse|polenta|graupen/, "grain"], [/brot(?!.*brösel)|toast|ciabatta|wrap|tortilla(?!.*chips)|baguette|naan|pita|brötchen|semmel(?!brösel|knödel)|bagel|fladen/, "bread"]],
   prot: [[/lachs|salmon/, "salmon"], [/garnele|shrimp|gambas|krabbe|scampi/, "shrimp"], [/thunfisch|fisch|pangasius|kabeljau|seelachs|scholle|forelle|dorade|zander|merluza|bacalao/, "fish"],
     [/(?<!ge)hack(?!t)|bällchen|frikadell|köttbullar|albóndig|kofta|köfte|cevapcici|laibchen/, "meatball"], [/hähnchen|huhn|hühner|hendl|pute|chicken|geflügel|pollo|ente|duck/, "chicken"],
     [/rind|steak|beef|gulasch|bulgogi|stroganoff|ragout/, "beef"], [/schwein|karree|schnitzel|kassler|pork|gyros|carnitas|char siu/, "pork"], [/wurst|würstchen|chorizo|bacon|speck|salami|schinken/, "sausage"],
@@ -2661,7 +2662,30 @@ function dishParts(x, r) {
   return { carb: carb.slice(0, 1), prot: prot.slice(0, 2), veg: veg.slice(0, 3), sauce, topping, soup, title, vol };
 }
 const composeCache = {};
+function pizzaArt(src) {
+  const ing = (src.ing || []).map(i => i.n.toLowerCase()).join(" | "), flam = /flammkuchen/.test((src.name || "").toLowerCase());
+  let seed = 11; for (const c of src.name || "") seed = (seed * 31 + c.charCodeAt(0)) >>> 0;
+  const rnd = () => (seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296, f1 = n => n.toFixed(1);
+  const pts = n => Array.from({ length: n }, () => { const a = rnd() * 6.283, d = Math.sqrt(rnd()) * 30; return [60 + Math.cos(a) * d, 60 + Math.sin(a) * d]; });
+  let top = "";
+  if (/mozzarella|käse/.test(ing)) top += pts(9).map(([a, b]) => `<ellipse cx="${f1(a)}" cy="${f1(b)}" rx="${f1(6 + rnd() * 3)}" ry="${f1(5 + rnd() * 2)}" fill="#fbf4dc" opacity=".95"/>`).join("");
+  if (/hähnchen|pute/.test(ing)) top += pts(7).map(([a, b]) => `<rect x="${f1(a - 4)}" y="${f1(b - 2)}" width="8" height="4.5" rx="2" fill="#e0a466" transform="rotate(${Math.round(rnd() * 180)} ${f1(a)} ${f1(b)})"/>`).join("");
+  if (/salami/.test(ing)) top += pts(7).map(([a, b]) => `<circle cx="${f1(a)}" cy="${f1(b)}" r="5" fill="#b8402c"/>`).join("");
+  if (/schinken|speck|bacon/.test(ing)) top += pts(9).map(([a, b]) => `<rect x="${f1(a - 3)}" y="${f1(b - 2)}" width="6" height="4" rx="1" fill="#e79a8a"/>`).join("");
+  if (/zucchini/.test(ing)) top += pts(6).map(([a, b]) => `<circle cx="${f1(a)}" cy="${f1(b)}" r="4" fill="#3f7d2a"/><circle cx="${f1(a)}" cy="${f1(b)}" r="3" fill="#e6f2c9"/>`).join("");
+  if (/champignon|pilz/.test(ing)) top += pts(6).map(([a, b]) => `<path d="M${f1(a - 4)},${f1(b)} a4,3.5 0 0 1 8,0 z" fill="#c9a77f"/>`).join("");
+  if (/paprika/.test(ing)) top += pts(7).map(([a, b]) => `<rect x="${f1(a - 4)}" y="${f1(b - 1.2)}" width="8" height="2.4" rx="1.2" fill="${rnd() > .5 ? "#e0402f" : "#f4b72e"}" transform="rotate(${Math.round(rnd() * 180)} ${f1(a)} ${f1(b)})"/>`).join("");
+  if (/kirschtomate/.test(ing)) top += pts(5).map(([a, b]) => `<circle cx="${f1(a)}" cy="${f1(b)}" r="3.6" fill="#e5412e"/>`).join("");
+  if (/zwiebel/.test(ing) && flam) top += pts(8).map(([a, b]) => `<path d="M${f1(a - 4)},${f1(b)} a4,3 0 0 1 8,0" stroke="#e4d4ec" stroke-width="1.3" fill="none"/>`).join("");
+  if (/basilikum|rucola/.test(ing)) top += pts(6).map(([a, b]) => `<ellipse cx="${f1(a)}" cy="${f1(b)}" rx="4" ry="2.2" fill="#3d8b37" transform="rotate(${Math.round(rnd() * 180)} ${f1(a)} ${f1(b)})"/>`).join("");
+  const base = flam ? "#f4ecd8" : "#d6452c";
+  return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="120" height="120" fill="#e9dccb"/><circle cx="62" cy="63" r="48" fill="rgba(0,0,0,.14)"/><circle cx="60" cy="60" r="47" fill="#d9a35a"/><circle cx="60" cy="60" r="40" fill="#e9bd73"/><circle cx="60" cy="60" r="37" fill="${base}"/>${top}</svg>`;
+}
 function composeArt(x, r) {
+  const srcT = r || x, ttl = ((srcT && srcT.name) || "").toLowerCase(), tg = (srcT && srcT.tags) || [];
+  if (/pizza|flammkuchen/.test(ttl)) return pizzaArt(srcT);
+  if (tg.some(t => /süß|kuchen|cookies|dessert|backen|muffins/.test(t)) || /kuchen|torte|muffin|cookie|keks|strudel|tiramisu|brownie|kipferl|schmarrn|palatschinke|crêpe|crepe|pancake|porridge|müesli|müsli|oats/.test(ttl)) return null;
+  if (/pizza|flammkuchen/.test(ttl)) return pizzaArt(srcT);
   const p = dishParts(x, r); const nParts = p.carb.length + p.prot.length + p.veg.length;
   if (nParts < 2 && !(nParts === 1 && p.sauce)) return null;
   const V0 = p.vol, tot = V0.carb + V0.prot + V0.veg + V0.sauce || 1, q5 = v => Math.round(v / tot * 20) / 20;
@@ -3041,7 +3065,7 @@ function parseFoodLib(txt) {
 }
 const [FOOD_CATS, FOODS_RAW] = parseFoodLib(window.NUVIO_LEBENSMITTEL);
 // ---------- Lebensmittel-Datenbank & Suche ----------
-const ML_RE = /(milch|drink|kefir|smoothie|saft|schorle)/i, NOT_ML = /(schokolade|schnitte|reis|pudding|kaffee)/i;
+const ML_RE = /(milch|drink|kefir|smoothie|saft|schorle|glühwein|punsch|bowle|jagertee|heiße schokolade)/i, NOT_ML = /(schnitte|reis|pudding|kaffee|milchschokolade|schokolade(?! mit sahne))/i;
 let FOODS = null;
 function foodsBase() {
   if (FOODS) return FOODS;
@@ -3217,6 +3241,7 @@ function plateSheet(opts) {
   draw();
 }
 
+const VEGAN_FOOD_RE = /vegan|beyond (burger|mince|sausage|steak)|planted|like meat|garden gourmet sensational|garden gourmet vegane|tofu(?!.*(ei|käse))|tempeh|seitan|wheaty|violife|simply v|wilmersburger|oatly|alpro|provamel|vly |haferdrink|hafer drink|hafer-joghurt|haferghurt|hafer-kochcreme|hafer cuisine|mandeldrink|sojadrink|soja drink|soja joghurt|sojajoghurt|reis drink|lupinen|jackfruit|chickeneers|hackmeister|vegini|my veggie (veganes|vegane|hafer|soja)/;
 function foodSheet(opts) {
   let view = "search", sel = null, unit = null, qty = 1, query = opts.query || "";
   const recent = () => (S.recentFoods || []).map(r => ({ r, f: findFood(r.n) })).filter(x => x.f);
@@ -3224,7 +3249,8 @@ function foodSheet(opts) {
   const unitGrams = (f, u) => u === "__base" ? 1 : (f.units.find(x => x[0] === u)?.[1] || 100);
   const nut = () => { const g = unitGrams(sel, unit) * qty; return { k: sel.k * g / 100, p: sel.p * g / 100, g }; };
   const firstInfo = f => f.mine ? `${fmt(f.k)} kcal / Portion` : f.units.length ? `${fmt(f.k * f.units[0][1] / 100)} kcal / ${f.units[0][0]}${f.units[0][0].includes("=") ? "" : ` (${fmt(f.units[0][1])} ${f.base})`}` : `${fmt(f.k)} kcal / 100 ${f.base}`;
-  const row = (f, extra) => `<button type="button" class="frow" data-food="${esc(f.n)}"><span class="fe">${esc(f.emoji)}</span><span class="ft"><b data-notr>${esc(foodName(f))}</b><small>${extra || firstInfo(f)}</small></span><span class="fgo">›</span></button>`;
+  const dietTag = f => { const n = f.n.toLowerCase(); if (/vegetarisch/.test(n)) return ` <i class="vtag veg">🥕 vegetarisch</i>`; return VEGAN_FOOD_RE.test(n) ? ` <i class="vtag">🌱 vegan</i>` : ""; };
+  const row = (f, extra) => `<button type="button" class="frow" data-food="${esc(f.n)}"><span class="fe">${esc(f.emoji)}</span><span class="ft"><b data-notr>${esc(foodName(f))}</b><small>${extra || firstInfo(f)}${dietTag(f)}</small></span><span class="fgo">›</span></button>`;
   function draw() {
     if (view === "search") {
       const rs = query ? foodSearch(query) : [];
@@ -3701,6 +3727,7 @@ const I18N = {
 "Die Prognose-Linie zeigt typische Wasser-Hochs": ["The forecast line shows typical water highs", "La línea de previsión muestra los picos típicos de agua"],
 "– das ist kein Fett und geht danach wieder runter.": ["– that isn't fat and goes back down afterwards.", "– no es grasa y luego vuelve a bajar."],
 "Feste": ["Festivals", "Fiestas"],
+"Ideen für diese zwei Wochen": ["Ideas for these two weeks", "Ideas para estas dos semanas"],
 "Mahlzeiten": ["Meals", "Comidas"], "noch {0}": ["{0} left", "quedan {0}"], "{0} drüber": ["{0} over", "{0} de más"], "{0} gegessen": ["{0} eaten", "{0} comidas"],
 "{0} vorhanden": ["{0} in stock", "{0} disponibles"], "{0} vorhanden · {1} verplant": ["{0} in stock · {1} planned", "{0} disponibles · {1} planificadas"], "📅 {0} verplant": ["📅 {0} planned", "📅 {0} planificadas"],
 "↔︎ nebeneinander": ["↔︎ side by side", "↔︎ al lado"], "↕︎ übereinander": ["↕︎ stacked", "↕︎ encima"], "flach": ["flat", "plano"], "hoch aufgehäuft": ["piled high", "colmado"], "Übereinander: Wähle für jede Schicht, wie viel vom Teller sie bedeckt. Die unterste Schicht zuerst antippen, z. B. Reis, dann Curry.": ["Stacked: for each layer, choose how much of the plate it covers. Tap the bottom layer first, e.g. rice, then curry.", "Encima: elige para cada capa cuánto del plato cubre. Toca primero la capa de abajo, p. ej. arroz y luego curry."],
