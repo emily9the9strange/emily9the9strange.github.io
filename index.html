@@ -49,6 +49,8 @@ nav.tabs button.act .ic{filter:none;opacity:1;transform:translateY(-2px)}
 .ring{width:132px;height:132px;flex:none;position:relative}
 .ring svg{transform:rotate(-90deg)}
 .ring .ctr{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.k.kl{display:flex;justify-content:space-between;align-items:baseline;gap:6px}.vleft{font-size:11.5px;font-weight:700;text-transform:none;letter-spacing:0;white-space:nowrap;color:#8fd3b6}
+.ring .ctr .sm2{font-size:11px;font-weight:700;opacity:.6;margin-top:2px}
 .ring .big{font-family:Fraunces,serif;font-size:30px;font-weight:800;line-height:1}
 .ring .sm{font-size:12px;opacity:.7;margin-top:4px}
 .hero .stats{display:flex;flex-direction:column;gap:10px;flex:1;min-width:0}
@@ -556,14 +558,15 @@ textarea.notes{width:100%;border:1.5px solid var(--line);border-radius:14px;padd
 #finside .shelf::after{content:"";position:absolute;left:-10px;right:-10px;bottom:0;height:9px;border-radius:2px;
   background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(198,222,234,.75));border-top:1.5px solid rgba(140,175,195,.9);box-shadow:0 7px 10px -5px rgba(40,70,90,.28)}
 #finside .shelf.empty{display:block}
-#finside .crisper{height:46px;margin:2px -10px -14px;border-radius:12px 12px 0 0;background:linear-gradient(180deg,rgba(220,240,230,.55),rgba(190,225,210,.75));border:1.5px solid rgba(140,180,165,.8);border-bottom:0;position:relative}
+#finside .crisper{flex:none;height:54px;margin:0 8px 8px;border-radius:12px;background:linear-gradient(180deg,rgba(225,243,234,.75),rgba(186,222,206,.9));border:1.5px solid rgba(140,180,165,.8);position:relative;z-index:1;box-shadow:inset 0 2px 0 rgba(255,255,255,.7)}
+#finside .shelf.ghost{min-height:110px}
 #finside .crisper span{position:absolute;left:50%;top:9px;width:56px;height:8px;border-radius:5px;transform:translateX(-50%);background:rgba(110,150,135,.55)}
 
-#finside .drawer{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:end;padding:8px 4px 0;margin:0 -4px 14px}
-#finside .drawer::after{content:"";position:absolute;left:-10px;right:-10px;bottom:26px;height:46px;border-radius:6px 6px 10px 10px;pointer-events:none;z-index:3;
+#finside .drawer{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:end;padding:12px 10px 10px;margin:0 -6px 22px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,.25),rgba(196,222,240,.6));border:1.5px solid rgba(130,170,200,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.7)}
+#finside .drawer::after{content:none}
   background:linear-gradient(180deg,rgba(245,251,255,.45),rgba(212,232,246,.85));border:1.5px solid rgba(150,185,210,.9);box-shadow:0 6px 10px -6px rgba(40,70,90,.3);backdrop-filter:blur(1px)}
-#finside .drawer::before{content:"";position:absolute;left:50%;bottom:36px;width:64px;height:7px;border-radius:4px;transform:translateX(-50%);background:rgba(100,140,170,.7);z-index:4;pointer-events:none}
-#finside .drawer.empty{display:block;padding:10px 4px 30px}
+#finside .drawer::before{content:"";position:absolute;left:50%;bottom:-13px;width:64px;height:7px;border-radius:4px;transform:translateX(-50%);background:rgba(100,140,170,.65);pointer-events:none}
+#finside .drawer.empty{display:block;padding:10px 10px 16px}
 
 #finside .tub2{position:relative;--lid:#7cc4a2}
 #finside .tub2.frz{--lid:#6fa8d6}
@@ -585,7 +588,7 @@ textarea.notes{width:100%;border:1.5px solid var(--line);border-radius:14px;padd
 #finside .tub2.old .box{border-color:var(--bad)}
 #finside .tub2 .warn{position:absolute;right:-4px;top:-8px;z-index:6;background:var(--bad);color:#fff;font-size:10.5px;font-weight:800;border-radius:999px;padding:2px 8px}
 #finside .drawer .tub2 .tinfo{padding-top:12px}
-#finside .drawer{padding-bottom:4px}
+#finside .tub2 .tplan{position:absolute;left:6px;bottom:6px;z-index:4;box-shadow:0 1px 3px rgba(0,0,0,.15);font-size:11px;font-weight:800;color:#3a6a8a;background:rgba(255,255,255,.75);border-radius:999px;padding:1px 7px}
 #finside .cempty{color:var(--muted);font-weight:600;padding:10px 6px}
 .fclose{background:#fff;color:var(--ink);font-weight:800;border-radius:999px;padding:11px 22px;box-shadow:0 6px 16px rgba(0,0,0,.18);flex:none}
 @media (prefers-reduced-motion:reduce){.fview.open .bigfridge,#finside .comp.cool .led{animation:none}}
@@ -619,10 +622,10 @@ nav.tabs .ic svg.fi.nav{width:28px;height:28px;vertical-align:middle}
           <circle cx="66" cy="66" r="56" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="12"/>
           <circle id="ringArc" cx="66" cy="66" r="56" fill="none" stroke="#8fd3b6" stroke-width="12" stroke-linecap="round" stroke-dasharray="351.86" stroke-dashoffset="351.86" style="transition:stroke-dashoffset .6s,stroke .3s"/>
         </svg>
-        <div class="ctr"><div class="big" id="leftNum">–</div><div class="sm" id="leftLbl">übrig</div></div>
+        <div class="ctr"><div class="big" id="leftNum">–</div><div class="sm" id="leftLbl">übrig</div><div class="sm2" id="eatenNum"></div></div>
       </div>
       <div class="stats">
-        <div class="stat"><div class="k">Gegessen</div><div class="v" id="eatenNum">0 kcal</div></div>
+        <div class="stat"><div class="k kl"><span>Mahlzeiten</span><small class="vleft" id="mealLeft"></small></div><div class="v" id="mealNum">0 / 0</div><div class="bar"><i id="mealBar" style="width:0;background:#8fd3b6"></i></div></div>
         <div class="stat"><div class="k">Snacks</div><div class="v" id="snkNum">0 / 500</div><div class="bar"><i id="snkBar" style="width:0;background:#ffc36b"></i></div></div>
         <div class="stat"><div class="k">Eiweiß</div><div class="v" id="protNum">0 g</div><div class="bar"><i id="protBar" style="width:0"></i></div></div>
       </div>
@@ -957,15 +960,22 @@ function renderToday() {
   arc.style.stroke = left < 0 ? "#ff9a7a" : frac > .85 ? "#ffd27a" : "#8fd3b6";
   $("#leftNum").textContent = fmt(Math.abs(left));
   $("#leftLbl").textContent = left < 0 ? "kcal drüber" : "kcal übrig";
-  $("#eatenNum").textContent = fmt(k) + " kcal";
+  $("#eatenNum").textContent = fmt(k) + " gegessen";
   const sk = totals().s;
+  // Mahlzeiten: Tagesziel ohne Snack-Budget; Snacks über dem Limit gehen von den Mahlzeiten ab
+  const mBudget = Math.max(0, S.goal - S.snackLimit), mEat = k - Math.min(sk, S.snackLimit), mLeft = mBudget - mEat;
+  $("#mealNum").textContent = fmt(Math.max(0, k - sk)) + " / " + fmt(mBudget);
+  $("#mealLeft").textContent = mLeft >= 0 ? `noch ${fmt(mLeft)}` : `${fmt(-mLeft)} drüber`;
+  $("#mealBar").style.width = (mBudget ? Math.min(100, mEat / mBudget * 100) : 0) + "%";
+  $("#mealBar").style.background = mLeft < 0 ? "#ff9a7a" : mEat / (mBudget || 1) > .85 ? "#ffd27a" : "#8fd3b6";
   $("#snkNum").textContent = fmt(sk) + " / " + fmt(S.snackLimit);
   $("#snkBar").style.width = (S.snackLimit ? Math.min(100, sk / S.snackLimit * 100) : 0) + "%";
   $("#snkBar").style.background = sk > S.snackLimit ? "#ff9a7a" : "#ffc36b";
   $("#protNum").textContent = fmt(p) + " / " + fmt(S.prot) + " g";
   $("#protBar").style.width = (S.prot ? Math.min(100, p / S.prot * 100) : 0) + "%";
   const portions = S.dishes.reduce((a, x) => a + (x.count || 0), 0);
-  $("#qFreezer").textContent = portions + (portions === 1 ? " Portion" : " Portionen") + " da";
+  const planned = Math.round(S.dishes.filter(x => x.count > 0).reduce((a, x) => a + Math.min(x.count, plannedCount(x.id)), 0) * 10) / 10;
+  $("#qFreezer").textContent = fmtQ(Math.round(portions * 10) / 10) + " vorhanden" + (planned ? ` · ${fmtQ(planned)} verplant` : "");
   $("#qSnack").textContent = S.snacks.length ? S.snacks.length + " Snacks" : "noch leer";
   renderTodayPlan(); if (fridgeOpen()) renderFridge();
   const L = $("#todayList");
@@ -2239,7 +2249,7 @@ function fridgeTub(x) {
   const n = Math.min(3, Math.ceil(x.count)); // bis zu 3 gestapelte Boxen andeuten
   return `<div class="tub2 ${fr ? "fresh" : "frz"} ${old ? "old" : ""}" style="--stack:${n}">${old ? `<span class="warn">${dl <= 0 ? "jetzt essen" : "bald essen"}</span>` : ""}
     <button class="tm" data-eat="${esc(x.id)}" aria-label="${esc(x.name)}">
-      <span class="box"><span class="lid"></span>${imgHtml(x, "tpic")}<span class="gloss"></span><span class="tape2"><b>${esc(stripKind(x.name))}</b><small data-notr>${date}</small></span></span>
+      <span class="box"><span class="lid"></span>${imgHtml(x, "tpic")}<span class="gloss"></span><span class="tape2"><b>${esc(stripKind(x.name))}</b><small data-notr>${date}</small></span>${(pl => pl ? `<span class="tplan">📅 ${fmtQ(Math.min(pl, x.count))} verplant</span>` : "")(plannedCount(x.id))}</span>
       <span class="tinfo"><b>${fmtQ(x.count)}× </b><span>${fmt(x.kcal)} kcal${x.needsSide ? " + Beilage" : ""}</span></span>
     </button><button class="tmore" data-take="${esc(x.id)}" aria-label="Menge wählen oder weggeben">⋯</button></div>`;
 }
@@ -2250,7 +2260,7 @@ function renderFridge() {
   const rows = (arr, cls) => { let h = ""; for (let i = 0; i < arr.length; i += 2) h += `<div class="${cls}">${arr.slice(i, i + 2).map(fridgeTub).join("")}</div>`; return h; };
   $("#finside").innerHTML = `
     <div class="comp cool"><div class="led"></div><div class="chead"><b>Kühlschrank</b><span>${fresh.length ? `${fmtQ(sum(fresh))} frisch` : "leer"}</span></div>
-      <div class="cscroll">${fresh.length ? rows(fresh, "shelf") : `<div class="shelf empty"><p class="cempty">Gerade nichts Frisches drin.</p></div>`}<div class="crisper"><span></span></div></div></div>
+      <div class="cscroll">${fresh.length ? rows(fresh, "shelf") : `<div class="shelf empty"><p class="cempty">Gerade nichts Frisches drin.</p></div>`}${fresh.length <= 2 ? `<div class="shelf ghost"></div>` : ""}</div><div class="crisper"><span></span></div></div>
     <div class="comp frost"><div class="chead"><b>❄️ Tiefkühler</b><span>${frozen.length ? `${fmtQ(sum(frozen))} Portionen` : "leer"}</span></div>
       <div class="cscroll">${frozen.length ? rows(frozen, "drawer") : `<div class="drawer empty"><p class="cempty">Der Tiefkühler ist leer.${!fresh.length ? ` <button class="lnk" data-go="book">Im Kochbuch etwas kochen ›</button>` : ""}</p></div>`}</div></div>`;
 }
@@ -3691,6 +3701,8 @@ const I18N = {
 "Die Prognose-Linie zeigt typische Wasser-Hochs": ["The forecast line shows typical water highs", "La línea de previsión muestra los picos típicos de agua"],
 "– das ist kein Fett und geht danach wieder runter.": ["– that isn't fat and goes back down afterwards.", "– no es grasa y luego vuelve a bajar."],
 "Feste": ["Festivals", "Fiestas"],
+"Mahlzeiten": ["Meals", "Comidas"], "noch {0}": ["{0} left", "quedan {0}"], "{0} drüber": ["{0} over", "{0} de más"], "{0} gegessen": ["{0} eaten", "{0} comidas"],
+"{0} vorhanden": ["{0} in stock", "{0} disponibles"], "{0} vorhanden · {1} verplant": ["{0} in stock · {1} planned", "{0} disponibles · {1} planificadas"], "📅 {0} verplant": ["📅 {0} planned", "📅 {0} planificadas"],
 "↔︎ nebeneinander": ["↔︎ side by side", "↔︎ al lado"], "↕︎ übereinander": ["↕︎ stacked", "↕︎ encima"], "flach": ["flat", "plano"], "hoch aufgehäuft": ["piled high", "colmado"], "Übereinander: Wähle für jede Schicht, wie viel vom Teller sie bedeckt. Die unterste Schicht zuerst antippen, z. B. Reis, dann Curry.": ["Stacked: for each layer, choose how much of the plate it covers. Tap the bottom layer first, e.g. rice, then curry.", "Encima: elige para cada capa cuánto del plato cubre. Toca primero la capa de abajo, p. ej. arroz y luego curry."],
 "🍽️ Teller schätzen": ["🍽️ Estimate a plate", "🍽️ Estimar un plato"], "Foto + Mengen in Tellerteilen": ["Photo + amounts in plate portions", "Foto + cantidades en partes del plato"], "Mit Foto kannst du dein Essen beim Schätzen ansehen und im Tagebuch behalten.": ["With a photo you can look at your food while estimating and keep it in your diary.", "Con una foto puedes ver tu comida al estimar y guardarla en tu diario."], "Was liegt auf dem Teller?": ["What's on the plate?", "¿Qué hay en el plato?"], "Andere Zutat oder Gericht suchen …": ["Search another ingredient or dish …", "Buscar otro ingrediente o plato …"], "Name im Tagebuch": ["Name in diary", "Nombre en el diario"], "Geschätzt für einen normalen Essteller (ca. 26 cm), Mengen gegart. Ein Richtwert – Wiegen ist genauer.": ["Estimated for a normal dinner plate (about 26 cm), cooked amounts. A guide – weighing is more accurate.", "Estimado para un plato normal (unos 26 cm), cantidades cocinadas. Es orientativo: pesar es más exacto."], "Tippe an, was du siehst, und wähle dann die Menge: ¼ Teller, eine Faust, ein Handteller …": ["Tap what you see, then choose the amount: ¼ plate, a fist, a palm …", "Toca lo que ves y elige la cantidad: ¼ de plato, un puño, una palma …"], "Klecks": ["Dollop", "Poquito"], "¼ Teller": ["¼ plate", "¼ plato"], "½ Teller": ["½ plate", "½ plato"], "¾ Teller": ["¾ plate", "¾ plato"], "voller Teller": ["full plate", "plato lleno"], "Faust": ["Fist", "Puño"], "halber Handteller": ["half a palm", "media palma"], "Handteller": ["Palm", "Palma"], "wenig": ["a little", "poco"], "normal": ["normal", "normal"], "viel": ["a lot", "mucho"], "🍚 Reis": ["🍚 Rice", "🍚 Arroz"], "🍝 Nudeln": ["🍝 Pasta", "🍝 Pasta"], "🥔 Kartoffeln": ["🥔 Potatoes", "🥔 Patatas"], "🍟 Pommes": ["🍟 Fries", "🍟 Patatas fritas"], "🍗 Hähnchen": ["🍗 Chicken", "🍗 Pollo"], "🥩 Rind / Hack": ["🥩 Beef / mince", "🥩 Ternera / picada"], "🐟 Lachs": ["🐟 Salmon", "🐟 Salmón"], "🍳 Spiegelei": ["🍳 Fried egg", "🍳 Huevo frito"], "🧈 Tofu": ["🧈 Tofu", "🧈 Tofu"], "🥦 Brokkoli": ["🥦 Broccoli", "🥦 Brócoli"], "🥕 Gemüse": ["🥕 Vegetables", "🥕 Verduras"], "🥗 Salat": ["🥗 Salad", "🥗 Ensalada"], "🍅 Tomatensoße": ["🍅 Tomato sauce", "🍅 Salsa de tomate"], "🥛 Sahnesoße": ["🥛 Cream sauce", "🥛 Salsa de nata"], "🟤 Bratensoße": ["🟤 Gravy", "🟤 Salsa de asado"], "🍛 Currysoße": ["🍛 Curry sauce", "🍛 Salsa de curry"], "🫒 Öl / Butter": ["🫒 Oil / butter", "🫒 Aceite / mantequilla"],
 "📸 Foto aufnehmen": ["📸 Take photo", "📸 Hacer foto"], "📷 Aus Galerie": ["📷 From gallery", "📷 De la galería"],
