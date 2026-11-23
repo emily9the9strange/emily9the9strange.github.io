@@ -131,7 +131,7 @@ body.nodrag-scroll{overflow:hidden;touch-action:none}
 .chart .goal span{position:absolute;right:0;top:-18px;font-size:11px;font-weight:800;color:var(--accent)}
 .chart .col{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end}
 .chart .b{width:100%;border-radius:8px 8px 4px 4px;background:var(--ice2);min-height:3px;position:relative;transition:height .5s}
-.chart .b.over{background:#ffb199}
+.chart .b.over{background:#ff7a59}
 .chart .b.today{background:var(--ink)}
 .chart .b small{position:absolute;top:-17px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:800;color:var(--muted);white-space:nowrap}
 .chart .lb{font-size:11px;font-weight:800;color:var(--muted)}
@@ -183,7 +183,7 @@ body.nodrag-scroll{overflow:hidden;touch-action:none}
 .slim-top b{font-size:18px}
 .slim-bar{height:10px;background:rgba(255,255,255,.35);border-radius:6px;overflow:hidden;margin:7px 0 6px}
 .slim-bar i{display:block;height:100%;width:0;background:#fff;border-radius:6px;transition:width .5s,background .3s}
-.slim-bar i.over{background:#c0392b}
+.slim-bar i.over{background:#ff5a36}
 .slim-sub{font-size:12px;font-weight:700;opacity:.9}
 .snack.locked .ph{filter:saturate(.85)}
 .snack .over-tag{position:absolute;right:8px;bottom:8px;background:#fff;color:var(--bad);font-weight:800;font-size:11px;padding:3px 7px;border-radius:999px}
@@ -243,11 +243,18 @@ nav.tabs button .ic{font-size:21px}
 .pbtns input{width:80px;border:1px solid var(--line);border-radius:12px;padding:8px;text-align:center;background:#fff}
 .tgl{display:flex;align-items:center;gap:8px;font-weight:800;font-size:14px;margin:4px 0}
 .tgl input{width:20px;height:20px;accent-color:var(--ink)}
-.irow{display:grid;grid-template-columns:1fr 92px 34px 30px;gap:6px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.irow{display:grid;grid-template-columns:1fr 112px 34px 30px;gap:6px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
 .irow .iname{border:1px solid var(--line);border-radius:12px;padding:10px;background:#fff;min-width:0;font-size:15px}
 .iamt{display:flex;align-items:center;border:1px solid var(--line);border-radius:12px;background:#fff;padding-right:6px}
 .iamt input{width:100%;border:0;padding:10px 4px 10px 10px;background:none;text-align:right;font-size:15px;min-width:0}
 .iamt .iu{font-size:12px;font-weight:800;color:var(--muted)}
+.iamt .iun{border:0;background:none;font-size:12.5px;font-weight:800;color:var(--muted);padding:0 0 0 2px;max-width:62px;text-overflow:ellipsis;-webkit-appearance:none;appearance:none;text-align:right}
+.iamt .iun:not(.one){color:var(--ink);background:var(--bg);border-radius:8px;padding:4px 6px}
+.irow .ik{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.isugg{font-size:12px;font-weight:800;color:#b45309;background:#fff3dc;border:1.5px solid #f7c873;border-radius:999px;padding:3px 9px}
+.caddrow{display:flex;justify-content:flex-end;margin:8px 0 14px}
+.cadd{background:#ff6a1a;color:#fff;font-weight:800;font-size:15px;border-radius:999px;padding:10px 18px;box-shadow:0 4px 12px rgba(255,106,26,.35)}
+.cadd:active{transform:scale(.97)}
 .ipp{height:34px;border-radius:10px;background:var(--bg);font-size:11px;font-weight:800;color:var(--muted)}
 .ipp.on{background:var(--ink);color:#fff}
 .irow .ik{grid-column:1/-1;font-size:12px;color:var(--muted);font-weight:700;margin-top:-2px}
@@ -969,7 +976,7 @@ function renderToday() {
   const left = S.goal - k, frac = Math.min(1, k / S.goal);
   const arc = $("#ringArc");
   arc.style.strokeDashoffset = String(351.86 * (1 - frac));
-  arc.style.stroke = left < 0 ? "#ff9a7a" : frac > .85 ? "#ffd27a" : "#8fd3b6";
+  arc.style.stroke = left < 0 ? "#ff5a36" : frac > .85 ? "#5bbcf2" : "#8fd3b6";
   $("#leftNum").textContent = fmt(Math.abs(left));
   $("#leftLbl").textContent = left < 0 ? "kcal drüber" : "kcal übrig";
   $("#eatenNum").textContent = fmt(k) + " gegessen";
@@ -979,10 +986,11 @@ function renderToday() {
   $("#mealNum").textContent = fmt(Math.max(0, k - sk)) + " / " + fmt(mBudget);
   $("#mealLeft").textContent = mLeft >= 0 ? `noch ${fmt(mLeft)}` : `${fmt(-mLeft)} drüber`;
   $("#mealBar").style.width = (mBudget ? Math.min(100, mEat / mBudget * 100) : 0) + "%";
-  $("#mealBar").style.background = mLeft < 0 ? "#ff9a7a" : mEat / (mBudget || 1) > .85 ? "#ffd27a" : "#8fd3b6";
+  $("#mealLeft").style.color = mLeft < 0 ? "#ff7a59" : mEat / (mBudget || 1) > .85 ? "#7cc8f5" : "#8fd3b6";
+  $("#mealBar").style.background = mLeft < 0 ? "#ff5a36" : mEat / (mBudget || 1) > .85 ? "#5bbcf2" : "#8fd3b6";
   $("#snkNum").textContent = fmt(sk) + " / " + fmt(S.snackLimit);
   $("#snkBar").style.width = (S.snackLimit ? Math.min(100, sk / S.snackLimit * 100) : 0) + "%";
-  $("#snkBar").style.background = sk > S.snackLimit ? "#ff9a7a" : "#ffc36b";
+  $("#snkBar").style.background = sk > S.snackLimit ? "#ff5a36" : "#ffc36b";
   $("#protNum").textContent = fmt(p) + " / " + fmt(S.prot) + " g";
   $("#protBar").style.width = (S.prot ? Math.min(100, p / S.prot * 100) : 0) + "%";
   const portions = S.dishes.reduce((a, x) => a + (x.count || 0), 0);
@@ -1544,7 +1552,7 @@ function rollDay() {
 
 // ---------- sheets ----------
 const scrim = $("#scrim"), sheet = $("#sheet");
-function openSheet(html) { $("#toast").classList.remove("show"); sheet.oninput = sheet.onchange = sheet.onclick = null; sheet.innerHTML = `<div class="grab"></div>` + html; scrim.classList.add("open"); }
+function openSheet(html) { sheet._cookTok = null; $("#toast").classList.remove("show"); sheet.oninput = sheet.onchange = sheet.onclick = null; sheet.innerHTML = `<div class="grab"></div>` + html; scrim.classList.add("open"); }
 function closeSheet() { scrim.classList.remove("open"); sheet.innerHTML = ""; sheet.oninput = sheet.onchange = sheet.onclick = null; }
 scrim.addEventListener("click", e => { if (e.target === scrim) closeSheet(); });
 // Tastatur: Fenster immer an den sichtbaren Bereich über der Tastatur anpassen, damit Vorschläge nicht verdeckt werden
@@ -1738,7 +1746,58 @@ const clone = o => JSON.parse(JSON.stringify(o));
 // Zutaten fürs Kochbuch: eigene Liste + passende Einträge aus der Lebensmittel-Datenbank (inkl. Gewürze)
 const ING_CAT_SKIP = new Set(["Imbiss & Fast Food", "Gerichte"]);
 let DB_ING = null;
-function dbIng() { if (!DB_ING) { DB_ING = new Map(); FOODS_RAW.forEach(([n, , , k, p, , c]) => { if (!ING_CAT_SKIP.has(FOOD_CATS[c][0]) && !INGR[n]) DB_ING.set(n, { k, p, u: FOOD_CATS[c][0] === "Getränke" ? "ml" : "g" }); }); } return DB_ING; }
+function dbIng() { if (!DB_ING) { DB_ING = new Map(); FOODS_RAW.forEach(([n, , , k, p, u, c]) => { if (!ING_CAT_SKIP.has(FOOD_CATS[c][0]) && !INGR[n]) DB_ING.set(n, { k, p, u: FOOD_CATS[c][0] === "Getränke" ? "ml" : "g", c, units: u ? u.split("|").map(x => { const i = x.lastIndexOf("="); return [x.slice(0, i).trim(), num(x.slice(i + 1))]; }).filter(x => x[1] > 0) : [] }); }); } return DB_ING; }
+// Art einer Zutat (für Einheiten und Mengen-Vorschläge)
+function ingType(n, info) {
+  const t = String(n || "").toLowerCase(), cat = info && info.c != null && FOOD_CATS[info.c] ? FOOD_CATS[info.c][0] : "";
+  if (/(^|[\s(-])(oliven|raps|sonnenblumen|kokos|sesam|lein|kürbiskern|erdnuss|walnuss)?öl\b|^butter\b|butterschmalz|margarine|ghee|schmalz/.test(t)) return "fat";
+  if (/brühe|fond\b|bouillon/.test(t)) return t.includes("zubereitet") ? "broth" : "spice";
+  if (cat === "Gewürze & Kräuter" || /salz|pfeffer|pulver|gewürz|kümmel|zimt|curry\b|oregano|thymian|majoran|chili|muskat|backpulver|natron|vanillezucker|hefe/.test(t)) return "spice";
+  if (cat === "Soßen & Dips" || /soße|sauce|paste|senf|ketchup|essig|honig|sirup|tomatenmark|mayo|pesto|tahin|erdnussbutter|erdnussmus|marmelade/.test(t)) return "sauce";
+  if (/zucker|erythrit|kakao|stärke/.test(t)) return "sweet";
+  if (/reis|nudel|pasta|spaghetti|penne|fusilli|lasagne|kartoffel|couscous|bulgur|quinoa|hirse|polenta|gnocchi|spätzle|schupfnudel|knödel|mehl|haferflocken|grieß|udon|ramen|mie-|soba|glasnudel|tortilla|wrap|brot|toast|linsen|bohnen \(trocken|kichererbsen \(trocken/.test(t)) return "carb";
+  if (cat === "Gemüse" || cat === "Obst" || /salat|gemüse|zucchini|brokkoli|spinat|paprika|tomate|karotte|zwiebel|lauch|kohl|pilz|champignon/.test(t)) return "veg";
+  if (/hähnchen|huhn|pute|rind|schwein|lamm|hack|steak|schnitzel|lachs|fisch|thunfisch|garnele|tofu|tempeh|seitan|eier\b|^ei\b|skyr|quark|hüttenkäse|körniger/.test(t) || /Fleisch|Fisch|Vegan/.test(cat)) return "prot";
+  if (cat === "Milch & Käse" || /käse|sahne|cremefine|schmand|crème|mozzarella|feta|parmesan|milch/.test(t)) return "dairy";
+  return "other";
+}
+// Haushaltsmaße: aus der Datenbank (TL, EL, Prise …) oder Standardwerte für Öl, Gewürze, Soßen
+const VEG_SIZES = [[/paprika(?!pulver|mark|creme)/, 120, 160, 220], [/zucchini/, 150, 250, 350], [/aubergine/, 200, 300, 400], [/gurke(?!n)|salatgurke/, 250, 400, 500], [/^zwiebel|rote zwiebel|gemüsezwiebel/, 50, 80, 150],
+  [/karotte|möhre/, 50, 80, 120], [/kartoffel(?!püree|knödel|salat|chips|teig|stärke|puffer)/, 60, 100, 180], [/süßkartoffel/, 200, 300, 450], [/^tomate|^tomaten$|fleischtomate|strauchtomate/, 60, 100, 180], [/brokkoli/, 300, 400, 550],
+  [/blumenkohl/, 500, 700, 900], [/kohlrabi/, 200, 300, 400], [/^apfel$|^äpfel|^apfel \(/, 120, 160, 220], [/^birne/, 120, 170, 220], [/^banane/, 90, 120, 150], [/^orange/, 130, 180, 230], [/^zitrone/, 60, 90, 120], [/^limette/, 40, 60, 80],
+  [/avocado/, 120, 160, 220], [/mango(?! \()/, 250, 350, 450], [/lauch|porree/, 150, 200, 300], [/fenchel/, 200, 300, 400], [/sellerieknolle|knollensellerie/, 400, 600, 800], [/kürbis|hokkaido/, 600, 1000, 1500], [/spitzkohl/, 600, 800, 1000], [/weißkohl|rotkohl \(roh|rotkraut \(roh/, 800, 1200, 1600],
+  [/champignon/, 10, 20, 35], [/radieschen/, 8, 12, 18], [/rote bete/, 100, 150, 220], [/pastinake/, 100, 150, 220], [/mais \(kolben|maiskolben/, 200, 280, 350], [/^ei$|^eier$|^eier \(/, 50, 58, 65]];
+const shortUnit = l => ({ "Stück (klein)": "Stk. S", "Stück (mittel)": "Stk. M", "Stück (groß)": "Stk. L" })[l] || l;
+const SMALL_UNITS = /^(TL|EL|Prise|Msp|Stück|Scheibe|Zehe|Bund|Handvoll|Dose|Becher|Packung|Glas|Tasse|Würfel|Blatt|Kugel)\b/i;
+function ingUnits(n, info) {
+  info = info || ingInfo(n); if (!info || (info.u && info.u !== "g" && info.u !== "ml")) return [];
+  let own = (info.units || []).filter(([l]) => SMALL_UNITS.test(l));
+  // Gemüse & Co. in Stück: klein / mittel / groß mit typischem Gewicht
+  const tl = String(n).toLowerCase(), vs = VEG_SIZES.find(([re]) => re.test(tl));
+  if (vs) { own = own.filter(([l]) => !/^Stück\b/i.test(l)); own.unshift(["Stück (klein)", vs[1]], ["Stück (mittel)", vs[2]], ["Stück (groß)", vs[3]]); }
+  const has = l => own.some(([x]) => x.toLowerCase().startsWith(l.toLowerCase()));
+  const ty = ingType(n, info), add = [];
+  if (ty === "fat") { if (!has("TL")) add.push(["TL", 4]); if (!has("EL")) add.push(["EL", 10]); }
+  else if (ty === "spice") { if (!has("Prise")) add.push(["Prise", 0.5]); if (!has("TL")) add.push(["TL", 3]); if (!has("EL")) add.push(["EL", 8]); }
+  else if (ty === "sauce" || ty === "sweet") { if (!has("TL")) add.push(["TL", 6]); if (!has("EL")) add.push(["EL", 15]); }
+  else if (ty === "dairy" && /sahne|cremefine|schmand|crème|milch|joghurt|quark/.test(String(n).toLowerCase())) { if (!has("EL")) add.push(["EL", 15]); }
+  return [...own, ...add].slice(0, 6);
+}
+// Mengen-Vorschlag pro Portion, damit das Gericht bei etwa 550 kcal pro Portion landet
+function ingSuggest(rows, i, P, extra) {
+  const row = rows[i]; const info = ingInfo(row.n, extra); if (!info || !info.k) return null;
+  const ty = ingType(row.n, info), raw = /\(roh\)|\(trocken\)|, roh|trocken/.test(String(row.n).toLowerCase());
+  const base = { fat: 7, spice: 2, sauce: 15, sweet: 8, broth: 100, veg: 150, prot: 130, dairy: 40, other: 50 }[ty];
+  let g;
+  const target = 550 * P, others = rows.reduce((a, r, j) => { if (j === i || !r.n) return a; const f = ingInfo(r.n, extra); const gg = r.pp ? r.pp * P : num(r.g); return f && gg ? a + gg * f.k / 100 : a; }, 0);
+  const hasCarb = rows.some((r, j) => j !== i && r.n && ingType(r.n, ingInfo(r.n, extra)) === "carb");
+  if (ty === "carb" || (ty === "prot" && !hasCarb && rows.filter(r => r.n).length > 1)) {
+    const fill = (target - others) / (info.k / 100);
+    const [lo, hi] = ty === "prot" ? [100, 220] : raw || info.k > 250 ? [45, 110] : [120, 300];
+    g = Math.max(lo * P, Math.min(hi * P, fill));
+  } else g = base * P;
+  return Math.max(1, Math.round(g / (g > 30 ? 5 : 1)) * (g > 30 ? 5 : 1));
+}
 function ingInfo(n, extra) { if (extra && extra[n]) return extra[n]; const o = S.ingr && S.ingr[n]; if (o) return o; const b = INGR[n]; if (b) return { k: b[0], p: b[1], u: b[2] || "g" }; const d = dbIng().get(n); if (d) return d; const a = ingAlias(n); return a && a !== n ? ingInfo(a, extra) : null; }
 // Zutaten-Synonyme (auch österreichisch/schweizerisch), damit z. B. „Hähnchenfilet“ gefunden wird
 const ING_SYN = [[/hahnchenbrustfilet|hahnchenfilet|huhnerbrust|huhnerfilet|hahnchen brustfilet|hendlbrust|pouletbrust|chicken breast/g, "hahnchenbrust"], [/hahnchenschenkelfilet|hahnchenkeule|huhnerkeule|hendlhaxen/g, "hahnchenschenkel"], [/hunchen|huhnchen|\bhuhn\b|hendl|poulet|chicken/g, "hahnchen"],
@@ -1973,7 +2032,7 @@ function cookSheet(rid, mode = "cook", tpl = null) {
   const st = {
     name: src?.name || "", emoji: src?.emoji || "🍲", kind: src?.kind || "main", side: src?.side || null,
     baseP: src?.portions || 4, p: src?.portions || 4, link: !!r && !isEdit,
-    rows: src ? src.ing.map(x => ({ n: x.n, base: x.g || 0, g: x.g || 0, pp: x.pp || 0 })) : [{ n: "", base: 0, g: "", pp: 0 }, { n: "", base: 0, g: "", pp: 0 }],
+    rows: src ? src.ing.map(x => ({ n: x.n, base: x.g || 0, g: x.g || 0, pp: x.pp || 0, un: x.un || "" })) : [{ n: "", base: 0, g: "", pp: 0 }, { n: "", base: 0, g: "", pp: 0 }],
     withSide: 0, shelf: 90, loc: src?.loc || "tk", unit: src?.unit || "box", extra: {}, art: src?.art && (r || ICONIC_ART.has(src.art)) && src.art !== "generic" ? src.art : "auto", photo: (r?.photo || src?.photo) || null, sideG: null,
   };
   const effSide = () => { const b = sideById(st.side); if (!b) return null; if (st.sideG == null) st.sideG = b.g; return { ...b, g: st.sideG }; };
@@ -1990,7 +2049,7 @@ function cookSheet(rid, mode = "cook", tpl = null) {
     <div class="fld"><label>${isEdit ? "Standard-Menge" : "Wie viele?"}</label><div class="pbtns"><button type="button" data-pq="4">4</button><button type="button" data-pq="6">6</button><button type="button" data-pq="8">8</button><input id="cp" type="number" inputmode="numeric" min="1" max="40" value="${st.p}"></div></div>
     ${r && !isEdit ? `<label class="tgl"><input type="checkbox" id="clink" checked> Mengen automatisch anpassen</label><p class="tip" style="margin:2px 0 10px">Ändere z. B. das Fleisch auf 400 g – die anderen Zutaten und die Portionen passen sich an. Zutaten mit <b>/P</b> sind pro Portion fix.</p>` : `<p class="tip" style="margin:2px 0 10px">Trag ein, was du verwendet hast (z. B. 500 g Nudeln trocken). <b>/P</b> = Menge pro Portion fix.</p>`}
     <div id="crows"></div>
-    <button type="button" class="lnk" id="cadd" style="margin:4px 0 12px">＋ Zutat</button>
+    <div class="caddrow"><button type="button" class="cadd" id="cadd">＋ Zutat</button></div>
     <div class="csum" id="csum"></div>
     ${!isEdit ? `<div class="sidebox"><div class="fld" style="margin-bottom:8px"><label>Beilage</label><select id="cside">${sideOpts(st.side)}</select></div><div class="row" id="csgrow" hidden style="border:0;padding:2px 0 6px"><label>Menge pro Box</label><span><input id="csg" type="number" inputmode="numeric" style="width:80px"> g</span></div><div id="csideinfo"></div></div>
       <div class="fld"><label>Wo lagerst du es?</label><div class="seg wide" id="cloc"><button type="button" data-loc="tk">❄️ Tiefkühler</button><button type="button" data-loc="frisch">🧺 Frisch</button></div></div>
@@ -2004,11 +2063,13 @@ function cookSheet(rid, mode = "cook", tpl = null) {
     <datalist id="inglist">${allIngNames().map(n => `<option value="${esc(ingLabel(n))}">`).join("")}</datalist>`);
 
   const eff = row => row.pp ? row.pp * st.p : num(row.g);
+  const unitG = row => { if (!row.un) return 0; const u = ingUnits(row.n, ingInfo(row.n, st.extra)).find(([l]) => l === row.un); return u ? u[1] : 0; };
+  const amtVal = x => { if (x.pp) return x.pp; if (x.g === "") return ""; const ug = unitG(x); return ug ? fmtQ(Math.round(num(x.g) / ug * 4) / 4) : x.g; };
   const totalsNow = () => rowsTotals(st.rows.map(x => ({ n: x.n, g: eff(x) })), st.extra);
   function rowsHtml() {
     return st.rows.map((x, i) => `<div class="irow" data-i="${i}">
       <input class="iname" value="${esc(ingLabel(x.n))}" placeholder="Zutat tippen, z. B. Hähnchen" autocomplete="off">
-      <div class="iamt"><input class="ig" inputmode="decimal" value="${x.pp ? x.pp : (x.g === "" ? "" : x.g)}" placeholder="0"><span class="iu">${x.pp ? "g/P" : (ingInfo(x.n, st.extra)?.u || "g")}</span></div>
+      <div class="iamt"><input class="ig" inputmode="decimal" value="${amtVal(x)}" placeholder="0"><select class="iun" aria-label="Einheit"></select></div>
       <button type="button" class="ipp ${x.pp ? "on" : ""}" title="Menge pro Portion fix">/P</button>
       <button type="button" class="x idel" aria-label="Zutat entfernen">✕</button>
       <div class="ik"></div>
@@ -2023,9 +2084,14 @@ function cookSheet(rid, mode = "cook", tpl = null) {
       const el = rowsEl[i]; if (!el) return;
       const info = ingInfo(x.n, st.extra), g = eff(x);
       const ig = el.querySelector(".ig");
-      if (document.activeElement !== ig) ig.value = x.pp ? x.pp : (x.g === "" ? "" : x.g);
-      el.querySelector(".iu").textContent = x.pp ? "g/P" : (info?.u || "g");
-      el.querySelector(".ik").textContent = info ? `${x.pp ? fmt(g) + " g · " : ""}${fmt(g * info.k / 100)} kcal · ${fmt1(g * info.p / 100)} g Eiweiß` : "";
+      if (x.un && !unitG(x)) x.un = "";
+      if (document.activeElement !== ig) ig.value = amtVal(x);
+      const us = el.querySelector(".iun"), opts = x.pp ? [["g/P", 0]] : [[info?.u || "g", 0], ...ingUnits(x.n, info)], key = opts.map(o => o[0]).join("|");
+      if (us.dataset.key !== key) { us.dataset.key = key; us.innerHTML = opts.map(([l, gg]) => `<option value="${esc(gg ? l : "")}">${esc(shortUnit(l))}</option>`).join(""); }
+      us.value = x.un || ""; us.disabled = opts.length < 2; us.classList.toggle("one", opts.length < 2);
+      const focused = st.focus === i, sug = focused && info && x.n ? ingSuggest(st.rows, i, st.p, st.extra) : null, ug = unitG(x);
+      const stp = /^Stück/.test(x.un || "") ? 1 : 2, sugTxt = sug ? (ug ? `${fmtQ(Math.max(1 / stp, Math.round(sug / ug * stp) / stp))} ${x.un}` : `${fmt(sug)} ${info.u || "g"}`) : "";
+      el.querySelector(".ik").innerHTML = info ? `<span>${ug && g ? fmt(g) + " g · " : x.pp ? fmt(g) + " g · " : ""}${fmt(g * info.k / 100)} kcal · ${fmt1(g * info.p / 100)} g Eiweiß</span>${sug && (ug ? Math.max(1 / stp, Math.round(sug / ug * stp) / stp) !== Math.round(g / ug * stp) / stp : Math.abs(sug - g) > Math.max(2, sug * .08)) ? ` <button type="button" class="isugg" data-sugg="${sug}">💡 Vorschlag: ${sugTxt}</button>` : ""}` : "";
       el.querySelector(".inew").hidden = !(x.n && (x.own || !ingInfo(x.n)));
     });
     const cp = $("#cp"); if (document.activeElement !== cp) cp.value = st.p;
@@ -2085,8 +2151,8 @@ function cookSheet(rid, mode = "cook", tpl = null) {
       const v = num(t.value);
       if (row.pp) { row.pp = v; }
       else {
-        row.g = t.value === "" ? "" : v;
-        if (st.link && row.base > 0 && v > 0) { const f = v / row.base; st.p = Math.max(1, Math.round(st.baseP * f)); scaleTo(f, i); }
+        const ug = unitG(row); row.g = t.value === "" ? "" : (ug ? Math.round(v * ug * 10) / 10 : v);
+        if (st.link && row.base > 0 && v > 0) { const f = num(row.g) / row.base; st.p = Math.max(1, Math.round(st.baseP * f)); scaleTo(f, i); }
       }
       update(); return;
     }
@@ -2102,12 +2168,16 @@ function cookSheet(rid, mode = "cook", tpl = null) {
     if (t.id === "clink") { st.link = t.checked; return; }
     if (t.id === "cn") { st.name = t.value; return; }
   };
-  sheet.onchange = ev => { if (ev.target.id === "cside") { st.side = ev.target.value || null; st.sideG = null; update(); } if (ev.target.id === "cshelf") st.shelf = +ev.target.value; if (ev.target.id === "clink") st.link = ev.target.checked; };
+  const cookTok = {}; sheet._cookTok = cookTok;
+  sheet.addEventListener("focusin", ev => { if (sheet._cookTok !== cookTok) return; const r = ev.target.closest(".irow"); const nf = r ? +r.dataset.i : -1; if (nf !== st.focus) { st.focus = nf; update(); } });
+  sheet.addEventListener("focusout", ev => { if (sheet._cookTok !== cookTok) return; setTimeout(() => { if (sheet._cookTok !== cookTok) return; const a = document.activeElement, r = a && a.closest && a.closest(".irow"); if (!r && st.focus !== -1 && !sheet.querySelector(".isugg:hover")) { st.focus = -1; update(); } }, 200); });
+  sheet.onchange = ev => { if (ev.target.classList.contains("iun")) { const rowEl = ev.target.closest(".irow"), row = st.rows[+rowEl.dataset.i]; row.un = ev.target.value; const ig = rowEl.querySelector(".ig"); ig.value = amtVal(row); update(); return; } if (ev.target.id === "cside") { st.side = ev.target.value || null; st.sideG = null; update(); } if (ev.target.id === "cshelf") st.shelf = +ev.target.value; if (ev.target.id === "clink") st.link = ev.target.checked; };
   sheet.onclick = ev => {
     const t = ev.target.closest("button"); if (!t) return;
     const rowEl = t.closest(".irow"), i = rowEl ? +rowEl.dataset.i : -1;
+    if (t.dataset.sugg) { const row = st.rows[i], ug = unitG(row); const stp = /^Stück/.test(row.un || "") ? 1 : 2; row.g = ug ? Math.max(1 / stp, Math.round(+t.dataset.sugg / ug * stp) / stp) * ug : +t.dataset.sugg; if (!row.base) row.base = row.g; rowEl.querySelector(".ig").value = amtVal(row); update(); return; }
     if (t.dataset.iown) { const row = st.rows[i], nm = rowEl.querySelector(".iname").value.trim(); row.n = ingKey(nm); row.own = true; rowEl.querySelector(".isug").hidden = true; update(); const nk = rowEl.querySelector(".nk"); nk?.focus(); return; }
-    if (t.dataset.isug) { const row = st.rows[i]; row.n = t.dataset.isug; rowEl.querySelector(".iname").value = ingLabel(row.n); rowEl.querySelector(".isug").hidden = true; update(); rowEl.querySelector(".ig")?.focus(); return; }
+    if (t.dataset.isug) { const row = st.rows[i]; row.n = t.dataset.isug; if ((row.g === "" || !num(row.g)) && VEG_SIZES.some(([re]) => re.test(row.n.toLowerCase()))) row.un = "Stück (mittel)"; rowEl.querySelector(".iname").value = ingLabel(row.n); rowEl.querySelector(".isug").hidden = true; update(); rowEl.querySelector(".ig")?.focus(); return; }
     if (t.dataset.pq) { st.p = +t.dataset.pq; if (st.link) scaleTo(st.p / st.baseP, -1); update(); }
     else if (t.dataset.k) { st.kind = t.dataset.k; update(); }
     else if (t.dataset.unit) { st.unit = t.dataset.unit; if (st.unit === "stk" && st.p <= 8 && !r) { st.p = 12; } update(); }
@@ -2125,7 +2195,7 @@ function cookSheet(rid, mode = "cook", tpl = null) {
     else if (t.id === "cdelR") confirmSheet(`„${r.name}“ löschen?`, "Das Rezept verschwindet aus dem Kochbuch. Eingefrorene Portionen bleiben.", () => { S.recipes = S.recipes.filter(x => x.id !== r.id); saveS(); renderAll(); });
   };
   function persistIngr() { for (const n in st.extra) { const e = st.extra[n]; if (n && e.k >= 0 && !INGR[n]) { S.ingr = S.ingr || {}; S.ingr[n] = e; } } }
-  function cleanRows() { return st.rows.filter(x => x.n && (x.pp || num(x.g) > 0)).map(x => x.pp ? { n: x.n, pp: x.pp } : { n: x.n, g: Math.round(num(x.g)) }); }
+  function cleanRows() { return st.rows.filter(x => x.n && (x.pp || num(x.g) > 0)).map(x => x.pp ? { n: x.n, pp: x.pp } : { n: x.n, g: Math.round(num(x.g) * 10) / 10, ...(x.un ? { un: x.un } : {}) }); }
   function saveRecipe(existing) {
     const ing = cleanRows(); if (!ing.length) { toast("Bitte mindestens eine Zutat eintragen"); return null; }
     persistIngr();
@@ -3853,6 +3923,7 @@ const I18N = {
 "Die Prognose-Linie zeigt typische Wasser-Hochs": ["The forecast line shows typical water highs", "La línea de previsión muestra los picos típicos de agua"],
 "– das ist kein Fett und geht danach wieder runter.": ["– that isn't fat and goes back down afterwards.", "– no es grasa y luego vuelve a bajar."],
 "Feste": ["Festivals", "Fiestas"],
+"💡 Vorschlag: {0}": ["💡 Suggestion: {0}", "💡 Sugerencia: {0}"], "Einheit": ["Unit", "Unidad"],
 "Eigene Zutat – Nährwerte pro 100 g:": ["Own ingredient – nutrition per 100 g:", "Ingrediente propio – valores por 100 g:"],
 "Eigenes Lebensmittel eintragen": ["Add your own food", "Añadir alimento propio"], "Eigene kcal und Eiweiß angeben – wird für später gemerkt": ["Enter your own kcal and protein – saved for later", "Indica tus kcal y proteína – se guarda para después"], "kcal & Eiweiß pro 100 g": ["kcal & protein per 100 g", "kcal y proteína por 100 g"],
 "Lange drücken und ziehen, um die Reihenfolge zu ändern.": ["Press and hold, then drag to change the order.", "Mantén pulsado y arrastra para cambiar el orden."], "Reihenfolge gespeichert": ["Order saved", "Orden guardado"],
