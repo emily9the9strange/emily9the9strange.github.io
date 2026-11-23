@@ -114,6 +114,10 @@ nav.tabs button.act .ic{filter:none;opacity:1;transform:translateY(-2px)}
 .snack .ph{aspect-ratio:1/1;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;font-size:58px;position:relative}
 .snack .ph .kbadge{position:absolute;left:8px;bottom:8px;background:rgba(31,42,68,.82);color:#fff;font-weight:800;font-size:13px;padding:4px 9px;border-radius:999px}
 .snack .bd{padding:10px 12px 12px}
+.snack[data-snack]{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.snack.dragging{position:fixed;z-index:200;pointer-events:none;transform:scale(1.05) rotate(-1.5deg);box-shadow:0 18px 40px rgba(31,42,68,.28);transition:none;margin:0}
+.snack.sph{border:2px dashed var(--line);background:transparent;box-shadow:none}
+body.nodrag-scroll{overflow:hidden;touch-action:none}
 .snack .bd .n{font-weight:800;line-height:1.2}
 .snack .bd .m{font-size:12px;color:var(--muted);font-weight:700;margin-top:2px}
 .snack .edit{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.9);font-size:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,.1)}
@@ -181,7 +185,7 @@ nav.tabs button.act .ic{filter:none;opacity:1;transform:translateY(-2px)}
 .slim-bar i{display:block;height:100%;width:0;background:#fff;border-radius:6px;transition:width .5s,background .3s}
 .slim-bar i.over{background:#c0392b}
 .slim-sub{font-size:12px;font-weight:700;opacity:.9}
-.snack.locked .ph{filter:saturate(.5) brightness(.95)}
+.snack.locked .ph{filter:saturate(.85)}
 .snack .over-tag{position:absolute;right:8px;bottom:8px;background:#fff;color:var(--bad);font-weight:800;font-size:11px;padding:3px 7px;border-radius:999px}
 
 /* weight + forecast */
@@ -248,6 +252,9 @@ nav.tabs button .ic{font-size:21px}
 .ipp.on{background:var(--ink);color:#fff}
 .irow .ik{grid-column:1/-1;font-size:12px;color:var(--muted);font-weight:700;margin-top:-2px}
 .irow .ik:empty{display:none}
+.irow .isug{grid-column:1/-1;display:flex;flex-direction:column;gap:2px;background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:4px;margin-top:-2px;box-shadow:0 6px 16px rgba(0,0,0,.08)}
+.irow .isug[hidden]{display:none}.irow .isug button{display:flex;justify-content:space-between;gap:8px;align-items:baseline;text-align:left;padding:8px 10px;border-radius:9px;font-size:14px}
+.irow .isug button:active,.irow .isug button:hover{background:var(--ice)}.irow .isug small{color:var(--muted);font-size:11.5px;white-space:nowrap}
 .inew{grid-column:1/-1;font-size:12px;font-weight:700;color:var(--snack-ink);background:#fff3e6;border-radius:10px;padding:8px}
 .inew input{width:80px;border:1px solid var(--line);border-radius:8px;padding:6px;margin-top:4px}
 .csum{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
@@ -266,6 +273,7 @@ nav.tabs button .ic{font-size:21px}
 .vtog{padding:7px 12px;border-radius:999px;border:1.5px solid #8fbf6a;color:#3d6b26;font-weight:800;font-size:13px;background:transparent}.vtog.on{background:#e3f0d8}
 .fzline{font-size:13px;margin:0 0 10px;padding:8px 10px;border-radius:10px;line-height:1.4}.fzline.ok{background:var(--ice);color:var(--ice-ink)}.fzline.no{background:#f6e7d6;color:#7a4a1a}
 .swp{color:var(--muted);font-weight:600}
+.entry .t[data-eedit]{cursor:pointer}
 .vtag{font-style:normal;font-size:11px;font-weight:800;color:#3d6b26;background:#e3f0d8;border-radius:999px;padding:1px 7px;margin-left:4px;white-space:nowrap}.vtag.veg{color:#8a5520;background:#f6e7d6}
 .sidepick{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
 .sidepick button{background:var(--bg);border-radius:14px;padding:12px 14px;text-align:left;display:flex;flex-direction:column;font-weight:800}
@@ -784,6 +792,7 @@ nav.tabs .ic svg.fi.nav{width:28px;height:28px;vertical-align:middle}
       </div>
     </div>
     <div class="grid" id="snackGrid"></div>
+    <p class="tip" style="text-align:center;margin:10px 0 0">Lange drücken und ziehen, um die Reihenfolge zu ändern.</p>
   </section>
 
   <!-- FORTSCHRITT -->
@@ -1035,6 +1044,48 @@ function renderSnacks() {
   h += `<button class="snack add" id="btnAddSnack"><span class="plus">＋</span>Snack hinzufügen</button>`;
   if (!S.snacks.length) h += `<button class="snack add" id="btnSeed" style="border-color:#c3e0f2;background:#f1f8fd;color:var(--ice-ink)"><span class="plus">✨</span>Beispiel-Snacks laden</button>`;
   G.innerHTML = h;
+  initSnackDrag(G);
+}
+// Snacks sortieren: lange drücken, dann ziehen
+function initSnackDrag(G) {
+  if (G.dataset.drag) return; G.dataset.drag = "1";
+  let timer = null, drag = null, sx = 0, sy = 0, suppressClick = false;
+  const items = () => [...G.querySelectorAll(".snack[data-snack]")];
+  const clear = () => { clearTimeout(timer); timer = null; };
+  G.addEventListener("pointerdown", e => {
+    const el = e.target.closest(".snack[data-snack]"); if (!el || e.button > 0) return;
+    sx = e.clientX; sy = e.clientY; clear();
+    timer = setTimeout(() => {
+      timer = null; const r = el.getBoundingClientRect();
+      drag = { el, id: el.dataset.snack, ox: sx - r.left, oy: sy - r.top, w: r.width, h: r.height, pid: e.pointerId };
+      const ph = document.createElement("div"); ph.className = "snack sph"; ph.style.height = r.height + "px"; el.after(ph); drag.ph = ph;
+      el.classList.add("dragging"); el.style.width = r.width + "px"; el.style.left = r.left + "px"; el.style.top = r.top + "px";
+      document.body.classList.add("nodrag-scroll"); navigator.vibrate?.(25);
+      try { G.setPointerCapture(e.pointerId); } catch (er) { }
+    }, 380);
+  });
+  G.addEventListener("pointermove", e => {
+    if (!drag) { if (timer && Math.hypot(e.clientX - sx, e.clientY - sy) > 10) clear(); return; }
+    e.preventDefault();
+    drag.el.style.left = (e.clientX - drag.ox) + "px"; drag.el.style.top = (e.clientY - drag.oy) + "px";
+    // Ziel unter dem Finger finden und Platzhalter dorthin schieben
+    const target = items().find(x => { if (x === drag.el) return false; const r = x.getBoundingClientRect(); return e.clientX > r.left && e.clientX < r.right && e.clientY > r.top && e.clientY < r.bottom; });
+    if (target) { const r = target.getBoundingClientRect(), after = e.clientX > r.left + r.width / 2; if (after) target.after(drag.ph); else target.before(drag.ph); }
+    // am Rand automatisch scrollen
+    if (e.clientY < 90) window.scrollBy(0, -12); else if (e.clientY > innerHeight - 110) window.scrollBy(0, 12);
+  }, { passive: false });
+  const end = () => {
+    clear(); if (!drag) return;
+    const { el, ph } = drag; ph.replaceWith(el); el.classList.remove("dragging"); el.style.width = el.style.left = el.style.top = "";
+    document.body.classList.remove("nodrag-scroll"); drag = null; suppressClick = true; setTimeout(() => suppressClick = false, 350);
+    const order = items().map(x => x.dataset.snack); const before = S.snacks.map(x => x.id).join();
+    S.snacks.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
+    if (S.snacks.map(x => x.id).join() !== before) { saveS(); toast("Reihenfolge gespeichert"); }
+  };
+  G.addEventListener("pointerup", end); G.addEventListener("pointercancel", end);
+  G.addEventListener("click", e => { if (suppressClick) { e.stopPropagation(); e.preventDefault(); } }, true);
+  G.addEventListener("contextmenu", e => { if (e.target.closest(".snack[data-snack]")) e.preventDefault(); });
+  G.addEventListener("touchmove", e => { if (drag) e.preventDefault(); }, { passive: false });
 }
 // ---------- Fortschritt ----------
 let histDays = []; // [{d:Date,key,k,p,s}] last 30 days, oldest first
@@ -1408,11 +1459,41 @@ function eatDish(id, side) {
 }
 function entrySheet(id) {
   const e = today.entries.find(x => x.id === id); if (!e) return;
-  openSheet(`<h3>${esc(e.emoji || "🍽️")} Eintrag bearbeiten</h3><div class="fld"><label>Name</label><input id="en" value="${esc(e.name)}"></div>
+  // Menge aus dem Eintrag lesen: gespeichert (e.q) oder vorne im Namen („2 Glas …“, „1½× …“)
+  const FR = { "½": .5, "¼": .25, "¾": .75 };
+  const m = String(e.name).match(/^(\d+(?:[.,]\d+)?)?([½¼¾])?(×)?\s+(.+)$/);
+  let q0 = e.q || 1, rest = e.name, times = false;
+  if (!e.q && m && (m[1] || m[2])) { q0 = (m[1] ? num(m[1]) : 0) + (m[2] ? FR[m[2]] : 0); rest = m[4]; times = !!m[3]; }
+  else if (e.q && m && (m[1] || m[2])) { rest = m[4]; times = !!m[3]; }
+  if (!(q0 > 0)) q0 = 1;
+  if (!m || !(m[1] || m[2])) times = true; // ohne Mengenangabe → „2× Name“
+  let q = q0, per = { k: num(e.kcal) / q0, p: num(e.protein) / q0 };
+  const nameFor = qq => (!m || !(m[1] || m[2])) && qq === 1 ? rest : `${fmtFrac(qq)}${times ? "×" : ""} ${rest}`;
+  openSheet(`<h3>${esc(e.emoji || "🍽️")} Eintrag bearbeiten</h3>
+    <div class="fld"><label>Menge</label><div class="qchips">${[0.5, 1, 1.5, 2, 3, 4].map(v => `<button type="button" class="qchip" data-q="${v}">${fmtFrac(v)}</button>`).join("")}</div>
+      <div class="qrowin"><button type="button" class="qpm" data-d="-0.5">−</button><input id="eq" inputmode="decimal" value="${fmtFrac(q)}"><button type="button" class="qpm" data-d="0.5">+</button></div></div>
+    <div class="fld"><label>Name</label><input id="en" value="${esc(e.name)}"></div>
     <div class="two"><div class="fld"><label>kcal</label><input id="ek" inputmode="numeric" value="${e.kcal}"></div><div class="fld"><label>Eiweiß (g)</label><input id="ep" inputmode="numeric" value="${e.protein || ""}"></div></div>
-    <div class="actions"><button class="btn" id="ok">Speichern</button><button class="btn ghost" id="cancel">Abbrechen</button></div>`);
-  $("#cancel").onclick = closeSheet;
-  $("#ok").onclick = () => { e.name = $("#en").value.trim() || e.name; e.kcal = Math.round(num($("#ek").value)); e.protein = Math.round(num($("#ep").value)); saveT(); renderAll(); closeSheet(); toast("Gespeichert"); };
+    <p class="tip" style="margin:0 0 8px">Ändere die Menge – kcal, Eiweiß und Name passen sich an.</p>
+    <div class="actions"><button class="btn" id="ok">Speichern</button><button class="btn danger" id="edel">Eintrag löschen</button><button class="btn ghost" id="cancel">Abbrechen</button></div>`);
+  let nameTouched = false;
+  const draw = fromInput => {
+    if (!fromInput) $("#eq").value = fmtFrac(q);
+    sheet.querySelectorAll("[data-q]").forEach(b => b.classList.toggle("act", +b.dataset.q === q));
+    $("#ek").value = Math.round(per.k * q); $("#ep").value = Math.round(per.p * q) || "";
+    if (!nameTouched) $("#en").value = nameFor(q);
+  };
+  sheet.onclick = ev => { const b = ev.target.closest("button"); if (!b) return;
+    if (b.dataset.q) { q = +b.dataset.q; draw(); }
+    else if (b.dataset.d) { q = Math.max(0.25, Math.round((q + +b.dataset.d) * 4) / 4); draw(); }
+    else if (b.id === "cancel") closeSheet();
+    else if (b.id === "edel") { closeSheet(); removeEntry(e.id); }
+    else if (b.id === "ok") { e.name = $("#en").value.trim() || e.name; e.kcal = Math.round(num($("#ek").value)); e.protein = Math.round(num($("#ep").value)); e.q = q; saveT(); renderAll(); closeSheet(); toast("Gespeichert"); } };
+  $("#eq").oninput = () => { const v = parseQty($("#eq").value); if (v > 0) { q = v; draw(true); } };
+  $("#en").oninput = () => { nameTouched = true; };
+  $("#ek").oninput = () => { per.k = num($("#ek").value) / q; };
+  $("#ep").oninput = () => { per.p = num($("#ep").value) / q; };
+  sheet.querySelectorAll("[data-q]").forEach(b => b.classList.toggle("act", +b.dataset.q === q));
 }
 // Snack antippen → Menge wählen
 function snackQtySheet(id) {
@@ -1547,13 +1628,18 @@ function compressImage(file) {
   return new Promise((res, rej) => {
     const url = URL.createObjectURL(file); const im = new Image();
     im.onload = () => {
-      const s = Math.min(im.width, im.height), size = Math.min(520, s);
+      const s = Math.min(im.width, im.height), size = Math.min(720, s);
       const c = document.createElement("canvas"); c.width = c.height = size;
-      const x = c.getContext("2d");
+      // Handyfotos sind oft im großen Farbraum (Display P3) oder HDR – im kleinen sRGB-Bild wirken sie sonst matt
+      let x = null; const wide = window.matchMedia && matchMedia("(color-gamut: p3)").matches;
+      if (wide) { try { x = c.getContext("2d", { colorSpace: "display-p3" }); } catch (e) { x = null; } }
+      if (!x) x = c.getContext("2d");
+      x.imageSmoothingQuality = "high";
+      try { x.filter = "saturate(1.08) contrast(1.04)"; } catch (e) { }
       x.drawImage(im, (im.width - s) / 2, (im.height - s) / 2, s, s, 0, 0, size, size);
       URL.revokeObjectURL(url);
-      let q = .8, out = c.toDataURL("image/jpeg", q);
-      while (out.length > 150000 && q > .35) { q -= .1; out = c.toDataURL("image/jpeg", q); }
+      let q = .88, out = c.toDataURL("image/jpeg", q);
+      while (out.length > 260000 && q > .4) { q -= .08; out = c.toDataURL("image/jpeg", q); }
       res(out);
     };
     im.onerror = () => { URL.revokeObjectURL(url); rej(new Error("Bild konnte nicht gelesen werden")); };
@@ -1651,7 +1737,28 @@ const clone = o => JSON.parse(JSON.stringify(o));
 const ING_CAT_SKIP = new Set(["Imbiss & Fast Food", "Gerichte"]);
 let DB_ING = null;
 function dbIng() { if (!DB_ING) { DB_ING = new Map(); FOODS_RAW.forEach(([n, , , k, p, , c]) => { if (!ING_CAT_SKIP.has(FOOD_CATS[c][0]) && !INGR[n]) DB_ING.set(n, { k, p, u: FOOD_CATS[c][0] === "Getränke" ? "ml" : "g" }); }); } return DB_ING; }
-function ingInfo(n, extra) { if (extra && extra[n]) return extra[n]; const o = S.ingr && S.ingr[n]; if (o) return o; const b = INGR[n]; if (b) return { k: b[0], p: b[1], u: b[2] || "g" }; return dbIng().get(n) || null; }
+function ingInfo(n, extra) { if (extra && extra[n]) return extra[n]; const o = S.ingr && S.ingr[n]; if (o) return o; const b = INGR[n]; if (b) return { k: b[0], p: b[1], u: b[2] || "g" }; const d = dbIng().get(n); if (d) return d; const a = ingAlias(n); return a && a !== n ? ingInfo(a, extra) : null; }
+// Zutaten-Synonyme (auch österreichisch/schweizerisch), damit z. B. „Hähnchenfilet“ gefunden wird
+const ING_SYN = [[/hahnchenbrustfilet|hahnchenfilet|huhnerbrust|huhnerfilet|hahnchen brustfilet|hendlbrust|pouletbrust|chicken breast/g, "hahnchenbrust"], [/hahnchenschenkelfilet|hahnchenkeule|huhnerkeule|hendlhaxen/g, "hahnchenschenkel"], [/hunchen|huhnchen|\bhuhn\b|hendl|poulet|chicken/g, "hahnchen"],
+  [/putenfilet|putenbrustfilet|truthahn/g, "putenbrust"], [/schweinefilet|schweinelende/g, "schweinefilet"], [/rinderfilet|rindsfilet/g, "rinderfilet"], [/faschiertes|hackfleisch|gehacktes/g, "hack"], [/rinderhackfleisch|rindfaschiertes/g, "rinderhack"],
+  [/topfen/g, "quark"], [/paradeiser/g, "tomaten"], [/erdapfel/g, "kartoffeln"], [/karfiol/g, "blumenkohl"], [/schlagobers|\bobers\b|schlagsahne/g, "sahne"], [/\bkren\b/g, "meerrettich"], [/marillen|marille/g, "aprikosen"], [/zwetschken|zwetschke|pflaume/g, "zwetschgen"],
+  [/fisolen/g, "grune bohnen"], [/melanzani/g, "aubergine"], [/kohlsprossen/g, "rosenkohl"], [/eierschwammerl/g, "pfifferlinge"], [/schwammerl/g, "champignons"], [/mohren|mohre|rubli|ruebli|gelbe rube/g, "karotten"], [/lauchzwiebel/g, "fruhlingszwiebeln"],
+  [/semmelbrosel|paniermehl/g, "semmelbrosel"], [/\bol\b|\bspeiseol\b|\bpflanzenol\b/g, "rapsol"], [/eier\b/g, "ei"], [/zucchetti/g, "zucchini"], [/peperoni/g, "chili"], [/rahm\b/g, "sahne"], [/kafer bohnen|kaferbohnen/g, "kidneybohnen"], [/nudeln|pasta|teigwaren/g, "nudeln"],
+  [/lachsfilet/g, "lachs"], [/thunfisch dose|dosenthunfisch/g, "thunfisch"], [/garnele\b|shrimps|shrimp|crevetten/g, "garnelen"], [/kichererbse\b/g, "kichererbsen"], [/bohne\b/g, "bohnen"], [/zwiebel\b/g, "zwiebeln"], [/tomate\b/g, "tomaten"], [/kartoffel\b/g, "kartoffeln"], [/karotte\b/g, "karotten"]];
+const ingNormSyn = s => { let t = normTxt(s); ING_SYN.forEach(([re, to]) => { t = t.replace(re, to); }); return t.replace(/\s+/g, " ").trim(); };
+let ING_NORM = null, ING_NORM_N = 0;
+function ingNormMap() { const names = allIngNames(); if (!ING_NORM || ING_NORM_N !== names.length) { ING_NORM = new Map(); names.forEach(n => { const k = ingNormSyn(n); if (!ING_NORM.has(k)) ING_NORM.set(k, n); const k2 = ingNormSyn(n.replace(/\s*\(.*?\)/g, "")); if (k2 && !ING_NORM.has(k2)) ING_NORM.set(k2, n); }); ING_NORM_N = names.length; } return ING_NORM; }
+function ingAlias(n) { if (!n) return null; const m = ingNormMap(); return m.get(ingNormSyn(n)) || m.get(ingNormSyn(n.replace(/\s*\(.*?\)/g, ""))) || null; }
+function ingSearch(q, max = 8) {
+  const qq = ingNormSyn(q); if (!qq) return [];
+  const toks = qq.split(" ").filter(Boolean), out = [];
+  for (const n of allIngNames()) {
+    const h = ingNormSyn(n), hb = " " + h + " "; let sc = 0, ok = true;
+    for (const t of toks) { if (hb.includes(" " + t)) sc += hb.includes(" " + t + " ") ? 6 : 4; else if (h.includes(t)) sc += 2; else if (t.length > 3 && fuzzyIn(t, h)) sc += 1; else { ok = false; break; } }
+    if (!ok) continue; if (h.startsWith(toks[0])) sc += 3; if (/\(roh\)|\(trocken\)/.test(n)) sc += .5; out.push([sc - n.length / 50, n]);
+  }
+  return out.sort((a, b) => b[0] - a[0]).slice(0, max).map(x => x[1]);
+}
 const ingLabel = n => T(n);
 let ING_REV = null, ING_REV_LANG = null;
 function ingKey(label) { if (LANG === "de" || !label) return label; if (ING_REV_LANG !== LANG) { ING_REV = {}; ING_REV_LANG = LANG; const i = LANG_IDX(); for (const [de, t] of Object.entries(nameDict())) ING_REV[t[i].toLowerCase()] = de; } return ING_REV[label.toLowerCase()] || label; }
@@ -1898,11 +2005,12 @@ function cookSheet(rid, mode = "cook", tpl = null) {
   const totalsNow = () => rowsTotals(st.rows.map(x => ({ n: x.n, g: eff(x) })), st.extra);
   function rowsHtml() {
     return st.rows.map((x, i) => `<div class="irow" data-i="${i}">
-      <input class="iname" list="inglist" value="${esc(ingLabel(x.n))}" placeholder="Zutat wählen oder tippen">
+      <input class="iname" value="${esc(ingLabel(x.n))}" placeholder="Zutat tippen, z. B. Hähnchen" autocomplete="off">
       <div class="iamt"><input class="ig" inputmode="decimal" value="${x.pp ? x.pp : (x.g === "" ? "" : x.g)}" placeholder="0"><span class="iu">${x.pp ? "g/P" : (ingInfo(x.n, st.extra)?.u || "g")}</span></div>
       <button type="button" class="ipp ${x.pp ? "on" : ""}" title="Menge pro Portion fix">/P</button>
       <button type="button" class="x idel" aria-label="Zutat entfernen">✕</button>
       <div class="ik"></div>
+      <div class="isug" hidden></div>
       <div class="inew" hidden>Unbekannte Zutat – Nährwerte pro 100 g: <input class="nk" inputmode="decimal" placeholder="kcal"> <input class="np" inputmode="decimal" placeholder="Eiweiß g"></div>
     </div>`).join("");
   }
@@ -1962,7 +2070,13 @@ function cookSheet(rid, mode = "cook", tpl = null) {
 
   sheet.oninput = ev => {
     const t = ev.target, rowEl = t.closest(".irow"), i = rowEl ? +rowEl.dataset.i : -1, row = st.rows[i];
-    if (t.classList.contains("iname")) { row.n = ingKey(t.value.trim()); if (!row.base) row.base = 0; update(); return; }
+    if (t.classList.contains("iname")) {
+      const raw = ingKey(t.value.trim()); row.n = raw && !ingInfo(raw, st.extra) && ingAlias(raw) ? ingAlias(raw) : raw; if (!row.base) row.base = 0;
+      const box = rowEl.querySelector(".isug"), hits = raw.length >= 2 ? ingSearch(raw, 7) : [];
+      box.innerHTML = hits.map(n => { const f = ingInfo(n); return `<button type="button" data-isug="${esc(n)}"><b data-notr>${esc(ingLabel(n))}</b><small>${f ? fmt(f.k) + " kcal · " + fmt1(f.p) + " g Eiweiß / 100 " + (f.u || "g") : ""}</small></button>`; }).join("");
+      box.hidden = !hits.length || (hits.length === 1 && hits[0] === raw);
+      update(); return;
+    }
     if (t.classList.contains("ig")) {
       const v = num(t.value);
       if (row.pp) { row.pp = v; }
@@ -1988,6 +2102,7 @@ function cookSheet(rid, mode = "cook", tpl = null) {
   sheet.onclick = ev => {
     const t = ev.target.closest("button"); if (!t) return;
     const rowEl = t.closest(".irow"), i = rowEl ? +rowEl.dataset.i : -1;
+    if (t.dataset.isug) { const row = st.rows[i]; row.n = t.dataset.isug; rowEl.querySelector(".iname").value = ingLabel(row.n); rowEl.querySelector(".isug").hidden = true; update(); rowEl.querySelector(".ig")?.focus(); return; }
     if (t.dataset.pq) { st.p = +t.dataset.pq; if (st.link) scaleTo(st.p / st.baseP, -1); update(); }
     else if (t.dataset.k) { st.kind = t.dataset.k; update(); }
     else if (t.dataset.unit) { st.unit = t.dataset.unit; if (st.unit === "stk" && st.p <= 8 && !r) { st.p = 12; } update(); }
@@ -3259,7 +3374,6 @@ function foodSheet(opts) {
         <div class="fsearch"><span>🔍</span><input id="fq" placeholder="z. B. Brötchen, Pizza, Pringles, Traube…" value="${esc(query)}" autocomplete="off" enterkeyhint="search"></div>
         <div id="fres">${query ? (rs.length ? rs.map(f => row(f)).join("") : `<p class="tip" style="margin:12px 2px">Nichts gefunden für „${esc(query)}“. Leg es unten einfach selbst an – dann ist es beim nächsten Mal dabei.</p>`)
           : (rc.length ? `<div class="fsec">Zuletzt verwendet</div>${rc.map(({ r, f }) => row(f, `zuletzt: ${fmtFrac(r.q)} ${esc(r.u === "__base" ? f.base : r.u)}`)).join("")}` : `<p class="tip" style="margin:12px 2px">Über ${foodsBase().length} Lebensmittel – vom Bäcker-Brötchen über Döner bis zur Weintraube. Einfach lostippen.</p>`)}</div>
-        ${opts.snack ? "" : `<button type="button" class="btn plbtn" id="fplate">🍽️ Teller schätzen <small>Foto + Mengen in Tellerteilen</small></button>`}
         <button type="button" class="btn ghost" id="fown" style="margin-top:12px">✏️ ${query ? `„${esc(query)}“` : "Eigenes Lebensmittel"} selbst eintragen</button>
         <div class="actions"><button class="btn ghost" id="fcancel">Abbrechen</button></div>`;
       const inp = $("#fq"); inp.oninput = () => { query = inp.value; const pos = inp.selectionStart; drawResultsOnly(); };
@@ -3277,10 +3391,13 @@ function foodSheet(opts) {
           : `<div class="qchips">${[0.25, 0.5, 1, 1.5, 2, 3, 4].map(v => `<button type="button" class="qchip ${qty === v ? "act" : ""}" data-q="${v}">${fmtFrac(v)}</button>`).join("")}</div>
              <div class="qrowin"><button type="button" class="qpm" data-d="-0.5">−</button><input id="fqty" inputmode="decimal" value="${fmtFrac(qty)}"><button type="button" class="qpm" data-d="0.5">+</button><span>${esc(unitLabel(f, unit))}</span></div>`}
         </div>
+        ${opts.snack && unit !== "__base" ? `<label class="tgl" id="fwholeL" ${qty === 1 ? "hidden" : ""}><input type="checkbox" id="fwhole"> <span>Ganze Menge als einen Snack speichern</span></label><p class="tip" id="fwholeTip" style="margin:0 0 8px" ${qty === 1 ? "hidden" : ""}>Sonst wird 1 ${esc(unitLabel(f, unit))} als Snack gespeichert – wie viele du isst, wählst du beim Essen.</p>` : ""}
         <div class="fsum"><div><b>${fmt(n.k)}</b><span>kcal</span></div><div><b>${fmt1(n.p)} g</b><span>Eiweiß</span></div>${f.mine ? "" : `<div><b>${fmt(n.g)}</b><span>${f.base}</span></div>`}</div>
         ${f.ingr ? `<p class="tip" style="margin:0 0 8px">Zutat (Nährwerte für die rohe/trockene Ware).</p>` : f.mine ? "" : `<p class="tip" style="margin:0 0 8px">Richtwerte – bei Packungsware ggf. die Angaben auf der Packung nehmen.</p>`}
         <div class="actions"><button class="btn" id="fok" ${n.k || qty ? "" : "disabled"}>${esc(opts.action || "Eintragen")} · ${fmt(n.k)} kcal</button><button class="btn ghost" id="fcancel">Abbrechen</button></div>`;
       const qi = $("#fqty"); if (qi) qi.oninput = () => { const v = parseQty(qi.value); if (v > 0) { qty = v; drawSumOnly(); } };
+      const fw = $("#fwhole"); if (fw) fw.onchange = () => drawSumOnly();
+      if (fw) drawSumOnly();
     } else if (view === "own") {
       sheet.innerHTML = `<div class="grab"></div><button type="button" class="lnk" id="fback">‹ zurück zur Suche</button>
         <h3 style="margin-top:6px">✏️ Eigenes Lebensmittel</h3>
@@ -3300,7 +3417,9 @@ function foodSheet(opts) {
   function drawSumOnly() {
     const n = nut(), box = sheet.querySelector(".fsum"); if (!box) return;
     box.innerHTML = `<div><b>${fmt(n.k)}</b><span>kcal</span></div><div><b>${fmt1(n.p)} g</b><span>Eiweiß</span></div>${sel.mine ? "" : `<div><b>${fmt(n.g)}</b><span>${sel.base}</span></div>`}`;
-    const ok = $("#fok"); if (ok) ok.textContent = `${opts.action || "Eintragen"} · ${fmt(n.k)} kcal`;
+    const wl = $("#fwholeL"), wt = $("#fwholeTip"); if (wl) { wl.hidden = qty === 1; wt.hidden = qty === 1 || $("#fwhole").checked; }
+    const single = wl && qty !== 1 && !$("#fwhole").checked, sk = single ? sel.k * unitGrams(sel, unit) / 100 : n.k;
+    const ok = $("#fok"); if (ok) ok.textContent = `${opts.action || "Eintragen"} · ${fmt(sk)} kcal`;
     sheet.querySelectorAll("[data-q]").forEach(b => b.classList.toggle("act", +b.dataset.q === qty));
   }
   function pickFood(f, preset) {
@@ -3325,8 +3444,9 @@ function foodSheet(opts) {
     else if (b.dataset.q) { qty = +b.dataset.q; const qi = $("#fqty"); if (qi) qi.value = unit === "__base" ? fmtQ(qty) : fmtFrac(qty); drawSumOnly(); }
     else if (b.dataset.d) { qty = Math.max(0.25, Math.round((qty + +b.dataset.d) * 4) / 4); const qi = $("#fqty"); if (qi) qi.value = fmtFrac(qty); drawSumOnly(); }
     else if (b.id === "fok") {
+      if (opts.snack && unit !== "__base" && qty !== 1 && !($("#fwhole") && $("#fwhole").checked)) qty = 1; // einzeln als Snack übernehmen
       const n = nut(), f = sel, ul = unitLabel(f, unit);
-      const fn = foodName(f), name = opts.snack ? (unit === "__base" ? `${fn} · ${fmtQ(qty)} ${f.base}` : f.mine ? (qty === 1 ? fn : `${fmtFrac(qty)}× ${fn}`) : `${fn} · ${fmtFrac(qty)} ${T(ul)}`)
+      const fn = foodName(f), name = opts.snack ? (unit === "__base" ? `${fn} · ${fmtQ(qty)} ${f.base}` : f.mine || qty === 1 ? (qty === 1 ? fn : `${fmtFrac(qty)}× ${fn}`) : `${fn} · ${fmtFrac(qty)} ${T(ul)}`)
         : unit === "__base" ? `${fmtQ(qty)} ${f.base} ${fn}` : f.mine ? (qty === 1 ? fn : `${fmtFrac(qty)}× ${fn}`) : `${fmtFrac(qty)} ${T(ul)} ${fn}`;
       finish({ name, kcal: Math.round(n.k), protein: Math.round(n.p), emoji: f.emoji }, { n: f.n, u: unit, q: qty });
     }
@@ -3727,6 +3847,9 @@ const I18N = {
 "Die Prognose-Linie zeigt typische Wasser-Hochs": ["The forecast line shows typical water highs", "La línea de previsión muestra los picos típicos de agua"],
 "– das ist kein Fett und geht danach wieder runter.": ["– that isn't fat and goes back down afterwards.", "– no es grasa y luego vuelve a bajar."],
 "Feste": ["Festivals", "Fiestas"],
+"Lange drücken und ziehen, um die Reihenfolge zu ändern.": ["Press and hold, then drag to change the order.", "Mantén pulsado y arrastra para cambiar el orden."], "Reihenfolge gespeichert": ["Order saved", "Orden guardado"],
+"Ganze Menge als einen Snack speichern": ["Save the whole amount as one snack", "Guardar toda la cantidad como un snack"], "Ändere die Menge – kcal, Eiweiß und Name passen sich an.": ["Change the amount – kcal, protein and name adjust.", "Cambia la cantidad: kcal, proteína y nombre se ajustan."], "Eintrag löschen": ["Delete entry", "Eliminar entrada"],
+"Zutat tippen, z. B. Hähnchen": ["Type an ingredient, e.g. chicken", "Escribe un ingrediente, p. ej. pollo"],
 "Ideen für diese zwei Wochen": ["Ideas for these two weeks", "Ideas para estas dos semanas"],
 "Mahlzeiten": ["Meals", "Comidas"], "noch {0}": ["{0} left", "quedan {0}"], "{0} drüber": ["{0} over", "{0} de más"], "{0} gegessen": ["{0} eaten", "{0} comidas"],
 "{0} vorhanden": ["{0} in stock", "{0} disponibles"], "{0} vorhanden · {1} verplant": ["{0} in stock · {1} planned", "{0} disponibles · {1} planificadas"], "📅 {0} verplant": ["📅 {0} planned", "📅 {0} planificadas"],

@@ -1200,50 +1200,6 @@ zubereitung:
 #  Meal-Prep-Rezepte (neu geschrieben, Nov 2026) – Fotos: Brians Meal Prep
 # ---------------------------------------------------------------------------
 
-## Linsencurry mit Garnelen
-en: Lentil curry with prawns
-es: Curry de lentejas con gambas
-emoji: 🦐
-bild: fotos/linsencurry-garnelen.jpg
-typ: gericht
-portionen: 3
-tags: mealprep, garnelen, linsen, curry, protein
-zutaten:
-- Rote Linsen (trocken): 129 g
-- Kürbis (Hokkaido): 627 g
-- Aubergine: 223 g
-- Paprika: 228 g
-- Cremefine 7 %: 100 g
-- Garnelen (TK, roh): 675 g
-- Rapsöl: 10 g
-- Passierte Tomaten: 397 g
-zubereitung:
-1. Kürbis, Aubergine und Paprika würfeln und in der Hälfte vom Öl anbraten.
-2. Linsen, passierte Tomaten und etwa 300 ml Wasser dazugeben, mit Currypulver, Kreuzkümmel, Salz und Pfeffer würzen.
-3. Rund 20 Minuten köcheln lassen, bis Linsen und Kürbis weich sind, dann die Cremefine einrühren.
-4. Garnelen auftauen, trocken tupfen und im restlichen Öl 2–3 Minuten pro Seite braten.
-5. Curry auf 3 Boxen verteilen und die Garnelen daneben legen.
-
-## Schwein mit Linsen
-en: Pork with lentils
-es: Cerdo con lentejas
-emoji: 🥩
-bild: fotos/schwein-mit-linsen.jpg
-typ: gericht
-portionen: 4
-tags: mealprep, schwein, linsen, protein
-zutaten:
-- Linsen (gekocht): 528 g
-- Champignons: 500 g
-- Schweinekarree / Karreesteak (roh): 998 g
-- Karotten: 170 g
-- Zwiebeln: 135 g
-zubereitung:
-1. Zwiebeln und Karotten klein würfeln, Champignons in Scheiben schneiden.
-2. Gemüse in einer beschichteten Pfanne anbraten, die gekochten Linsen dazugeben und mit Salz, Pfeffer, etwas Sojasauce oder Brühe abschmecken.
-3. Karreesteaks würzen und von jeder Seite 3–4 Minuten braten, bis sie durch sind.
-4. Linsengemüse und Fleisch auf 4 Boxen verteilen.
-
 ## Paprikahendl mit Knödeln und Sauerkraut
 en: Paprika chicken with dumplings and sauerkraut
 es: Pollo al pimentón con albóndigas y chucrut
@@ -1368,74 +1324,6 @@ zubereitung:
 4. Mit Erythrit und Gewürzen abschmecken und mit der restlichen, in Wasser angerührten Stärke binden.
 5. Fisch vorsichtig unterheben und mit Reis servieren. Dazu passt ein Salat.
 
-## Mock Duck mit Maroni, Apfelrotkraut und Knödeln
-en: Mock duck with chestnuts, red cabbage and dumplings
-es: Pato vegano con castañas, lombarda y albóndigas
-emoji: 🦆
-bild: stew
-typ: gericht
-portionen: 4
-tags: vegan, mealprep, winter, airfryer
-zutaten:
-- Mock Duck (Dose): 400 g
-- Bratensauce (zubereitet): 250 g
-- Kartoffelknödel (Packung): 150 g pro Portion
-- Rotkraut / Apfelrotkohl (Glas): 150 g pro Portion
-- Maroni (vorgegart, Packung): 200 g
-zubereitung:
-1. Mock Duck abtropfen lassen und im Airfryer knusprig braten.
-2. In einer Pfanne mit der Bratensauce übergießen und kurz ziehen lassen.
-3. Knödel und Rotkraut nach Packung zubereiten.
-4. Maroni im Airfryer oder Ofen erwärmen und zur Mock Duck geben.
-
-## Gochujang Chicken mit Käse-Gnocchi
-en: Gochujang chicken with cheesy gnocchi
-es: Pollo gochujang con ñoquis de queso
-emoji: 🌶️
-bild: honighuhn
-typ: gericht
-portionen: 4
-tags: mealprep, hähnchen, koreanisch, scharf, airfryer
-zutaten:
-- Hähnchenbrustfilet (roh): 600 g
-- Skyr: 150 g
-- Gochujang (Chilipaste): 60 g
-- Sojasoße: 30 g
-- Speisestärke: 15 g
-- Erythrit: 10 g
-- Gnocchi (Packung, roh): 600 g
-- Körniger Frischkäse (fettarm): 200 g
-- Frischkäse (mager / 0,2 %): 100 g
-- Leichtmilch 1,5 %: 100 g
-- Reibekäse light: 60 g
-zubereitung:
-1. Hähnchen würfeln, mit Skyr und Gewürzen marinieren und im Airfryer garen.
-2. Gochujang mit etwas Wasser und Sojasauce verrühren, mit Erythrit abschmecken und mit angerührter Stärke eindicken. Hähnchen dazugeben.
-3. Gnocchi im Airfryer knusprig backen.
-4. Hüttenkäse, Frischkäse und Milch mit Gewürzen cremig mixen, in der Pfanne erwärmen und den Reibekäse darin schmelzen.
-5. Gnocchi in der Käsesauce schwenken und mit dem Hähnchen aufteilen.
-
-## Low-Cal Currywurst mit Pommes
-en: Low-cal currywurst with chips
-es: Currywurst ligera con patatas
-emoji: 🌭
-bild: wrap
-typ: gericht
-portionen: 4
-tags: low cal, airfryer, deutsch, fastfood light
-zutaten:
-- Geflügelwurst: 400 g
-- Cola Zero: 200 g
-- Tomatenpüree / Passata: 300 g
-- Currypulver: 10 g
-- Kartoffeln (festkochend): 800 g
-zubereitung:
-1. Kartoffeln in Pommes schneiden und 30 Minuten bis 2 Stunden in Wasser legen, dann gut trocken tupfen.
-2. Pommes im Airfryer goldbraun und knusprig garen und würzen.
-3. Geflügelwurst in Scheiben schneiden und im Airfryer grillen.
-4. Cola Zero und Tomatenpüree in einer Pfanne aufkochen, Currypulver und Gewürze dazu und etwas einkochen lassen.
-5. Wurst mit der Sauce übergießen und mit den Pommes servieren.
-
 ## Hähnchen-Brokkoli-Reispfanne
 en: Chicken broccoli rice skillet
 es: Sartén de pollo, brócoli y arroz
@@ -1477,94 +1365,6 @@ zubereitung:
 3. Hähnchen im Kokosöl rundum anbraten, dann die Paprika kurz mitbraten, bis sie bissfest ist.
 4. Mit Sojasauce vermengen.
 5. Cashews grob hacken, darüberstreuen und mit dem Reis anrichten.
-
-## Crispy Chicken Ciabatta
-en: Crispy chicken ciabatta
-es: Chapata de pollo crujiente
-emoji: 🥪
-bild: wrap
-typ: gericht
-portionen: 1
-tags: hähnchen, sandwich, airfryer, mitnehmen
-zutaten:
-- Ciabatta: 80 g
-- Hähnchenbrustfilet (roh): 150 g
-- Cornflakes (ungesüßt, zum Panieren): 30 g
-- Naturjoghurt fettarm 1,5 %: 80 g
-- Olivenöl: 10 g
-- Salatmischung (Tüte): 50 g
-zubereitung:
-1. Cornflakes in einem Beutel grob zerbröseln.
-2. Hähnchen in Streifen schneiden und mit der Hälfte des Joghurts, Salz, Pfeffer und Paprikapulver vermengen.
-3. Die Streifen in den Cornflakes wenden und leicht andrücken.
-4. Im Ofen oder Airfryer backen, bis sie innen durch und außen knusprig sind.
-5. Restlichen Joghurt mit dem Olivenöl, Salz und Pfeffer verrühren.
-6. Ciabatta aufschneiden, mit der Sauce bestreichen und mit Salat und Hähnchen belegen.
-
-## Puten-Wraps mit Kidneybohnen und Guacamole
-en: Turkey wraps with kidney beans and guacamole
-es: Wraps de pavo con alubias rojas y guacamole
-emoji: 🌯
-bild: wrap
-typ: gericht
-portionen: 1
-tags: pute, wrap, mexikanisch, schnell
-zutaten:
-- Vollkorn-Wrap: 80 g
-- Putenbrust (roh): 150 g
-- Kidneybohnen (abgetropft): 50 g
-- Avocado: 50 g
-- Paprika: 100 g
-- Kokosöl: 5 g
-zubereitung:
-1. Putenbrust in Streifen schneiden und mit Salz, Pfeffer und Paprikapulver würzen.
-2. Paprika in feine Streifen schneiden, Kidneybohnen abspülen und abtropfen lassen.
-3. Avocado mit einer Gabel zerdrücken und mit Salz und Pfeffer abschmecken.
-4. Putenstreifen im Kokosöl durchbraten.
-5. Wraps kurz erwärmen, mit der Avocado bestreichen, mit Pute, Bohnen und Paprika belegen und aufrollen.
-
-## One-Pan Steak mit Röstkartoffeln und Spargel
-en: One-pan steak with roast potatoes and asparagus
-es: Filete en una sartén con patatas y espárragos
-emoji: 🥩
-bild: lachs
-typ: gericht
-portionen: 1
-tags: rind, one-pan, low fat, protein
-zutaten:
-- Rinderhüftsteak (roh): 200 g
-- Kartoffeln (festkochend): 300 g
-- Spargel (grün): 100 g
-- Olivenöl: 5 g
-zubereitung:
-1. Kartoffeln in etwa 1 cm große Würfel schneiden, Spargel putzen und in Stücke schneiden.
-2. Steak trocken tupfen, mit der Hälfte des Öls einreiben und mit Salz und Pfeffer würzen.
-3. Restliches Öl in einer beschichteten Pfanne bei mittlerer Hitze erwärmen und die Kartoffeln 12–15 Minuten goldbraun braten.
-4. Spargel und Rosmarin oder Thymian dazugeben und 5–10 Minuten mitbraten.
-5. Gemüse an den Rand schieben und das Steak pro Seite 2–3 Minuten braten.
-6. Alles kurz durchschwenken, pfeffern und servieren.
-
-## Kartoffelauflauf mit Hüttenkäse und Pute
-en: Potato bake with cottage cheese and turkey
-es: Gratinado de patata con requesón y pavo
-emoji: 🥔
-bild: auflauf
-typ: gericht
-portionen: 1
-tags: auflauf, ofen, protein, schnell
-zutaten:
-- Kartoffeln (vorgekocht, Packung): 250 g
-- Körniger Frischkäse (fettarm): 150 g
-- Eier: 60 g
-- Putenbrust-Aufschnitt (mager): 100 g
-- Kirschtomaten: 150 g
-- Reibekäse light: 15 g
-zubereitung:
-1. Vorgekochte Kartoffeln abtropfen lassen und in Scheiben schneiden.
-2. Hüttenkäse mit dem Ei, Salz, Pfeffer und Paprikapulver verquirlen.
-3. Kartoffeln und ganze Kirschtomaten in eine kleine Auflaufform geben.
-4. Putenaufschnitt in Stücke zupfen und darüber verteilen, die Hüttenkäse-Mischung darübergießen.
-5. Mit Reibekäse bestreuen und im Ofen backen, bis die Eimasse gestockt und der Käse goldbraun ist.
 
 ## Nudeln Napoletana mit Hack
 en: Pasta napoletana with mince
@@ -1628,26 +1428,6 @@ zubereitung:
 4. Sesamöl im Wok stark erhitzen, nach Wunsch Knoblauch und Ingwer kurz mitbraten, dann die Rinderstreifen scharf anbraten.
 5. Brokkoli und Sojasauce dazugeben, alles vermengen und mit dem Reis servieren.
 
-## Einfaches Sushi aus der Eiswürfelform
-en: Easy ice-cube-tray sushi
-es: Sushi fácil en cubitera
-emoji: 🍣
-bild: ricebowl
-typ: gericht
-portionen: 1
-tags: fisch, sushi, kalt, japanisch
-zutaten:
-- Sushireis (roh): 100 g
-- Avocado: 100 g
-- Gurke: 150 g
-- Lachs (roh): 100 g
-zubereitung:
-1. Sushireis nach Packung kochen und abkühlen lassen.
-2. Eine Eiswürfelform mit Frischhaltefolie auslegen.
-3. Lachs in kleine Scheiben schneiden und als erste Schicht in die Form legen.
-4. Gurke und Avocado in Scheiben darauf schichten, dann den Reis fest andrücken.
-5. Form auf ein Brett stürzen und die Folie vorsichtig abziehen.
-
 ## Joghurt-Dill-Nudelsalat mit Thunfisch
 en: Yoghurt dill pasta salad with tuna
 es: Ensalada de pasta con yogur, eneldo y atún
@@ -1689,26 +1469,6 @@ zubereitung:
 3. Öl in einer Pfanne erhitzen und dünne Palatschinken von beiden Seiten goldbraun backen.
 4. Palatschinken mit der Topfencreme bestreichen, Beeren darauf verteilen und einrollen.
 
-## Himbeer-Topfen-Bowl mit Haferflocken
-en: Raspberry quark bowl with oats
-es: Bowl de requesón con frambuesas y avena
-emoji: 🫐
-bild: oats
-typ: gericht
-portionen: 1
-tags: frühstück, protein, süß, schnell
-zutaten:
-- Haferflocken (zart): 80 g
-- Magertopfen / Magerquark: 120 g
-- Himbeeren: 100 g
-- Wasser: 30 g
-- Walnüsse: 15 g
-zubereitung:
-1. Himbeeren vorsichtig waschen und abtropfen lassen.
-2. Topfen mit dem Wasser cremig rühren, nach Wunsch mit Flavour Drops süßen.
-3. Haferflocken unterrühren.
-4. Mit gehackten Walnüssen und den Himbeeren garnieren.
-
 ## Omelette mit Paprika und Vollkornbrot
 en: Pepper omelette with wholegrain bread
 es: Tortilla francesa con pimiento y pan integral
@@ -1749,44 +1509,6 @@ zubereitung:
 2. Haferflocken mit dem kochenden Wasser übergießen und 2 Minuten quellen lassen.
 3. Proteinpulver zügig unterrühren, bis keine Klümpchen mehr da sind.
 4. Apfelstücke unterheben und mit Mandeln bestreuen.
-
-## Reiswaffel-Joghurt-Bowl mit Banane
-en: Rice cake yoghurt bowl with banana
-es: Bowl de yogur con tortitas de arroz y plátano
-emoji: 🍌
-bild: oats
-typ: gericht
-portionen: 1
-tags: frühstück, snack, protein, süß
-zutaten:
-- Reiswaffeln (natur): 32 g
-- Griechischer Joghurt 0 %: 200 g
-- Banane: 120 g
-- Erdnussmus (100 % Erdnüsse): 15 g
-zubereitung:
-1. Joghurt nach Wunsch süßen und in eine Schale geben.
-2. Banane in Scheiben schneiden.
-3. Reiswaffeln direkt vor dem Essen grob zerbröseln und auf den Joghurt geben.
-4. Bananenscheiben dazugeben und das Erdnussmus darüberträufeln.
-
-## Puten-Avocado-Toast
-en: Turkey avocado toast
-es: Tostada de pavo y aguacate
-emoji: 🥑
-bild: wrap
-typ: gericht
-portionen: 1
-tags: frühstück, pute, schnell, protein
-zutaten:
-- Vollkorn-Toast: 70 g
-- Putenbrust-Aufschnitt (mager): 50 g
-- Avocado: 40 g
-- Tomaten: 100 g
-zubereitung:
-1. Toast rösten.
-2. Tomaten in Scheiben schneiden.
-3. Avocado zerdrücken, mit Salz und Pfeffer abschmecken und auf die Toasts streichen.
-4. Mit Putenaufschnitt und Tomaten belegen.
 
 ## Chicken Katsu Curry
 en: Chicken katsu curry

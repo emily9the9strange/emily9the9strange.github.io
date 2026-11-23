@@ -1784,6 +1784,60 @@ Grenade Carb Killa | Grenade Carb Killa | Grenade Carb Killa ; 360 ; 33 ; Riegel
 Oh Yeah! One Bar | Oh Yeah! One bar | Oh Yeah! One ; 360 ; 33 ; Riegel=60
 More Nutrition Protein Bar | More Nutrition protein bar | Barrita More Nutrition ; 360 ; 33 ; Riegel=50
 Got2b Protein Pudding | Protein pudding | Pudin proteico ; 75 ; 10 ; Becher=200
+Kinder Überraschungsei | Kinder Surprise egg | Huevo Kinder Sorpresa ; 560 ; 8 ; Stück=20
+Kinder Überraschung Maxi (Ei) | Kinder Surprise Maxi egg | Huevo Kinder Sorpresa Maxi ; 560 ; 8 ; Stück=100
+Kinder Schoko-Weihnachtsmann | Kinder chocolate Santa | Papá Noel de chocolate Kinder ; 560 ; 9 ; Stück=55 | Stück (klein)=15
+Kinder Schoko-Osterhase | Kinder chocolate Easter bunny | Conejo de Pascua de chocolate Kinder ; 560 ; 9 ; Stück=55
+Kinder Mix Adventskalender (Türchen) | Kinder advent calendar (door) | Calendario de Adviento Kinder (puerta) ; 550 ; 8 ; Türchen=12
+Kinder Schokolade Adventskalender (Türchen) | Kinder Schokolade advent calendar (door) | Calendario de Adviento Kinder chocolate (puerta) ; 560 ; 9 ; Türchen=6
+Kinder Schokobons | Kinder Schokobons | Kinder Schokobons ; 570 ; 8 ; Stück=6
+Kinder Schokobons White | Kinder Schokobons white | Kinder Schokobons blanco ; 570 ; 8 ; Stück=6
+Kinder Milch-Schnitte | Kinder Milch-Schnitte | Kinder Milch-Schnitte ; 420 ; 8 ; Stück=28
+Kinder Délice | Kinder Délice | Kinder Délice ; 460 ; 6 ; Stück=39
+Kinder Riegel Weihnachtsedition | Kinder bar Christmas edition | Kinder barrita edición navidad ; 560 ; 9 ; Riegel=21
+Milka Schoko-Weihnachtsmann | Milka chocolate Santa | Papá Noel de chocolate Milka ; 530 ; 6 ; Stück=100 | Stück (klein)=15
+Milka Schmunzelhase | Milka chocolate Easter bunny | Conejo de Pascua Milka ; 530 ; 6 ; Stück=100
+Milka Kugeln (Christbaumkugeln) | Milka chocolate baubles | Bolas de chocolate Milka ; 540 ; 6 ; Kugel=8
+Milka Adventskalender (Türchen) | Milka advent calendar (door) | Calendario de Adviento Milka (puerta) ; 530 ; 6 ; Türchen=8
+Milka Zarte Momente | Milka tender moments | Milka momentos tiernos ; 560 ; 6 ; Stück=7
+Milka Lebkuchen-Schokolade | Milka gingerbread chocolate | Chocolate de pan de jengibre Milka ; 530 ; 6 ; Tafel=100 | Stück=5
+Milka Naps | Milka Naps | Milka Naps ; 530 ; 6 ; Stück=5
+Lindt Teddy | Lindt Teddy | Lindt Teddy ; 550 ; 7 ; Stück=100 | Stück (klein)=10
+Lindt Weihnachtsmann | Lindt chocolate Santa | Papá Noel de chocolate Lindt ; 550 ; 7 ; Stück=70
+Lindt Lindor Adventskalender (Türchen) | Lindt Lindor advent calendar (door) | Calendario de Adviento Lindor (puerta) ; 620 ; 5 ; Türchen=12
+Riegelein Schoko-Weihnachtsmann | Riegelein chocolate Santa | Papá Noel de chocolate Riegelein ; 520 ; 6 ; Stück=50
+Schoko-Weihnachtsmann (Hohlfigur, Vollmilch) | Hollow milk chocolate Santa | Papá Noel hueco de chocolate con leche ; 540 ; 7 ; Stück=100 | Stück (klein)=25
+Schoko-Nikolaus Zartbitter | Dark chocolate Santa | Papá Noel de chocolate negro ; 540 ; 7 ; Stück=100
+Schoko-Osterhase (Hohlfigur) | Hollow chocolate Easter bunny | Conejo de Pascua hueco de chocolate ; 540 ; 7 ; Stück=100
+Schokoladen-Adventskalender (Türchen) | Chocolate advent calendar (door) | Calendario de Adviento de chocolate (puerta) ; 540 ; 7 ; Türchen=5
+Ferrero Rocher Adventskalender (Türchen) | Ferrero Rocher advent calendar (door) | Calendario de Adviento Ferrero Rocher (puerta) ; 600 ; 8 ; Türchen=12.5
+Ferrero Küsschen (Stück) | Ferrero Küsschen (piece) | Ferrero Küsschen (unidad) ; 570 ; 9 ; Stück=9
+Merci Petits | Merci petits | Merci petits ; 560 ; 7 ; Stück=6
+Merci Finest Selection (Riegel) | Merci finest selection (bar) | Merci finest selection (barrita) ; 560 ; 7 ; Riegel=10
+Mon Chéri (Stück) | Mon Chéri (piece) | Mon Chéri (unidad) ; 450 ; 3 ; Stück=10.5
+Rafaello (Stück) | Raffaello (piece) | Raffaello (unidad) ; 620 ; 7 ; Stück=10
+Ferrero Pocket Coffee | Ferrero Pocket Coffee | Ferrero Pocket Coffee ; 460 ; 4 ; Stück=12.5
+Hachez Braune Blätter | Hachez Braune Blätter | Hachez Braune Blätter ; 530 ; 7 ; Stück=2
+Dominostein | Dominostein | Dominostein ; 390 ; 5 ; Stück=14
+Lambertz Dominosteine (Packung) | Lambertz Dominosteine (pack) | Lambertz Dominosteine (paquete) ; 390 ; 5 ; Packung=250
+Lambertz Lebkuchen Herzen Sterne Brezeln | Lambertz gingerbread hearts, stars & pretzels | Lambertz corazones, estrellas y lazos de jengibre ; 390 ; 5 ; Stück=10
+Aachener Printen mit Schokolade | Aachener Printen with chocolate | Aachener Printen con chocolate ; 420 ; 5 ; Stück=25
+Vanillekipferl (gekauft) | Vanilla crescents (bought) | Medialunas de vainilla (compradas) ; 530 ; 6 ; Stück=8
+Butterspritzgebäck | Butter spritz cookies | Galletas de mantequilla ; 500 ; 6 ; Stück=8
+Spitzbuben | Spitzbuben (jam cookies) | Spitzbuben (galletas con mermelada) ; 460 ; 5 ; Stück=12
+Spekulatius (Stück) | Speculoos (piece) | Speculoos (unidad) ; 470 ; 6 ; Stück=8
+Christstollen | Christmas stollen | Stollen navideño ; 400 ; 6 ; Scheibe=50
+Quarkstollen | Quark stollen | Stollen de requesón ; 350 ; 7 ; Scheibe=50
+Marzipanbrot mit Schokolade | Marzipan bar with chocolate | Barrita de mazapán con chocolate ; 470 ; 7 ; Riegel=40
+Niederegger Marzipan Klassiker | Niederegger marzipan classic | Mazapán Niederegger clásico ; 480 ; 8 ; Riegel=12.5
+Schoko-Nüsse gemischt | Chocolate-coated nuts | Frutos secos con chocolate ; 560 ; 10 ; Handvoll=30
+Schokoladenkugeln (Christbaumschmuck) | Chocolate tree ornaments | Adornos de chocolate para el árbol ; 540 ; 6 ; Stück=10
+Nougat-Pralinen | Nougat pralines | Bombones de turrón ; 560 ; 6 ; Stück=12
+Weihnachtsplätzchen gemischt | Mixed Christmas cookies | Galletas navideñas variadas ; 470 ; 6 ; Stück=10
+Bratapfel-Schokolade | Baked apple chocolate | Chocolate de manzana asada ; 530 ; 6 ; Stück=5
+Kinder Happy Hippo Kakao | Kinder Happy Hippo cocoa | Kinder Happy Hippo cacao ; 560 ; 8 ; Stück=20.7
+Nutella (Glas) | Nutella (jar) | Nutella (tarro) ; 540 ; 6 ; TL=10 | EL=20
+Hanuta Weihnachtsedition | Hanuta Christmas edition | Hanuta edición navideña ; 540 ; 8 ; Stück=22
 
 @Getränke | Drinks | Bebidas ; 🥤
 Coca-Cola | Coca-Cola | Coca-Cola ; 42 ; 0 ; Glas=250 | Dose=330 | Flasche=500
