@@ -255,6 +255,8 @@ nav.tabs button .ic{font-size:21px}
 .irow .isug{grid-column:1/-1;display:flex;flex-direction:column;gap:2px;background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:4px;margin-top:-2px;box-shadow:0 6px 16px rgba(0,0,0,.08)}
 .irow .isug[hidden]{display:none}.irow .isug button{display:flex;justify-content:space-between;gap:8px;align-items:baseline;text-align:left;padding:8px 10px;border-radius:9px;font-size:14px}
 .irow .isug button:active,.irow .isug button:hover{background:var(--ice)}.irow .isug small{color:var(--muted);font-size:11.5px;white-space:nowrap}
+.irow .isug .iown{border-top:1px dashed var(--line);margin-top:2px;padding-top:10px;color:var(--accent,#e8714a)}.irow .isug .iown b{font-weight:800}
+.frow.fownrow{border:1.5px dashed var(--line);background:transparent;margin-top:6px}.frow.fownrow b{color:var(--accent,#e8714a)}
 .inew{grid-column:1/-1;font-size:12px;font-weight:700;color:var(--snack-ink);background:#fff3e6;border-radius:10px;padding:8px}
 .inew input{width:80px;border:1px solid var(--line);border-radius:8px;padding:6px;margin-top:4px}
 .csum{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
@@ -2011,7 +2013,7 @@ function cookSheet(rid, mode = "cook", tpl = null) {
       <button type="button" class="x idel" aria-label="Zutat entfernen">✕</button>
       <div class="ik"></div>
       <div class="isug" hidden></div>
-      <div class="inew" hidden>Unbekannte Zutat – Nährwerte pro 100 g: <input class="nk" inputmode="decimal" placeholder="kcal"> <input class="np" inputmode="decimal" placeholder="Eiweiß g"></div>
+      <div class="inew" hidden><span>Eigene Zutat – Nährwerte pro 100 g:</span> <input class="nk" inputmode="decimal" placeholder="kcal"> <input class="np" inputmode="decimal" placeholder="Eiweiß g"></div>
     </div>`).join("");
   }
   function drawRows() { $("#crows").innerHTML = rowsHtml(); update(); }
@@ -2024,7 +2026,7 @@ function cookSheet(rid, mode = "cook", tpl = null) {
       if (document.activeElement !== ig) ig.value = x.pp ? x.pp : (x.g === "" ? "" : x.g);
       el.querySelector(".iu").textContent = x.pp ? "g/P" : (info?.u || "g");
       el.querySelector(".ik").textContent = info ? `${x.pp ? fmt(g) + " g · " : ""}${fmt(g * info.k / 100)} kcal · ${fmt1(g * info.p / 100)} g Eiweiß` : "";
-      el.querySelector(".inew").hidden = !(x.n && !ingInfo(x.n) );
+      el.querySelector(".inew").hidden = !(x.n && (x.own || !ingInfo(x.n)));
     });
     const cp = $("#cp"); if (document.activeElement !== cp) cp.value = st.p;
     sheet.querySelectorAll("[data-pq]").forEach(b => b.classList.toggle("act", +b.dataset.pq === st.p));
@@ -2073,8 +2075,10 @@ function cookSheet(rid, mode = "cook", tpl = null) {
     if (t.classList.contains("iname")) {
       const raw = ingKey(t.value.trim()); row.n = raw && !ingInfo(raw, st.extra) && ingAlias(raw) ? ingAlias(raw) : raw; if (!row.base) row.base = 0;
       const box = rowEl.querySelector(".isug"), hits = raw.length >= 2 ? ingSearch(raw, 7) : [];
-      box.innerHTML = hits.map(n => { const f = ingInfo(n); return `<button type="button" data-isug="${esc(n)}"><b data-notr>${esc(ingLabel(n))}</b><small>${f ? fmt(f.k) + " kcal · " + fmt1(f.p) + " g Eiweiß / 100 " + (f.u || "g") : ""}</small></button>`; }).join("");
-      box.hidden = !hits.length || (hits.length === 1 && hits[0] === raw);
+      box.innerHTML = hits.map(n => { const f = ingInfo(n); return `<button type="button" data-isug="${esc(n)}"><b data-notr>${esc(ingLabel(n))}</b><small>${f ? fmt(f.k) + " kcal · " + fmt1(f.p) + " g Eiweiß / 100 " + (f.u || "g") : ""}</small></button>`; }).join("")
+        + (raw.length >= 2 ? `<button type="button" class="iown" data-iown="1"><b>＋ „${esc(t.value.trim())}“ als eigene Zutat anlegen</b><small>kcal & Eiweiß pro 100 g</small></button>` : "");
+      box.hidden = raw.length < 2;
+      if (row.own && row.n !== raw) row.own = false;
       update(); return;
     }
     if (t.classList.contains("ig")) {
@@ -2088,7 +2092,7 @@ function cookSheet(rid, mode = "cook", tpl = null) {
     }
     if (t.classList.contains("nk") || t.classList.contains("np")) {
       const box = rowEl.querySelector(".inew"); const k = num(box.querySelector(".nk").value), p = num(box.querySelector(".np").value);
-      if (row.n) st.extra[row.n] = { k, p, u: "g" }; update(); return;
+      if (row.n) { st.extra[row.n] = { k, p, u: "g" }; if (k > 0) { S.ingr = S.ingr || {}; S.ingr[row.n] = { k, p, u: "g" }; ING_NORM = null; saveS(); } } update(); return;
     }
     if (t.id === "cp") { const v = Math.max(1, Math.round(num(t.value))); if (!v) return; st.p = v; if (st.link) scaleTo(v / st.baseP, -1); update(); return; }
     if (t.id === "cside") { st.side = t.value || null; st.sideG = null; update(); return; }
@@ -2102,6 +2106,7 @@ function cookSheet(rid, mode = "cook", tpl = null) {
   sheet.onclick = ev => {
     const t = ev.target.closest("button"); if (!t) return;
     const rowEl = t.closest(".irow"), i = rowEl ? +rowEl.dataset.i : -1;
+    if (t.dataset.iown) { const row = st.rows[i], nm = rowEl.querySelector(".iname").value.trim(); row.n = ingKey(nm); row.own = true; rowEl.querySelector(".isug").hidden = true; update(); const nk = rowEl.querySelector(".nk"); nk?.focus(); return; }
     if (t.dataset.isug) { const row = st.rows[i]; row.n = t.dataset.isug; rowEl.querySelector(".iname").value = ingLabel(row.n); rowEl.querySelector(".isug").hidden = true; update(); rowEl.querySelector(".ig")?.focus(); return; }
     if (t.dataset.pq) { st.p = +t.dataset.pq; if (st.link) scaleTo(st.p / st.baseP, -1); update(); }
     else if (t.dataset.k) { st.kind = t.dataset.k; update(); }
@@ -3365,6 +3370,7 @@ function foodSheet(opts) {
   const nut = () => { const g = unitGrams(sel, unit) * qty; return { k: sel.k * g / 100, p: sel.p * g / 100, g }; };
   const firstInfo = f => f.mine ? `${fmt(f.k)} kcal / Portion` : f.units.length ? `${fmt(f.k * f.units[0][1] / 100)} kcal / ${f.units[0][0]}${f.units[0][0].includes("=") ? "" : ` (${fmt(f.units[0][1])} ${f.base})`}` : `${fmt(f.k)} kcal / 100 ${f.base}`;
   const dietTag = f => { const n = f.n.toLowerCase(); if (/vegetarisch/.test(n)) return ` <i class="vtag veg">🥕 vegetarisch</i>`; return VEGAN_FOOD_RE.test(n) ? ` <i class="vtag">🌱 vegan</i>` : ""; };
+  const ownRow = () => `<button type="button" class="frow fownrow" data-own="1"><span class="fe">✏️</span><span class="ft"><b>${query ? `„${esc(query)}“ selbst eintragen` : "Eigenes Lebensmittel eintragen"}</b><small>Eigene kcal und Eiweiß angeben – wird für später gemerkt</small></span><span class="fgo">＋</span></button>`;
   const row = (f, extra) => `<button type="button" class="frow" data-food="${esc(f.n)}"><span class="fe">${esc(f.emoji)}</span><span class="ft"><b data-notr>${esc(foodName(f))}</b><small>${extra || firstInfo(f)}${dietTag(f)}</small></span><span class="fgo">›</span></button>`;
   function draw() {
     if (view === "search") {
@@ -3372,7 +3378,7 @@ function foodSheet(opts) {
       const rc = recent();
       sheet.innerHTML = `<div class="grab"></div>${opts.onBack ? `<button type="button" class="lnk" id="fback0">‹ zurück</button>` : ""}<h3${opts.onBack ? ` style="margin-top:6px"` : ""}>${esc(opts.title || "Lebensmittel suchen")}</h3>
         <div class="fsearch"><span>🔍</span><input id="fq" placeholder="z. B. Brötchen, Pizza, Pringles, Traube…" value="${esc(query)}" autocomplete="off" enterkeyhint="search"></div>
-        <div id="fres">${query ? (rs.length ? rs.map(f => row(f)).join("") : `<p class="tip" style="margin:12px 2px">Nichts gefunden für „${esc(query)}“. Leg es unten einfach selbst an – dann ist es beim nächsten Mal dabei.</p>`)
+        <div id="fres">${query ? (rs.length ? rs.map(f => row(f)).join("") + ownRow() : ownRow() + `<p class="tip" style="margin:12px 2px">Nichts gefunden für „${esc(query)}“. Leg es unten einfach selbst an – dann ist es beim nächsten Mal dabei.</p>`)
           : (rc.length ? `<div class="fsec">Zuletzt verwendet</div>${rc.map(({ r, f }) => row(f, `zuletzt: ${fmtFrac(r.q)} ${esc(r.u === "__base" ? f.base : r.u)}`)).join("")}` : `<p class="tip" style="margin:12px 2px">Über ${foodsBase().length} Lebensmittel – vom Bäcker-Brötchen über Döner bis zur Weintraube. Einfach lostippen.</p>`)}</div>
         <button type="button" class="btn ghost" id="fown" style="margin-top:12px">✏️ ${query ? `„${esc(query)}“` : "Eigenes Lebensmittel"} selbst eintragen</button>
         <div class="actions"><button class="btn ghost" id="fcancel">Abbrechen</button></div>`;
@@ -3411,7 +3417,7 @@ function foodSheet(opts) {
   function drawResultsOnly() {
     const box = $("#fres"); if (!box) return;
     const rs = query ? foodSearch(query) : [];
-    box.innerHTML = query ? (rs.length ? rs.map(f => row(f)).join("") : `<p class="tip" style="margin:12px 2px">Nichts gefunden für „${esc(query)}“. Leg es unten einfach selbst an – dann ist es beim nächsten Mal dabei.</p>`) : "";
+    box.innerHTML = query ? (rs.length ? rs.map(f => row(f)).join("") + ownRow() : `<p class="tip" style="margin:12px 2px">Nichts gefunden für „${esc(query)}“. Leg es einfach selbst an – dann ist es beim nächsten Mal dabei.</p>` + ownRow()) : "";
     const ob = $("#fown"); if (ob) ob.textContent = `✏️ ${query ? `„${query}“` : "Eigenes Lebensmittel"} selbst eintragen`;
   }
   function drawSumOnly() {
@@ -3439,7 +3445,7 @@ function foodSheet(opts) {
     if (b.dataset.food) { const f = findFood(b.dataset.food); if (!f) return; const rc = (S.recentFoods || []).find(r => r.n === f.n); pickFood(f, query ? null : rc); }
     else if (b.id === "fcancel") closeSheet();
     else if (b.id === "fback") { view = "search"; draw(); }
-    else if (b.id === "fown") { view = "own"; draw(); }
+    else if (b.id === "fown" || b.dataset.own) { view = "own"; draw(); }
     else if (b.dataset.unit) { const old = unit; unit = b.dataset.unit; if ((old === "__base") !== (unit === "__base")) qty = unit === "__base" ? Math.round(unitGrams(sel, old) * qty) || 100 : 1; draw(); }
     else if (b.dataset.q) { qty = +b.dataset.q; const qi = $("#fqty"); if (qi) qi.value = unit === "__base" ? fmtQ(qty) : fmtFrac(qty); drawSumOnly(); }
     else if (b.dataset.d) { qty = Math.max(0.25, Math.round((qty + +b.dataset.d) * 4) / 4); const qi = $("#fqty"); if (qi) qi.value = fmtFrac(qty); drawSumOnly(); }
@@ -3847,6 +3853,8 @@ const I18N = {
 "Die Prognose-Linie zeigt typische Wasser-Hochs": ["The forecast line shows typical water highs", "La línea de previsión muestra los picos típicos de agua"],
 "– das ist kein Fett und geht danach wieder runter.": ["– that isn't fat and goes back down afterwards.", "– no es grasa y luego vuelve a bajar."],
 "Feste": ["Festivals", "Fiestas"],
+"Eigene Zutat – Nährwerte pro 100 g:": ["Own ingredient – nutrition per 100 g:", "Ingrediente propio – valores por 100 g:"],
+"Eigenes Lebensmittel eintragen": ["Add your own food", "Añadir alimento propio"], "Eigene kcal und Eiweiß angeben – wird für später gemerkt": ["Enter your own kcal and protein – saved for later", "Indica tus kcal y proteína – se guarda para después"], "kcal & Eiweiß pro 100 g": ["kcal & protein per 100 g", "kcal y proteína por 100 g"],
 "Lange drücken und ziehen, um die Reihenfolge zu ändern.": ["Press and hold, then drag to change the order.", "Mantén pulsado y arrastra para cambiar el orden."], "Reihenfolge gespeichert": ["Order saved", "Orden guardado"],
 "Ganze Menge als einen Snack speichern": ["Save the whole amount as one snack", "Guardar toda la cantidad como un snack"], "Ändere die Menge – kcal, Eiweiß und Name passen sich an.": ["Change the amount – kcal, protein and name adjust.", "Cambia la cantidad: kcal, proteína y nombre se ajustan."], "Eintrag löschen": ["Delete entry", "Eliminar entrada"],
 "Zutat tippen, z. B. Hähnchen": ["Type an ingredient, e.g. chicken", "Escribe un ingrediente, p. ej. pollo"],
