@@ -651,7 +651,7 @@ nav.tabs .ic svg.fi.nav{width:28px;height:28px;vertical-align:middle}
         <div class="ctr"><div class="big" id="leftNum">–</div><div class="sm" id="leftLbl">übrig</div></div>
       </div>
       <div class="stats">
-        <div class="stat"><div class="k kl"><span>Mahlzeiten</span><small class="vleft" id="mealLeft"></small></div><div class="v" id="mealNum">0 / 0</div><div class="bar"><i id="mealBar" style="width:0;background:#8fd3b6"></i></div></div>
+        <div class="stat"><div class="k">Mahlzeiten<small class="vleft" id="mealLeft" hidden></small></div><div class="v" id="mealNum">0 / 0</div><div class="bar"><i id="mealBar" style="width:0;background:#8fd3b6"></i></div></div>
         <div class="stat"><div class="k">Snacks</div><div class="v" id="snkNum">0 / 500</div><div class="bar"><i id="snkBar" style="width:0;background:#ffc36b"></i></div></div>
         <div class="stat"><div class="k">Eiweiß</div><div class="v" id="protNum">0 g</div><div class="bar"><i id="protBar" style="width:0"></i></div></div>
       </div>
@@ -1702,7 +1702,8 @@ function snackRecipeSheet(pre) {
     else if (el) { const r = st.rows[+el.dataset.i];
       if (t.classList.contains("sname")) { const raw = t.value.trim(); r.n = raw && !ingInfo(raw) && ingAlias(raw) ? ingAlias(raw) : raw; const box = el.querySelector(".ssug"), hits = raw.length >= 2 ? ingSearch(raw, 6) : [];
         box.innerHTML = hits.map(n => { const f = ingInfo(n); return `<button type="button" data-ssug="${esc(n)}"><b data-notr>${esc(ingLabel(n))}</b><small>${f ? fmt(f.k) + " kcal / 100 " + (f.u || "g") : ""}</small></button>`; }).join(""); box.hidden = !hits.length; }
-      else if (t.classList.contains("sg")) r.g = t.value; }
+      else if (t.classList.contains("sg")) r.g = t.value;
+      else if (t.classList.contains("sun")) r.un = t.value; }
     upd(); };
   sheet.onchange = e => { if (e.target.classList.contains("sun")) { st.rows[+e.target.closest(".srow").dataset.i].un = e.target.value; upd(); } };
   sheet.onclick = e => { const b = e.target.closest("button"); if (!b) return; const el = b.closest(".srow");
