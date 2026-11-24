@@ -1144,6 +1144,62 @@ Bergader Bavaria Blu | Bavaria Blu | Bavaria Blu ; 420 ; 14 ; Portion=30
 Rougette Grillkäse | Rougette grilling cheese | Queso para la parrilla Rougette ; 320 ; 20 ; Stück=90
 Hochland Grünländer Scheiben | Hochland Grünländer slices | Lonchas Hochland Grünländer ; 350 ; 24 ; Scheibe=20
 Patros Natur | Patros feta | Patros feta ; 270 ; 17 ; Portion=50
+Milch 0,1 % (Magermilch) | Skimmed milk 0.1% | Leche desnatada 0,1 % ; 34 ; 3.4 ; Glas=250 | EL=15 | Tasse=150
+Milch 0,3 % | Milk 0.3% | Leche 0,3 % ; 35 ; 3.4 ; Glas=250 | EL=15
+Milch 1,8 % | Milk 1.8% | Leche 1,8 % ; 49 ; 3.4 ; Glas=250 | EL=15
+Milch 3,8 % (Vollmilch) | Whole milk 3.8% | Leche entera 3,8 % ; 67 ; 3.3 ; Glas=250 | EL=15
+Milch laktosefrei 1,5 % | Lactose-free milk 1.5% | Leche sin lactosa 1,5 % ; 46 ; 3.4 ; Glas=250 | EL=15
+Milch laktosefrei 3,5 % | Lactose-free milk 3.5% | Leche sin lactosa 3,5 % ; 64 ; 3.3 ; Glas=250 | EL=15
+Protein-Milch (Milch mit extra Eiweiß) | High-protein milk | Leche con extra de proteína ; 45 ; 6 ; Glas=250
+Kochsahne 7 % | Cooking cream 7% | Nata para cocinar 7 % ; 90 ; 3 ; EL=15 | Becher=200
+Kochsahne 10 % | Cooking cream 10% | Nata para cocinar 10 % ; 120 ; 3 ; EL=15 | Becher=200
+Kochsahne 12 % | Cooking cream 12% | Nata para cocinar 12 % ; 140 ; 3 ; EL=15 | Becher=200
+Kochsahne 20 % | Cooking cream 20% | Nata para cocinar 20 % ; 205 ; 2.7 ; EL=15 | Becher=200
+Schlagsahne 32 % | Whipping cream 32% | Nata para montar 32 % ; 305 ; 2.3 ; EL=15 | Becher=200
+Schlagsahne 36 % (Schlagobers) | Double cream 36% | Nata para montar 36 % ; 340 ; 2.1 ; EL=15 | Becher=250
+Sahne laktosefrei 30 % | Lactose-free cream 30% | Nata sin lactosa 30 % ; 290 ; 2.4 ; EL=15 | Becher=200
+Saure Sahne 10 % | Sour cream 10% | Nata agria 10 % ; 115 ; 3.1 ; EL=20 | Becher=200
+Saure Sahne 20 % | Sour cream 20% | Nata agria 20 % ; 200 ; 2.8 ; EL=20 | Becher=200
+Schmand 24 % | Schmand 24% | Schmand 24 % ; 240 ; 2.7 ; EL=20 | Becher=200
+Crème fraîche 30 % | Crème fraîche 30% | Crème fraîche 30 % ; 295 ; 2.4 ; EL=20 | Becher=150
+Crème fraîche light 15 % | Light crème fraîche 15% | Crème fraîche light 15 % ; 165 ; 3 ; EL=20 | Becher=150
+Crème légère 12 % | Crème légère 12% | Crème légère 12 % ; 140 ; 3 ; EL=20 | Becher=150
+Kaffeesahne 4 % | Coffee creamer 4% | Crema para café 4 % ; 60 ; 3.3 ; Kännchen=10 | EL=15
+Kaffeesahne 10 % | Coffee creamer 10% | Crema para café 10 % ; 120 ; 3 ; Kännchen=10 | EL=15
+Kondensmilch 4 % | Evaporated milk 4% | Leche evaporada 4 % ; 110 ; 6.5 ; EL=15 | Kännchen=10
+Kondensmilch 7,5 % | Evaporated milk 7.5% | Leche evaporada 7,5 % ; 135 ; 6.5 ; EL=15 | Kännchen=10
+Kondensmilch 10 % | Evaporated milk 10% | Leche evaporada 10 % ; 180 ; 8 ; EL=15 | Kännchen=10
+Joghurt 3,5 % | Yoghurt 3.5% | Yogur 3,5 % ; 65 ; 3.8 ; Becher=150 | EL=20
+Joghurt 1,5 % (fettarm) | Low-fat yoghurt 1.5% | Yogur bajo en grasa 1,5 % ; 48 ; 4 ; Becher=150 | EL=20
+Joghurt 0,1 % (Magerjoghurt) | Fat-free yoghurt 0.1% | Yogur desnatado 0,1 % ; 37 ; 4.5 ; Becher=150 | EL=20
+Joghurt laktosefrei 1,5 % | Lactose-free yoghurt 1.5% | Yogur sin lactosa 1,5 % ; 48 ; 4 ; Becher=150
+Quark 0,2 % (Magerquark) | Low-fat quark 0.2% | Requesón desnatado 0,2 % ; 67 ; 12 ; EL=30 | Packung=250
+Quark 20 % (Speisequark) | Quark 20% | Requesón 20 % ; 110 ; 12 ; EL=30 | Packung=250
+Quark 40 % (Sahnequark) | Cream quark 40% | Requesón cremoso 40 % ; 160 ; 11 ; EL=30 | Packung=250
+Topfen 10 % | Topfen 10% | Topfen 10 % ; 90 ; 12.5 ; EL=30 | Packung=250
+Frischkäse Doppelrahm | Full-fat cream cheese | Queso crema doble nata ; 250 ; 6 ; EL=15 | Packung=200
+Frischkäse 15 % (halbfett) | Cream cheese 15% | Queso crema 15 % ; 190 ; 7 ; EL=15 | Packung=200
+Frischkäse 5 % (leicht) | Light cream cheese 5% | Queso crema ligero 5 % ; 110 ; 9 ; EL=15 | Packung=200
+Hüttenkäse 4 % | Cottage cheese 4% | Requesón cottage 4 % ; 100 ; 12 ; Becher=200 | EL=30
+Hüttenkäse 0,8 % (light) | Light cottage cheese 0.8% | Requesón cottage light 0,8 % ; 70 ; 13 ; Becher=200 | EL=30
+Kefir 1,5 % | Kefir 1.5% | Kéfir 1,5 % ; 45 ; 3.4 ; Glas=250
+Kefir 3,5 % | Kefir 3.5% | Kéfir 3,5 % ; 63 ; 3.3 ; Glas=250
+Buttermilch 0,5 % | Buttermilk 0.5% | Suero de leche 0,5 % ; 37 ; 3.5 ; Glas=250
+Butter (82 %) | Butter (82%) | Mantequilla (82 %) ; 740 ; 0.7 ; TL=5 | EL=12 | Scheibe=10
+Halbfettbutter (40 %) | Half-fat butter (40%) | Mantequilla semidesnatada (40 %) ; 370 ; 1 ; TL=5 | EL=12
+Mozzarella 8 % (light) | Light mozzarella 8% | Mozzarella light 8 % ; 165 ; 19 ; Kugel=125 | Portion=60
+Mozzarella 19 % | Mozzarella 19% | Mozzarella 19 % ; 250 ; 18 ; Kugel=125 | Portion=60
+Gouda 30 % Fett i. Tr. | Gouda 30% fat in dry matter | Gouda 30 % materia grasa ; 270 ; 30 ; Scheibe=25 | EL (gerieben)=8
+Gouda 48 % Fett i. Tr. | Gouda 48% fat in dry matter | Gouda 48 % materia grasa ; 360 ; 24 ; Scheibe=25 | EL (gerieben)=8
+Emmentaler 45 % | Emmental 45% | Emmental 45 % ; 380 ; 28 ; Scheibe=25 | EL (gerieben)=8
+Bergkäse 50 % | Mountain cheese 50% | Queso de montaña 50 % ; 400 ; 27 ; Scheibe=25
+Feta 22 % (light) | Light feta 22% | Feta light 22 % ; 180 ; 21 ; Portion=50 | Packung=200
+Feta 45 % | Feta 45% | Feta 45 % ; 270 ; 17 ; Portion=50 | Packung=200
+Parmesan gerieben | Grated parmesan | Parmesano rallado ; 420 ; 35 ; EL=6 | Portion=10
+Ricotta (13 %) | Ricotta 13% | Ricotta 13 % ; 140 ; 9 ; EL=25 | Packung=250
+Mascarpone (40 %) | Mascarpone 40% | Mascarpone 40 % ; 410 ; 4.5 ; EL=25 | Packung=250
+Skyr natur (0,2 %) | Plain skyr 0.2% | Skyr natural 0,2 % ; 63 ; 11 ; Becher=150 | EL=25
+High-Protein-Pudding (Vanille) | High-protein pudding (vanilla) | Pudin alto en proteína (vainilla) ; 75 ; 10 ; Becher=200
 
 @Wurst, Fleisch & Fisch | Meat, cold cuts & fish | Embutidos, carne y pescado ; 🥓
 Rauchwurst (Rookworst) | Smoked sausage (rookworst) | Salchicha ahumada (rookworst) ; 300 ; 13 ; Stück=275 | Scheibe=15
@@ -2171,6 +2227,29 @@ Barista Hafermilch | Barista oat milk | Leche de avena barista ; 60 ; 1 ; Schuss
 Kaffee mit Hafermilch | Coffee with oat milk | Café con leche de avena ; 20 ; 0.3 ; Tasse=200
 Iced Latte | Iced latte | Latte con hielo ; 45 ; 2.5 ; Glas=350
 Frappé | Frappé | Frappé ; 80 ; 2 ; Glas=300
+Caotina Original (Pulver) | Caotina original (powder) | Caotina original (polvo) ; 400 ; 7 ; TL=5 | EL=15 | Portion=15
+Caotina Noir (Pulver) | Caotina noir (powder) | Caotina noir (polvo) ; 410 ; 9 ; EL=15 | Portion=15
+Caotina mit Milch 1,5 % (Tasse) | Caotina with 1.5% milk (cup) | Caotina con leche 1,5 % (taza) ; 75 ; 3.6 ; Tasse=250
+Kaba Original (Pulver) | Kaba original (powder) | Kaba original (polvo) ; 380 ; 3 ; EL=15 | Portion=15
+Kaba Fit (Pulver) | Kaba Fit (powder) | Kaba Fit (polvo) ; 330 ; 5 ; EL=15 | Portion=15
+Nesquik (Pulver) | Nesquik (powder) | Nesquik (polvo) ; 375 ; 4 ; EL=14 | Portion=14
+Nesquik weniger Zucker (Pulver) | Nesquik less sugar (powder) | Nesquik menos azúcar (polvo) ; 360 ; 6 ; EL=14
+Nesquik mit Milch 1,5 % (Glas) | Nesquik with 1.5% milk (glass) | Nesquik con leche 1,5 % (vaso) ; 68 ; 3.5 ; Glas=250
+Ovomaltine (Pulver) | Ovomaltine (powder) | Ovomaltine (polvo) ; 380 ; 9 ; EL=15 | Portion=20
+Ovomaltine Crunchy Cream | Ovomaltine crunchy cream | Ovomaltine crema crujiente ; 530 ; 6 ; TL=10 | EL=20
+Benco (Pulver) | Benco (powder) | Benco (polvo) ; 380 ; 3 ; EL=15
+Suchard Express (Pulver) | Suchard Express (powder) | Suchard Express (polvo) ; 380 ; 4 ; EL=15
+Kakaopulver entölt (ungesüßt) | Unsweetened cocoa powder | Cacao en polvo sin azúcar ; 350 ; 20 ; TL=4 | EL=8
+Trinkschokolade (Pulver, hochwertig) | Drinking chocolate powder | Chocolate a la taza en polvo ; 420 ; 6 ; EL=15 | Portion=25
+Heiße Schokolade mit Milch 1,5 % | Hot chocolate with 1.5% milk | Chocolate caliente con leche 1,5 % ; 80 ; 3.5 ; Tasse=250
+Kakao mit Hafermilch | Cocoa with oat milk | Cacao con leche de avena ; 65 ; 1 ; Tasse=250
+Kakao-Mix Protein (Pulver) | Protein cocoa mix (powder) | Mezcla de cacao proteica (polvo) ; 370 ; 35 ; EL=15 | Portion=25
+Ovomaltine mit Milch 1,5 % (Tasse) | Ovomaltine with 1.5% milk (cup) | Ovomaltine con leche 1,5 % (taza) ; 75 ; 4 ; Tasse=250
+Chai Latte Pulver | Chai latte powder | Chai latte en polvo ; 420 ; 3 ; Portion=20
+Cappuccino Pulver (Instant) | Instant cappuccino powder | Capuchino instantáneo en polvo ; 440 ; 8 ; Portion=15
+Nescafé Gold (Pulver) | Nescafé Gold (instant coffee) | Nescafé Gold (café soluble) ; 120 ; 8 ; TL=2
+Milchkaffee mit Milch 1,5 % | Café au lait with 1.5% milk | Café con leche 1,5 % ; 25 ; 1.7 ; Tasse=250
+Latte Macchiato mit Milch 1,5 % | Latte macchiato with 1.5% milk | Latte macchiato con leche 1,5 % ; 35 ; 2.6 ; Glas=300
 
 @Frühstück & Müsli | Breakfast & cereal | Desayuno y cereales ; 🥣
 Haferflocken | Oats | Copos de avena ; 370 ; 13.5 ; EL=10 | Portion=50

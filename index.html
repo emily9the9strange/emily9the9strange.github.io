@@ -253,6 +253,11 @@ nav.tabs button .ic{font-size:21px}
 .irow .ik{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .isugg{font-size:12px;font-weight:800;color:#b45309;background:#fff3dc;border:1.5px solid #f7c873;border-radius:999px;padding:3px 9px}
 .caddrow{display:flex;justify-content:flex-end;margin:8px 0 14px}
+.sportline{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;font-size:14px;font-weight:700;padding:10px 0 4px;border-top:1px dashed var(--line);margin-top:10px}
+.srow{display:grid;grid-template-columns:1fr 64px 62px 28px;gap:6px;align-items:center;margin-bottom:8px}.srow input{min-width:0}.srow .sg{text-align:right}
+.srow .sun{font-size:12.5px;font-weight:800;border-radius:8px;padding:6px 4px;background:var(--bg);border:0;color:var(--ink)}.srow .srm{color:var(--muted)}
+.srow .ssug{grid-column:1/-1}.srow .sk{grid-column:1/-1;font-size:12px;font-weight:700;color:var(--muted);margin-top:-2px}.srow .sk:empty{display:none}
+.srow .ssug button{display:flex;justify-content:space-between;gap:8px;text-align:left;padding:8px 10px;border-radius:9px;font-size:14px}.srow .ssug small{color:var(--muted);font-size:11.5px}
 .cadd{background:#ff6a1a;color:#fff;font-weight:800;font-size:15px;border-radius:999px;padding:10px 18px;box-shadow:0 4px 12px rgba(255,106,26,.35)}
 .cadd:active{transform:scale(.97)}
 .ipp{height:34px;border-radius:10px;background:var(--bg);font-size:11px;font-weight:800;color:var(--muted)}
@@ -818,9 +823,7 @@ nav.tabs .ic svg.fi.nav{width:28px;height:28px;vertical-align:middle}
     <div class="sect"><h2>Prognose</h2></div>
     <div class="card">
       <div id="fcText" class="fc"></div>
-      <div id="sportRow"><div class="row" style="border-bottom:0;padding-bottom:0"><label id="sportName">Hauptsport pro Woche</label><b id="sportLbl">2×</b></div>
-      <input type="range" id="sport" min="0" max="7" step="1" class="slider">
-      <div class="tip" style="display:flex;justify-content:space-between;margin-top:-2px"><span>0×</span><button class="lnk" data-open-profile style="font-size:12px">Alltag, Sport & Arbeitsweg im Profil</button><span>7×</span></div></div>
+      <div id="sportRow" class="sportline"><span>🏃 <span id="sportName" data-notr></span></span><button class="lnk" data-open-profile style="font-size:13px">Sport im Profil ändern</button></div>
       <div class="fcgrid" id="fcGrid"></div>
       <p class="tip" style="margin:12px 0 0">Die Prognose ist eine Schätzung (Mifflin-St-Jeor-Formel, 7.700 kcal ≈ 1 kg Fett) und rechnet mit, dass dein Verbrauch beim Abnehmen sinkt. Wasser, Salz und Zyklus lassen die Waage trotzdem schwanken. Entscheidend ist der Trend über Wochen.</p>
     </div>
@@ -1183,7 +1186,7 @@ function drawHist() {
   // settings fields
   $("#setGoal").value = S.goal; $("#setProt").value = S.prot; $("#setSnack").value = S.snackLimit;
   $("#setHeight").value = S.height; $("#setBirth").value = S.birthY; $("#setTarget").value = S.target ?? ""; $("#setCycle").value = S.cycleStart || ""; $("#setCycle").max = curDay; $("#setCycLen").value = S.cycleLen;
-  { const m = mainSport(); $("#sportRow").hidden = !m; if (m) { $("#sport").value = m.n; $("#sportLbl").textContent = m.n + "×"; $("#sportName").textContent = `${sportOf(m)[2]} ${sportOf(m)[0]} pro Woche`; } }
+  { $("#sportName").textContent = sportTxt(); }
 
   // ----- kcal chart -----
   const rng = histDays.slice(-histRange);
@@ -1407,13 +1410,13 @@ function drawRoad() {
   // 2) Startphase
   const startKey = [W.list[0]?.d, Object.keys(SUM.days).sort()[0]].filter(Boolean).sort()[0];
   const start = startKey ? parseKey(startKey) : now, sinceDays = Math.round((now - start) / 864e5);
-  if (sinceDays <= 21) items.push({ cls: sinceDays <= 14 ? "now" : "", icon: "🚀", when: `bis ${fmtD(addDays(start, 14))}`, title: "Schneller Start, danach langsamer", text: "In den ersten 1–2 Wochen fällt das Gewicht oft schnell (Wasser und Glykogen gehen mit raus). Wenn es danach – meist in Woche 3 – stockt, ist das normal und kein Zeichen, dass es nicht klappt." });
+  if (sinceDays <= 14) items.push({ cls: "now", icon: "🚀", when: `jetzt · bis ${fmtD(addDays(start, 14))}`, title: "Schneller Start, danach langsamer", text: "In den ersten 1–2 Wochen fällt das Gewicht oft schnell (Wasser und Glykogen gehen mit raus). Wenn es danach – meist in Woche 3 – stockt, ist das normal und kein Zeichen, dass es nicht klappt." });
   // 3) Zyklus
   const cw = cycleWindows(now.getTime(), addDays(now, 60).getTime()).slice(0, 2);
-  if (cw.length) cw.forEach((w, i) => items.push({ cls: w.a <= now ? "now" : "", icon: "🌸", when: `${fmtD(w.a)}–${fmtD(w.b)}`, sort: w.a.getTime(), title: w.a <= now ? "Jetzt: Wasser-Phase im Zyklus" : "Mögliche Wasser-Phase (Zyklus)", text: `Vor und zu Beginn der Periode (ca. ${fmtD(w.ps)}) lagert der Körper oft 0,5–2 kg Wasser ein. Die Waage steigt dann, obwohl du Fett verlierst. Danach geht's meist sichtbar runter.${i === 0 ? " Am besten in dieser Zeit nicht zu viel wiegen." : ""}` }));
+  if (cw.length) cw.forEach((w, i) => items.push({ cls: w.a <= now ? "now" : "", icon: "🌸", when: w.a <= now ? `jetzt · bis ${fmtD(w.b)}` : `${fmtD(w.a)}–${fmtD(w.b)}`, sort: w.a.getTime(), title: w.a <= now ? "Jetzt: Wasser-Phase im Zyklus" : "Mögliche Wasser-Phase (Zyklus)", text: `Vor und zu Beginn der Periode (ca. ${fmtD(w.ps)}) lagert der Körper oft 0,5–2 kg Wasser ein. Die Waage steigt dann, obwohl du Fett verlierst. Danach geht's meist sichtbar runter.${i === 0 ? " Am besten in dieser Zeit nicht zu viel wiegen." : ""}` }));
   else if (!S.cycleStart && S.cycleMode !== "none") items.push({ cls: "", icon: "🌸", when: "jeden Monat", title: "Zyklus-Schwankungen", text: "In den Tagen vor der Periode zeigt die Waage oft 0,5–2 kg mehr (Wasser). Wenn du einen Zyklus hast, trag im Profil den Beginn deiner letzten Periode ein, dann markiere ich diese Phasen. Wenn nicht, wähl dort „Ich habe keinen Zyklus“." });
   // 3b) Feiertage
-  holidayWindows(now.getTime(), addDays(now, 60).getTime()).filter(h => h.b > now).slice(0, 2).forEach(h => items.push({ cls: h.a <= now ? "now" : "", icon: h.icon, when: `${fmtD(h.a)}–${fmtD(h.b)}`, sort: h.a.getTime(), title: `<span>${h.a <= now ? "Jetzt: Wasser-Hoch an den Festtagen" : "Wasser-Hoch an den Festtagen einplanen"}</span> · <span>${esc(h.name)}</span>`, text: h.id === "eid" ? "Im Ramadan schwankt das Gewicht oft stark: späte, große Mahlzeiten und tagsüber wenig trinken. Rund ums Zuckerfest kommt meist ein Hoch dazu. Das ist größtenteils Wasser und nach 1–2 Wochen wieder weg." : "Festessen mit mehr Salz, Kohlenhydraten und Süßem binden Wasser. Die Waage zeigt dann oft 0,5–2 kg mehr. Das meiste ist kein Fett und ist nach ein paar Tagen bis 2 Wochen wieder weg. Genießen ist erlaubt – danach einfach normal weitermachen." }));
+  holidayWindows(now.getTime(), addDays(now, 60).getTime()).filter(h => h.b > now).slice(0, 2).forEach(h => items.push({ cls: h.a <= now ? "now" : "", icon: h.icon, when: h.a <= now ? `jetzt · bis ${fmtD(h.b)}` : `${fmtD(h.a)}–${fmtD(h.b)}`, sort: h.a.getTime(), title: `<span>${h.a <= now ? "Jetzt: Wasser-Hoch an den Festtagen" : "Wasser-Hoch an den Festtagen einplanen"}</span> · <span>${esc(h.name)}</span>`, text: h.id === "eid" ? "Im Ramadan schwankt das Gewicht oft stark: späte, große Mahlzeiten und tagsüber wenig trinken. Rund ums Zuckerfest kommt meist ein Hoch dazu. Das ist größtenteils Wasser und nach 1–2 Wochen wieder weg." : "Festessen mit mehr Salz, Kohlenhydraten und Süßem binden Wasser. Die Waage zeigt dann oft 0,5–2 kg mehr. Das meiste ist kein Fett und ist nach ein paar Tagen bis 2 Wochen wieder weg. Genießen ist erlaubt – danach einfach normal weitermachen." }));
   // 4) Tempo & echtes Plateau
   if (last) {
     const pr = project(last.kg, intake, 364), lp = parseKey(last.d);
@@ -1433,7 +1436,7 @@ function drawRoad() {
     } else items.push({ cls: "now", icon: "⚖️", when: "Jetzt", title: "Kein Defizit", text: `Mit ${fmt(intake)} kcal isst du ungefähr so viel, wie du verbrauchst (~${fmt(tdee(last.kg))} kcal). Dein Gewicht bleibt so eher gleich.` });
   }
   // 5) Diet Break
-  if (startKey) { const db0 = addDays(start, 70), db1 = addDays(start, 84); if (db1 >= now) items.push({ cls: db0 <= now ? "now" : "", icon: "🛋️", when: `${fmtD(db0)}–${fmtD(db1)}`, sort: db0.getTime(), title: "Optional: Diät-Pause", text: `Nach 10–12 Wochen Defizit tut vielen eine Pause gut: 1–2 Wochen auf Erhaltung essen (~${fmt(last ? tdee(last.kg) : S.goal + 500)} kcal). Die Waage steigt dabei oft 0,5–1 kg (Glykogen und Wasser, kein Fett) – danach geht's mit frischer Motivation weiter.` }); }
+  if (startKey) { const db0 = addDays(start, 70), db1 = addDays(start, 84); if (db1 >= now) items.push({ cls: db0 <= now ? "now" : "", icon: "🛋️", when: db0 <= now ? `jetzt · bis ${fmtD(db1)}` : `${fmtD(db0)}–${fmtD(db1)}`, sort: db0.getTime(), title: "Optional: Diät-Pause", text: `Nach 10–12 Wochen Defizit tut vielen eine Pause gut: 1–2 Wochen auf Erhaltung essen (~${fmt(last ? tdee(last.kg) : S.goal + 500)} kcal). Die Waage steigt dabei oft 0,5–1 kg (Glykogen und Wasser, kein Fett) – danach geht's mit frischer Motivation weiter.` }); }
   // 6) Training
   items.push({ cls: "", icon: "🧗", when: "nach neuem Training", sort: Infinity - 1, title: "Muskeln speichern Wasser", text: "Wenn du härter oder neu trainierst (neuer Gym-Plan, viel Bouldern), halten die Muskeln 1–2 Wochen mehr Wasser. Die Waage stockt dann – das ist Reparatur, kein Fett." });
   const order = x => x.cls === "now" ? -Infinity : (x.sort ?? now.getTime());
@@ -1657,7 +1660,48 @@ function compressImage(file) {
   });
 }
 function snackFromDb() {
-  foodSheet({ title: "Neuer Snack", action: "Als Snack übernehmen", snack: true, onPick: it => snackSheet(null, it) });
+  foodSheet({ title: "Neuer Snack", action: "Als Snack übernehmen", snack: true, onPick: it => snackSheet(null, it), onRecipe: () => snackRecipeSheet() });
+}
+// Snack aus eigenem Rezept: Zutaten eintragen, „ergibt X Stück“ → kcal pro Stück
+function snackRecipeSheet(pre) {
+  const st = pre || { name: "", n: 12, rows: [{ n: "", g: "", un: "" }, { n: "", g: "", un: "" }] };
+  const uG = r => { if (!r.un) return 0; const u = ingUnits(r.n).find(([l]) => l === r.un); return u ? u[1] : 0; };
+  const grams = r => { const v = num(r.g); const ug = uG(r); return ug ? v * ug : v; };
+  const tot = () => st.rows.reduce((a, r) => { const f = r.n && ingInfo(r.n); const g = grams(r); return f && g ? { k: a.k + f.k * g / 100, p: a.p + f.p * g / 100 } : a; }, { k: 0, p: 0 });
+  const rowHtml = (r, i) => `<div class="srow" data-i="${i}"><input class="sname" value="${esc(r.n ? ingLabel(r.n) : "")}" placeholder="Zutat, z. B. Mehl" autocomplete="off"><input class="sg" inputmode="decimal" value="${r.g}" placeholder="0"><select class="sun"></select><button type="button" class="srm" data-rm="${i}" aria-label="Entfernen">✕</button><div class="ssug isug" hidden></div><div class="sk"></div></div>`;
+  openSheet(`<button type="button" class="lnk" id="srBack">‹ zurück</button><h3 style="margin-top:6px">🧁 Snack aus eigenem Rezept</h3>
+    <div class="fld"><label>Name</label><input id="srn" value="${esc(st.name)}" placeholder="z. B. Omas Haferkekse" maxlength="40"></div>
+    <div class="fld"><label>Zutaten (für das ganze Rezept)</label><div id="srrows">${st.rows.map(rowHtml).join("")}</div>
+      <div class="caddrow"><button type="button" class="cadd" id="sradd">＋ Zutat</button></div></div>
+    <div class="fld"><label>Ergibt</label><div class="two"><input id="srN" inputmode="numeric" value="${st.n}"><span class="tip" style="align-self:center">Stück / Portionen</span></div></div>
+    <div class="fsum" id="srsum"></div>
+    <div class="actions"><button class="btn" id="srok">Weiter</button><button class="btn ghost" id="cancel">Abbrechen</button></div>`);
+  const upd = () => {
+    sheet.querySelectorAll(".srow").forEach(el => { const r = st.rows[+el.dataset.i]; const f = r.n && ingInfo(r.n);
+      const us = el.querySelector(".sun"), opts = [[f?.u || "g", 0], ...(f ? ingUnits(r.n, f) : [])], key = opts.map(o => o[0]).join("|");
+      if (us.dataset.key !== key) { us.dataset.key = key; us.innerHTML = opts.map(([l, gg]) => `<option value="${esc(gg ? l : "")}">${esc(shortUnit(l))}</option>`).join(""); }
+      if (r.un && !uG(r)) r.un = ""; us.value = r.un || ""; us.disabled = opts.length < 2;
+      const g = grams(r); el.querySelector(".sk").textContent = f && g ? `${uG(r) ? fmt(g) + " g · " : ""}${fmt(f.k * g / 100)} kcal` : r.n && !f ? "Unbekannt – wähle einen Vorschlag" : ""; });
+    const t = tot(), n = Math.max(1, num($("#srN").value) || 1);
+    $("#srsum").innerHTML = `<div><b>${fmt(t.k / n)}</b><span>kcal pro Stück</span></div><div><b>${fmt1(t.p / n)} g</b><span>Eiweiß pro Stück</span></div><div><b>${fmt(t.k)}</b><span>kcal gesamt</span></div>`;
+  };
+  sheet.oninput = e => { const t = e.target, el = t.closest(".srow");
+    if (t.id === "srn") st.name = t.value; else if (t.id === "srN") st.n = t.value;
+    else if (el) { const r = st.rows[+el.dataset.i];
+      if (t.classList.contains("sname")) { const raw = t.value.trim(); r.n = raw && !ingInfo(raw) && ingAlias(raw) ? ingAlias(raw) : raw; const box = el.querySelector(".ssug"), hits = raw.length >= 2 ? ingSearch(raw, 6) : [];
+        box.innerHTML = hits.map(n => { const f = ingInfo(n); return `<button type="button" data-ssug="${esc(n)}"><b data-notr>${esc(ingLabel(n))}</b><small>${f ? fmt(f.k) + " kcal / 100 " + (f.u || "g") : ""}</small></button>`; }).join(""); box.hidden = !hits.length; }
+      else if (t.classList.contains("sg")) r.g = t.value; }
+    upd(); };
+  sheet.onchange = e => { if (e.target.classList.contains("sun")) { st.rows[+e.target.closest(".srow").dataset.i].un = e.target.value; upd(); } };
+  sheet.onclick = e => { const b = e.target.closest("button"); if (!b) return; const el = b.closest(".srow");
+    if (b.dataset.ssug) { const r = st.rows[+el.dataset.i]; r.n = b.dataset.ssug; el.querySelector(".sname").value = ingLabel(r.n); el.querySelector(".ssug").hidden = true; upd(); el.querySelector(".sg").focus(); }
+    else if (b.dataset.rm != null) { st.rows.splice(+b.dataset.rm, 1); if (!st.rows.length) st.rows.push({ n: "", g: "", un: "" }); $("#srrows").innerHTML = st.rows.map(rowHtml).join(""); upd(); }
+    else if (b.id === "sradd") { st.rows.push({ n: "", g: "", un: "" }); $("#srrows").insertAdjacentHTML("beforeend", rowHtml(st.rows[st.rows.length - 1], st.rows.length - 1)); upd(); sheet.querySelector(".srow:last-child .sname").focus(); }
+    else if (b.id === "srBack") snackFromDb();
+    else if (b.id === "cancel") closeSheet();
+    else if (b.id === "srok") { const t = tot(), n = Math.max(1, num($("#srN").value) || 1); if (!t.k) { toast("Bitte mindestens eine Zutat mit Menge eintragen"); return; }
+      snackSheet(null, { name: (st.name || "Eigener Snack").trim(), kcal: Math.round(t.k / n), protein: Math.round(t.p / n), emoji: "🍪" }); } };
+  upd();
 }
 function snackSheet(id, pre = {}) {
   const s = id ? S.snacks.find(x => x.id === id) : null;
@@ -2325,10 +2369,11 @@ function snackPlanSheet(key, slot = "snack") {
   const d = parseKey(key), m = mealById(slot);
   const dayItems = () => P.days[key] || [];
   const used = () => dayItems().filter(x => x.type === "snack").reduce((a, x) => a + num(x.kcal), 0);
-  const cnt = id => dayItems().filter(x => x.type === "snack" && x.snackId === id && x.slot === slot && !x.done).length;
+  const cnt = id => dayItems().filter(x => x.type === "snack" && x.snackId === id && x.slot === slot && !x.done).reduce((a, x) => a + (x.q || 1), 0);
+  const setQ = (it, s, q) => { it.q = q; it.name = q === 1 ? s.name : `${fmtQ(q)}× ${s.name}`; it.kcal = Math.round(num(s.kcal) * q); it.protein = Math.round(num(s.protein) * q); };
   openSheet(`<h3>${m[2]} ${slot === "snack" ? "Snacks" : m[1]} · ${key === curDay ? "heute" : d.toLocaleDateString(LOCALE, { weekday: "long", day: "numeric", month: "numeric" })}</h3>
     <div class="sbud"><div class="slim-top"><b id="spUsed"></b><span id="spLeft"></span></div><div class="slim-bar"><i id="spBar"></i></div></div>
-    ${S.snacks.length ? `<p class="tip" style="margin:0 0 8px">Antippen = einplanen (mehrmals tippen für mehrere). Mit − wieder entfernen.</p><div class="spgrid">${S.snacks.map(s => { const img = S.photos.ok && imgs[s.id];
+    ${S.snacks.length ? `<p class="tip" style="margin:0 0 8px">Antippen = einplanen, mehrmals tippen = mehrere (z. B. 3×). Mit − wieder weniger.</p><div class="spgrid">${S.snacks.map(s => { const img = S.photos.ok && imgs[s.id];
       return `<div class="spcard" data-spid="${esc(s.id)}"><button type="button" class="spadd" data-sp="${esc(s.id)}"><span class="spimg" style="${img ? `background-image:url(${img})` : `background:${grad(s.name)}`}">${img ? "" : esc(s.emoji || "🍪")}</span><b>${esc(s.name)}</b><small>${fmt(s.kcal)} kcal${s.protein ? " · " + fmt(s.protein) + " g Eiw." : ""}</small></button><span class="spcnt" data-spc="${esc(s.id)}"></span><button type="button" class="spminus" data-spm="${esc(s.id)}" aria-label="Einen entfernen">−</button></div>`; }).join("")}</div>`
       : `<p class="tip" style="font-size:14px">Deine Snackbar ist noch leer.</p><button class="btn snk" id="spGo">🍪 Zur Snackbar</button>`}
     ${slot !== "snack" || true ? `<button class="lnk" id="spOther" style="margin:12px 0 0">‹ zurück zur Auswahl</button>` : ""}
@@ -2340,8 +2385,9 @@ function snackPlanSheet(key, slot = "snack") {
     S.snacks.forEach(s => { const c = cnt(s.id), el = sheet.querySelector(`[data-spid="${s.id}"]`); if (!el) return; el.classList.toggle("on", c > 0); el.querySelector(".spcnt").textContent = c ? c + "×" : ""; el.classList.toggle("toomuch", num(s.kcal) > L - u); });
   };
   sheet.onclick = e => { const b = e.target.closest("button"); if (!b) return;
-    if (b.dataset.sp) { const s = S.snacks.find(x => x.id === b.dataset.sp); if (!s) return; (P.days[key] = P.days[key] || []).push({ id: uid(), slot, done: false, type: "snack", snackId: s.id, name: s.name, emoji: s.emoji, kcal: Math.round(num(s.kcal)), protein: Math.round(num(s.protein)) }); saveP(); draw(); renderPlan(); renderToday(); }
-    else if (b.dataset.spm) { const arr = P.days[key] || []; for (let i = arr.length - 1; i >= 0; i--) if (arr[i].type === "snack" && arr[i].snackId === b.dataset.spm && arr[i].slot === slot && !arr[i].done) { arr.splice(i, 1); break; } saveP(); draw(); renderPlan(); renderToday(); }
+    if (b.dataset.sp) { const s = S.snacks.find(x => x.id === b.dataset.sp); if (!s) return; const arr = (P.days[key] = P.days[key] || []); const ex = arr.find(x => x.type === "snack" && x.snackId === s.id && x.slot === slot && !x.done);
+      if (ex) setQ(ex, s, (ex.q || 1) + 1); else { const it = { id: uid(), slot, done: false, type: "snack", snackId: s.id, emoji: s.emoji }; setQ(it, s, 1); arr.push(it); } saveP(); draw(); renderPlan(); renderToday(); }
+    else if (b.dataset.spm) { const arr = P.days[key] || [], s = S.snacks.find(x => x.id === b.dataset.spm); for (let i = arr.length - 1; i >= 0; i--) if (arr[i].type === "snack" && arr[i].snackId === b.dataset.spm && arr[i].slot === slot && !arr[i].done) { const q = arr[i].q || 1; if (q > 1 && s) setQ(arr[i], s, q - 1); else arr.splice(i, 1); break; } saveP(); draw(); renderPlan(); renderToday(); }
     else if (b.id === "done") closeSheet();
     else if (b.id === "spGo") { closeSheet(); showTab("snacks"); }
     else if (b.id === "spOther") planAddSheet(key, slot); };
@@ -3440,7 +3486,8 @@ function foodSheet(opts) {
   const nut = () => { const g = unitGrams(sel, unit) * qty; return { k: sel.k * g / 100, p: sel.p * g / 100, g }; };
   const firstInfo = f => f.mine ? `${fmt(f.k)} kcal / Portion` : f.units.length ? `${fmt(f.k * f.units[0][1] / 100)} kcal / ${f.units[0][0]}${f.units[0][0].includes("=") ? "" : ` (${fmt(f.units[0][1])} ${f.base})`}` : `${fmt(f.k)} kcal / 100 ${f.base}`;
   const dietTag = f => { const n = f.n.toLowerCase(); if (/vegetarisch/.test(n)) return ` <i class="vtag veg">🥕 vegetarisch</i>`; return VEGAN_FOOD_RE.test(n) ? ` <i class="vtag">🌱 vegan</i>` : ""; };
-  const ownRow = () => `<button type="button" class="frow fownrow" data-own="1"><span class="fe">✏️</span><span class="ft"><b>${query ? `„${esc(query)}“ selbst eintragen` : "Eigenes Lebensmittel eintragen"}</b><small>Eigene kcal und Eiweiß angeben – wird für später gemerkt</small></span><span class="fgo">＋</span></button>`;
+  const recRow = () => opts.onRecipe ? `<button type="button" class="frow fownrow" data-rec="1"><span class="fe">🧁</span><span class="ft"><b>Eigenes Rezept (Zutaten)</b><small>z. B. Kekse, Kakao-Mix – kcal pro Stück werden berechnet</small></span><span class="fgo">＋</span></button>` : "";
+  const ownRow = () => recRow() + `<button type="button" class="frow fownrow" data-own="1"><span class="fe">✏️</span><span class="ft"><b>${query ? `„${esc(query)}“ selbst eintragen` : "Eigenes Lebensmittel eintragen"}</b><small>Eigene kcal und Eiweiß angeben – wird für später gemerkt</small></span><span class="fgo">＋</span></button>`;
   const row = (f, extra) => `<button type="button" class="frow" data-food="${esc(f.n)}"><span class="fe">${esc(f.emoji)}</span><span class="ft"><b data-notr>${esc(foodName(f))}</b><small>${extra || firstInfo(f)}${dietTag(f)}</small></span><span class="fgo">›</span></button>`;
   function draw() {
     if (view === "search") {
@@ -3450,6 +3497,7 @@ function foodSheet(opts) {
         <div class="fsearch"><span>🔍</span><input id="fq" placeholder="z. B. Brötchen, Pizza, Pringles, Traube…" value="${esc(query)}" autocomplete="off" enterkeyhint="search"></div>
         <div id="fres">${query ? (rs.length ? rs.map(f => row(f)).join("") + ownRow() : ownRow() + `<p class="tip" style="margin:12px 2px">Nichts gefunden für „${esc(query)}“. Leg es unten einfach selbst an – dann ist es beim nächsten Mal dabei.</p>`)
           : (rc.length ? `<div class="fsec">Zuletzt verwendet</div>${rc.map(({ r, f }) => row(f, `zuletzt: ${fmtFrac(r.q)} ${esc(r.u === "__base" ? f.base : r.u)}`)).join("")}` : `<p class="tip" style="margin:12px 2px">Über ${foodsBase().length} Lebensmittel – vom Bäcker-Brötchen über Döner bis zur Weintraube. Einfach lostippen.</p>`)}</div>
+        ${opts.onRecipe ? `<button type="button" class="btn ghost" data-rec="1" style="margin-top:12px">🧁 Eigenes Rezept (Zutaten) – kcal pro Stück berechnen</button>` : ""}
         <button type="button" class="btn ghost" id="fown" style="margin-top:12px">✏️ ${query ? `„${esc(query)}“` : "Eigenes Lebensmittel"} selbst eintragen</button>
         <div class="actions"><button class="btn ghost" id="fcancel">Abbrechen</button></div>`;
       const inp = $("#fq"); inp.oninput = () => { query = inp.value; const pos = inp.selectionStart; drawResultsOnly(); };
@@ -3516,6 +3564,7 @@ function foodSheet(opts) {
     else if (b.id === "fcancel") closeSheet();
     else if (b.id === "fback") { view = "search"; draw(); }
     else if (b.id === "fown" || b.dataset.own) { view = "own"; draw(); }
+    else if (b.dataset.rec && opts.onRecipe) opts.onRecipe();
     else if (b.dataset.unit) { const old = unit; unit = b.dataset.unit; if ((old === "__base") !== (unit === "__base")) qty = unit === "__base" ? Math.round(unitGrams(sel, old) * qty) || 100 : 1; draw(); }
     else if (b.dataset.q) { qty = +b.dataset.q; const qi = $("#fqty"); if (qi) qi.value = unit === "__base" ? fmtQ(qty) : fmtFrac(qty); drawSumOnly(); }
     else if (b.dataset.d) { qty = Math.max(0.25, Math.round((qty + +b.dataset.d) * 4) / 4); const qi = $("#fqty"); if (qi) qi.value = fmtFrac(qty); drawSumOnly(); }
@@ -3923,6 +3972,7 @@ const I18N = {
 "Die Prognose-Linie zeigt typische Wasser-Hochs": ["The forecast line shows typical water highs", "La línea de previsión muestra los picos típicos de agua"],
 "– das ist kein Fett und geht danach wieder runter.": ["– that isn't fat and goes back down afterwards.", "– no es grasa y luego vuelve a bajar."],
 "Feste": ["Festivals", "Fiestas"],
+"🧁 Eigenes Rezept (Zutaten) – kcal pro Stück berechnen": ["🧁 Own recipe (ingredients) – calculate kcal per piece", "🧁 Receta propia (ingredientes) – calcular kcal por unidad"], "Eigenes Rezept (Zutaten)": ["Own recipe (ingredients)", "Receta propia (ingredientes)"], "z. B. Kekse, Kakao-Mix – kcal pro Stück werden berechnet": ["e.g. cookies, cocoa mix – kcal per piece are calculated", "p. ej. galletas, cacao – se calculan las kcal por unidad"], "🧁 Snack aus eigenem Rezept": ["🧁 Snack from your own recipe", "🧁 Snack de receta propia"], "Zutaten (für das ganze Rezept)": ["Ingredients (whole recipe)", "Ingredientes (receta completa)"], "Ergibt": ["Makes", "Rinde"], "Stück / Portionen": ["pieces / portions", "unidades / porciones"], "kcal pro Stück": ["kcal per piece", "kcal por unidad"], "Eiweiß pro Stück": ["protein per piece", "proteína por unidad"], "Weiter": ["Next", "Siguiente"], "Sport im Profil ändern": ["Change sport in profile", "Cambiar deporte en el perfil"], "Unbekannt – wähle einen Vorschlag": ["Unknown – pick a suggestion", "Desconocido: elige una sugerencia"], "Antippen = einplanen, mehrmals tippen = mehrere (z. B. 3×). Mit − wieder weniger.": ["Tap = plan, tap again = more (e.g. 3×). Use − for fewer.", "Toca = planificar, toca otra vez = más (p. ej. 3×). Con − menos."],
 "💡 Vorschlag: {0}": ["💡 Suggestion: {0}", "💡 Sugerencia: {0}"], "Einheit": ["Unit", "Unidad"],
 "Eigene Zutat – Nährwerte pro 100 g:": ["Own ingredient – nutrition per 100 g:", "Ingrediente propio – valores por 100 g:"],
 "Eigenes Lebensmittel eintragen": ["Add your own food", "Añadir alimento propio"], "Eigene kcal und Eiweiß angeben – wird für später gemerkt": ["Enter your own kcal and protein – saved for later", "Indica tus kcal y proteína – se guarda para después"], "kcal & Eiweiß pro 100 g": ["kcal & protein per 100 g", "kcal y proteína por 100 g"],
@@ -4207,7 +4257,7 @@ let setT;
     saveS(); renderToday(); renderSnacks(); drawHist(); updateGoalInfo();
   }, 700);
 }));
-$("#sport").addEventListener("input", () => { const m = mainSport(); if (m) m.n = +$("#sport").value; drawHist(); clearTimeout(setT); setT = setTimeout(saveS, 600); });
+
 $("#rangeSeg").addEventListener("click", e => { const b = e.target.closest("[data-range]"); if (!b) return; histRange = +b.dataset.range; $("#rangeSeg").querySelectorAll("button").forEach(x => x.classList.toggle("act", x === b)); drawHist(); });
 $("#btnWeight").onclick = weightSheet;
 $("#btnQuickTake").onclick = openFridge;
