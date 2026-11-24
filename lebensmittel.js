@@ -402,6 +402,33 @@ Burgerbrötchen Brioche | Brioche burger bun | Pan de hamburguesa brioche ; 310 
 American Sandwich (Harry) | American sandwich bread | Pan americano ; 260 ; 8 ; Scheibe=30
 Brezen vom Vortag (für Knödel) | Day-old pretzels (for dumplings) | Pretzels del día anterior (para albóndigas) ; 280 ; 8 ; Stück=85
 Knödelbrot | Bread cubes for dumplings | Pan para albóndigas ; 270 ; 9 ; Portion=250
+Mohnschnecke | Poppy seed swirl | Caracola de amapola ; 380 ; 7 ; Stück=100
+Zimtschnecke (Bäcker) | Cinnamon roll (bakery) | Rollo de canela (panadería) ; 380 ; 6 ; Stück=100
+Nussschnecke (Bäcker) | Nut swirl (bakery) | Caracola de nueces (panadería) ; 410 ; 7 ; Stück=110
+Puddingschnecke | Custard swirl | Caracola de crema ; 330 ; 6 ; Stück=110
+Rosinenschnecke | Raisin swirl | Caracola de pasas ; 340 ; 6 ; Stück=100
+Quarktasche | Quark pastry | Hojaldre de requesón ; 330 ; 8 ; Stück=110
+Kirschtasche | Cherry turnover | Empanadilla de cereza ; 320 ; 4 ; Stück=110
+Butter-Croissant | Butter croissant | Croissant de mantequilla ; 410 ; 8 ; Stück=60
+Schoko-Croissant | Chocolate croissant | Croissant de chocolate ; 420 ; 7 ; Stück=75
+Nougat-Croissant | Nougat croissant | Croissant de turrón ; 430 ; 7 ; Stück=80
+Sesambrötchen | Sesame roll | Panecillo de sésamo ; 290 ; 9 ; Stück=55
+Kürbiskernbrötchen | Pumpkin seed roll | Panecillo de pipas de calabaza ; 300 ; 11 ; Stück=70
+Kaiserbrötchen / Kaisersemmel | Kaiser roll | Panecillo Kaiser ; 270 ; 8 ; Stück=55
+Milchbrötchen | Milk roll | Panecillo de leche ; 320 ; 8 ; Stück=50
+Krapfen / Berliner mit Marmelade | Jam doughnut | Berlinesa de mermelada ; 360 ; 6 ; Stück=75
+Berliner mit Vanillefüllung | Custard-filled doughnut | Berlinesa de crema ; 370 ; 6 ; Stück=80
+Donut Schoko | Chocolate doughnut | Donut de chocolate ; 420 ; 5 ; Stück=65
+Streuselschnecke | Crumble swirl | Caracola con crumble ; 390 ; 6 ; Stück=100
+Plunderteilchen mit Pudding | Danish with custard | Danés con crema ; 350 ; 6 ; Stück=110
+Laugenbrezel mit Butter | Pretzel with butter | Pretzel con mantequilla ; 330 ; 8 ; Stück=100
+Käselaugenstange | Cheese pretzel stick | Barrita de pretzel con queso ; 320 ; 12 ; Stück=100
+Schinken-Käse-Croissant | Ham and cheese croissant | Croissant de jamón y queso ; 360 ; 12 ; Stück=110
+Belegtes Vollkornbrötchen mit Käse | Wholegrain roll with cheese | Panecillo integral con queso ; 260 ; 13 ; Stück=130
+Roggenbrot (Scheibe) | Rye bread (slice) | Pan de centeno (rebanada) ; 210 ; 6 ; Scheibe=50
+Bauernbrot (Scheibe) | Farmhouse bread (slice) | Pan de campo (rebanada) ; 230 ; 7 ; Scheibe=50
+Sauerteigbrot (Scheibe) | Sourdough bread (slice) | Pan de masa madre (rebanada) ; 240 ; 8 ; Scheibe=50
+Ciabatta (Stück) | Ciabatta (piece) | Ciabatta (pieza) ; 260 ; 9 ; Stück=80
 
 @Imbiss & Fast Food | Takeaway & fast food | Comida rápida ; 🍔
 Döner Kebab | Doner kebab | Kebab ; 180 ; 10 ; Stück=400 | halber=200
@@ -594,6 +621,18 @@ Five Guys Cheeseburger | Five Guys cheeseburger | Five Guys cheeseburger ; 270 ;
 Five Guys Pommes (klein) | Five Guys fries (small) | Five Guys patatas (pequeñas) ; 300 ; 4 ; Portion=230
 Döner Kebab im Brot (Imbiss) | Döner kebab in bread (takeaway) | Döner kebab en pan ; 215 ; 12 ; Stück=400
 Döner-Box mit Pommes | Döner box with chips | Caja de döner con patatas ; 230 ; 11 ; Box=450
+Leberkässemmel | Leberkäse roll | Panecillo de Leberkäse ; 270 ; 10 ; Stück=170
+Leberkäsesemmel mit Käse | Leberkäse roll with cheese | Panecillo de Leberkäse con queso ; 285 ; 12 ; Stück=190
+Leberkäse im Brötchen mit Senf | Leberkäse in a roll with mustard | Leberkäse en panecillo con mostaza ; 270 ; 10 ; Stück=170
+Frikadellenbrötchen | Meat patty roll | Panecillo con albóndiga ; 245 ; 12 ; Stück=170
+Frikadellenbrötchen mit Senf & Gurke | Meat patty roll with mustard & pickle | Panecillo con albóndiga, mostaza y pepinillo ; 240 ; 11 ; Stück=190
+Schnitzelsemmel | Schnitzel roll | Panecillo con escalope ; 260 ; 12 ; Stück=200
+Schnitzelbrötchen mit Salat | Schnitzel roll with salad | Panecillo de escalope con ensalada ; 240 ; 11 ; Stück=230
+Fleischkäsweggli | Fleischkäse roll (Swiss) | Panecillo de Fleischkäse ; 270 ; 10 ; Stück=170
+Mettbrötchen | Mett roll (raw pork) | Panecillo con carne picada cruda ; 270 ; 13 ; Stück=110
+Salamibrötchen | Salami roll | Panecillo de salami ; 300 ; 11 ; Stück=110
+Schinken-Käse-Brötchen | Ham and cheese roll | Panecillo de jamón y queso ; 260 ; 13 ; Stück=130
+Fischbrötchen Matjes | Matjes herring roll | Panecillo de arenque matjes ; 250 ; 10 ; Stück=140
 
 @Gerichte | Dishes | Platos ; 🍝
 Käsespätzle | Cheese spaetzle | Spätzle con queso ; 230 ; 10 ; Portion=350 | kleine Portion=250
@@ -1200,6 +1239,27 @@ Ricotta (13 %) | Ricotta 13% | Ricotta 13 % ; 140 ; 9 ; EL=25 | Packung=250
 Mascarpone (40 %) | Mascarpone 40% | Mascarpone 40 % ; 410 ; 4.5 ; EL=25 | Packung=250
 Skyr natur (0,2 %) | Plain skyr 0.2% | Skyr natural 0,2 % ; 63 ; 11 ; Becher=150 | EL=25
 High-Protein-Pudding (Vanille) | High-protein pudding (vanilla) | Pudin alto en proteína (vainilla) ; 75 ; 10 ; Becher=200
+Müller Joghurt mit der Ecke Erdbeere | Müller Corner yoghurt strawberry | Müller Corner yogur fresa ; 115 ; 3.6 ; Becher=150
+Müller Joghurt mit der Ecke Schoko-Balls | Müller Corner yoghurt choco balls | Müller Corner yogur bolitas de chocolate ; 135 ; 4 ; Becher=150
+Müller Froop Pfirsich-Maracuja | Müller Froop peach passion fruit | Müller Froop melocotón y maracuyá ; 105 ; 3 ; Becher=150
+Ehrmann Almighurt Pfirsich | Ehrmann Almighurt peach | Ehrmann Almighurt melocotón ; 100 ; 3.4 ; Becher=150
+Ehrmann Almighurt Stracciatella | Ehrmann Almighurt stracciatella | Ehrmann Almighurt stracciatella ; 115 ; 3.5 ; Becher=150
+Ehrmann High Protein Joghurt Erdbeer | Ehrmann high protein yoghurt strawberry | Ehrmann yogur proteico fresa ; 70 ; 10 ; Becher=200
+Bauer Joghurt Kirsche | Bauer cherry yoghurt | Bauer yogur de cereza ; 100 ; 3.5 ; Becher=250
+Weihenstephan Joghurt mild 3,5 % | Weihenstephan mild yoghurt 3.5% | Weihenstephan yogur suave 3,5 % ; 70 ; 4 ; Becher=150 | Glas=500
+Andechser Bio Joghurt mild 3,7 % | Andechser organic mild yoghurt 3.7% | Andechser yogur suave bio 3,7 % ; 70 ; 4 ; Becher=150
+Zott Sahnejoghurt Erdbeere | Zott cream yoghurt strawberry | Zott yogur cremoso fresa ; 125 ; 3 ; Becher=150
+Danone Activia Erdbeere | Danone Activia strawberry | Danone Activia fresa ; 90 ; 3.5 ; Becher=115
+Danone Activia 0 % Natur | Danone Activia 0% plain | Danone Activia 0 % natural ; 45 ; 4.5 ; Becher=115
+Fruchtzwerge | Fruchtzwerge | Petit Suisse de frutas ; 100 ; 6 ; Becher=50
+Kinder Pingui-Joghurt | Kinder joghurt | Yogur Kinder ; 135 ; 4 ; Becher=125
+Griechischer Joghurt mit Honig | Greek yoghurt with honey | Yogur griego con miel ; 130 ; 5 ; Becher=150
+Joghurt mit Müsli (Becher) | Yoghurt with muesli (pot) | Yogur con muesli ; 120 ; 4 ; Becher=150
+Skyr Heidelbeere | Skyr blueberry | Skyr arándano ; 80 ; 9 ; Becher=150
+Skyr Pfirsich-Maracuja | Skyr peach passion fruit | Skyr melocotón maracuyá ; 80 ; 9 ; Becher=150
+Kokosjoghurt (vegan) | Coconut yoghurt (vegan) | Yogur de coco (vegano) ; 110 ; 1 ; Becher=150
+Joghurt-Drink Erdbeere | Strawberry yoghurt drink | Bebida de yogur de fresa ; 75 ; 3 ; Flasche=250
+Ayran (Flasche) | Ayran (bottle) | Ayran (botella) ; 35 ; 1.7 ; Flasche=250
 
 @Wurst, Fleisch & Fisch | Meat, cold cuts & fish | Embutidos, carne y pescado ; 🥓
 Rauchwurst (Rookworst) | Smoked sausage (rookworst) | Salchicha ahumada (rookworst) ; 300 ; 13 ; Stück=275 | Scheibe=15
@@ -1350,6 +1410,13 @@ Kalbsschnitzel (roh) | Veal escalope (raw) | Escalope de ternera crudo ; 110 ; 2
 Schweinebraten (Schulter, roh) | Pork shoulder (raw) | Paletilla de cerdo cruda ; 180 ; 18 ; Portion=200
 Jagdwurst | Jagdwurst (German sausage) | Jagdwurst (embutido alemán) ; 230 ; 15 ; Scheibe=30 | Portion=150
 Entenbrust (roh) | Duck breast (raw) | Magret de pato crudo ; 200 ; 19 ; Stück=300
+Leberkäse fein (Scheibe, gebraten) | Fine Leberkäse (slice, fried) | Leberkäse fino (loncha, frito) ; 300 ; 12 ; Scheibe=100 | Scheibe (dünn)=60
+Pferdeleberkäse | Horse Leberkäse | Leberkäse de caballo ; 250 ; 14 ; Scheibe=100
+Käseleberkäse | Cheese Leberkäse | Leberkäse con queso ; 310 ; 13 ; Scheibe=100
+Pizzaleberkäse | Pizza Leberkäse | Leberkäse pizza ; 300 ; 12 ; Scheibe=100
+Puten-Leberkäse | Turkey Leberkäse | Leberkäse de pavo ; 190 ; 14 ; Scheibe=100
+Frikadelle / Bulette (gebraten) | Meat patty (fried) | Albóndiga alemana (frita) ; 240 ; 16 ; Stück=80
+Fleischkäse (Schweiz) | Fleischkäse (Swiss) | Fleischkäse suizo ; 290 ; 12 ; Scheibe=100
 
 @Snacks & Süßes | Snacks & sweets | Snacks y dulces ; 🍫
 Pringles Original | Pringles Original | Pringles Original ; 520 ; 4.5 ; Handvoll=25 | kleine Dose=40 | Dose=165
@@ -2250,6 +2317,65 @@ Cappuccino Pulver (Instant) | Instant cappuccino powder | Capuchino instantáneo
 Nescafé Gold (Pulver) | Nescafé Gold (instant coffee) | Nescafé Gold (café soluble) ; 120 ; 8 ; TL=2
 Milchkaffee mit Milch 1,5 % | Café au lait with 1.5% milk | Café con leche 1,5 % ; 25 ; 1.7 ; Tasse=250
 Latte Macchiato mit Milch 1,5 % | Latte macchiato with 1.5% milk | Latte macchiato con leche 1,5 % ; 35 ; 2.6 ; Glas=300
+Rotwein trocken (Glas) | Dry red wine (glass) | Vino tinto seco (copa) ; 85 ; 0.1 ; Glas (0,2 l)=200 | Glas (0,1 l)=100 | Flasche=750
+Rotwein halbtrocken | Medium-dry red wine | Vino tinto semiseco ; 95 ; 0.1 ; Glas (0,2 l)=200
+Rotwein lieblich | Sweet red wine | Vino tinto dulce ; 105 ; 0.1 ; Glas (0,2 l)=200
+Weißwein trocken (Glas) | Dry white wine (glass) | Vino blanco seco (copa) ; 80 ; 0.1 ; Glas (0,2 l)=200 | Glas (0,1 l)=100 | Flasche=750
+Weißwein halbtrocken | Medium-dry white wine | Vino blanco semiseco ; 90 ; 0.1 ; Glas (0,2 l)=200
+Weißwein lieblich | Sweet white wine | Vino blanco dulce ; 100 ; 0.1 ; Glas (0,2 l)=200
+Riesling | Riesling | Riesling ; 80 ; 0.1 ; Glas (0,2 l)=200
+Weißweinschorle / G'spritzter | White wine spritzer | Vino blanco con soda ; 40 ; 0 ; Glas (0,25 l)=250 | Glas (0,5 l)=500
+Rotweinschorle | Red wine spritzer | Vino tinto con soda ; 42 ; 0 ; Glas (0,25 l)=250
+Sekt trocken (Glas) | Dry sparkling wine (glass) | Espumoso seco (copa) ; 85 ; 0.1 ; Glas=100
+Prosecco (Glas) | Prosecco (glass) | Prosecco (copa) ; 75 ; 0.1 ; Glas=100
+Champagner | Champagne | Champán ; 80 ; 0.1 ; Glas=100
+Federweißer | Federweißer (new wine) | Vino nuevo Federweißer ; 65 ; 0.3 ; Glas=200
+Sturm (Österreich) | Sturm (new wine) | Sturm (mosto fermentado) ; 60 ; 0.3 ; Glas=250
+Glühwein rot (Becher) | Red mulled wine (mug) | Vino caliente tinto (taza) ; 100 ; 0 ; Becher=200
+Glühwein weiß (Becher) | White mulled wine (mug) | Vino caliente blanco (taza) ; 100 ; 0 ; Becher=200
+Glühwein alkoholfrei | Alcohol-free mulled wine | Vino caliente sin alcohol ; 55 ; 0 ; Becher=200
+Pils (Flasche 0,5 l) | Pilsner (0.5 l) | Cerveza pilsner (0,5 l) ; 42 ; 0.5 ; Flasche=500 | Glas (0,3 l)=300 | Maß=1000
+Helles | Helles lager | Cerveza Helles ; 45 ; 0.5 ; Flasche=500 | Maß=1000
+Weißbier / Weizen | Wheat beer | Cerveza de trigo ; 48 ; 0.5 ; Glas=500
+Alkoholfreies Weizen | Alcohol-free wheat beer | Cerveza de trigo sin alcohol ; 25 ; 0.4 ; Glas=500
+Radler / Alsterwasser | Shandy | Clara (cerveza con limón) ; 35 ; 0.3 ; Flasche=500
+Märzen | Märzen beer | Cerveza Märzen ; 48 ; 0.5 ; Glas=500
+Starkbier / Bock | Bock beer | Cerveza bock ; 65 ; 0.7 ; Glas=500
+Wodka Lemon | Vodka lemon | Vodka con limón ; 75 ; 0 ; Glas=250
+Caipirinha | Caipirinha | Caipiriña ; 140 ; 0 ; Glas=200
+Sex on the Beach | Sex on the beach | Sex on the beach ; 90 ; 0 ; Glas=250
+Tequila Sunrise | Tequila sunrise | Tequila sunrise ; 90 ; 0 ; Glas=250
+Long Island Iced Tea | Long Island iced tea | Long Island iced tea ; 110 ; 0 ; Glas=300
+Moscow Mule | Moscow mule | Moscow mule ; 70 ; 0 ; Glas=250
+Margarita | Margarita | Margarita ; 170 ; 0 ; Glas=150
+Swimming Pool | Swimming pool cocktail | Swimming pool ; 130 ; 0.5 ; Glas=250
+Alkoholfreier Cocktail (Virgin Colada) | Virgin colada | Virgin colada ; 100 ; 0.5 ; Glas=250
+Gin | Gin | Ginebra ; 260 ; 0 ; Shot (2 cl)=20 | Glas (4 cl)=40
+Obstler / Schnaps | Fruit brandy | Aguardiente de fruta ; 230 ; 0 ; Stamperl (2 cl)=20
+Williamsbirne Schnaps | Williams pear brandy | Aguardiente de pera Williams ; 230 ; 0 ; Stamperl (2 cl)=20
+Ramazzotti / Kräuterlikör | Herbal liqueur | Licor de hierbas ; 270 ; 0 ; Glas (4 cl)=40
+Bowle | Punch bowl | Ponche ; 75 ; 0 ; Glas=200
+Feigling (Wodka-Feige) | Feigling (fig vodka) | Feigling (vodka de higo) ; 270 ; 0 ; Fläschchen=20
+Hohes C Apfel | hohes C apple | hohes C manzana ; 46 ; 0.1 ; Glas=200
+Granini Banane | granini banana | granini plátano ; 60 ; 0.4 ; Glas=200
+Granini Sauerkirsche | granini sour cherry | granini guinda ; 55 ; 0.3 ; Glas=200
+Rauch Happy Day Apfel | Rauch Happy Day apple | Rauch Happy Day manzana ; 46 ; 0.1 ; Glas=200
+Pfanner 100 % Orange | Pfanner 100% orange | Pfanner 100 % naranja ; 45 ; 0.7 ; Glas=200
+Pago Erdbeere | Pago strawberry | Pago fresa ; 55 ; 0.2 ; Flasche=200
+Pago Maracuja | Pago passion fruit | Pago maracuyá ; 60 ; 0.3 ; Flasche=200
+Pago Johannisbeere | Pago blackcurrant | Pago grosella negra ; 60 ; 0.3 ; Flasche=200
+Lindavia Apfelsaft | Lindavia apple juice | Zumo de manzana Lindavia ; 46 ; 0.1 ; Glas=200
+Beckers Bester Multivitamin | Beckers Bester multivitamin | Beckers Bester multivitamina ; 50 ; 0.3 ; Glas=200
+Innocent Orange mit Fruchtfleisch | innocent orange with bits | innocent naranja con pulpa ; 45 ; 0.7 ; Glas=200
+Innocent Smoothie Mango-Ananas | innocent smoothie mango pineapple | innocent smoothie mango piña ; 60 ; 0.5 ; Flasche=250
+True Fruits Yellow | true fruits yellow | true fruits amarillo ; 60 ; 0.6 ; Flasche=250
+Tropicana Pure Premium Orange | Tropicana pure premium orange | Tropicana naranja premium ; 45 ; 0.7 ; Glas=200
+Apfelschorle (Fertig) | Apple spritzer (ready) | Manzana con gas (lista) ; 25 ; 0 ; Glas=330 | Flasche=500
+Johannisbeerschorle | Blackcurrant spritzer | Grosella con gas ; 25 ; 0 ; Glas=330
+Spezi / Mezzo Mix | Cola-orange mix | Cola con naranja ; 42 ; 0 ; Glas=330
+Club Mate | Club-Mate | Club-Mate ; 20 ; 0 ; Flasche=500
+Eistee Pfirsich (Lipton) | Lipton peach iced tea | Té helado melocotón Lipton ; 28 ; 0 ; Glas=330 | Flasche=1500
+Rauch Eistee Zitrone | Rauch lemon iced tea | Té helado limón Rauch ; 30 ; 0 ; Dose=355
 
 @Frühstück & Müsli | Breakfast & cereal | Desayuno y cereales ; 🥣
 Haferflocken | Oats | Copos de avena ; 370 ; 13.5 ; EL=10 | Portion=50
@@ -3070,4 +3196,68 @@ Baumstriezel / Kürtőskalács | Chimney cake | Kürtőskalács ; 380 ; 7 ; Stü
 Lebkuchenherz (klein) | Gingerbread heart (small) | Corazón de pan de jengibre (pequeño) ; 390 ; 5 ; Stück=100
 Brezel (Weihnachtsmarkt, groß) | Large pretzel | Pretzel grande ; 280 ; 8 ; Stück=150
 Fischbrötchen mit Bismarckhering | Bismarck herring roll | Bocadillo de arenque Bismarck ; 230 ; 11 ; Stück=150
-Käsespätzle (Stand) | Cheese spätzle (stall) | Käsespätzle (puesto) ; 240 ; 10 ; Portion=350`;
+Käsespätzle (Stand) | Cheese spätzle (stall) | Käsespätzle (puesto) ; 240 ; 10 ; Portion=350
+
+@Süßes & Desserts | Sweets & desserts | Dulces y postres ; 🍮
+Dr. Oetker Milchreis Klassisch (Beutel, zubereitet) | Dr. Oetker rice pudding classic (prepared) | Dr. Oetker arroz con leche clásico (preparado) ; 115 ; 3.5 ; Portion=200 | Packung (4 Portionen)=800
+Dr. Oetker Milchreis Vanille (zubereitet) | Dr. Oetker vanilla rice pudding (prepared) | Dr. Oetker arroz con leche vainilla (preparado) ; 120 ; 3.5 ; Portion=200
+Müller Milchreis Zimt | Müller rice pudding cinnamon | Müller arroz con leche canela ; 110 ; 3.2 ; Becher=200
+Müller Milchreis Kirsche | Müller rice pudding cherry | Müller arroz con leche cereza ; 115 ; 3 ; Becher=200
+Müller Milchreis Schoko | Müller rice pudding chocolate | Müller arroz con leche chocolate ; 120 ; 3.4 ; Becher=200
+Ehrmann High Protein Milchreis | Ehrmann high protein rice pudding | Ehrmann arroz con leche proteico ; 85 ; 8 ; Becher=200
+Mondamin Milchreis (Becher, zubereitet) | Mondamin rice pudding pot (prepared) | Mondamin arroz con leche (preparado) ; 110 ; 3 ; Becher=200
+Dr. Oetker Pudding Schoko (mit Milch 1,5 %) | Dr. Oetker chocolate pudding (with 1.5% milk) | Dr. Oetker pudin de chocolate (con leche 1,5 %) ; 95 ; 3.5 ; Portion=150 | Packung (4 Portionen)=550
+Dr. Oetker Pudding Vanille (mit Milch 1,5 %) | Dr. Oetker vanilla pudding (with 1.5% milk) | Dr. Oetker pudin de vainilla (con leche 1,5 %) ; 90 ; 3.4 ; Portion=150
+Dr. Oetker Pudding Sahne (mit Milch 1,5 %) | Dr. Oetker cream pudding (with 1.5% milk) | Dr. Oetker pudin de nata (con leche 1,5 %) ; 95 ; 3.4 ; Portion=150
+Dr. Oetker Grießpudding (mit Milch 1,5 %) | Dr. Oetker semolina pudding (with 1.5% milk) | Dr. Oetker pudin de sémola (con leche 1,5 %) ; 100 ; 4 ; Portion=150
+Dr. Oetker Paradiescreme Schoko | Dr. Oetker Paradiescreme chocolate | Dr. Oetker Paradiescreme chocolate ; 130 ; 3.5 ; Portion=125
+Dr. Oetker Paradiescreme Vanille | Dr. Oetker Paradiescreme vanilla | Dr. Oetker Paradiescreme vainilla ; 125 ; 3.3 ; Portion=125
+Dr. Oetker Mousse au Chocolat (zubereitet) | Dr. Oetker chocolate mousse (prepared) | Dr. Oetker mousse de chocolate (preparada) ; 170 ; 4 ; Portion=100
+Dr. Oetker Rote Grütze | Dr. Oetker red berry compote | Dr. Oetker compota de frutos rojos ; 100 ; 0.5 ; Portion=150
+Dr. Oetker Götterspeise (zubereitet) | Dr. Oetker jelly (prepared) | Dr. Oetker gelatina (preparada) ; 70 ; 1.5 ; Portion=125
+Dr. Oetker Wackelpudding zuckerfrei | Dr. Oetker sugar-free jelly | Dr. Oetker gelatina sin azúcar ; 5 ; 1 ; Portion=125
+Mondamin Pudding Vanille (Becher) | Mondamin vanilla pudding pot | Mondamin pudin de vainilla ; 110 ; 3 ; Becher=125
+Danone Dany Sahne Schoko | Danone Dany chocolate | Danone Dany chocolate ; 125 ; 2.8 ; Becher=115
+Zott Sahnepudding Schoko | Zott cream pudding chocolate | Zott pudin de chocolate ; 135 ; 3 ; Becher=150
+Ehrmann High Protein Pudding Schoko | Ehrmann high protein chocolate pudding | Ehrmann pudin proteico chocolate ; 75 ; 10 ; Becher=200
+Alpro Dessert Vanille | Alpro vanilla dessert | Alpro postre de vainilla ; 80 ; 3 ; Becher=125
+Grießbrei (selbst gemacht, Milch 1,5 %) | Semolina porridge (homemade) | Gachas de sémola (caseras) ; 95 ; 4 ; Schale=250
+Riebel (Vorarlberger Maisgrieß-Riebel) | Riebel (Vorarlberg cornmeal dish) | Riebel (sémola de maíz de Vorarlberg) ; 170 ; 3.5 ; Portion=250
+Riebel mit Apfelmus | Riebel with apple sauce | Riebel con compota de manzana ; 150 ; 3 ; Portion=350
+Riebel mit Zwetschgenröster | Riebel with plum compote | Riebel con compota de ciruela ; 160 ; 3 ; Portion=350
+
+@Kuchen & Torten | Cakes & tarts | Tartas y pasteles ; 🍰
+Apfelkuchen gedeckt (Stück) | Covered apple pie (slice) | Tarta de manzana cubierta (porción) ; 260 ; 3 ; Stück=120
+Apfelkuchen mit Streuseln (Stück) | Apple crumble cake (slice) | Tarta de manzana con crumble (porción) ; 280 ; 3.5 ; Stück=120
+Käsekuchen / Käsesahne (Stück) | Cheesecake (slice) | Tarta de queso (porción) ; 250 ; 8 ; Stück=130
+Käsekuchen mit Mandarinen (Stück) | Cheesecake with mandarins (slice) | Tarta de queso con mandarinas (porción) ; 230 ; 7 ; Stück=130
+Erdbeerkuchen mit Tortenguss (Stück) | Strawberry cake (slice) | Tarta de fresas (porción) ; 180 ; 3 ; Stück=120
+Erdbeer-Sahne-Torte (Stück) | Strawberry cream cake (slice) | Tarta de fresa y nata (porción) ; 260 ; 4 ; Stück=130
+Schwarzwälder Kirschtorte (Stück) | Black Forest gateau (slice) | Tarta Selva Negra (porción) ; 290 ; 4 ; Stück=130
+Sachertorte (Stück) | Sachertorte (slice) | Tarta Sacher (porción) ; 380 ; 5 ; Stück=100
+Donauwelle (Stück) | Danube wave cake (slice) | Pastel ola del Danubio (porción) ; 370 ; 5 ; Stück=110
+Bienenstich (Stück) | Bee sting cake (slice) | Pastel picadura de abeja (porción) ; 330 ; 5 ; Stück=110
+Frankfurter Kranz (Stück) | Frankfurt crown cake (slice) | Corona de Frankfurt (porción) ; 380 ; 5 ; Stück=110
+Marmorkuchen (Stück) | Marble cake (slice) | Bizcocho mármol (porción) ; 390 ; 6 ; Stück=70
+Zitronenkuchen (Stück) | Lemon cake (slice) | Bizcocho de limón (porción) ; 380 ; 5 ; Stück=70
+Rührkuchen (Stück) | Pound cake (slice) | Bizcocho (porción) ; 400 ; 6 ; Stück=70
+Nusskuchen (Stück) | Nut cake (slice) | Bizcocho de nueces (porción) ; 420 ; 7 ; Stück=70
+Rüblitorte (Stück) | Carrot cake (slice) | Pastel de zanahoria (porción) ; 350 ; 6 ; Stück=100
+Mohnkuchen mit Streuseln (Stück) | Poppy seed crumble cake (slice) | Tarta de amapola (porción) ; 360 ; 8 ; Stück=110
+Zwetschgenkuchen (Stück) | Plum cake (slice) | Tarta de ciruela (porción) ; 210 ; 3.5 ; Stück=120
+Rhabarberkuchen (Stück) | Rhubarb cake (slice) | Tarta de ruibarbo (porción) ; 240 ; 4 ; Stück=120
+Kirschstreusel (Stück) | Cherry crumble cake (slice) | Tarta de cerezas con crumble (porción) ; 290 ; 4 ; Stück=120
+Butterkuchen (Stück) | Butter cake (slice) | Pastel de mantequilla (porción) ; 380 ; 6 ; Stück=90
+Streuselkuchen (Stück) | Crumble cake (slice) | Pastel de crumble (porción) ; 390 ; 6 ; Stück=90
+Eierschecke (Stück) | Eierschecke (slice) | Eierschecke (porción) ; 300 ; 7 ; Stück=120
+Linzer Torte (Stück) | Linzer torte (slice) | Tarta Linzer (porción) ; 420 ; 6 ; Stück=90
+Esterhazy-Schnitte | Esterházy slice | Porción Esterházy ; 430 ; 7 ; Stück=90
+Punschkrapfen | Punschkrapfen | Punschkrapfen ; 400 ; 3 ; Stück=80
+Cremeschnitte | Cream slice | Milhojas de crema ; 300 ; 4 ; Stück=120
+Malakofftorte (Stück) | Malakoff cake (slice) | Tarta Malakoff (porción) ; 380 ; 5 ; Stück=120
+Topfentorte (Stück) | Quark cake (slice) | Tarta de requesón (porción) ; 240 ; 8 ; Stück=120
+Muffin Schoko | Chocolate muffin | Muffin de chocolate ; 420 ; 6 ; Stück=100
+Muffin Blaubeere | Blueberry muffin | Muffin de arándanos ; 380 ; 5 ; Stück=100
+Cupcake mit Frosting | Cupcake with frosting | Cupcake con glaseado ; 420 ; 4 ; Stück=80
+Cheesecake New York (Stück) | New York cheesecake (slice) | Cheesecake Nueva York (porción) ; 330 ; 6 ; Stück=130
+Tiramisu (Portion, Konditorei) | Tiramisu (portion, bakery) | Tiramisú (porción, pastelería) ; 290 ; 6 ; Portion=130`;
