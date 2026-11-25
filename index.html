@@ -192,6 +192,27 @@ body.nodrag-scroll{overflow:hidden;touch-action:none}
 
 /* weight + forecast */
 .wcard{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:16px;box-shadow:var(--shadow)}
+.wbtns{display:flex;flex-direction:column;gap:6px;align-items:stretch}
+.wlupe{background:#fff;border:1.5px solid var(--line);color:var(--ink);font-weight:800;padding:8px 12px;border-radius:14px;font-size:14px}
+.wz{position:fixed;inset:0;z-index:45;display:none;flex-direction:column;background:var(--bg)}
+.wz.open{display:flex}
+.wzbar{display:flex;align-items:center;gap:8px;padding:calc(10px + env(safe-area-inset-top)) 12px 10px;background:#fff;border-bottom:1px solid var(--line)}
+.wzbar button{min-width:42px;height:42px;border-radius:13px;background:var(--bg);font-weight:800;font-size:18px;color:var(--ink)}
+.wzbar .wzback{padding:0 14px;font-size:15px}
+.wzsp{flex:1}
+.wzwrap{flex:1;position:relative;overflow:hidden}
+.wzax{position:absolute;left:0;top:0;bottom:0;width:46px;pointer-events:none;background:linear-gradient(90deg,var(--bg) 70%,transparent)}
+.wzax span,.wzdx span{position:absolute;font-size:11px;font-weight:800;color:#8a909b;white-space:nowrap}
+.wzax span{left:6px;transform:translateY(-50%)}
+.wzdx{position:absolute;left:0;right:0;top:0;height:26px;pointer-events:none;background:linear-gradient(var(--bg) 70%,transparent)}
+.wzdx span{top:6px;transform:translateX(-50%)}
+.wzdx span.mon{color:var(--ink)}
+.wzsc{position:absolute;inset:0;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;touch-action:pan-x pan-y}
+.wzsc svg{display:block}
+.wzinfo{background:#fff;border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom));font-size:14px;color:var(--muted);min-height:58px;display:flex;align-items:center;gap:10px;justify-content:space-between}
+.wzinfo b{color:var(--ink);font-size:17px}
+.wzdel{background:#fff;border:1.5px solid #f0b4a6;color:#c4502f;font-weight:800;border-radius:12px;padding:9px 12px;white-space:nowrap}
+.wzdel.sure{background:#c4502f;color:#fff;border-color:#c4502f}
 .wtop{display:flex;justify-content:space-between;align-items:flex-start}
 .wk{font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
 .wv{font-family:Fraunces,serif;font-size:34px;font-weight:800;line-height:1.1}
@@ -199,7 +220,12 @@ body.nodrag-scroll{overflow:hidden;touch-action:none}
 .wd.down{color:var(--good)}
 .wadd{background:var(--ink);color:#fff;font-weight:800;padding:10px 14px;border-radius:14px}
 .wchart{margin-top:10px}
-.wchart svg{width:100%;height:auto;display:block}
+.wchart svg{display:block}
+.wcwrap{position:relative}
+.wcaxis{position:absolute;left:0;top:0;z-index:1}
+.wcscroll{overflow-x:auto;overflow-y:hidden;margin-left:34px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;overscroll-behavior-x:contain}
+.wcfoot{display:flex;flex-direction:column;gap:4px;margin-top:6px;font-size:12px;color:var(--muted);line-height:1.35}
+.wcz{color:#c2383c}
 .legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;font-weight:700;color:var(--muted);margin-top:6px}
 .legend i{display:inline-block;width:16px;height:3px;border-radius:2px;vertical-align:middle;margin-right:5px}
 .lg-a{background:var(--ink)} .lg-s{background:var(--accent)} .lg-g{background:var(--good)}
@@ -311,13 +337,13 @@ nav.tabs button .ic{font-size:21px}
 .phd{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px}
 .phd b{font-size:15px}.phd span{font-size:12px;font-weight:800;color:var(--muted)}
 .phd .over{color:var(--bad)}.lowp{color:#a07300}
-.pslot{display:grid;grid-template-columns:66px 1fr;gap:8px;padding:6px 0;border-top:1px dashed var(--line)}
-.pslbl{font-size:12px;font-weight:800;color:var(--muted);padding-top:8px}
-.pits{display:flex;flex-direction:column;gap:6px}
-.pit{display:flex;align-items:center;gap:8px;background:var(--bg);border-radius:12px;padding:6px 6px 6px 8px}
+.pslot{display:grid;grid-template-columns:66px minmax(0,1fr);gap:8px;padding:6px 0;border-top:1px dashed var(--line)}
+.pslbl{font-size:12px;font-weight:800;color:var(--muted);padding-top:8px;overflow-wrap:anywhere;hyphens:auto;-webkit-hyphens:auto}
+.pits{display:flex;flex-direction:column;gap:6px;min-width:0}
+.pit{display:flex;align-items:center;gap:8px;min-width:0;max-width:100%;box-sizing:border-box;background:var(--bg);border-radius:12px;padding:6px 6px 6px 8px}
 .pit.done{opacity:.6}
 .pe{font-size:20px}
-.pt{flex:1;min-width:0}.pt .n{font-weight:800;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.pt .m{font-size:11px;color:var(--muted);font-weight:700}
+.pt{flex:1;min-width:0}.pt .n{font-weight:800;font-size:14px;line-height:1.25;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-word}.pt .m{font-size:11px;color:var(--muted);font-weight:700}
 .pok{background:var(--good);color:#fff;font-weight:800;border-radius:10px;padding:6px 10px;font-size:13px;flex:none}
 .pdone{color:var(--good);font-weight:800;padding:0 8px}
 .padd{border:1.5px dashed var(--line);border-radius:12px;padding:7px;font-size:13px;font-weight:800;color:var(--muted);text-align:left}
@@ -373,14 +399,14 @@ body.pastmode .snackbar-head::before,body.pastmode #v-freezer .freezer::before{c
 .actopt{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;text-align:left;display:flex;flex-direction:column}
 .actopt small{color:var(--muted);font-weight:700;font-size:12px}
 .actopt.act{border:2px solid var(--ink);background:#f2f4f9}
-.sprow{display:grid;grid-template-columns:34px 1fr 30px;gap:6px 8px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.sprow{display:grid;grid-template-columns:1fr 30px;gap:6px 8px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
 .sprow:last-child{border-bottom:0}
 .sprow select{border:1px solid var(--line);border-radius:12px;padding:9px;background:#fff;font-size:15px;min-width:0}
 .spstar{font-size:20px}
-.spnums{grid-column:2/3;display:flex;gap:8px}
+.spnums{grid-column:1/2;display:flex;gap:8px}
 .spnums label{display:flex;align-items:center;gap:4px;font-size:12px;font-weight:800;color:var(--muted)}
 .spnums input{width:56px;border:1px solid var(--line);border-radius:10px;padding:7px;text-align:center;background:#fff}
-.spk{grid-column:2/3;font-size:12px;font-weight:700;color:var(--good)}
+.spk{grid-column:1/2;font-size:12px;font-weight:700;color:var(--good)}
 .sprow.main select{border-color:var(--ink)}
 .bline{display:flex;justify-content:space-between;gap:10px;padding:7px 0;font-weight:700;font-size:14px;border-bottom:1px dashed var(--line)}
 .bline span{color:#4a5060}.bline b{white-space:nowrap}
@@ -673,7 +699,7 @@ nav.tabs .ic svg.fi.nav{width:28px;height:28px;vertical-align:middle}
       <div class="drawer" id="dishList"></div>
     </div>
     <div class="two" style="margin-top:14px"><button class="btn ice" id="btnCookFromBook">📖 Aus Kochbuch</button><button class="btn ghost" id="btnAddDish">＋ Freies Gericht</button></div>
-    <p class="tip" style="margin:12px 4px">Tippe auf <b>Essen</b> für eine Portion. Mit <b>🎁</b> wählst du die Menge (auch halbe Portionen) und kannst etwas <b>weggeben oder teilen</b> – das zählt nicht zu deinen kcal. Bei Boxen mit „nur Sauce“ fragt die App, welche Beilage du frisch dazu kochst. Ganz oben steht immer, was am längsten im TK liegt. Tippe aufs Gericht, um es zu bearbeiten.</p>
+
   </section>
 
   <!-- KOCHBUCH -->
@@ -691,7 +717,7 @@ nav.tabs .ic svg.fi.nav{width:28px;height:28px;vertical-align:middle}
   <section class="view" id="v-plan">
     <div class="weeknav"><button id="wkPrev" aria-label="Vorige Woche">‹</button><div><b id="weekLbl"></b><button class="lnk" id="wkToday" style="font-size:12px;display:block;margin:0 auto">diese Woche</button></div><button id="wkNext" aria-label="Nächste Woche">›</button></div>
     <button class="btn suggest" id="btnSuggest">✨ Vorschläge für freie Mahlzeiten</button>
-    <div class="sect"><h2>Im Vorrat</h2><span class="tip">nur im Planer</span></div>
+    <div class="sect"><h2>Im Vorrat</h2></div>
     <div class="tkstrip" id="planTk"></div>
     <div class="sect"><h2>Wochenplan</h2><span class="tip" id="budgetLbl"></span></div>
     <div id="planDays"></div>
@@ -739,7 +765,7 @@ nav.tabs .ic svg.fi.nav{width:28px;height:28px;vertical-align:middle}
     </div>
 
     <div class="sect"><h2>Sport</h2><button class="lnk" id="pfAddSport">＋ Sportart</button></div>
-    <div class="card"><div id="pfSports"></div><p class="tip" style="margin:8px 0 0">⭐ = Hauptsport (lässt sich auch im Verlauf mit dem Regler ändern).</p></div>
+    <div class="card"><div id="pfSports"></div></div>
 
     <div class="sect"><h2>Bedarf &amp; Tagesziel</h2><span class="tip">pro Tag</span></div>
     <div class="card">
@@ -818,7 +844,7 @@ nav.tabs .ic svg.fi.nav{width:28px;height:28px;vertical-align:middle}
     <div class="wcard">
       <div class="wtop">
         <div><div class="wk">Aktuelles Gewicht</div><div class="wv" id="wNow">– kg</div><div class="wd" id="wDelta">Noch kein Eintrag</div></div>
-        <button class="wadd" id="btnWeight">＋ Wiegen</button>
+        <div class="wbtns"><button class="wadd" id="btnWeight">＋ Wiegen</button><button class="wlupe" id="btnWZoom" aria-label="Lupe: Einträge genau ansehen">🔍 Lupe</button></div>
       </div>
       <div id="wChart" class="wchart"></div>
       <div class="legend"><span><i class="lg-a"></i>Gemessen</span><span><i class="lg-s"></i>Weiter wie bisher</span><span id="lgGoal" hidden><i class="lg-g"></i>Prognose bei Ziel</span><span id="lgWave" hidden><i style="background:#8e6bd6"></i>mit Festtagen &amp; Schwankungen</span><span id="lgCyc" hidden><i style="background:#f7c6dc;height:9px"></i>mögliche Wasser-Phase</span><span id="lgHol" hidden><i style="background:#cfe8d8;height:9px"></i>Feste</span><span><i style="background:#ff7a59;opacity:.18;height:9px"></i>normaler Schwankungsbereich</span></div>
@@ -846,8 +872,7 @@ nav.tabs .ic svg.fi.nav{width:28px;height:28px;vertical-align:middle}
     <div class="card" id="fatCard"></div>
     <div class="sect"><h2>Was dich erwartet</h2><span class="tip">Plateaus & Tempo</span></div>
     <div class="card" id="roadCard"></div>
-    <div class="sect"><h2>Gewichtseinträge</h2></div>
-    <div class="list" id="wList"></div>
+
 
     <button class="btn ghost" data-open-profile style="margin-top:18px">👤 Ziele, Aktivität & Daten im Profil</button>
   </section>
@@ -867,6 +892,11 @@ nav.tabs .ic svg.fi.nav{width:28px;height:28px;vertical-align:middle}
     <div class="finside" id="finside"></div>
   </div>
   <button class="fclose" id="fclose">Kühlschrank schließen</button>
+</div>
+<div class="wz" id="wz" aria-hidden="true" role="dialog" aria-label="Gewichts-Lupe">
+  <div class="wzbar"><button id="wzHome" aria-label="Zur Startseite">⌂</button><button id="wzBack" class="wzback">← Verlauf</button><span class="wzsp"></span><button id="wzOut" aria-label="Verkleinern">−</button><button id="wzIn" aria-label="Vergrößern">＋</button><button id="wzReset" aria-label="Zurück zur Startansicht (letzte Woche)">⟲</button></div>
+  <div class="wzwrap"><div class="wzsc" id="wzSc"></div><div class="wzax" id="wzAx" aria-hidden="true"></div><div class="wzdx" id="wzDx" aria-hidden="true"></div></div>
+  <div class="wzinfo" id="wzInfo"></div>
 </div>
 <div class="scrim" id="scrim"><div class="sheet" id="sheet"></div></div>
 <div class="toast" id="toast"><span id="toastTxt"></span><button id="toastBtn">Rückgängig</button></div>
@@ -1002,10 +1032,10 @@ function renderToday() {
   $("#mealLeft").textContent = mLeft >= 0 ? `noch ${fmt(mLeft)}` : `${fmt(-mLeft)} drüber`;
   $("#mealBar").style.width = (mBudget ? Math.min(100, mEat / mBudget * 100) : 0) + "%";
   $("#mealLeft").style.color = mLeft < 0 ? "#ff7a59" : mEat / (mBudget || 1) > .85 ? "#7cc8f5" : "#8fd3b6";
-  $("#mealBar").style.background = mLeft < 0 ? "#ff5a36" : mEat / (mBudget || 1) > .85 ? "#5bbcf2" : "#8fd3b6";
+  $("#mealBar").style.background = k > S.goal ? "#ff5a36" : k / (S.goal || 1) > .85 ? "#5bbcf2" : "#8fd3b6"; // erst orange, wenn das ganze Tagesziel voll ist
   $("#snkNum").textContent = fmt(sk) + " / " + fmt(S.snackLimit);
   $("#snkBar").style.width = (S.snackLimit ? Math.min(100, sk / S.snackLimit * 100) : 0) + "%";
-  $("#snkBar").style.background = sk > S.snackLimit ? "#ff5a36" : "#ffc36b";
+  $("#snkBar").style.background = sk >= S.snackLimit && S.snackLimit ? "#ff9f43" : "#8fd3b6";
   $("#protNum").textContent = fmt(p) + " / " + fmt(S.prot) + " g";
   $("#protBar").style.width = (S.prot ? Math.min(100, p / S.prot * 100) : 0) + "%";
   const portions = S.dishes.reduce((a, x) => a + (x.count || 0), 0);
@@ -1040,7 +1070,7 @@ function renderFreezer() {
         <div class="m">${fmt(x.kcal)} kcal / ${u}${x.protein ? " · " + fmt(x.protein) + " g Eiw." : ""}${x.needsSide ? " (ohne Beilage)" : ""}</div>
         ${tag || exp || giv ? `<div class="tags">${tag}${exp}${giv}</div>` : ""}
         <div class="boxes">${Array.from({ length: Math.min(Math.ceil(x.count || 0), 20) }, (_, i) => `<i class="${i + 1 > x.count ? "half" : ""}"></i>`).join("")}${(x.count || 0) > 20 ? `<small style="font-size:11px;font-weight:800;color:var(--ice-ink)">+${fmtQ(x.count - 20)}</small>` : ""}</div></div>
-      <div class="ctrl"><div class="eatrow"><button class="eat" data-eat="${esc(x.id)}" ${x.count ? "" : "disabled"}>Essen</button><button class="takebtn" data-take="${esc(x.id)}" ${x.count ? "" : "disabled"} aria-label="Menge wählen, teilen oder weggeben" title="Menge / Teilen / Weggeben">🎁</button></div>
+      <div class="ctrl"><div class="eatrow"><button class="eat" data-eat="${esc(x.id)}" ${x.count ? "" : "disabled"}>Essen</button></div>
         <div class="stepper"><button data-dec="${esc(x.id)}" aria-label="Weniger">−</button><span>${fmtQ(x.count || 0)}</span><button data-inc="${esc(x.id)}" aria-label="Mehr">+</button></div></div>
     </div>`; };
   const sorted = S.dishes.filter(x => x.count > 0).sort((a, b) => ((daysLeft(a) ?? 999) - (daysLeft(b) ?? 999)) || a.name.localeCompare(b.name));
@@ -1194,6 +1224,17 @@ const FEAST_KCAL = 450;
 function feastExtra(t) { let e = 0; holidayWindows(t - DAY, t + DAY).forEach(h => { if (t >= h.a.getTime() && t <= h.hold.getTime()) e = Math.max(e, FEAST_KCAL * h.amp); }); return e; }
 function projectFeast(w0, intake, days, t0) { const out = [w0]; let w = w0; for (let i = 0; i < days; i++) { w -= (tdee(w) - intake - feastExtra(t0 + i * DAY)) / 7700; out.push(w); } return out;
 }
+// Prognose so weit rechnen, bis sich das Gewicht einpendelt (Verbrauch ≈ Essen), max. 4 Jahre
+function longHorizon(w0, intake, minD) { let w = w0, wk = [w0]; for (let d = 1; d <= 1460; d++) { w -= (tdee(w) - intake) / 7700; if (d % 7 === 0) { wk.push(w); if (d >= minD && Math.abs(wk[wk.length - 1] - wk[wk.length - 2]) < .05) return Math.min(1460, d + 56); } } return 1460; }
+// Körperfett grob schätzen (Deurenberg aus BMI, Alter, Geschlecht); beim Abnehmen ~75 % Fett, 25 % fettfreie Masse
+function bodyFatAt(w0, w) { const h = (S.height || 170) / 100, m = S.sex === "m" ? 1 : 0; const bf0 = Math.max(5, 1.2 * w0 / (h * h) + .23 * age() - 10.8 * m - 5.4) / 100; const fat = bf0 * w0 - .75 * (w0 - w); return Math.max(0, fat / w); }
+function lowFatZone(w0) {
+  const h = (S.height || 170) / 100, m = S.sex === "m", lim = m ? .08 : .17; // ungesund niedrig: Männer < ~8 %, Frauen < ~17 %
+  let wBF = 0; for (let w = w0; w > 25; w -= .1) if (bodyFatAt(w0, w) < lim) { wBF = w; break; }
+  const wBMI = 18.5 * h * h;
+  if (wBF >= wBMI) return { w: wBF, label: `unter ~${Math.round(lim * 100)} % Körperfett`, why: m ? `Roter Bereich: Unter ca. ${Math.round(lim * 100)} % Körperfett wird es für Männer ungesund – Hormone, Knochen, Immunsystem und Energie leiden. Grob geschätzt aus Größe, Alter und Gewicht.` : `Roter Bereich: Unter ca. ${Math.round(lim * 100)} % Körperfett wird es für Frauen ungesund – Zyklus, Hormone, Knochen und Immunsystem leiden. Grob geschätzt aus Größe, Alter und Gewicht.` };
+  return { w: wBMI, label: "Untergewicht (BMI unter 18,5)", why: m ? `Roter Bereich: Unter ${fmt1(wBMI)} kg (BMI 18,5) bist du bei deiner Größe untergewichtig. Männer sind dort oft auch schon bei zu wenig Körperfett.` : `Roter Bereich: Unter ${fmt1(wBMI)} kg (BMI 18,5) bist du bei deiner Größe untergewichtig. Frauen sind dort oft auch schon bei zu wenig Körperfett – das kann den Zyklus und die Knochen belasten.` };
+}
 function drawHist() {
   // settings fields
   $("#setGoal").value = S.goal; $("#setProt").value = S.prot; $("#setSnack").value = S.snackLimit;
@@ -1221,10 +1262,7 @@ function drawHist() {
   else if (L.length === 1) { wd.textContent = "Start am " + dShort(parseKey(last.d)); wd.className = "wd"; }
   else { const diff = last.kg - first.kg; wd.textContent = (diff <= 0 ? "▼ " : "▲ ") + fmt1(Math.abs(diff)) + " kg seit " + dShort(parseKey(first.d)); wd.className = "wd" + (diff < 0 ? " down" : ""); }
 
-  $("#wList").innerHTML = L.length ? L.slice().reverse().map((x, i, arr) => {
-    const prev = arr[i + 1]; const df = prev ? x.kg - prev.kg : null;
-    return `<div class="entry"><div class="thumb" style="background:var(--bg)">⚖️</div><div class="t"><div class="n">${fmt1(x.kg)} kg</div><div class="m">${parseKey(x.d).toLocaleDateString(LOCALE, { weekday: "short", day: "numeric", month: "long" })}${df !== null ? ` · ${df <= 0 ? "−" : "+"}${fmt1(Math.abs(df))}` : ""}</div></div><button class="x" data-wdel="${esc(x.d)}" aria-label="Löschen">✕</button></div>`;
-  }).join("") : `<div class="empty"><span class="e">⚖️</span>Noch kein Gewicht eingetragen.</div>`;
+  if ($("#wz").classList.contains("open")) drawWZ(true);
 
   const ai = avgIntake();
   const intake = ai ? ai.k : S.goal;
@@ -1278,37 +1316,58 @@ function drawHist() {
     ${showGoal ? `<div><b>${fmt1(pG[H])} kg</b><span>in 12 Wochen bei ${fmt(S.goal)} kcal</span></div>` : ""}
     <div><b>${fmt(burn)}</b><span>kcal Verbrauch/Tag geschätzt</span></div>`;
 
-  // ----- weight chart (SVG) -----
-  const Wd = 340, Hh = 200, pl = 34, pr = 10, pt = 12, pb = 24;
+  // ----- weight chart (SVG, horizontal scrollbar, bis sich das Gewicht einpendelt) -----
+  const HL = longHorizon(wStart, intake, Math.max(H, rN > 0 ? rN + 28 : 0, rG > 0 ? rG + 28 : 0));
+  const lN = project(wStart, intake, HL), lG = showGoal ? project(wStart, S.goal, HL) : null;
+  const lF = showWave ? projectFeast(wStart, intake, HL, tStart).map((v, i) => v + waterAt(tStart + i * DAY)) : null;
+  const t1L = tStart + HL * DAY;
+  const zone = lowFatZone(wStart);
+  const eqW = lN[HL], settles = Math.abs(lN[HL] - lN[HL - 7]) < .06;
+  const Hh = 220, pt = 14, pb = 26, padR = 64, AX = 34;
   const t0 = Math.min(first ? parseKey(first.d).getTime() : tStart, tStart - 14 * DAY);
-  const t1 = fcEnd;
-  const ysAll = [...L.map(x => x.kg), ...pN.map(v => v - .5), ...pN.map(v => v + .5), ...(showWave ? pF : []), ...(showGoal ? pG : []), ...(S.target ? [S.target] : [])];
+  const ppd = Math.max(1.3, Math.min(4, (Math.max(280, (window.innerWidth || 380) - 80)) / ((tStart - t0) / DAY + 84))); // 12 Wochen ≈ eine Bildschirmbreite
+  const Wd = Math.round((t1L - t0) / DAY * ppd) + padR;
+  const ysAll = [...L.map(x => x.kg), ...lN.map(v => v - .5), ...lN.map(v => v + .5), ...(lF || []), ...(lG || []), ...(S.target ? [S.target] : []), ...(zone && zone.w > Math.min(...lN) - 3 ? [zone.w - 3] : [])];
   let y0 = Math.floor(Math.min(...ysAll) - .5), y1 = Math.ceil(Math.max(...ysAll) + .5);
   if (y1 - y0 < 4) { const m = (y0 + y1) / 2; y0 = Math.floor(m - 2); y1 = Math.ceil(m + 2); }
-  const X = t => pl + (t - t0) / (t1 - t0) * (Wd - pl - pr), Y = v => pt + (y1 - v) / (y1 - y0) * (Hh - pt - pb);
+  const X = t => 6 + (t - t0) / DAY * ppd, Y = v => pt + (y1 - v) / (y1 - y0) * (Hh - pt - pb);
   const pX = i => X(tStart + i * DAY).toFixed(1);
   const line = arr => arr.map((v, i) => `${pX(i)},${Y(v).toFixed(1)}`).join(" ");
-  let g = "";
-  const yStep = Math.max(1, Math.ceil((y1 - y0) / 4));
-  for (let v = y0; v <= y1; v += yStep) g += `<line x1="${pl}" x2="${Wd - pr}" y1="${Y(v)}" y2="${Y(v)}" stroke="#ece5da"/><text x="${pl - 6}" y="${Y(v) + 4}" text-anchor="end" font-size="10" fill="#7a7f8c" font-weight="700">${v}</text>`;
-  for (let i = 0; i <= 4; i++) { const t = t0 + (t1 - t0) * i / 4; g += `<text x="${X(t)}" y="${Hh - 6}" text-anchor="${i === 0 ? "start" : i === 4 ? "end" : "middle"}" font-size="10" fill="#7a7f8c" font-weight="700">${dShort(new Date(t))}</text>`; }
+  let g = "", zt = "", ax = `<rect width="${AX}" height="${Hh}" fill="var(--card,#fff)"/>`;
+  // roter Bereich: zu wenig Körperfett / Untergewicht
+  if (zone && zone.w > y0) { const yz = Y(Math.min(zone.w, y1)); g += `<rect x="0" y="${yz}" width="${Wd}" height="${Hh - pb - yz}" fill="url(#rz)"/><line x1="0" x2="${Wd}" y1="${yz}" y2="${yz}" stroke="#e5484d" stroke-width="1.2" stroke-dasharray="4 3"/>`; for (let x = 70; x < Wd - 260; x += 520) zt += `<text x="${x}" y="${Math.min(Hh - pb - 6, yz + 13)}" font-size="10" fill="#c2383c" font-weight="800">⚠ ${esc(zone.label)}</text>`; }
+  const yStep = [1, 2, 5, 10, 20].find(st => (y1 - y0) / st <= 6) || 25;
+  for (let v = Math.ceil(y0 / yStep) * yStep; v <= y1; v += yStep) { g += `<line x1="0" x2="${Wd}" y1="${Y(v)}" y2="${Y(v)}" stroke="#ece5da"/>`; ax += `<text x="${AX - 6}" y="${Y(v) + 4}" text-anchor="end" font-size="10" fill="#7a7f8c" font-weight="700">${v}</text>`; }
+  // Monats-Achse
+  { const d = new Date(t0); d.setDate(1); d.setMonth(d.getMonth() + 1); const span = (t1L - t0) / DAY; const every = ppd * 30 < 34 ? 3 : ppd * 30 < 60 ? 2 : 1;
+    for (let k = 0; d.getTime() < t1L; k++, d.setMonth(d.getMonth() + 1)) { if (k % every) continue; const x = X(d.getTime()); g += `<line x1="${x}" x2="${x}" y1="${Hh - pb}" y2="${Hh - pb + 4}" stroke="#c9c2b6"/><text x="${x + 2}" y="${Hh - 8}" font-size="10" fill="#7a7f8c" font-weight="700" data-notr>${d.toLocaleDateString(LOCALE, d.getMonth() === 0 || k === 0 ? { month: "short", year: "numeric" } : { month: "short" })}</text>`; } }
   const nowX = X(tStart);
-  g += `<line x1="${nowX}" x2="${nowX}" y1="${pt}" y2="${Hh - pb}" stroke="#1f2a44" stroke-opacity=".2" stroke-dasharray="2 3"/><text x="${nowX + 3}" y="${pt + 8}" font-size="9" fill="#7a7f8c" font-weight="800">heute</text>`;
-  if (S.target) g += `<line x1="${pl}" x2="${Wd - pr}" y1="${Y(S.target)}" y2="${Y(S.target)}" stroke="#3aa676" stroke-dasharray="1 4" stroke-linecap="round" stroke-width="2"/><text x="${Wd - pr}" y="${Y(S.target) - 4}" text-anchor="end" font-size="10" fill="#3aa676" font-weight="800">Ziel ${fmt1(S.target)}</text>`;
-  holidayWindows(t0, t1).forEach(h => { const xa = Math.max(pl, X(h.a.getTime())), xb = Math.min(Wd - pr, X(h.b.getTime())); if (xb > xa) g += `<rect x="${xa}" y="${pt}" width="${xb - xa}" height="${Hh - pt - pb}" fill="#cfe8d8" opacity=".45" rx="3"/>${xb - xa > 10 ? `<text x="${(xa + xb) / 2}" y="${Hh - pb - 5}" text-anchor="middle" font-size="11">${h.icon}</text>` : ""}`; });
-  cycleWindows(t0, t1).forEach(w => { const xa = Math.max(pl, X(w.a.getTime())), xb = Math.min(Wd - pr, X(w.b.getTime())); if (xb > xa) g += `<rect x="${xa}" y="${pt}" width="${xb - xa}" height="${Hh - pt - pb}" fill="#f7c6dc" opacity=".35" rx="3"/>`; });
-  // normaler Schwankungsbereich ±0,5 kg um die gerade Linie
-  g += `<polygon points="${pN.map((v, i) => `${pX(i)},${Y(v + .5).toFixed(1)}`).join(" ")} ${pN.map((v, i) => `${pX(i)},${Y(v - .5).toFixed(1)}`).reverse().join(" ")}" fill="#ff7a59" opacity=".10"/>`;
-  // Verbindung letzte Messung → heute
+  g += `<line x1="${nowX}" x2="${nowX}" y1="${pt}" y2="${Hh - pb}" stroke="#1f2a44" stroke-opacity=".25" stroke-dasharray="2 3"/><text x="${nowX + 3}" y="${pt + 8}" font-size="9" fill="#7a7f8c" font-weight="800">heute</text>`;
+  if (S.target) g += `<line x1="0" x2="${Wd}" y1="${Y(S.target)}" y2="${Y(S.target)}" stroke="#3aa676" stroke-dasharray="1 4" stroke-linecap="round" stroke-width="2"/>${[nowX + 40, ...(rN > 0 ? [+pX(rN) + 10] : [])].map(x => `<text x="${x}" y="${Y(S.target) - 4}" font-size="10" fill="#3aa676" font-weight="800">Ziel ${fmt1(S.target)}</text>`).join("")}`;
+  holidayWindows(t0, t1L).forEach(h => { const xa = X(h.a.getTime()), xb = X(h.b.getTime()); if (xb > xa) g += `<rect x="${xa}" y="${pt}" width="${xb - xa}" height="${Hh - pt - pb}" fill="#cfe8d8" opacity=".45" rx="3"/>${xb - xa > 10 ? `<text x="${(xa + xb) / 2}" y="${Hh - pb - 5}" text-anchor="middle" font-size="11">${h.icon}</text>` : ""}`; });
+  cycleWindows(t0, t1L).forEach(w => { const xa = X(w.a.getTime()), xb = X(w.b.getTime()); if (xb > xa) g += `<rect x="${xa}" y="${pt}" width="${xb - xa}" height="${Hh - pt - pb}" fill="#f7c6dc" opacity=".35" rx="3"/>`; });
+  g += `<polygon points="${lN.map((v, i) => `${pX(i)},${Y(v + .5).toFixed(1)}`).join(" ")} ${lN.map((v, i) => `${pX(i)},${Y(v - .5).toFixed(1)}`).reverse().join(" ")}" fill="#ff7a59" opacity=".10"/>`;
   if (gap > 0) g += `<line x1="${X(lastDate.getTime()).toFixed(1)}" y1="${Y(W0).toFixed(1)}" x2="${pX(0)}" y2="${Y(wStart).toFixed(1)}" stroke="#7a7f8c" stroke-width="1.5" stroke-dasharray="2 3"/>`;
-  if (showWave) g += `<polyline points="${line(pF)}" fill="none" stroke="#8e6bd6" stroke-width="2" stroke-dasharray="4 3" stroke-linejoin="round" opacity=".9"/>`;
-  if (showGoal) g += `<polyline points="${line(pG)}" fill="none" stroke="#3aa676" stroke-width="2" stroke-dasharray="5 4" opacity=".85"/>`;
-  g += `<polyline points="${line(pN)}" fill="none" stroke="#ff7a59" stroke-width="2.5" stroke-dasharray="6 4"/>`;
-  if (rN > 0 && rN <= H) g += `<circle cx="${pX(rN)}" cy="${Y(S.target)}" r="5" fill="#3aa676" stroke="#fff" stroke-width="2"/>`;
+  if (lF) g += `<polyline points="${line(lF)}" fill="none" stroke="#8e6bd6" stroke-width="2" stroke-dasharray="4 3" stroke-linejoin="round" opacity=".9"/>`;
+  if (lG) g += `<polyline points="${line(lG)}" fill="none" stroke="#3aa676" stroke-width="2" stroke-dasharray="5 4" opacity=".85"/>`;
+  g += `<polyline points="${line(lN)}" fill="none" stroke="#ff7a59" stroke-width="2.5" stroke-dasharray="6 4"/>`;
+  // alle 5 kg ein Datum
+  const down = lN[HL] < wStart, marks = [];
+  { let m = down ? Math.floor(wStart / 5) * 5 : Math.ceil(wStart / 5) * 5; if (m === Math.round(wStart * 10) / 10) m += down ? -5 : 5;
+    for (let i = 1; i <= HL && marks.length < 30; i++) { if (down ? lN[i] <= m : lN[i] >= m) { marks.push({ i, kg: m }); m += down ? -5 : 5; } } }
+  let lastMx = -99;
+  marks.forEach(({ i, kg }) => { const x = +pX(i), y = Y(kg), near = x - lastMx < 70; lastMx = x;
+    g += `<circle cx="${x}" cy="${y}" r="4" fill="#fff" stroke="#ff7a59" stroke-width="2"/><g data-notr><text x="${x}" y="${y + (near ? 30 : 17)}" text-anchor="middle" font-size="10.5" fill="#1f2a44" font-weight="800">${kg} kg</text><text x="${x}" y="${y + (near ? 41 : 28)}" text-anchor="middle" font-size="9.5" fill="#7a7f8c" font-weight="700">${new Date(tStart + i * DAY).toLocaleDateString(LOCALE, { day: "numeric", month: "short", year: "2-digit" })}</text></g>`; });
+  if (rN > 0) g += `<circle cx="${pX(rN)}" cy="${Y(S.target)}" r="5" fill="#3aa676" stroke="#fff" stroke-width="2"/>`;
+  if (settles && def > 50) g += `<text x="${Wd - 6}" y="${Y(eqW) - 21}" text-anchor="end" font-size="9" fill="#7a7f8c" font-weight="700">pendelt sich ein</text><text x="${Wd - 6}" y="${Y(eqW) - 9}" text-anchor="end" font-size="10.5" fill="#c4502f" font-weight="800" data-notr>≈ ${fmt1(eqW)} kg</text>`;
   if (L.length > 1) g += `<polyline points="${L.map(x => `${X(parseKey(x.d).getTime()).toFixed(1)},${Y(x.kg).toFixed(1)}`).join(" ")}" fill="none" stroke="#1f2a44" stroke-width="2.5" stroke-linejoin="round"/>`;
-  g += L.map(x => `<circle cx="${X(parseKey(x.d).getTime())}" cy="${Y(x.kg)}" r="3.5" fill="#fff" stroke="#1f2a44" stroke-width="2"/>`).join("");
-  $("#wChart").innerHTML = `<svg viewBox="0 0 ${Wd} ${Hh}" role="img" aria-label="Gewichtsverlauf und Prognose">${g}</svg>`;
-  $("#lgCyc").hidden = !S.cycleStart || S.cycleMode === "none"; $("#lgHol").hidden = !holidayWindows(t0, t1).length; $("#lgWave").hidden = !showWave; $("#lgGoal").hidden = !showGoal;
+  g += L.map(x => `<circle cx="${X(parseKey(x.d).getTime())}" cy="${Y(x.kg)}" r="3.5" fill="#fff" stroke="#1f2a44" stroke-width="2"/>`).join("") + zt;
+  const defs = `<defs><linearGradient id="rz" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e5484d" stop-opacity=".16"/><stop offset="1" stop-color="#e5484d" stop-opacity=".30"/></linearGradient></defs>`;
+  const wc = $("#wChart"), oldSL = wc.querySelector(".wcscroll")?.scrollLeft;
+  wc.innerHTML = `<div class="wcwrap"><svg class="wcaxis" width="${AX}" height="${Hh}" aria-hidden="true">${ax}</svg><div class="wcscroll"><svg width="${Wd}" height="${Hh}" role="img" aria-label="Gewichtsverlauf und Prognose">${defs}${g}</svg></div></div>
+    <div class="wcfoot"><span>← → Wischen zeigt, wie es weitergeht.</span>${settles && def > 50 ? `<span>Dein Gewicht pendelt sich bei ca. ${fmt1(eqW)} kg ein – dort decken ${fmt(intake)} kcal deinen Bedarf.</span>` : ""}${zone ? `<span class="wcz">⚠ <span>${esc(zone.why)}</span></span>` : ""}${zone && settles && def > 50 && eqW < zone.w ? (() => { const di = lN.findIndex(v => v < zone.w); return `<span class="wcz"><span>Mit ${fmt(intake)} kcal rutschst du auf Dauer in den roten Bereich, ab ca.</span> <b data-notr>${new Date(tStart + di * DAY).toLocaleDateString(LOCALE, { day: "numeric", month: "long", year: "numeric" })}</b>. <span>Spätestens bei ${fmt1(Math.ceil(zone.w))} kg solltest du auf ca. ${fmt(Math.round(tdee(Math.ceil(zone.w)) / 50) * 50)} kcal (Erhaltung) hochgehen.</span></span>`; })() : ""}${zone && S.target && S.target < zone.w ? `<span class="wcz"><b>Dein Wunschgewicht liegt im roten Bereich.</b> <span>Bitte sprich vorher mit einer Ärztin oder einem Arzt.</span></span>` : ""}</div>`;
+  const sc = wc.querySelector(".wcscroll"); sc.scrollLeft = oldSL ?? Math.max(0, nowX - 90);
+  $("#lgCyc").hidden = !S.cycleStart || S.cycleMode === "none"; $("#lgHol").hidden = !holidayWindows(t0, t1L).length; $("#lgWave").hidden = !showWave; $("#lgGoal").hidden = !showGoal;
   drawFat(); drawRoad();
 }
 function weightSheet() {
@@ -1401,8 +1460,8 @@ function cycleWindows(fromT, toT) {
   if (S.cycleMode === "none") return [];
   if (!S.cycleStart) return [];
   const len = Math.max(20, Math.min(45, S.cycleLen || 28)), cs = parseKey(S.cycleStart);
-  const out = []; let n = Math.floor((fromT - cs) / (len * 864e5)) - 1;
-  for (; ; n++) { const ps = addDays(cs, n * len); const a = addDays(ps, -7), b = addDays(ps, 2); if (a.getTime() > toT) break; if (b.getTime() >= fromT) out.push({ a, b, ps }); if (n > 60) break; }
+  const out = []; let n = Math.floor((fromT - cs) / (len * 864e5)) - 1, cnt = 0;
+  for (; ; n++) { const ps = addDays(cs, n * len); const a = addDays(ps, -7), b = addDays(ps, 2); if (a.getTime() > toT) break; if (b.getTime() >= fromT) out.push({ a, b, ps }); if (++cnt > 80) break; }
   return out;
 }
 function drawRoad() {
@@ -1675,13 +1734,15 @@ function snackFromDb() {
   foodSheet({ title: "Neuer Snack", action: "Als Snack übernehmen", snack: true, onPick: it => snackSheet(null, it), onRecipe: () => snackRecipeSheet() });
 }
 // Snack aus eigenem Rezept: Zutaten eintragen, „ergibt X Stück“ → kcal pro Stück
-function snackRecipeSheet(pre) {
-  const st = pre || { name: "", n: 12, rows: [{ n: "", g: "", un: "" }, { n: "", g: "", un: "" }] };
-  const uG = r => { if (!r.un) return 0; const u = ingUnits(r.n).find(([l]) => l === r.un); return u ? u[1] : 0; };
+function snackRecipeSheet(pre, editId) {
+  const st = pre ? JSON.parse(JSON.stringify(pre)) : { name: "", n: 1, rows: [{ n: "", g: "", un: "" }, { n: "", g: "", un: "" }] };
+  if (!st.rows || !st.rows.length) st.rows = [{ n: "", g: "", un: "" }];
+  const unitOpts = r => { const f = r.n && ingInfo(r.n), base = f?.u || "g", other = base === "ml" ? "g" : "ml"; return [[base, 0], [other, 1], ...(f ? ingUnits(r.n, f).filter(([l]) => l !== "g" && l !== "ml") : [])]; };
+  const uG = r => { if (!r.un) return 0; const u = unitOpts(r).find(([l, gg]) => gg && l === r.un); return u ? u[1] : 0; };
   const grams = r => { const v = num(r.g); const ug = uG(r); return ug ? v * ug : v; };
   const tot = () => st.rows.reduce((a, r) => { const f = r.n && ingInfo(r.n); const g = grams(r); return f && g ? { k: a.k + f.k * g / 100, p: a.p + f.p * g / 100 } : a; }, { k: 0, p: 0 });
   const rowHtml = (r, i) => `<div class="srow" data-i="${i}"><input class="sname" value="${esc(r.n ? ingLabel(r.n) : "")}" placeholder="Zutat, z. B. Mehl" autocomplete="off"><input class="sg" inputmode="decimal" value="${r.g}" placeholder="0"><select class="sun"></select><button type="button" class="srm" data-rm="${i}" aria-label="Entfernen">✕</button><div class="ssug isug" hidden></div><div class="sk"></div></div>`;
-  openSheet(`<button type="button" class="lnk" id="srBack">‹ zurück</button><h3 style="margin-top:6px">🧁 Snack aus eigenem Rezept</h3>
+  openSheet(`<button type="button" class="lnk" id="srBack">‹ zurück</button><h3 style="margin-top:6px">🧁 ${editId ? "Zutaten bearbeiten" : "Snack aus eigenem Rezept"}</h3>
     <div class="fld"><label>Name</label><input id="srn" value="${esc(st.name)}" placeholder="z. B. Omas Haferkekse" maxlength="40"></div>
     <div class="fld"><label>Zutaten (für das ganze Rezept)</label><div id="srrows">${st.rows.map(rowHtml).join("")}</div>
       <div class="caddrow"><button type="button" class="cadd" id="sradd">＋ Zutat</button></div></div>
@@ -1690,9 +1751,9 @@ function snackRecipeSheet(pre) {
     <div class="actions"><button class="btn" id="srok">Weiter</button><button class="btn ghost" id="cancel">Abbrechen</button></div>`);
   const upd = () => {
     sheet.querySelectorAll(".srow").forEach(el => { const r = st.rows[+el.dataset.i]; const f = r.n && ingInfo(r.n);
-      const us = el.querySelector(".sun"), opts = [[f?.u || "g", 0], ...(f ? ingUnits(r.n, f) : [])], key = opts.map(o => o[0]).join("|");
+      const us = el.querySelector(".sun"), opts = unitOpts(r), key = opts.map(o => o[0]).join("|");
       if (us.dataset.key !== key) { us.dataset.key = key; us.innerHTML = opts.map(([l, gg]) => `<option value="${esc(gg ? l : "")}">${esc(shortUnit(l))}</option>`).join(""); }
-      if (r.un && !uG(r)) r.un = ""; us.value = r.un || ""; us.disabled = opts.length < 2;
+      if (r.un && !uG(r)) r.un = ""; if (us.value !== (r.un || "")) us.value = r.un || "";
       const g = grams(r); el.querySelector(".sk").textContent = f && g ? `${uG(r) ? fmt(g) + " g · " : ""}${fmt(f.k * g / 100)} kcal` : r.n && !f ? "Unbekannt – wähle einen Vorschlag" : ""; });
     const t = tot(), n = Math.max(1, num($("#srN").value) || 1);
     $("#srsum").innerHTML = `<div><b>${fmt(t.k / n)}</b><span>kcal pro Stück</span></div><div><b>${fmt1(t.p / n)} g</b><span>Eiweiß pro Stück</span></div><div><b>${fmt(t.k)}</b><span>kcal gesamt</span></div>`;
@@ -1710,10 +1771,12 @@ function snackRecipeSheet(pre) {
     if (b.dataset.ssug) { const r = st.rows[+el.dataset.i]; r.n = b.dataset.ssug; el.querySelector(".sname").value = ingLabel(r.n); el.querySelector(".ssug").hidden = true; upd(); el.querySelector(".sg").focus(); }
     else if (b.dataset.rm != null) { st.rows.splice(+b.dataset.rm, 1); if (!st.rows.length) st.rows.push({ n: "", g: "", un: "" }); $("#srrows").innerHTML = st.rows.map(rowHtml).join(""); upd(); }
     else if (b.id === "sradd") { st.rows.push({ n: "", g: "", un: "" }); $("#srrows").insertAdjacentHTML("beforeend", rowHtml(st.rows[st.rows.length - 1], st.rows.length - 1)); upd(); sheet.querySelector(".srow:last-child .sname").focus(); }
-    else if (b.id === "srBack") snackFromDb();
+    else if (b.id === "srBack") { if (editId) snackSheet(editId); else snackFromDb(); }
     else if (b.id === "cancel") closeSheet();
     else if (b.id === "srok") { const t = tot(), n = Math.max(1, num($("#srN").value) || 1); if (!t.k) { toast("Bitte mindestens eine Zutat mit Menge eintragen"); return; }
-      snackSheet(null, { name: (st.name || "Eigener Snack").trim(), kcal: Math.round(t.k / n), protein: Math.round(t.p / n), emoji: "🍪" }); } };
+      const rec = { n, rows: st.rows.filter(r => r.n && num(r.g) > 0).map(r => ({ n: r.n, g: r.g, un: r.un || "" })) };
+      if (editId) { const sn = S.snacks.find(x => x.id === editId); if (sn) { sn.name = (st.name || sn.name).trim(); sn.kcal = Math.round(t.k / n); sn.protein = Math.round(t.p / n * 10) / 10; sn.rec = rec; saveS(); renderSnacks(); renderToday(); toast("Snack aktualisiert"); snackSheet(editId); } return; }
+      snackSheet(null, { name: (st.name || "Eigener Snack").trim(), kcal: Math.round(t.k / n), protein: Math.round(t.p / n * 10) / 10, emoji: "🍪", rec }); } };
   upd();
 }
 function snackSheet(id, pre = {}) {
@@ -1731,6 +1794,7 @@ function snackSheet(id, pre = {}) {
         <div class="fld"><label>kcal</label><input id="fk" inputmode="decimal" required value="${s?.kcal ?? pre.kcal ?? ""}"></div>
         <div class="fld"><label>Eiweiß (g)</label><input id="fp" inputmode="decimal" value="${s?.protein || pre.protein || ""}"></div>
       </div>
+      ${s ? `<button type="button" class="btn ghost" id="snkRec" style="margin:-4px 0 14px">🧁 ${s.rec ? `Zutaten & Anzahl bearbeiten (${s.rec.rows.length} Zutaten, ergibt ${fmtQ(s.rec.n)})` : "Aus Zutaten berechnen"}</button>` : ""}
       <div class="fld"><label>Symbol (wenn kein Foto)</label>${emojiRow(SNACK_EMOJI, emo)}</div>
       <div class="actions"><button class="btn snk" type="submit">Speichern</button>
         ${s ? `<button class="btn danger" type="button" id="del">Snack löschen</button>` : ""}
@@ -1740,6 +1804,7 @@ function snackSheet(id, pre = {}) {
   wireEmoji(e => { emo = e; pv(); });
   if ($("#photoOn")) $("#photoOn").onclick = () => photosConsentSheet(() => snackSheet(id, pre));
   if ($("#snkDb")) $("#snkDb").onclick = snackFromDb;
+  if ($("#snkRec")) $("#snkRec").onclick = () => snackRecipeSheet(s.rec ? { name: s.name, n: s.rec.n, rows: s.rec.rows } : { name: s.name, n: 1, rows: [{ n: "", g: "", un: "" }] }, s.id);
   if ($("#fic")) $("#fic").onchange = ev => $("#fi").onchange(ev);
   if ($("#fi")) $("#fi").onchange = async ev => { const f = ev.target.files[0]; if (!f) return; try { img = await compressImage(f); imgChanged = true; pv(); } catch (e) { toast(e.message); } };
   $("#rm").onclick = () => { img = null; imgChanged = true; pv(); };
@@ -1748,7 +1813,7 @@ function snackSheet(id, pre = {}) {
     ev.preventDefault();
     const o = { name: $("#fn").value.trim() || "Snack", kcal: Math.round(num($("#fk").value)), protein: Math.round(num($("#fp").value) * 10) / 10, emoji: emo, hasImg: !!img };
     let sid;
-    if (s) { Object.assign(s, o); sid = s.id; } else { sid = uid(); S.snacks.push({ id: sid, ...o }); }
+    if (s) { Object.assign(s, o); sid = s.id; } else { sid = uid(); S.snacks.push({ id: sid, ...o, ...(pre.rec ? { rec: pre.rec } : {}) }); }
     if (imgChanged || !s) { if (img) { imgs[sid] = img; put("img_" + sid, { d: img }); } else { delete imgs[sid]; put("img_" + sid, null); } }
     saveS(); renderAll(); closeSheet(); toast("Gespeichert");
   };
@@ -1803,7 +1868,7 @@ const clone = o => JSON.parse(JSON.stringify(o));
 // Zutaten fürs Kochbuch: eigene Liste + passende Einträge aus der Lebensmittel-Datenbank (inkl. Gewürze)
 const ING_CAT_SKIP = new Set(["Imbiss & Fast Food", "Gerichte"]);
 let DB_ING = null;
-function dbIng() { if (!DB_ING) { DB_ING = new Map(); FOODS_RAW.forEach(([n, , , k, p, u, c]) => { if (!ING_CAT_SKIP.has(FOOD_CATS[c][0]) && !INGR[n]) DB_ING.set(n, { k, p, u: FOOD_CATS[c][0] === "Getränke" ? "ml" : "g", c, units: u ? u.split("|").map(x => { const i = x.lastIndexOf("="); return [x.slice(0, i).trim(), num(x.slice(i + 1))]; }).filter(x => x[1] > 0) : [] }); }); } return DB_ING; }
+function dbIng() { if (!DB_ING) { DB_ING = new Map(); FOODS_RAW.forEach(([n, , , k, p, u, c]) => { if (!ING_CAT_SKIP.has(FOOD_CATS[c][0]) && !INGR[n]) DB_ING.set(n, { k, p, u: FOOD_CATS[c][0] === "Getränke" && !/pulver|powder|instant/i.test(n) ? "ml" : "g", c, units: u ? u.split("|").map(x => { const i = x.lastIndexOf("="); return [x.slice(0, i).trim(), num(x.slice(i + 1))]; }).filter(x => x[1] > 0) : [] }); }); } return DB_ING; }
 // Art einer Zutat (für Einheiten und Mengen-Vorschläge)
 function ingType(n, info) {
   const t = String(n || "").toLowerCase(), cat = info && info.c != null && FOOD_CATS[info.c] ? FOOD_CATS[info.c][0] : "";
@@ -2339,7 +2404,7 @@ function renderPlan() {
     return `<div class="tkchip ${free < 0 ? "bad" : free === 0 ? "full" : ""} ${d.loc === "frisch" ? "fresh" : ""}"><span class="e">${d.loc === "frisch" ? "🧺" : esc(d.emoji || "🍲")}</span><div><div class="n">${esc(d.name)}</div><div class="m">${fmtQ(d.count)} da · <b>${fmtQ(pl)} verplant</b>${free < 0 ? ` · ${fmtQ(-free)} zu viel!` : ` · ${fmtQ(free)} frei`}${dl !== null && dl <= (d.loc === "frisch" ? 2 : 21) ? ` · <span class="${dl <= (d.loc === "frisch" ? 1 : 7) ? "red" : "amb"}">${dl <= 0 ? "abgelaufen" : "noch " + dl + " T"}</span>` : ""}</div></div></div>`; }).join("")
     : `<p class="tip" style="margin:0">Nichts im Vorrat – koch was aus dem Kochbuch 📖</p>`;
   const B = mealBudget();
-  $("#budgetLbl").textContent = `Mahlzeiten ${fmt(B)} · Snacks ${fmt(S.snackLimit)} kcal`;
+  { const tot = days.reduce((a, d) => a + (P.days[dayKey(d)] || []).filter(x => x.type !== "give").reduce((b, x) => b + num(x.kcal), 0), 0); $("#budgetLbl").textContent = `gesamt ${fmt(tot)} kcal geplant`; }
   const sl = slots();
   $("#planDays").innerHTML = days.map(d => {
     const key = dayKey(d), items = P.days[key] || [], isT = key === curDay, past = key < curDay;
@@ -3124,8 +3189,7 @@ function renderProfile() {
 }
 function renderSports() {
   const opts = sel => Object.entries(SPORTS).map(([k, v]) => `<option value="${k}" ${k === sel ? "selected" : ""}>${v[2]} ${v[0]}</option>`).join("");
-  $("#pfSports").innerHTML = S.sports.length ? S.sports.map((x, i) => `<div class="sprow ${x.main ? "main" : ""}" data-spi="${i}">
-      <button type="button" class="spstar" data-spmain="${i}" title="Als Hauptsport wählen">${x.main ? "⭐" : "☆"}</button>
+  $("#pfSports").innerHTML = S.sports.length ? S.sports.map((x, i) => `<div class="sprow" data-spi="${i}">
       <select data-spf="s">${opts(x.s)}</select>
       <div class="spnums"><label><input data-spf="n" type="number" inputmode="numeric" min="0" max="14" value="${x.n}">× / Woche</label><label><input data-spf="min" type="number" inputmode="numeric" min="5" max="300" value="${x.min}">Min.</label></div>
       <button type="button" class="x" data-spdel="${i}" aria-label="Sportart entfernen">✕</button>
@@ -3314,7 +3378,7 @@ function parseFoodLib(txt) {
 }
 const [FOOD_CATS, FOODS_RAW] = parseFoodLib(window.NUVIO_LEBENSMITTEL);
 // ---------- Lebensmittel-Datenbank & Suche ----------
-const ML_RE = /(milch|drink|kefir|smoothie|saft|schorle|glühwein|punsch|bowle|jagertee|heiße schokolade)/i, NOT_ML = /(schnitte|reis|pudding|kaffee|milchschokolade|schokolade(?! mit sahne))/i;
+const ML_RE = /(milch|drink|kefir|smoothie|saft|schorle|glühwein|punsch|bowle|jagertee|heiße schokolade)/i, NOT_ML = /(schnitte|reis|pudding|kaffee|milchschokolade|schokolade(?! mit sahne)|pulver)/i;
 let FOODS = null;
 function foodsBase() {
   if (FOODS) return FOODS;
@@ -3363,6 +3427,13 @@ function foodSearch(q) {
     if (!ok) continue;
     if (f.mine) sc += 4; if (f.ingr) sc -= 1.5;
     res.push({ f, sc: sc - nm.length / 60 }); seen.add(f.n);
+  }
+  if (res.length < 6) { // zusammengeschrieben / getrennt: „kit kat“ ↔ „kitkat“
+    const cq = toks.join("");
+    if (cq.length >= 4) for (const f of all) {
+      if (seen.has(f.n)) continue;
+      if (f.hay.replace(/ /g, "").includes(cq)) { res.push({ f, sc: 6 - nameOf(f).length / 60 }); seen.add(f.n); }
+    }
   }
   if (res.length < 6) { // Tippfehler: ähnliche Wörter finden
     for (const f of all) {
@@ -3984,7 +4055,21 @@ const I18N = {
 "vor der Periode": ["before your period", "antes de la regla"],
 "Die Prognose-Linie zeigt typische Wasser-Hochs": ["The forecast line shows typical water highs", "La línea de previsión muestra los picos típicos de agua"],
 "– das ist kein Fett und geht danach wieder runter.": ["– that isn't fat and goes back down afterwards.", "– no es grasa y luego vuelve a bajar."],
+"gesamt {0} kcal geplant": ["{0} kcal planned in total", "{0} kcal planificadas en total"], "🔍 Lupe": ["🔍 Zoom", "🔍 Lupa"], "← Verlauf": ["← Progress", "← Progreso"],
+"Tippe auf einen Punkt für Details. Wische in alle Richtungen, mit ＋ / − zoomst du.": ["Tap a point for details. Swipe in any direction, zoom with ＋ / −.", "Toca un punto para ver detalles. Desliza en cualquier dirección y usa ＋ / − para hacer zoom."],
+"Wirklich löschen?": ["Really delete?", "¿Borrar de verdad?"],
 "Feste": ["Festivals", "Fiestas"],
+"pendelt sich ein": ["levels off", "se estabiliza"], "← → Wischen zeigt, wie es weitergeht.": ["← → Swipe to see how it continues.", "← → Desliza para ver cómo sigue."],
+"Dein Gewicht pendelt sich bei ca. {0} kg ein – dort decken {1} kcal deinen Bedarf.": ["Your weight levels off at about {0} kg – that's where {1} kcal covers your needs.", "Tu peso se estabiliza en unos {0} kg: ahí {1} kcal cubren tu gasto."],
+"unter ~{0} % Körperfett": ["below ~{0} % body fat", "menos del ~{0} % de grasa"], "Untergewicht (BMI unter {0})": ["Underweight (BMI below {0})", "Bajo peso (IMC menor de {0})"],
+"Roter Bereich: Unter ca. {0} % Körperfett wird es für Männer ungesund – Hormone, Knochen, Immunsystem und Energie leiden. Grob geschätzt aus Größe, Alter und Gewicht.": ["Red zone: below about {0} % body fat it becomes unhealthy for men – hormones, bones, immune system and energy suffer. Roughly estimated from height, age and weight.", "Zona roja: por debajo de un {0} % de grasa corporal deja de ser saludable para los hombres: sufren las hormonas, los huesos, las defensas y la energía. Estimación aproximada a partir de altura, edad y peso."],
+"Roter Bereich: Unter ca. {0} % Körperfett wird es für Frauen ungesund – Zyklus, Hormone, Knochen und Immunsystem leiden. Grob geschätzt aus Größe, Alter und Gewicht.": ["Red zone: below about {0} % body fat it becomes unhealthy for women – cycle, hormones, bones and immune system suffer. Roughly estimated from height, age and weight.", "Zona roja: por debajo de un {0} % de grasa corporal deja de ser saludable para las mujeres: sufren el ciclo, las hormonas, los huesos y las defensas. Estimación aproximada a partir de altura, edad y peso."],
+"Roter Bereich: Unter {0} kg (BMI {1}) bist du bei deiner Größe untergewichtig. Männer sind dort oft auch schon bei zu wenig Körperfett.": ["Red zone: below {0} kg (BMI {1}) you are underweight for your height. Men there often already have too little body fat.", "Zona roja: por debajo de {0} kg (IMC {1}) tienes bajo peso para tu altura. Los hombres ahí suelen tener ya demasiado poca grasa."],
+"Roter Bereich: Unter {0} kg (BMI {1}) bist du bei deiner Größe untergewichtig. Frauen sind dort oft auch schon bei zu wenig Körperfett – das kann den Zyklus und die Knochen belasten.": ["Red zone: below {0} kg (BMI {1}) you are underweight for your height. Women there often already have too little body fat – this can strain your cycle and bones.", "Zona roja: por debajo de {0} kg (IMC {1}) tienes bajo peso para tu altura. Las mujeres ahí suelen tener ya demasiado poca grasa, lo que puede afectar al ciclo y a los huesos."],
+"Mit {0} kcal rutschst du auf Dauer in den roten Bereich, ab ca.": ["With {0} kcal you'll slide into the red zone over time, from about", "Con {0} kcal acabarás entrando en la zona roja, a partir de aprox."],
+"Spätestens bei {0} kg solltest du auf ca. {1} kcal (Erhaltung) hochgehen.": ["By {0} kg at the latest, raise your intake to about {1} kcal (maintenance).", "Como muy tarde a los {0} kg, sube a unas {1} kcal (mantenimiento)."],
+"Dein Wunschgewicht liegt im roten Bereich.": ["Your target weight is in the red zone.", "Tu peso objetivo está en la zona roja."], "Bitte sprich vorher mit einer Ärztin oder einem Arzt.": ["Please talk to a doctor first.", "Por favor, consúltalo antes con un médico."],
+"Zutaten bearbeiten": ["Edit ingredients", "Editar ingredientes"], "Aus Zutaten berechnen": ["Calculate from ingredients", "Calcular con ingredientes"], "Snack aktualisiert": ["Snack updated", "Snack actualizado"],
 "Gegessen": ["Eaten", "Comido"], "Geplant": ["Planned", "Planificado"], "Zusammen": ["Together", "Total"],
 "📅 {0} geplant": ["📅 {0} planned", "📅 {0} planificadas"],
 "🧁 Eigenes Rezept (Zutaten) – kcal pro Stück berechnen": ["🧁 Own recipe (ingredients) – calculate kcal per piece", "🧁 Receta propia (ingredientes) – calcular kcal por unidad"], "Eigenes Rezept (Zutaten)": ["Own recipe (ingredients)", "Receta propia (ingredientes)"], "z. B. Kekse, Kakao-Mix – kcal pro Stück werden berechnet": ["e.g. cookies, cocoa mix – kcal per piece are calculated", "p. ej. galletas, cacao – se calculan las kcal por unidad"], "🧁 Snack aus eigenem Rezept": ["🧁 Snack from your own recipe", "🧁 Snack de receta propia"], "Zutaten (für das ganze Rezept)": ["Ingredients (whole recipe)", "Ingredientes (receta completa)"], "Ergibt": ["Makes", "Rinde"], "Stück / Portionen": ["pieces / portions", "unidades / porciones"], "kcal pro Stück": ["kcal per piece", "kcal por unidad"], "Eiweiß pro Stück": ["protein per piece", "proteína por unidad"], "Weiter": ["Next", "Siguiente"], "Sport im Profil ändern": ["Change sport in profile", "Cambiar deporte en el perfil"], "Unbekannt – wähle einen Vorschlag": ["Unknown – pick a suggestion", "Desconocido: elige una sugerencia"], "Antippen = einplanen, mehrmals tippen = mehrere (z. B. 3×). Mit − wieder weniger.": ["Tap = plan, tap again = more (e.g. 3×). Use − for fewer.", "Toca = planificar, toca otra vez = más (p. ej. 3×). Con − menos."],
@@ -4230,7 +4315,86 @@ function showTab(name, isBack) {
   if (name === "plan") renderPlan();
   if (name === "profile") { renderProfile(); renderBook(); drawHistSettings(); }
 }
+// ----- Lupe: Gewichtseinträge groß, in alle Richtungen scrollbar -----
+const WZ = { ppd: 0, ppk: 0, sel: null, sure: false };
+function openWZoom() { const z = $("#wz"); z.classList.add("open"); z.setAttribute("aria-hidden", "false"); WZ.sel = null; WZ.sure = false; wzReset(); }
+function closeWZoom() { const z = $("#wz"); z.classList.remove("open"); z.setAttribute("aria-hidden", "true"); }
+const wzOpen = () => $("#wz").classList.contains("open");
+function wzReset() {
+  const sc = $("#wzSc"), L = W.list, w = sc.clientWidth || 380, h = sc.clientHeight || 600;
+  const lastT = L.length ? parseKey(L[L.length - 1].d).getTime() : midnight().getTime();
+  const wk = L.filter(x => parseKey(x.d).getTime() > lastT - 7 * DAY).map(x => x.kg);
+  const r = wk.length ? Math.max(1, Math.max(...wk) - Math.min(...wk)) : 2;
+  WZ.ppd = (w - 70) / 7.5; WZ.ppk = (h - 130) / (r + .8);
+  drawWZ(false);
+  if (!L.length) return;
+  const mid = wk.length ? (Math.max(...wk) + Math.min(...wk)) / 2 : L[L.length - 1].kg;
+  sc.scrollLeft = WZ.X(lastT) - w + 50; sc.scrollTop = WZ.Y(mid) - h / 2;
+}
+function drawWZ(keep) {
+  const sc = $("#wzSc"), L = W.list;
+  if (!L.length) { sc.innerHTML = `<div class="empty" style="margin:40px 20px"><span class="e">⚖️</span>Noch kein Gewicht eingetragen.</div>`; $("#wzInfo").innerHTML = ""; return; }
+  const ts = L.map(x => parseKey(x.d).getTime()), t0 = ts[0] - 2 * DAY, t1 = Math.max(ts[ts.length - 1], midnight().getTime()) + 2 * DAY;
+  const kmin = Math.floor(Math.min(...L.map(x => x.kg)) - 1), kmax = Math.ceil(Math.max(...L.map(x => x.kg)) + 1);
+  const padT = 46, padB = 50, padL = 56;
+  const Wd = Math.round(padL + (t1 - t0) / DAY * WZ.ppd + 30), Hh = Math.round(padT + (kmax - kmin) * WZ.ppk + padB);
+  const X = t => padL + (t - t0) / DAY * WZ.ppd, Y = v => padT + (kmax - v) * WZ.ppk; WZ.X = X; WZ.Y = Y;
+  const step = [.1, .2, .5, 1, 2].find(st => st * WZ.ppk >= 34) || 5;
+  let g = "";
+  for (let v = Math.ceil(kmin / step) * step; v <= kmax + 1e-9; v += step) { const y = Y(v).toFixed(1), major = Math.abs(v - Math.round(v)) < 1e-6;
+    g += `<line x1="0" x2="${Wd}" y1="${y}" y2="${y}" stroke="${major ? "#e2dacd" : "#efe9df"}"/>`;
+  }
+  for (let t = midnight(new Date(t0)).getTime(); t <= t1; t += DAY) { const x = X(t).toFixed(1), d = new Date(t), mon = d.getDay() === 1;
+    g += `<line x1="${x}" x2="${x}" y1="0" y2="${Hh}" stroke="${mon ? "#d9d1c3" : "#f1ece4"}" ${mon ? "" : 'stroke-dasharray="3 4"'}/>`;
+  }
+  // 7-Tage-Schnitt als ruhige Trendlinie
+  const avg = L.map((x, i) => { const t = ts[i], win = L.filter((y, j) => ts[j] <= t && ts[j] > t - 7 * DAY); return [t, win.reduce((a, y) => a + y.kg, 0) / win.length]; });
+  if (avg.length > 1) g += `<polyline points="${avg.map(([t, v]) => `${X(t).toFixed(1)},${Y(v).toFixed(1)}`).join(" ")}" fill="none" stroke="#5bbcf2" stroke-width="3" stroke-opacity=".45" stroke-linejoin="round"/>`;
+  g += `<polyline points="${L.map((x, i) => `${X(ts[i]).toFixed(1)},${Y(x.kg).toFixed(1)}`).join(" ")}" fill="none" stroke="#1f2a44" stroke-width="2.5" stroke-linejoin="round"/>`;
+  g += L.map((x, i) => { const cx = X(ts[i]).toFixed(1), cy = Y(x.kg).toFixed(1), on = WZ.sel === x.d;
+    return `<g data-wzp="${esc(x.d)}" style="cursor:pointer"><circle cx="${cx}" cy="${cy}" r="18" fill="transparent"/><circle cx="${cx}" cy="${cy}" r="${on ? 8 : 6}" fill="${on ? "#ff7a59" : "#fff"}" stroke="${on ? "#ff7a59" : "#1f2a44"}" stroke-width="2.5"/><text x="${cx}" y="${(+cy - 14).toFixed(1)}" text-anchor="middle" font-size="13" font-weight="800" fill="#1f2a44" data-notr>${fmt1(x.kg)}</text>${WZ.ppd < 26 ? "" : `<text x="${cx}" y="${(+cy + 24).toFixed(1)}" text-anchor="middle" font-size="10" font-weight="700" fill="#7a7f8c" data-notr>${parseKey(x.d).toLocaleDateString(LOCALE, { day: "numeric", month: "numeric" })}</text>`}</g>`; }).join("");
+  let cx0, cy0; if (keep && sc.firstChild && WZ.lastX) { cx0 = (sc.scrollLeft + sc.clientWidth / 2 - WZ.lastX.padL) / WZ.lastX.ppd; cy0 = (sc.scrollTop + sc.clientHeight / 2 - padT) / WZ.lastX.ppk + 0; }
+  sc.innerHTML = `<svg width="${Wd}" height="${Hh}" role="img" aria-label="Gewichtseinträge vergrößert">${g}</svg>`;
+  if (cx0 != null) { sc.scrollLeft = padL + cx0 * WZ.ppd - sc.clientWidth / 2; sc.scrollTop = padT + cy0 * WZ.ppk - sc.clientHeight / 2; }
+  WZ.lastX = { padL, ppd: WZ.ppd, ppk: WZ.ppk }; WZ.ax = { kmin, kmax, step, t0, t1 };
+  wzAxes(); wzInfo();
+}
+function wzAxes() {
+  const sc = $("#wzSc"), a = WZ.ax; if (!a || !W.list.length) { $("#wzAx").innerHTML = $("#wzDx").innerHTML = ""; return; }
+  const top = sc.scrollTop, left = sc.scrollLeft, h = sc.clientHeight, w = sc.clientWidth;
+  let ax = ""; for (let v = Math.ceil(a.kmin / a.step) * a.step; v <= a.kmax + 1e-9; v += a.step) { const y = WZ.Y(v) - top; if (y > 30 && y < h - 6) ax += `<span style="top:${y.toFixed(0)}px" data-notr>${fmt1(v)}</span>`; }
+  $("#wzAx").innerHTML = ax;
+  let dx = "", every = WZ.ppd >= 60 ? 1 : WZ.ppd >= 26 ? 2 : WZ.ppd >= 12 ? 7 : 14;
+  for (let t = midnight(new Date(a.t0)).getTime(); t <= a.t1; t += DAY) { const d = new Date(t), x = WZ.X(t) - left; if (x < 50 || x > w - 20) continue;
+    const idx = Math.round((t - a.t0) / DAY); if (every === 7 || every === 14 ? d.getDay() !== 1 || (every === 14 && Math.floor(idx / 7) % 2) : idx % every) continue;
+    dx += `<span class="${d.getDay() === 1 ? "mon" : ""}" style="left:${x.toFixed(0)}px" data-notr>${WZ.ppd >= 60 ? d.toLocaleDateString(LOCALE, { weekday: "short" }) + " " : ""}${d.getDate()}.${d.getMonth() + 1}.</span>`; }
+  $("#wzDx").innerHTML = dx;
+}
+function wzInfo() {
+  const box = $("#wzInfo"), L = W.list, i = L.findIndex(x => x.d === WZ.sel);
+  if (i < 0) { box.innerHTML = `<span>Tippe auf einen Punkt für Details. Wische in alle Richtungen, mit ＋ / − zoomst du.</span>`; return; }
+  const x = L[i], df = i > 0 ? x.kg - L[i - 1].kg : null;
+  box.innerHTML = `<div><b data-notr>${fmt1(x.kg)} kg</b><br><span data-notr>${parseKey(x.d).toLocaleDateString(LOCALE, { weekday: "long", day: "numeric", month: "long" })}${df !== null ? ` · ${df <= 0 ? "−" : "+"}${fmt1(Math.abs(df))}` : ""}</span></div><button class="wzdel ${WZ.sure ? "sure" : ""}" id="wzDel">${WZ.sure ? "Wirklich löschen?" : "Eintrag löschen"}</button>`;
+}
+function wzZoom(f) { WZ.ppd = Math.max(6, Math.min(400, WZ.ppd * f)); WZ.ppk = Math.max(8, Math.min(1500, WZ.ppk * f)); drawWZ(true); }
+$("#btnWZoom").addEventListener("click", openWZoom);
+$("#wzBack").addEventListener("click", closeWZoom);
+$("#wzHome").addEventListener("click", () => { closeWZoom(); showTab("today"); });
+$("#wzReset").addEventListener("click", () => { WZ.sel = null; WZ.sure = false; wzReset(); });
+$("#wzIn").addEventListener("click", () => wzZoom(1.4));
+$("#wzSc").addEventListener("scroll", () => requestAnimationFrame(wzAxes), { passive: true });
+$("#wzOut").addEventListener("click", () => wzZoom(1 / 1.4));
+$("#wz").addEventListener("click", e => {
+  const p = e.target.closest("[data-wzp]");
+  if (p) { WZ.sel = WZ.sel === p.dataset.wzp ? null : p.dataset.wzp; WZ.sure = false; drawWZ(true); return; }
+  if (e.target.closest("#wzDel")) {
+    if (!WZ.sure) { WZ.sure = true; wzInfo(); return; }
+    const old = W.list.find(x => x.d === WZ.sel); W.list = W.list.filter(x => x.d !== WZ.sel); W = normW(W); saveW(); WZ.sel = null; WZ.sure = false; drawHist();
+    if (old) toast("Eintrag gelöscht", () => { W.list.push(old); W = normW(W); saveW(); drawHist(); });
+  }
+});
 function navBack() {
+  if (wzOpen()) { closeWZoom(); return true; }
   if (scrim.classList.contains("open")) { closeSheet(); return true; }
   if (fridgeOpen()) { closeFridge(); return true; }
   const prev = tabStack.pop(); tabStack.length = 0; // nur ein Schritt zurück, danach geht's nach Hause
@@ -4243,7 +4407,7 @@ addEventListener("popstate", () => { if (navBack()) { try { history.pushState({ 
 function drawHistSettings() { $("#setGoal").value = S.goal; $("#setProt").value = S.prot; $("#setSnack").value = S.snackLimit; $("#setTarget").value = S.target ?? ""; $("#setCycle").value = S.cycleStart || ""; $("#setCycle").max = curDay; $("#setCycLen").value = S.cycleLen; $("#setHeight").value = S.height; $("#setBirth").value = S.birthY; }
 document.addEventListener("click", e => { if (e.target.closest("[data-open-profile]") || e.target.closest("#btnProfile")) openProfile(); });
 wireProfile();
-window.__nuvio = { get foods() { return FOODS_RAW; }, get cats() { return FOOD_CATS; }, get recipes() { return REC_TEMPLATES; }, ingInfo: n => ingInfo(n), compose: (x, r) => composeArt(x, r), parts: (x) => dishParts(x) }; // für Tests
+window.__nuvio = { get foods() { return FOODS_RAW; }, get cats() { return FOOD_CATS; }, get recipes() { return REC_TEMPLATES; }, ingInfo: n => ingInfo(n), compose: (x, r) => composeArt(x, r), parts: (x) => dishParts(x), search: q => foodSearch(q).slice(0, 4).map(f => f.n) }; // für Tests
 // Profil: Abschnitte zum Aufklappen (Sprache bleibt immer offen)
 (function profileAccordion() {
   const v = $("#v-profile"); if (!v) return;
@@ -4348,6 +4512,12 @@ async function loadImages() {
 })();
 })();
 </script>
-<script>if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));</script>
+<script>if ("serviceWorker" in navigator) addEventListener("load", () => {
+  const had = !!navigator.serviceWorker.controller; let done = false;
+  navigator.serviceWorker.register("sw.js").then(reg => { document.addEventListener("visibilitychange", () => { if (!document.hidden) reg.update().catch(() => {}); }); }).catch(() => {});
+  // neue Version aktiv → einmal neu laden (nicht mitten in einer Eingabe)
+  navigator.serviceWorker.addEventListener("controllerchange", () => { if (!had || done) return; const go = () => { if (done) return; done = true; location.reload(); };
+    if (!document.querySelector("#scrim.open")) go(); else document.addEventListener("visibilitychange", () => { if (document.hidden) go(); }, { once: true }); });
+});</script>
 </body>
 </html>

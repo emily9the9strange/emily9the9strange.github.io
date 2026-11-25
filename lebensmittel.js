@@ -1961,6 +1961,172 @@ Bratapfel-Schokolade | Baked apple chocolate | Chocolate de manzana asada ; 530 
 Kinder Happy Hippo Kakao | Kinder Happy Hippo cocoa | Kinder Happy Hippo cacao ; 560 ; 8 ; Stück=20.7
 Nutella (Glas) | Nutella (jar) | Nutella (tarro) ; 540 ; 6 ; TL=10 | EL=20
 Hanuta Weihnachtsedition | Hanuta Christmas edition | Hanuta edición navideña ; 540 ; 8 ; Stück=22
+Mikado Milchschokolade | Mikado milk chocolate | Mikado chocolate con leche ; 500 ; 7.5 ; Stäbchen=1.3 | Packung=75
+Mikado Zartbitter | Mikado dark chocolate | Mikado chocolate negro ; 495 ; 7.5 ; Stäbchen=1.3 | Packung=75
+Mikado White | Mikado white chocolate | Mikado chocolate blanco ; 505 ; 7 ; Stäbchen=1.3 | Packung=75
+Mikado King Choco | Mikado King choco | Mikado King choco ; 505 ; 7.5 ; Stäbchen=4 | Packung=51
+Pocky Matcha | Pocky matcha | Pocky matcha ; 500 ; 6.5 ; Stäbchen=1.2 | Packung=33
+Pejoy (gefüllte Stäbchen) | Pejoy filled sticks | Pejoy palitos rellenos ; 500 ; 7 ; Packung=37
+KitKat Matcha (Japan) | KitKat matcha (Japan) | KitKat matcha (Japón) ; 540 ; 7 ; Riegel=11.6
+KitKat Erdbeer (Japan) | KitKat strawberry (Japan) | KitKat fresa (Japón) ; 535 ; 6 ; Riegel=11.6
+KitKat Dark | KitKat dark | KitKat negro ; 515 ; 6.5 ; Riegel=41.5
+KitKat Pop Choc | KitKat Pop Choc | KitKat Pop Choc ; 525 ; 6.5 ; Beutel=40
+KitKat Chunky White | KitKat Chunky white | KitKat Chunky blanco ; 540 ; 6 ; Riegel=40
+KitKat Chunky Caramel | KitKat Chunky caramel | KitKat Chunky caramelo ; 510 ; 5.5 ; Riegel=43.5
+KitKat Senses | KitKat Senses | KitKat Senses ; 545 ; 6 ; Stück=12
+KitKat Cookie Dough | KitKat cookie dough | KitKat cookie dough ; 525 ; 6 ; Riegel=41.5
+KitKat Vegan | KitKat vegan | KitKat vegano ; 520 ; 5 ; Riegel=41.5
+Seetangchips (Nori-Snack) | Seaweed snack (nori) | Snack de algas (nori) ; 520 ; 20 ; Packung=5 | Blatt=0.5
+Seetangchips Wasabi | Seaweed snack wasabi | Snack de algas wasabi ; 520 ; 18 ; Packung=5
+Seetangchips Teriyaki | Seaweed snack teriyaki | Snack de algas teriyaki ; 510 ; 17 ; Packung=5
+Tao Kae Noi Crispy Seaweed | Tao Kae Noi crispy seaweed | Tao Kae Noi algas crujientes ; 520 ; 22 ; Packung=32
+Seetang-Reiscracker (Senbei) | Rice crackers with seaweed (senbei) | Galletas de arroz con alga (senbei) ; 390 ; 7 ; Stück=4 | Packung=100
+Reiscracker-Mix (japanisch) | Japanese rice cracker mix | Mezcla de galletas de arroz japonesas ; 410 ; 9 ; Handvoll=25 | Packung=100
+Shrimp Chips (Calbee) | Calbee shrimp chips | Calbee chips de gamba ; 510 ; 6 ; Packung=40
+Honig-Butter-Chips (Korea) | Honey butter chips (Korea) | Patatas mantequilla y miel (Corea) ; 555 ; 5 ; Packung=60
+Choco Pie (Orion) | Choco Pie (Orion) | Choco Pie (Orion) ; 430 ; 4.5 ; Stück=28
+Melonpan | Melon pan | Melon pan ; 370 ; 7.5 ; Stück=90
+Hi-Chew | Hi-Chew | Hi-Chew ; 400 ; 0.5 ; Stück=5 | Packung=50
+Milkita (Milchbonbons) | Milkita milk candy | Caramelos de leche Milkita ; 400 ; 8 ; Stück=3.5
+White Rabbit (Milchbonbons) | White Rabbit candy | Caramelos White Rabbit ; 420 ; 5 ; Stück=7
+Lotte Pepero | Lotte Pepero | Lotte Pepero ; 495 ; 7.5 ; Packung=47
+Toppo | Toppo | Toppo ; 495 ; 6.5 ; Packung=36
+Hanuta Weiß | Hanuta white | Hanuta blanco ; 545 ; 8 ; Stück=22
+Duplo White | Duplo white | Duplo blanco ; 555 ; 6 ; Stück=18
+Duplo Mini | Duplo mini | Duplo mini ; 555 ; 5.5 ; Stück=7
+Kinder Bueno Coconut | Kinder Bueno coconut | Kinder Bueno coco ; 570 ; 8 ; Riegel=39
+Kinder Pingui Kokos | Kinder Pingui coconut | Kinder Pingui coco ; 430 ; 6 ; Stück=30
+Milka Kuhflecken | Milka Kuhflecken | Milka Kuhflecken ; 535 ; 6.5 ; Tafel=100 | Stück=6
+Milka Daim Riegel | Milka Daim bar | Milka Daim barrita ; 530 ; 5 ; Riegel=37
+Milka Nussini | Milka Nussini | Milka Nussini ; 545 ; 7 ; Riegel=31.5
+Milka Waffelini | Milka Waffelini | Milka Waffelini ; 530 ; 6.5 ; Riegel=31
+Milka Leo | Milka Leo | Milka Leo ; 530 ; 6 ; Riegel=33.3
+Milka Tuc | Milka Tuc | Milka Tuc ; 525 ; 7 ; Tafel=87
+Milka Biscuit | Milka biscuit | Milka galleta ; 515 ; 6.5 ; Tafel=100
+Milka Weiße Schokolade | Milka white chocolate | Milka chocolate blanco ; 550 ; 6 ; Tafel=100
+Ritter Sport Mini Mix (Stück) | Ritter Sport mini (piece) | Ritter Sport mini (unidad) ; 545 ; 7 ; Stück=16.7
+Ritter Sport Vegan Amazing Cashew | Ritter Sport vegan cashew | Ritter Sport vegano anacardo ; 560 ; 7 ; Tafel=100
+Ritter Sport Weiße Voll-Nuss | Ritter Sport white whole hazelnuts | Ritter Sport blanco avellanas ; 575 ; 8.5 ; Tafel=100
+Ritter Sport Butterkeks | Ritter Sport butter biscuit | Ritter Sport galleta ; 540 ; 6.5 ; Tafel=100
+Ritter Sport Nuss-Splitter | Ritter Sport nut splinters | Ritter Sport trocitos de avellana ; 560 ; 7.5 ; Tafel=100
+Lindt Excellence 90 % | Lindt Excellence 90 % | Lindt Excellence 90 % ; 590 ; 10 ; Tafel=100 | Stück=10
+Lindt Excellence Orange | Lindt Excellence orange | Lindt Excellence naranja ; 540 ; 6 ; Tafel=100
+Lindt Lindor Weiß | Lindt Lindor white | Lindt Lindor blanco ; 645 ; 4 ; Kugel=12.5
+Lindt Lindor Salted Caramel | Lindt Lindor salted caramel | Lindt Lindor caramelo salado ; 620 ; 4.5 ; Kugel=12.5
+Lindt Champs-Élysées (Praline) | Lindt Champs-Élysées praline | Bombón Lindt Champs-Élysées ; 540 ; 6 ; Stück=10
+Lindt Pistachio Tafel | Lindt pistachio bar | Lindt tableta pistacho ; 560 ; 8 ; Tafel=100
+Dubai-Schokolade (Pistazie) | Dubai chocolate (pistachio) | Chocolate de Dubái (pistacho) ; 570 ; 10 ; Tafel=100 | Stück=12
+Kinder Choco Fresh | Kinder Choco fresh | Kinder Choco fresh ; 560 ; 8.5 ; Riegel=20.5
+Kinder Joy Funko | Kinder Joy | Kinder Joy ; 560 ; 8 ; Ei=20
+Ferrero Rocher Dark | Ferrero Rocher dark | Ferrero Rocher negro ; 600 ; 7.5 ; Kugel=12.5
+Ferrero Rocher Tafel | Ferrero Rocher bar | Ferrero Rocher tableta ; 590 ; 8 ; Tafel=90
+Nutella Muffin | Nutella muffin | Muffin Nutella ; 450 ; 6 ; Stück=70
+Mars Eis Riegel | Mars ice cream bar | Helado Mars ; 350 ; 4 ; Stück=51
+Snickers Eis Riegel | Snickers ice cream bar | Helado Snickers ; 370 ; 6 ; Stück=53
+Twix Eis Riegel | Twix ice cream bar | Helado Twix ; 360 ; 4 ; Stück=40
+Bounty Eis | Bounty ice cream | Helado Bounty ; 345 ; 3.5 ; Stück=39
+Milky Way Magic Stars | Milky Way Magic Stars | Milky Way Magic Stars ; 540 ; 5.5 ; Beutel=33
+Maltesers Teasers | Maltesers Teasers | Maltesers Teasers ; 530 ; 7 ; Riegel=35
+M&M's Caramel | M&M's caramel | M&M's caramelo ; 485 ; 4.5 ; Beutel=36
+M&M's Mint | M&M's mint | M&M's menta ; 490 ; 4.5 ; Beutel=45
+Twix Xtra | Twix Xtra | Twix Xtra ; 495 ; 4.5 ; Packung=75
+Snickers Crisper | Snickers Crisper | Snickers Crisper ; 510 ; 7 ; Riegel=40
+Lion Peanut | Lion peanut | Lion cacahuete ; 500 ; 8 ; Riegel=41
+Lion White | Lion white | Lion blanco ; 495 ; 6 ; Riegel=42
+Smarties Riegel | Smarties bar | Smarties tableta ; 530 ; 6 ; Riegel=32
+Aero | Aero | Aero ; 540 ; 7 ; Riegel=36
+Rolo | Rolo | Rolo ; 480 ; 3.5 ; Rolle=52 | Stück=5
+Toffifee Weiß | Toffifee white | Toffifee blanco ; 525 ; 6 ; Stück=8.3
+Merci Mousse au Chocolat | Merci mousse au chocolat | Merci mousse au chocolat ; 570 ; 6 ; Stück=8
+Schokobons Kokos | Coconut choco bons | Bombones de coco ; 560 ; 6 ; Stück=6
+Ferrero Rafaello Mandel-Kokos | Raffaello almond coconut | Raffaello almendra y coco ; 625 ; 7.5 ; Stück=10
+Ritter Sport Kakao-Mousse | Ritter Sport cocoa mousse | Ritter Sport mousse de cacao ; 560 ; 6 ; Tafel=100
+Lebkuchenherz (Jahrmarkt) | Gingerbread heart (fair) | Corazón de pan de jengibre ; 370 ; 5 ; Stück=100
+Russisch Brot | Russian bread biscuits | Galletas Russisch Brot ; 370 ; 7 ; Handvoll=20 | Packung=100
+Prinzen Rolle Minis | Prinzen Rolle minis | Prinzen Rolle minis ; 475 ; 6 ; Beutel=40
+Leibniz Pick Up! Black n White | Leibniz Pick Up black & white | Leibniz Pick Up blanco y negro ; 515 ; 6.5 ; Riegel=28
+Leibniz Butterkeks Vollkorn | Leibniz wholegrain butter biscuit | Leibniz galleta integral ; 450 ; 8 ; Stück=8.3
+Bahlsen Hit | Bahlsen Hit | Bahlsen Hit ; 480 ; 5.5 ; Stück=11
+Bahlsen Chokini | Bahlsen Chokini | Bahlsen Chokini ; 525 ; 6 ; Stück=12.5
+Bahlsen Choco Leibniz Zartherb | Choco Leibniz dark | Choco Leibniz negro ; 505 ; 6.5 ; Stück=12.5
+Hanuta Riegel Erdnuss | Hanuta bar peanut | Hanuta barrita cacahuete ; 555 ; 10 ; Riegel=34.5
+Knoppers Black & White | Knoppers black & white | Knoppers blanco y negro ; 545 ; 9 ; Stück=25
+Knoppers Kakao | Knoppers cocoa | Knoppers cacao ; 540 ; 9 ; Stück=25
+Balisto Korn-Mix | Balisto grain mix | Balisto cereales ; 490 ; 7 ; Riegel=18.5
+Balisto Joghurt-Beeren | Balisto yoghurt berries | Balisto yogur y frutos rojos ; 485 ; 6 ; Riegel=18.5
+Pickup Choco | Pickup choco | Pickup choco ; 515 ; 7 ; Riegel=28
+Mamba Sauer | Mamba sour | Mamba ácido ; 385 ; 0.3 ; Stück=4.4
+Maoam Bloxx | Maoam Bloxx | Maoam Bloxx ; 395 ; 0.5 ; Stück=4.4
+Maoam Kracher | Maoam Kracher | Maoam Kracher ; 400 ; 0.5 ; Stück=2.5
+Haribo Rainbow Pixel | Haribo rainbow pixel | Haribo rainbow pixel ; 345 ; 6 ; Beutel=160
+Haribo Fruity Bussi | Haribo Fruity Bussi | Haribo Fruity Bussi ; 345 ; 6 ; Beutel=200
+Haribo Saure Goldbären | Haribo sour gold bears | Haribo ositos de oro ácidos ; 350 ; 5.5 ; Beutel=175
+Haribo Super Gurken | Haribo super cucumbers | Haribo pepinos ; 345 ; 3 ; Beutel=175
+Haribo Schaumzucker (Erdbeer) | Haribo marshmallow strawberries | Haribo nubes fresa ; 350 ; 3.5 ; Beutel=175
+Haribo Goldbären Zero | Haribo gold bears sugar-free | Haribo ositos sin azúcar ; 235 ; 4 ; Beutel=100
+Katjes Salzige Heringe | Katjes salty herrings | Katjes arenques salados ; 345 ; 2.5 ; Beutel=200
+Katjes Glücksgefühle | Katjes Glücksgefühle | Katjes Glücksgefühle ; 330 ; 0.5 ; Beutel=200
+Katjes Peaches | Katjes peaches | Katjes melocotones ; 330 ; 0.1 ; Beutel=200
+Katjes Lakritz Katzen | Katjes liquorice cats | Katjes gatitos de regaliz ; 315 ; 3.5 ; Beutel=200
+Vivil Bonbons | Vivil sweets | Caramelos Vivil ; 240 ; 0 ; Stück=2
+Em-eukal Bonbons | Em-eukal drops | Caramelos Em-eukal ; 380 ; 0 ; Stück=3
+Fritt Kaubonbons | Fritt chewy candy | Caramelos Fritt ; 405 ; 0.4 ; Streifen=17.5
+Hubba Bubba | Hubba Bubba | Hubba Bubba ; 300 ; 0 ; Stück=5
+Brausepulver (Tütchen) | Sherbet powder | Polvo efervescente ; 380 ; 0 ; Tütchen=5
+Lutscher (Lolli) | Lollipop | Piruleta ; 390 ; 0 ; Stück=12
+Zuckerstange (Weihnachten) | Candy cane | Bastón de caramelo ; 395 ; 0 ; Stück=14
+Liebesperlen | Candy beads | Perlas de azúcar ; 390 ; 0 ; Röhrchen=11
+Esspapier-Ufos | Flying saucers | Platillos volantes ; 370 ; 1 ; Stück=1.5
+Kaubonbons (gemischt) | Chewy candy (mixed) | Caramelos masticables ; 400 ; 0.5 ; Stück=5
+Schokoladen-Rosinen (Zartbitter) | Dark chocolate raisins | Pasas con chocolate negro ; 430 ; 4.5 ; Handvoll=25
+Schokomandeln | Chocolate almonds | Almendras con chocolate ; 545 ; 12 ; Handvoll=25
+Schoko-Erdnüsse | Chocolate peanuts | Cacahuetes con chocolate ; 530 ; 13 ; Handvoll=25
+Schokobananen | Chocolate bananas | Plátanos de chocolate ; 385 ; 1.5 ; Stück=11
+Schokoladen-Taler (Goldmünzen) | Chocolate coins | Monedas de chocolate ; 530 ; 7 ; Stück=6
+Schokoladen-Osterhase | Chocolate easter bunny | Conejo de chocolate ; 540 ; 7 ; Stück=100
+Schokoladen-Nikolaus (klein) | Small chocolate Santa | Papá Noel de chocolate pequeño ; 540 ; 7 ; Stück=40
+Nussecke | Nut corner pastry | Nussecke (pastelito de nueces) ; 500 ; 8 ; Stück=80
+Cookie (Bäckerei, Schoko) | Bakery chocolate cookie | Galleta de chocolate de panadería ; 480 ; 5.5 ; Stück=75
+Soft Cookie (American) | Soft cookie (American) | Galleta blanda americana ; 460 ; 5 ; Stück=50
+Donut (Zuckerglasur) | Glazed donut | Donut glaseado ; 420 ; 5 ; Stück=60
+Donut (Schoko) | Chocolate donut | Donut de chocolate ; 440 ; 5 ; Stück=70
+Cake Pop | Cake pop | Cake pop ; 420 ; 4 ; Stück=40
+Waffel (Belgisch, mit Zucker) | Belgian waffle with sugar | Gofre belga con azúcar ; 400 ; 6 ; Stück=90
+Schokowaffel (Hanuta-Art) | Chocolate wafer | Barquillo de chocolate ; 530 ; 7 ; Stück=20
+Erdnussflips Protein | Protein peanut puffs | Gusanitos de cacahuete proteicos ; 460 ; 30 ; Beutel=50
+Protein-Mikado-Sticks | Protein choco sticks | Palitos de chocolate proteicos ; 430 ; 25 ; Packung=40
+Popchips | Popchips | Popchips ; 420 ; 5 ; Beutel=23
+Pringles Sour Cream (klein) | Pringles sour cream (small can) | Pringles sour cream (lata pequeña) ; 520 ; 5 ; Dose=40
+Linsenchips | Lentil chips | Chips de lenteja ; 450 ; 14 ; Beutel=75
+Kichererbsenchips | Chickpea chips | Chips de garbanzo ; 460 ; 12 ; Beutel=75
+Grünkohlchips | Kale chips | Chips de kale ; 470 ; 12 ; Beutel=40
+Kokoschips (geröstet) | Coconut chips | Chips de coco ; 650 ; 7 ; Handvoll=20
+Mangostreifen (getrocknet) | Dried mango strips | Tiras de mango seco ; 330 ; 2.5 ; Handvoll=30
+Ananas (getrocknet) | Dried pineapple | Piña deshidratada ; 345 ; 2 ; Handvoll=30
+Datteln mit Schoko | Chocolate-covered dates | Dátiles con chocolate ; 420 ; 4 ; Stück=12
+Energy Balls (Datteln & Nüsse) | Energy balls (dates & nuts) | Bolitas energéticas ; 420 ; 9 ; Stück=25
+Rice Cake mit Zartbitter | Rice cake with dark chocolate | Tortita de arroz con chocolate negro ; 480 ; 6.5 ; Stück=17
+Puffreis-Schokolade | Puffed rice chocolate | Chocolate con arroz inflado ; 520 ; 6 ; Riegel=30
+Marshmallow-Schokokuss (Mini) | Mini chocolate marshmallow | Beso de chocolate mini ; 400 ; 3 ; Stück=10
+Dickmann's Schokoküsse | Dickmann's chocolate marshmallows | Besos de chocolate Dickmann's ; 395 ; 3.5 ; Stück=25
+Kokosriegel (Bounty-Art) | Coconut bar | Barrita de coco ; 480 ; 4 ; Riegel=28.5
+Eiskonfekt | Ice confectionery | Bombones helados ; 560 ; 4 ; Stück=7
+Gelee-Bananen | Jelly bananas | Plátanos de gelatina ; 360 ; 1 ; Stück=10
+Weingummi (Fruchtgummi, sauer) | Sour wine gums | Gominolas ácidas ; 345 ; 5 ; Handvoll=30
+Lakritzschnecken | Liquorice wheels | Ruedas de regaliz ; 330 ; 4 ; Stück=17
+Salmiakpastillen | Salmiak pastilles | Pastillas de salmiak ; 360 ; 2 ; Stück=1
+Erdbeer-Schaumgummi | Strawberry marshmallow sweets | Gominolas de fresa espumosas ; 345 ; 3.5 ; Handvoll=30
+Toblerone Mini | Toblerone mini | Toblerone mini ; 525 ; 5.5 ; Stück=8
+Toblerone Weiß | Toblerone white | Toblerone blanco ; 545 ; 6 ; Riegel=100
+Galaxy Caramel | Galaxy caramel | Galaxy caramelo ; 480 ; 4.5 ; Riegel=48
+Cadbury Fruit & Nut | Cadbury Fruit & Nut | Cadbury Fruit & Nut ; 500 ; 8 ; Tafel=110
+Cadbury Mini Eggs | Cadbury Mini Eggs | Cadbury Mini Eggs ; 495 ; 4.5 ; Beutel=80
+Reese's Pieces | Reese's Pieces | Reese's Pieces ; 500 ; 12 ; Beutel=43
+Hershey's Kisses | Hershey's Kisses | Hershey's Kisses ; 510 ; 7 ; Stück=4.5
+Oreo Bites (mit Schoko überzogen) | Oreo bites | Oreo bites ; 520 ; 5 ; Beutel=110
+Oreo Golden Creme | Oreo golden creme | Oreo golden ; 475 ; 4.5 ; Stück=11
+Biscoff Brotaufstrich Crunchy | Biscoff spread crunchy | Biscoff crema crujiente ; 580 ; 3 ; EL=15
+Nutella Plant-Based | Nutella plant-based | Nutella vegetal ; 540 ; 6 ; EL=15
 
 @Getränke | Drinks | Bebidas ; 🥤
 Coca-Cola | Coca-Cola | Coca-Cola ; 42 ; 0 ; Glas=250 | Dose=330 | Flasche=500
