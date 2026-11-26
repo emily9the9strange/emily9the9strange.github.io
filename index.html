@@ -222,7 +222,11 @@ body.nodrag-scroll{overflow:hidden;touch-action:none}
 .wchart{margin-top:10px}
 .wchart svg{display:block}
 .wcwrap{position:relative}
-.wcaxis{position:absolute;left:0;top:0;z-index:1}
+.wcaxis{position:absolute;left:0;top:0;width:34px;z-index:1;pointer-events:none;background:var(--card,#fff)}
+.wcaxis span{position:absolute;right:6px;transform:translateY(-50%);font-size:10px;font-weight:700;color:#7a7f8c}
+.wcplot{position:relative;overflow:hidden}
+.wcplot svg{transition:transform .35s ease;will-change:transform}
+.wczi{position:absolute;left:42px;right:6px;bottom:34px;background:rgba(255,255,255,.9);border:1px solid #f3c4c4;color:#c2383c;font-size:10.5px;font-weight:700;line-height:1.3;padding:4px 8px;border-radius:9px;pointer-events:none}
 .wcscroll{overflow-x:auto;overflow-y:hidden;margin-left:34px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;overscroll-behavior-x:contain}
 .wcfoot{display:flex;flex-direction:column;gap:4px;margin-top:6px;font-size:12px;color:var(--muted);line-height:1.35}
 .wcz{color:#c2383c}
@@ -238,7 +242,7 @@ body.nodrag-scroll{overflow:hidden;touch-action:none}
 .fcgrid span{font-size:12px;color:var(--muted);font-weight:700}
 .fcgrid .fctgt{grid-column:1/-1;background:#eaf6ef}.fcgrid .fctgt span{font-size:13px}.fcgrid .fctgt b{color:#2d7d58;margin:2px 0}
 .seg{display:flex;background:var(--line);border-radius:12px;padding:3px}
-.seg button{padding:5px 10px;border-radius:9px;font-size:13px;font-weight:800;color:var(--muted)}
+.seg button{white-space:nowrap;padding:5px 10px;border-radius:9px;font-size:13px;font-weight:800;color:var(--muted)}
 .seg button.act{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
 .chart.c30{gap:3px}
 .chart.c30 .b small{display:none}
@@ -787,6 +791,14 @@ nav.tabs .ic svg.fi.nav{width:28px;height:28px;vertical-align:middle}
       <p class="tip" style="margin:10px 0 0">Nicht dauerhaft unter ~1.300 kcal essen. Eiweiß: ca. 1,2–1,6 g pro kg Körpergewicht.</p>
     </div>
 
+    <div class="sect"><h2>Gewichts-Grafik</h2></div>
+    <div class="card">
+      <div class="row"><label>Ausschnitt<br><small style="color:var(--muted);font-weight:600">so viele kg zeigt die Grafik auf einmal</small></label><div class="seg" id="pfWin"><button type="button" data-wwin="5">5 kg</button><button type="button" data-wwin="10">10 kg</button><button type="button" data-wwin="20">20 kg</button></div></div>
+      <div class="row" style="border-bottom:0"><label for="pfFfm">Fettfreie Masse (kg)<br><small style="color:var(--muted);font-weight:600">freiwillig, z. B. von einer Körperanalyse-Waage oder beim Arzt gemessen</small></label><div style="display:flex;gap:6px;align-items:center"><input type="number" id="pfFfm" inputmode="decimal" step="0.1" min="20" max="120" placeholder="kg" style="width:80px"><button type="button" class="lnk" id="pfFfmAdd">Speichern</button></div></div>
+      <div id="pfFfmList"></div>
+      <p class="tip" style="margin:8px 0 0">Der rote Bereich in der Grafik startet bei BMI 18,5. Mit gemessener fettfreier Masse rechnet die App, ab wann du zu wenig Körperfett hättest (Frauen ca. 17 %, Männer ca. 8 %) – die Grenze kann dann höher liegen.</p>
+    </div>
+
     <div class="sect"><h2>Beilagen</h2><button class="lnk" id="btnAddSide">＋ Beilage</button></div>
     <div class="card"><div id="sideList"></div><p class="tip" style="margin:8px 0 0">Standardmenge pro Portion (trocken bzw. roh). Wenn es mal mehr oder weniger wird, kannst du die Menge beim Einfrieren und beim Essen anpassen.</p></div>
 
@@ -983,7 +995,7 @@ let curDay = dayKey();
 const imgs = {}; // snackId -> dataURL
 // Daten vom Server sind eingefroren (read-only) – immer eine veränderbare Kopie anlegen
 const dcopy = o => o == null ? o : JSON.parse(JSON.stringify(o));
-const normS = d0 => { const d = dcopy(d0); return ({ goal: d?.goal || (STANDALONE ? 1800 : 1500), prot: d?.prot ?? (STANDALONE ? 90 : 110), snackLimit: d?.snackLimit ?? (STANDALONE ? 300 : 500), height: d?.height || (STANDALONE ? 170 : 164), birthY: d?.birthY || (STANDALONE ? 1995 : 1999), birthM: d?.birthM || 1, sex: d?.sex || "f", sport: d?.sport ?? 3, target: d?.target ?? null, meals: Array.isArray(d?.meals) && d.meals.length ? d.meals : (STANDALONE ? ["fruehstueck", "mittag", "abend"] : ["mittag", "abend"]), name: d?.name || "", activity: d?.activity || "sitzend", commute: d?.commute && typeof d.commute === "object" ? { mode: d.commute.mode || "none", min: d.commute.min ?? 20, days: d.commute.days ?? 5 } : { mode: "none", min: 20, days: 5 }, sports: Array.isArray(d?.sports) ? d.sports : (STANDALONE ? [] : [{ s: "bouldern", n: 2, min: 90, main: true }, { s: "gym", n: 1, min: 60, main: false }]), tdeeManual: d?.tdeeManual || null, photos: d?.photos && typeof d.photos === "object" ? d.photos : { ok: false, at: null }, gallery: Array.isArray(d?.gallery) ? d.gallery : [], tplPhotos: d?.tplPhotos && typeof d.tplPhotos === "object" ? d.tplPhotos : {}, diet: ["all", "veg", "vegan"].includes(d?.diet) ? d.diet : "all", allergies: Array.isArray(d?.allergies) ? d.allergies : [], noFreeze: Array.isArray(d?.noFreeze) ? d.noFreeze : [], avatar: d?.avatar || null, cycleStart: d?.cycleStart || null, cycleMode: d?.cycleMode || (d?.cycleStart ? "track" : "unset"), cycleLen: d?.cycleLen || 28, waterCycle: d?.waterCycle ?? true, holidays: Array.isArray(d?.holidays) ? d.holidays : ["xmas"], recipes: (Array.isArray(d?.recipes) ? d.recipes : clone(DEFAULT_RECIPES)).map(r => r.art ? r : { ...r, art: ["bolo", "brokkoli", "linsen", "chili", "honighuhn", "gemuesesahne", "herzen", "koettbullar"].includes(r.id) ? r.id : "generic" }), sides: Array.isArray(d?.sides) && d.sides.length ? d.sides : clone(DEFAULT_SIDES), ingr: d?.ingr && typeof d.ingr === "object" ? d.ingr : {}, dishes: Array.isArray(d?.dishes) ? d.dishes : [], snacks: Array.isArray(d?.snacks) ? d.snacks : [], myFoods: Array.isArray(d?.myFoods) ? d.myFoods : [], recentFoods: Array.isArray(d?.recentFoods) ? d.recentFoods : [] }); };
+const normS = d0 => { const d = dcopy(d0); return ({ goal: d?.goal || (STANDALONE ? 1800 : 1500), prot: d?.prot ?? (STANDALONE ? 90 : 110), snackLimit: d?.snackLimit ?? (STANDALONE ? 300 : 500), height: d?.height || (STANDALONE ? 170 : 164), birthY: d?.birthY || (STANDALONE ? 1995 : 1999), birthM: d?.birthM || 1, sex: d?.sex || "f", sport: d?.sport ?? 3, target: d?.target ?? null, meals: Array.isArray(d?.meals) && d.meals.length ? d.meals : (STANDALONE ? ["fruehstueck", "mittag", "abend"] : ["mittag", "abend"]), name: d?.name || "", activity: d?.activity || "sitzend", commute: d?.commute && typeof d.commute === "object" ? { mode: d.commute.mode || "none", min: d.commute.min ?? 20, days: d.commute.days ?? 5 } : { mode: "none", min: 20, days: 5 }, sports: Array.isArray(d?.sports) ? d.sports : (STANDALONE ? [] : [{ s: "bouldern", n: 2, min: 90, main: true }, { s: "gym", n: 1, min: 60, main: false }]), tdeeManual: d?.tdeeManual || null, photos: d?.photos && typeof d.photos === "object" ? d.photos : { ok: false, at: null }, gallery: Array.isArray(d?.gallery) ? d.gallery : [], tplPhotos: d?.tplPhotos && typeof d.tplPhotos === "object" ? d.tplPhotos : {}, diet: ["all", "veg", "vegan"].includes(d?.diet) ? d.diet : "all", allergies: Array.isArray(d?.allergies) ? d.allergies : [], noFreeze: Array.isArray(d?.noFreeze) ? d.noFreeze : [], avatar: d?.avatar || null, cycleStart: d?.cycleStart || null, cycleMode: d?.cycleMode || (d?.cycleStart ? "track" : "unset"), cycleLen: d?.cycleLen || 28, waterCycle: d?.waterCycle ?? true, holidays: Array.isArray(d?.holidays) ? d.holidays : ["xmas"], recipes: (Array.isArray(d?.recipes) ? d.recipes : clone(DEFAULT_RECIPES)).map(r => r.art ? r : { ...r, art: ["bolo", "brokkoli", "linsen", "chili", "honighuhn", "gemuesesahne", "herzen", "koettbullar"].includes(r.id) ? r.id : "generic" }), sides: Array.isArray(d?.sides) && d.sides.length ? d.sides : clone(DEFAULT_SIDES), ingr: d?.ingr && typeof d.ingr === "object" ? d.ingr : {}, dishes: Array.isArray(d?.dishes) ? d.dishes : [], snacks: Array.isArray(d?.snacks) ? d.snacks : [], myFoods: Array.isArray(d?.myFoods) ? d.myFoods : [], recentFoods: Array.isArray(d?.recentFoods) ? d.recentFoods : [], wWin: [5, 10, 20].includes(d?.wWin) ? d.wWin : 5, ffm: Array.isArray(d?.ffm) ? d.ffm.filter(x => x && x.d && x.kg > 0).sort((a, b) => a.d.localeCompare(b.d)) : [] }); };
 let W = { list: [] }; // weights: [{d:"YYYY-MM-DD", kg}]
 const normW = d0 => { const d = dcopy(d0); return ({ list: Array.isArray(d?.list) ? d.list.filter(x => x && x.d && x.kg).sort((a, b) => a.d.localeCompare(b.d)) : [] }); };
 const saveW = () => put("weights", JSON.parse(JSON.stringify(W)));
@@ -1226,14 +1238,13 @@ function projectFeast(w0, intake, days, t0) { const out = [w0]; let w = w0; for 
 }
 // Prognose so weit rechnen, bis sich das Gewicht einpendelt (Verbrauch ≈ Essen), max. 4 Jahre
 function longHorizon(w0, intake, minD) { let w = w0, wk = [w0]; for (let d = 1; d <= 1460; d++) { w -= (tdee(w) - intake) / 7700; if (d % 7 === 0) { wk.push(w); if (d >= minD && Math.abs(wk[wk.length - 1] - wk[wk.length - 2]) < .05) return Math.min(1460, d + 56); } } return 1460; }
-// Körperfett grob schätzen (Deurenberg aus BMI, Alter, Geschlecht); beim Abnehmen ~75 % Fett, 25 % fettfreie Masse
-function bodyFatAt(w0, w) { const h = (S.height || 170) / 100, m = S.sex === "m" ? 1 : 0; const bf0 = Math.max(5, 1.2 * w0 / (h * h) + .23 * age() - 10.8 * m - 5.4) / 100; const fat = bf0 * w0 - .75 * (w0 - w); return Math.max(0, fat / w); }
-function lowFatZone(w0) {
-  const h = (S.height || 170) / 100, m = S.sex === "m", lim = m ? .08 : .17; // ungesund niedrig: Männer < ~8 %, Frauen < ~17 %
-  let wBF = 0; for (let w = w0; w > 25; w -= .1) if (bodyFatAt(w0, w) < lim) { wBF = w; break; }
-  const wBMI = 18.5 * h * h;
-  if (wBF >= wBMI) return { w: wBF, label: `unter ~${Math.round(lim * 100)} % Körperfett`, why: m ? `Roter Bereich: Unter ca. ${Math.round(lim * 100)} % Körperfett wird es für Männer ungesund – Hormone, Knochen, Immunsystem und Energie leiden. Grob geschätzt aus Größe, Alter und Gewicht.` : `Roter Bereich: Unter ca. ${Math.round(lim * 100)} % Körperfett wird es für Frauen ungesund – Zyklus, Hormone, Knochen und Immunsystem leiden. Grob geschätzt aus Größe, Alter und Gewicht.` };
-  return { w: wBMI, label: "Untergewicht (BMI unter 18,5)", why: m ? `Roter Bereich: Unter ${fmt1(wBMI)} kg (BMI 18,5) bist du bei deiner Größe untergewichtig. Männer sind dort oft auch schon bei zu wenig Körperfett.` : `Roter Bereich: Unter ${fmt1(wBMI)} kg (BMI 18,5) bist du bei deiner Größe untergewichtig. Frauen sind dort oft auch schon bei zu wenig Körperfett – das kann den Zyklus und die Knochen belasten.` };
+// Roter Bereich: Untergewicht nach BMI – mit gemessener fettfreier Masse ggf. höher (zu wenig Körperfett)
+const lastFfm = () => (S.ffm || []).slice(-1)[0] || null;
+function lowFatZone() {
+  const h = (S.height || 170) / 100, m = S.sex === "m", wBMI = 18.5 * h * h, ff = lastFfm(), lim = m ? .08 : .17;
+  const wF = ff ? ff.kg / (1 - lim) : 0;
+  if (wF > wBMI) return { w: wF, label: "zu wenig Körperfett", why: `Unter ca. ${fmt1(wF)} kg hättest du mit deiner fettfreien Masse (${fmt1(ff.kg)} kg) weniger als ${Math.round(lim * 100)} % Körperfett – das wird ungesund.` };
+  return { w: wBMI, label: "Untergewicht (BMI unter 18,5)", why: ff ? `Unter ${fmt1(wBMI)} kg (BMI 18,5) bist du untergewichtig.` : `Unter ${fmt1(wBMI)} kg (BMI 18,5) bist du untergewichtig. Mit viel fettfreier Masse (Muskeln) kann die Grenze auch höher liegen – du kannst sie im Profil eintragen.` };
 }
 function drawHist() {
   // settings fields
@@ -1316,57 +1327,78 @@ function drawHist() {
     ${showGoal ? `<div><b>${fmt1(pG[H])} kg</b><span>in 12 Wochen bei ${fmt(S.goal)} kcal</span></div>` : ""}
     <div><b>${fmt(burn)}</b><span>kcal Verbrauch/Tag geschätzt</span></div>`;
 
-  // ----- weight chart (SVG, horizontal scrollbar, bis sich das Gewicht einpendelt) -----
+  // ----- weight chart: horizontal scrollbar, fester kg-Ausschnitt (Profil), folgt beim Wischen der Kurve -----
   const HL = longHorizon(wStart, intake, Math.max(H, rN > 0 ? rN + 28 : 0, rG > 0 ? rG + 28 : 0));
   const lN = project(wStart, intake, HL), lG = showGoal ? project(wStart, S.goal, HL) : null;
   const lF = showWave ? projectFeast(wStart, intake, HL, tStart).map((v, i) => v + waterAt(tStart + i * DAY)) : null;
   const t1L = tStart + HL * DAY;
-  const zone = lowFatZone(wStart);
+  const zone = lowFatZone();
   const eqW = lN[HL], settles = Math.abs(lN[HL] - lN[HL - 7]) < .06;
-  const Hh = 220, pt = 14, pb = 26, padR = 64, AX = 34;
+  const win = S.wWin || 5, Hh = 230, pb = 30, PH = Hh - pb, padY = 16, padR = 64, AX = 34;
   const t0 = Math.min(first ? parseKey(first.d).getTime() : tStart, tStart - 14 * DAY);
-  const ppd = Math.max(1.3, Math.min(4, (Math.max(280, (window.innerWidth || 380) - 80)) / ((tStart - t0) / DAY + 84))); // 12 Wochen ≈ eine Bildschirmbreite
+  const ppd = Math.max(1.3, Math.min(4, (Math.max(280, (window.innerWidth || 380) - 80)) / ((tStart - t0) / DAY + 84)));
   const Wd = Math.round((t1L - t0) / DAY * ppd) + padR;
-  const ysAll = [...L.map(x => x.kg), ...lN.map(v => v - .5), ...lN.map(v => v + .5), ...(lF || []), ...(lG || []), ...(S.target ? [S.target] : []), ...(zone && zone.w > Math.min(...lN) - 3 ? [zone.w - 3] : [])];
-  let y0 = Math.floor(Math.min(...ysAll) - .5), y1 = Math.ceil(Math.max(...ysAll) + .5);
-  if (y1 - y0 < 4) { const m = (y0 + y1) / 2; y0 = Math.floor(m - 2); y1 = Math.ceil(m + 2); }
-  const X = t => 6 + (t - t0) / DAY * ppd, Y = v => pt + (y1 - v) / (y1 - y0) * (Hh - pt - pb);
+  const ysAll = [...L.map(x => x.kg), ...lN, ...(lF || []), ...(lG || []), ...(S.target ? [S.target] : [])];
+  const gMax = Math.max(...ysAll) + 1, gMin = Math.min(Math.min(...ysAll), zone ? zone.w - 1.5 : 1e9) - 1;
+  const ppk = (PH - 2 * padY) / win, CH = Math.round((gMax - gMin) * ppk + 2 * padY);
+  const X = t => 6 + (t - t0) / DAY * ppd, Y = v => padY + (gMax - v) * ppk;
   const pX = i => X(tStart + i * DAY).toFixed(1);
   const line = arr => arr.map((v, i) => `${pX(i)},${Y(v).toFixed(1)}`).join(" ");
-  let g = "", zt = "", ax = `<rect width="${AX}" height="${Hh}" fill="var(--card,#fff)"/>`;
-  // roter Bereich: zu wenig Körperfett / Untergewicht
-  if (zone && zone.w > y0) { const yz = Y(Math.min(zone.w, y1)); g += `<rect x="0" y="${yz}" width="${Wd}" height="${Hh - pb - yz}" fill="url(#rz)"/><line x1="0" x2="${Wd}" y1="${yz}" y2="${yz}" stroke="#e5484d" stroke-width="1.2" stroke-dasharray="4 3"/>`; for (let x = 70; x < Wd - 260; x += 520) zt += `<text x="${x}" y="${Math.min(Hh - pb - 6, yz + 13)}" font-size="10" fill="#c2383c" font-weight="800">⚠ ${esc(zone.label)}</text>`; }
-  const yStep = [1, 2, 5, 10, 20].find(st => (y1 - y0) / st <= 6) || 25;
-  for (let v = Math.ceil(y0 / yStep) * yStep; v <= y1; v += yStep) { g += `<line x1="0" x2="${Wd}" y1="${Y(v)}" y2="${Y(v)}" stroke="#ece5da"/>`; ax += `<text x="${AX - 6}" y="${Y(v) + 4}" text-anchor="end" font-size="10" fill="#7a7f8c" font-weight="700">${v}</text>`; }
-  // Monats-Achse
-  { const d = new Date(t0); d.setDate(1); d.setMonth(d.getMonth() + 1); const span = (t1L - t0) / DAY; const every = ppd * 30 < 34 ? 3 : ppd * 30 < 60 ? 2 : 1;
-    for (let k = 0; d.getTime() < t1L; k++, d.setMonth(d.getMonth() + 1)) { if (k % every) continue; const x = X(d.getTime()); g += `<line x1="${x}" x2="${x}" y1="${Hh - pb}" y2="${Hh - pb + 4}" stroke="#c9c2b6"/><text x="${x + 2}" y="${Hh - 8}" font-size="10" fill="#7a7f8c" font-weight="700" data-notr>${d.toLocaleDateString(LOCALE, d.getMonth() === 0 || k === 0 ? { month: "short", year: "numeric" } : { month: "short" })}</text>`; } }
+  const yStep = win <= 6 ? 1 : win <= 12 ? 2 : 5;
+  let g = "", mx = "";
+  if (zone) { const yz = Y(zone.w); g += `<rect x="0" y="${yz}" width="${Wd}" height="${Math.max(0, CH - yz)}" fill="#e5484d" opacity=".14"/><line x1="0" x2="${Wd}" y1="${yz}" y2="${yz}" stroke="#e5484d" stroke-width="1.4" stroke-dasharray="4 3"/>`; }
+  for (let v = Math.ceil(gMin / yStep) * yStep; v <= gMax; v += yStep) g += `<line x1="0" x2="${Wd}" y1="${Y(v).toFixed(1)}" y2="${Y(v).toFixed(1)}" stroke="#ece5da"/>`;
+  { const d = new Date(t0); d.setDate(1); d.setMonth(d.getMonth() + 1); const every = ppd * 30 < 34 ? 3 : ppd * 30 < 60 ? 2 : 1;
+    for (let k = 0; d.getTime() < t1L; k++, d.setMonth(d.getMonth() + 1)) { if (k % every) continue; const x = X(d.getTime()); mx += `<line x1="${x}" x2="${x}" y1="0" y2="5" stroke="#c9c2b6"/><text x="${x + 2}" y="24" font-size="10" fill="#7a7f8c" font-weight="700" data-notr>${d.toLocaleDateString(LOCALE, { month: "short", year: "2-digit" })}</text>`; } }
   const nowX = X(tStart);
-  g += `<line x1="${nowX}" x2="${nowX}" y1="${pt}" y2="${Hh - pb}" stroke="#1f2a44" stroke-opacity=".25" stroke-dasharray="2 3"/><text x="${nowX + 3}" y="${pt + 8}" font-size="9" fill="#7a7f8c" font-weight="800">heute</text>`;
+  g += `<line x1="${nowX}" x2="${nowX}" y1="0" y2="${CH}" stroke="#1f2a44" stroke-opacity=".25" stroke-dasharray="2 3"/>`;
+  mx += `<text x="${nowX}" y="11" text-anchor="middle" font-size="9" fill="#1f2a44" font-weight="800">heute</text>`;
+  holidayWindows(t0, t1L).forEach(h => { const xa = X(h.a.getTime()), xb = X(h.b.getTime()); if (xb > xa) { g += `<rect x="${xa}" y="0" width="${xb - xa}" height="${CH}" fill="#cfe8d8" opacity=".45"/>`; if (xb - xa > 10) mx += `<text x="${(xa + xb) / 2}" y="12" text-anchor="middle" font-size="11">${h.icon}</text>`; } });
+  cycleWindows(t0, t1L).forEach(w => { const xa = X(w.a.getTime()), xb = X(w.b.getTime()); if (xb > xa) g += `<rect x="${xa}" y="0" width="${xb - xa}" height="${CH}" fill="#f7c6dc" opacity=".35"/>`; });
   if (S.target) g += `<line x1="0" x2="${Wd}" y1="${Y(S.target)}" y2="${Y(S.target)}" stroke="#3aa676" stroke-dasharray="1 4" stroke-linecap="round" stroke-width="2"/>${[nowX + 40, ...(rN > 0 ? [+pX(rN) + 10] : [])].map(x => `<text x="${x}" y="${Y(S.target) - 4}" font-size="10" fill="#3aa676" font-weight="800">Ziel ${fmt1(S.target)}</text>`).join("")}`;
-  holidayWindows(t0, t1L).forEach(h => { const xa = X(h.a.getTime()), xb = X(h.b.getTime()); if (xb > xa) g += `<rect x="${xa}" y="${pt}" width="${xb - xa}" height="${Hh - pt - pb}" fill="#cfe8d8" opacity=".45" rx="3"/>${xb - xa > 10 ? `<text x="${(xa + xb) / 2}" y="${Hh - pb - 5}" text-anchor="middle" font-size="11">${h.icon}</text>` : ""}`; });
-  cycleWindows(t0, t1L).forEach(w => { const xa = X(w.a.getTime()), xb = X(w.b.getTime()); if (xb > xa) g += `<rect x="${xa}" y="${pt}" width="${xb - xa}" height="${Hh - pt - pb}" fill="#f7c6dc" opacity=".35" rx="3"/>`; });
   g += `<polygon points="${lN.map((v, i) => `${pX(i)},${Y(v + .5).toFixed(1)}`).join(" ")} ${lN.map((v, i) => `${pX(i)},${Y(v - .5).toFixed(1)}`).reverse().join(" ")}" fill="#ff7a59" opacity=".10"/>`;
   if (gap > 0) g += `<line x1="${X(lastDate.getTime()).toFixed(1)}" y1="${Y(W0).toFixed(1)}" x2="${pX(0)}" y2="${Y(wStart).toFixed(1)}" stroke="#7a7f8c" stroke-width="1.5" stroke-dasharray="2 3"/>`;
   if (lF) g += `<polyline points="${line(lF)}" fill="none" stroke="#8e6bd6" stroke-width="2" stroke-dasharray="4 3" stroke-linejoin="round" opacity=".9"/>`;
   if (lG) g += `<polyline points="${line(lG)}" fill="none" stroke="#3aa676" stroke-width="2" stroke-dasharray="5 4" opacity=".85"/>`;
   g += `<polyline points="${line(lN)}" fill="none" stroke="#ff7a59" stroke-width="2.5" stroke-dasharray="6 4"/>`;
-  // alle 5 kg ein Datum
   const down = lN[HL] < wStart, marks = [];
   { let m = down ? Math.floor(wStart / 5) * 5 : Math.ceil(wStart / 5) * 5; if (m === Math.round(wStart * 10) / 10) m += down ? -5 : 5;
     for (let i = 1; i <= HL && marks.length < 30; i++) { if (down ? lN[i] <= m : lN[i] >= m) { marks.push({ i, kg: m }); m += down ? -5 : 5; } } }
-  let lastMx = -99;
-  marks.forEach(({ i, kg }) => { const x = +pX(i), y = Y(kg), near = x - lastMx < 70; lastMx = x;
-    g += `<circle cx="${x}" cy="${y}" r="4" fill="#fff" stroke="#ff7a59" stroke-width="2"/><g data-notr><text x="${x}" y="${y + (near ? 30 : 17)}" text-anchor="middle" font-size="10.5" fill="#1f2a44" font-weight="800">${kg} kg</text><text x="${x}" y="${y + (near ? 41 : 28)}" text-anchor="middle" font-size="9.5" fill="#7a7f8c" font-weight="700">${new Date(tStart + i * DAY).toLocaleDateString(LOCALE, { day: "numeric", month: "short", year: "2-digit" })}</text></g>`; });
+  marks.forEach(({ i, kg }) => { const x = +pX(i), y = Y(kg);
+    g += `<circle cx="${x}" cy="${y}" r="4" fill="#fff" stroke="#ff7a59" stroke-width="2"/><g data-notr><text x="${x}" y="${y + 17}" text-anchor="middle" font-size="10.5" fill="#1f2a44" font-weight="800">${kg} kg</text><text x="${x}" y="${y + 28}" text-anchor="middle" font-size="9.5" fill="#7a7f8c" font-weight="700">${new Date(tStart + i * DAY).toLocaleDateString(LOCALE, { day: "numeric", month: "short", year: "2-digit" })}</text></g>`; });
   if (rN > 0) g += `<circle cx="${pX(rN)}" cy="${Y(S.target)}" r="5" fill="#3aa676" stroke="#fff" stroke-width="2"/>`;
   if (settles && def > 50) g += `<text x="${Wd - 6}" y="${Y(eqW) - 21}" text-anchor="end" font-size="9" fill="#7a7f8c" font-weight="700">pendelt sich ein</text><text x="${Wd - 6}" y="${Y(eqW) - 9}" text-anchor="end" font-size="10.5" fill="#c4502f" font-weight="800" data-notr>≈ ${fmt1(eqW)} kg</text>`;
   if (L.length > 1) g += `<polyline points="${L.map(x => `${X(parseKey(x.d).getTime()).toFixed(1)},${Y(x.kg).toFixed(1)}`).join(" ")}" fill="none" stroke="#1f2a44" stroke-width="2.5" stroke-linejoin="round"/>`;
-  g += L.map(x => `<circle cx="${X(parseKey(x.d).getTime())}" cy="${Y(x.kg)}" r="3.5" fill="#fff" stroke="#1f2a44" stroke-width="2"/>`).join("") + zt;
-  const defs = `<defs><linearGradient id="rz" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e5484d" stop-opacity=".16"/><stop offset="1" stop-color="#e5484d" stop-opacity=".30"/></linearGradient></defs>`;
+  g += L.map(x => `<circle cx="${X(parseKey(x.d).getTime())}" cy="${Y(x.kg)}" r="3.5" fill="#fff" stroke="#1f2a44" stroke-width="2"/>`).join("");
+  if (zone) for (let x = 60; x < Wd - 200; x += 640) g += `<text x="${x}" y="${Y(zone.w) + 14}" font-size="10" fill="#c2383c" font-weight="800">⚠ ${esc(zone.label)}</text>`;
   const wc = $("#wChart"), oldSL = wc.querySelector(".wcscroll")?.scrollLeft;
-  wc.innerHTML = `<div class="wcwrap"><svg class="wcaxis" width="${AX}" height="${Hh}" aria-hidden="true">${ax}</svg><div class="wcscroll"><svg width="${Wd}" height="${Hh}" role="img" aria-label="Gewichtsverlauf und Prognose">${defs}${g}</svg></div></div>
-    <div class="wcfoot"><span>← → Wischen zeigt, wie es weitergeht.</span>${settles && def > 50 ? `<span>Dein Gewicht pendelt sich bei ca. ${fmt1(eqW)} kg ein – dort decken ${fmt(intake)} kcal deinen Bedarf.</span>` : ""}${zone ? `<span class="wcz">⚠ <span>${esc(zone.why)}</span></span>` : ""}${zone && settles && def > 50 && eqW < zone.w ? (() => { const di = lN.findIndex(v => v < zone.w); return `<span class="wcz"><span>Mit ${fmt(intake)} kcal rutschst du auf Dauer in den roten Bereich, ab ca.</span> <b data-notr>${new Date(tStart + di * DAY).toLocaleDateString(LOCALE, { day: "numeric", month: "long", year: "numeric" })}</b>. <span>Spätestens bei ${fmt1(Math.ceil(zone.w))} kg solltest du auf ca. ${fmt(Math.round(tdee(Math.ceil(zone.w)) / 50) * 50)} kcal (Erhaltung) hochgehen.</span></span>`; })() : ""}${zone && S.target && S.target < zone.w ? `<span class="wcz"><b>Dein Wunschgewicht liegt im roten Bereich.</b> <span>Bitte sprich vorher mit einer Ärztin oder einem Arzt.</span></span>` : ""}</div>`;
-  const sc = wc.querySelector(".wcscroll"); sc.scrollLeft = oldSL ?? Math.max(0, nowX - 90);
+  const drift = zone && settles && def > 50 && eqW < zone.w ? lN.findIndex(v => v < zone.w) : -1;
+  wc.innerHTML = `<div class="wcwrap"><div class="wcaxis" style="height:${PH}px"></div><div class="wcscroll"><div class="wcplot" style="width:${Wd}px;height:${PH}px"><svg width="${Wd}" height="${CH}" role="img" aria-label="Gewichtsverlauf und Prognose">${g}</svg></div><svg width="${Wd}" height="${pb}" aria-hidden="true">${mx}</svg></div>${zone ? `<div class="wczi" hidden>⚠ <span>${esc(zone.why)}</span></div>` : ""}</div>
+    <div class="wcfoot"><span>← → Wischen zeigt, wie es weitergeht.</span>${drift >= 0 ? `<span class="wcz"><span>Mit ${fmt(intake)} kcal rutschst du auf Dauer in den roten Bereich, ab ca.</span> <b data-notr>${new Date(tStart + drift * DAY).toLocaleDateString(LOCALE, { day: "numeric", month: "long", year: "numeric" })}</b>. <span>Spätestens bei ${fmt1(Math.ceil(zone.w))} kg solltest du auf ca. ${fmt(Math.round(tdee(Math.ceil(zone.w)) / 50) * 50)} kcal (Erhaltung) hochgehen.</span></span>` : ""}${zone && S.target && S.target < zone.w ? `<span class="wcz"><b>Dein Wunschgewicht liegt im roten Bereich.</b> <span>Bitte sprich vorher mit einer Ärztin oder einem Arzt.</span></span>` : ""}</div>`;
+  const sc = wc.querySelector(".wcscroll"), svgP = wc.querySelector(".wcplot svg"), axEl = wc.querySelector(".wcaxis"), zi = wc.querySelector(".wczi");
+  const meas = L.map(x => [X(parseKey(x.d).getTime()), x.kg]);
+  let curOff = null;
+  const follow = () => {
+    const a = sc.scrollLeft, b = a + sc.clientWidth, mid = (a + b) / 2, vals = [];
+    meas.forEach(([x, v]) => { if (x >= a && x <= b) vals.push(v); });
+    const iA = Math.max(0, Math.floor(((a - 6) / ppd * DAY + t0 - tStart) / DAY)), iB = Math.min(HL, Math.ceil(((b - 6) / ppd * DAY + t0 - tStart) / DAY));
+    if (iB >= 0) for (let i = iA; i <= iB; i++) vals.push(lN[i]);
+    if (!vals.length) vals.push(wStart);
+    const vmax = Math.max(...vals), vmin = Math.min(...vals);
+    let top;
+    if (vmax - vmin <= win - .8) top = (vmax + vmin) / 2 + win / 2;
+    else { const im = Math.round(((mid - 6) / ppd * DAY + t0 - tStart) / DAY); const vm = im < 0 ? (meas.reduce((p, q) => Math.abs(q[0] - mid) < Math.abs(p[0] - mid) ? q : p, meas[0] || [0, wStart])[1]) : lN[Math.min(HL, im)]; top = vm + win / 2; }
+    const off = Math.max(0, Math.min(CH - PH, Y(top) - padY));
+    if (curOff !== null && Math.abs(off - curOff) < 2) return; curOff = off;
+    svgP.style.transform = `translateY(${-off}px)`;
+    let ax = ""; for (let v = Math.ceil(gMin / yStep) * yStep; v <= gMax; v += yStep) { const y = Y(v) - off; if (y > 6 && y < PH - 4) ax += `<span style="top:${y.toFixed(0)}px" data-notr>${v}</span>`; }
+    axEl.innerHTML = ax;
+    if (zi) zi.hidden = !(zone && Y(zone.w) - off < PH - 10);
+  };
+  let raf = 0; sc.addEventListener("scroll", () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(follow); }, { passive: true });
+  sc.scrollLeft = oldSL ?? Math.max(0, nowX - 90);
+  svgP.style.transition = "none"; follow(); requestAnimationFrame(() => { svgP.style.transition = ""; });
+  window.FC = { t0: tStart, lN, lG, lF, zone, HL };
   $("#lgCyc").hidden = !S.cycleStart || S.cycleMode === "none"; $("#lgHol").hidden = !holidayWindows(t0, t1L).length; $("#lgWave").hidden = !showWave; $("#lgGoal").hidden = !showGoal;
   drawFat(); drawRoad();
 }
@@ -3184,6 +3216,8 @@ function renderProfile() {
   $("#pfLang").innerHTML = langChips(); renderDietPrefs();
   $("#pfHol").innerHTML = HOLIDAYS.map(([id, ic, name]) => `<button type="button" class="mchip ${holOn(id) ? "on" : ""}" data-hol="${id}"><span>${ic}</span>${esc(name)}</button>`).join("");
   { const sw = $("#pfCycWater"), on = S.waterCycle !== false; sw.classList.toggle("on", on); sw.setAttribute("aria-checked", on ? "true" : "false"); }
+  v.querySelectorAll("[data-wwin]").forEach(b => b.classList.toggle("act", +b.dataset.wwin === (S.wWin || 5)));
+  $("#pfFfmList").innerHTML = (S.ffm || []).slice().reverse().map(x => `<div class="row"><span data-notr>${parseKey(x.d).toLocaleDateString(LOCALE, { day: "numeric", month: "short", year: "numeric" })}</span><span style="display:flex;gap:8px;align-items:center"><b data-notr>${fmt1(x.kg)} kg</b><button type="button" class="x" data-ffmdel="${esc(x.d)}" aria-label="Messung löschen">✕</button></span></div>`).join("");
   renderSports(); updateBedarf(); renderPhotoSection(); renderDataCard();
   const pf = $("#pfPhotoBtn"); if (pf) pf.hidden = !S.photos.ok;
 }
@@ -3242,6 +3276,9 @@ function wireProfile() {
     if (d.sex) { S.sex = d.sex; pfSave(true); renderProfile(); }
     else if (d.cmode) { S.commute.mode = d.cmode; renderProfile(); pfSave(); }
     else if (d.act) { S.activity = d.act; renderProfile(); pfSave(); }
+    else if (d.wwin) { S.wWin = +d.wwin; renderProfile(); saveS(); drawHist(); }
+    else if (t.id === "pfFfmAdd") { const kg = num($("#pfFfm").value); if (!(kg >= 20 && kg <= 150)) return toast("Bitte die fettfreie Masse in kg eingeben"); S.ffm = (S.ffm || []).filter(x => x.d !== dayKey()).concat({ d: dayKey(), kg: Math.round(kg * 10) / 10 }).sort((a, b) => a.d.localeCompare(b.d)); $("#pfFfm").value = ""; renderProfile(); saveS(); drawHist(); toast("Fettfreie Masse gespeichert"); }
+    else if (d.ffmdel) { const old = S.ffm.find(x => x.d === d.ffmdel); S.ffm = S.ffm.filter(x => x.d !== d.ffmdel); renderProfile(); saveS(); drawHist(); if (old) toast("Messung gelöscht", () => { S.ffm.push(old); S.ffm.sort((a, b) => a.d.localeCompare(b.d)); renderProfile(); saveS(); drawHist(); }); }
     else if (d.cyc) { S.cycleMode = S.cycleMode === d.cyc ? "unset" : d.cyc; renderProfile(); pfSave(); }
     else if (d.hol) { S.holidays = holOn(d.hol) ? S.holidays.filter(x => x !== d.hol) : [...(S.holidays || []), d.hol]; renderProfile(); pfSave(); }
     else if (t.id === "pfCycWater") { S.waterCycle = S.waterCycle === false; renderProfile(); pfSave(); }
@@ -4059,6 +4096,14 @@ const I18N = {
 "Tippe auf einen Punkt für Details. Wische in alle Richtungen, mit ＋ / − zoomst du.": ["Tap a point for details. Swipe in any direction, zoom with ＋ / −.", "Toca un punto para ver detalles. Desliza en cualquier dirección y usa ＋ / − para hacer zoom."],
 "Wirklich löschen?": ["Really delete?", "¿Borrar de verdad?"],
 "Feste": ["Festivals", "Fiestas"],
+"Gewichts-Grafik": ["Weight chart", "Gráfico de peso"], "Ausschnitt": ["Zoom range", "Rango visible"], "so viele kg zeigt die Grafik auf einmal": ["how many kg the chart shows at once", "cuántos kg muestra el gráfico a la vez"],
+"Fettfreie Masse (kg)": ["Fat-free mass (kg)", "Masa libre de grasa (kg)"], "freiwillig, z. B. von einer Körperanalyse-Waage oder beim Arzt gemessen": ["optional, e.g. measured by a body-composition scale or a doctor", "opcional, p. ej. medida con una báscula de composición corporal o por un médico"],
+"Der rote Bereich in der Grafik startet bei BMI 18,5. Mit gemessener fettfreier Masse rechnet die App, ab wann du zu wenig Körperfett hättest (Frauen ca. 17 %, Männer ca. 8 %) – die Grenze kann dann höher liegen.": ["The red zone in the chart starts at BMI 18.5. With a measured fat-free mass the app calculates when you would have too little body fat (women approx. 17 %, men approx. 8 %) – the limit can then be higher.", "La zona roja del gráfico empieza en un IMC de 18,5. Con una masa libre de grasa medida, la app calcula cuándo tendrías demasiado poca grasa (mujeres aprox. 17 %, hombres aprox. 8 %); el límite puede quedar más alto."],
+"zu wenig Körperfett": ["too little body fat", "demasiado poca grasa corporal"],
+"Unter ca. {0} kg hättest du mit deiner fettfreien Masse ({1} kg) weniger als {2} % Körperfett – das wird ungesund.": ["Below about {0} kg you would have less than {2} % body fat with your fat-free mass ({1} kg) – that becomes unhealthy.", "Por debajo de unos {0} kg tendrías menos del {2} % de grasa con tu masa libre de grasa ({1} kg): deja de ser saludable."],
+"Unter {0} kg (BMI {1}) bist du untergewichtig.": ["Below {0} kg (BMI {1}) you are underweight.", "Por debajo de {0} kg (IMC {1}) tienes bajo peso."],
+"Unter {0} kg (BMI {1}) bist du untergewichtig. Mit viel fettfreier Masse (Muskeln) kann die Grenze auch höher liegen – du kannst sie im Profil eintragen.": ["Below {0} kg (BMI {1}) you are underweight. With a lot of fat-free mass (muscle) the limit can be higher – you can enter it in your profile.", "Por debajo de {0} kg (IMC {1}) tienes bajo peso. Con mucha masa libre de grasa (músculo) el límite puede ser más alto; puedes indicarla en el perfil."],
+"Bitte die fettfreie Masse in kg eingeben": ["Please enter the fat-free mass in kg", "Introduce la masa libre de grasa en kg"], "Fettfreie Masse gespeichert": ["Fat-free mass saved", "Masa libre de grasa guardada"], "Messung gelöscht": ["Measurement deleted", "Medición borrada"],
 "pendelt sich ein": ["levels off", "se estabiliza"], "← → Wischen zeigt, wie es weitergeht.": ["← → Swipe to see how it continues.", "← → Desliza para ver cómo sigue."],
 "Dein Gewicht pendelt sich bei ca. {0} kg ein – dort decken {1} kcal deinen Bedarf.": ["Your weight levels off at about {0} kg – that's where {1} kcal covers your needs.", "Tu peso se estabiliza en unos {0} kg: ahí {1} kcal cubren tu gasto."],
 "unter ~{0} % Körperfett": ["below ~{0} % body fat", "menos del ~{0} % de grasa"], "Untergewicht (BMI unter {0})": ["Underweight (BMI below {0})", "Bajo peso (IMC menor de {0})"],
@@ -4334,8 +4379,10 @@ function wzReset() {
 function drawWZ(keep) {
   const sc = $("#wzSc"), L = W.list;
   if (!L.length) { sc.innerHTML = `<div class="empty" style="margin:40px 20px"><span class="e">⚖️</span>Noch kein Gewicht eingetragen.</div>`; $("#wzInfo").innerHTML = ""; return; }
-  const ts = L.map(x => parseKey(x.d).getTime()), t0 = ts[0] - 2 * DAY, t1 = Math.max(ts[ts.length - 1], midnight().getTime()) + 2 * DAY;
-  const kmin = Math.floor(Math.min(...L.map(x => x.kg)) - 1), kmax = Math.ceil(Math.max(...L.map(x => x.kg)) + 1);
+  const fc = window.FC, FD = fc ? Math.min(fc.HL, 90) : 0; // Prognose wie in der Übersicht, 90 Tage weit
+  const ts = L.map(x => parseKey(x.d).getTime()), t0 = ts[0] - 2 * DAY, t1 = Math.max(ts[ts.length - 1], midnight().getTime(), fc ? fc.t0 + FD * DAY : 0) + 2 * DAY;
+  const fv = fc ? [fc.lN, fc.lG, fc.lF].filter(Boolean).flatMap(a => a.slice(0, FD + 1)) : [];
+  const kmin = Math.floor(Math.min(...L.map(x => x.kg), ...fv) - 1), kmax = Math.ceil(Math.max(...L.map(x => x.kg), ...fv) + 1);
   const padT = 46, padB = 50, padL = 56;
   const Wd = Math.round(padL + (t1 - t0) / DAY * WZ.ppd + 30), Hh = Math.round(padT + (kmax - kmin) * WZ.ppk + padB);
   const X = t => padL + (t - t0) / DAY * WZ.ppd, Y = v => padT + (kmax - v) * WZ.ppk; WZ.X = X; WZ.Y = Y;
@@ -4347,9 +4394,16 @@ function drawWZ(keep) {
   for (let t = midnight(new Date(t0)).getTime(); t <= t1; t += DAY) { const x = X(t).toFixed(1), d = new Date(t), mon = d.getDay() === 1;
     g += `<line x1="${x}" x2="${x}" y1="0" y2="${Hh}" stroke="${mon ? "#d9d1c3" : "#f1ece4"}" ${mon ? "" : 'stroke-dasharray="3 4"'}/>`;
   }
-  // 7-Tage-Schnitt als ruhige Trendlinie
-  const avg = L.map((x, i) => { const t = ts[i], win = L.filter((y, j) => ts[j] <= t && ts[j] > t - 7 * DAY); return [t, win.reduce((a, y) => a + y.kg, 0) / win.length]; });
-  if (avg.length > 1) g += `<polyline points="${avg.map(([t, v]) => `${X(t).toFixed(1)},${Y(v).toFixed(1)}`).join(" ")}" fill="none" stroke="#5bbcf2" stroke-width="3" stroke-opacity=".45" stroke-linejoin="round"/>`;
+  // gleiche Linien wie in der Übersicht
+  if (fc) {
+    if (fc.zone && fc.zone.w > kmin) { const yz = Y(fc.zone.w); g += `<rect x="0" y="${yz}" width="${Wd}" height="${Math.max(0, Hh - yz)}" fill="#e5484d" opacity=".12"/><line x1="0" x2="${Wd}" y1="${yz}" y2="${yz}" stroke="#e5484d" stroke-width="1.4" stroke-dasharray="4 3"/>`; }
+    if (S.target && S.target > kmin && S.target < kmax) g += `<line x1="0" x2="${Wd}" y1="${Y(S.target)}" y2="${Y(S.target)}" stroke="#3aa676" stroke-dasharray="1 5" stroke-linecap="round" stroke-width="2.5"/>`;
+    const fl = a => a.slice(0, FD + 1).map((v, i) => `${X(fc.t0 + i * DAY).toFixed(1)},${Y(v).toFixed(1)}`).join(" ");
+    const tx = X(fc.t0); g += `<line x1="${tx}" x2="${tx}" y1="0" y2="${Hh}" stroke="#1f2a44" stroke-opacity=".3" stroke-dasharray="2 3"/>`;
+    if (fc.lF) g += `<polyline points="${fl(fc.lF)}" fill="none" stroke="#8e6bd6" stroke-width="2.5" stroke-dasharray="5 4" stroke-linejoin="round"/>`;
+    if (fc.lG) g += `<polyline points="${fl(fc.lG)}" fill="none" stroke="#3aa676" stroke-width="2.5" stroke-dasharray="6 5"/>`;
+    g += `<polyline points="${fl(fc.lN)}" fill="none" stroke="#ff7a59" stroke-width="3" stroke-dasharray="7 5"/>`;
+  }
   g += `<polyline points="${L.map((x, i) => `${X(ts[i]).toFixed(1)},${Y(x.kg).toFixed(1)}`).join(" ")}" fill="none" stroke="#1f2a44" stroke-width="2.5" stroke-linejoin="round"/>`;
   g += L.map((x, i) => { const cx = X(ts[i]).toFixed(1), cy = Y(x.kg).toFixed(1), on = WZ.sel === x.d;
     return `<g data-wzp="${esc(x.d)}" style="cursor:pointer"><circle cx="${cx}" cy="${cy}" r="18" fill="transparent"/><circle cx="${cx}" cy="${cy}" r="${on ? 8 : 6}" fill="${on ? "#ff7a59" : "#fff"}" stroke="${on ? "#ff7a59" : "#1f2a44"}" stroke-width="2.5"/><text x="${cx}" y="${(+cy - 14).toFixed(1)}" text-anchor="middle" font-size="13" font-weight="800" fill="#1f2a44" data-notr>${fmt1(x.kg)}</text>${WZ.ppd < 26 ? "" : `<text x="${cx}" y="${(+cy + 24).toFixed(1)}" text-anchor="middle" font-size="10" font-weight="700" fill="#7a7f8c" data-notr>${parseKey(x.d).toLocaleDateString(LOCALE, { day: "numeric", month: "numeric" })}</text>`}</g>`; }).join("");
@@ -4372,7 +4426,7 @@ function wzAxes() {
 }
 function wzInfo() {
   const box = $("#wzInfo"), L = W.list, i = L.findIndex(x => x.d === WZ.sel);
-  if (i < 0) { box.innerHTML = `<span>Tippe auf einen Punkt für Details. Wische in alle Richtungen, mit ＋ / − zoomst du.</span>`; return; }
+  if (i < 0) { const fc = window.FC; box.innerHTML = `<div style="display:flex;flex-direction:column;gap:6px"><div class="legend" style="margin:0"><span><i class="lg-a"></i>Gemessen</span><span><i class="lg-s"></i>Weiter wie bisher</span>${fc && fc.lG ? `<span><i class="lg-g"></i>Prognose bei Ziel</span>` : ""}${fc && fc.lF ? `<span><i style="background:#8e6bd6"></i>mit Festtagen &amp; Schwankungen</span>` : ""}</div><small>Tippe auf einen Punkt für Details. Wische in alle Richtungen, mit ＋ / − zoomst du.</small></div>`; return; }
   const x = L[i], df = i > 0 ? x.kg - L[i - 1].kg : null;
   box.innerHTML = `<div><b data-notr>${fmt1(x.kg)} kg</b><br><span data-notr>${parseKey(x.d).toLocaleDateString(LOCALE, { weekday: "long", day: "numeric", month: "long" })}${df !== null ? ` · ${df <= 0 ? "−" : "+"}${fmt1(Math.abs(df))}` : ""}</span></div><button class="wzdel ${WZ.sure ? "sure" : ""}" id="wzDel">${WZ.sure ? "Wirklich löschen?" : "Eintrag löschen"}</button>`;
 }
